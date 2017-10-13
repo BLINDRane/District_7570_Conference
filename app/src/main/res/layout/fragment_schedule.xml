@@ -5,13 +5,11 @@
     tools:context="bwastedsoftware.district_7570_conference.ScheduleFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <ListView
+        android:id="@+id/dataTest"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Schedule Fragment"
-        android:gravity="center"
-        android:textSize="35dp"
-        android:textStyle="bold"
-        />
+        android:layout_marginTop="50dp" />
 
 </FrameLayout>

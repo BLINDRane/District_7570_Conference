@@ -1,9 +1,15 @@
 package bwastedsoftware.district_7570_conference;
 
 
+import android.content.res.Resources;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -34,6 +40,7 @@ public class HomePage extends AppCompatActivity {
     ActionBarDrawerToggle actionBarDrawerToggle;
     FragmentTransaction fragmentTransaction;
     NavigationView navView;
+    Drawable drawable;
 
 
     //Sets up the activity screen
@@ -44,7 +51,7 @@ public class HomePage extends AppCompatActivity {
         Toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(Toolbar);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-
+        drawable = ContextCompat.getDrawable(this, R.drawable.homestead_fall);
         //Initialize that dank action bar
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, Toolbar, R.string.drawer_open, R.string.drawer_close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
@@ -63,6 +70,7 @@ public class HomePage extends AppCompatActivity {
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.main_container, new HomeFragment());
                         fragmentTransaction.commit();
+                        Toolbar.setBackgroundColor((Color.parseColor("#303F9F")));
                         getSupportActionBar().setTitle("Home");
                         item.setChecked(true);
                         drawerLayout.closeDrawers();
@@ -72,6 +80,7 @@ public class HomePage extends AppCompatActivity {
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.main_container, new ScheduleFragment());
                         fragmentTransaction.commit();
+                        Toolbar.setBackground(drawable);
                         getSupportActionBar().setTitle("Schedule");
                         item.setChecked(true);
                         drawerLayout.closeDrawers();
@@ -81,6 +90,7 @@ public class HomePage extends AppCompatActivity {
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.main_container, new SpeakersFragment());
                         fragmentTransaction.commit();
+                        Toolbar.setBackground(drawable);
                         getSupportActionBar().setTitle("Speakers, Leaders, and Sponsors");
                         item.setChecked(true);
                         drawerLayout.closeDrawers();
@@ -90,6 +100,7 @@ public class HomePage extends AppCompatActivity {
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.main_container, new MapFragment());
                         fragmentTransaction.commit();
+                        Toolbar.setBackground(drawable);
                         getSupportActionBar().setTitle("Map");
                         item.setChecked(true);
                         drawerLayout.closeDrawers();
@@ -99,6 +110,7 @@ public class HomePage extends AppCompatActivity {
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.main_container, new Create_EventFragment());
                         fragmentTransaction.commit();
+                        Toolbar.setBackground(drawable);
                         getSupportActionBar().setTitle("Event Creation");
                         item.setChecked(true);
                         drawerLayout.closeDrawers();
@@ -108,6 +120,7 @@ public class HomePage extends AppCompatActivity {
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.main_container, new ForumFragment());
                         fragmentTransaction.commit();
+                        Toolbar.setBackground(drawable);
                         getSupportActionBar().setTitle("Forum");
                         item.setChecked(true);
                         drawerLayout.closeDrawers();

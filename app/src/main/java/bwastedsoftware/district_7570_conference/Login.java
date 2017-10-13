@@ -90,11 +90,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             } else {
                 btnWheel.animate().rotation(360-(btnWheel.getRotation()));
             }
-<<<<<<< HEAD
-
-=======
-//pretend line of code for github
->>>>>>> test commit
 
         }
     }
