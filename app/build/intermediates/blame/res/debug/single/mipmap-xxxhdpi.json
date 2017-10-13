@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi\\ic_launcher.png",
+        "source": "C:\\Dev\\District_7570_Conference\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi\\ic_splashscreen.png",
+        "source": "C:\\Dev\\District_7570_Conference\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_splashscreen.png"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi\\ic_launcher_round.png",
+        "source": "C:\\Dev\\District_7570_Conference\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    }
+]

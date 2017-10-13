@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">District_7570_Conference</string>
+    <string name="email_label">Email</string>
+    <string name="password_label">Password</string>
+    <string name="login_button">Login</string>
+    <string name="register_button">Register</string>
+    <string name="Fname_label">First Name</string>
+    <string name="password_repeat_label">Re-Enter Password</string>
+    <string name="logout_button">Logout</string>
+    <string name="welcome_txtView">Welcome to District Conference</string>
+    <string name="btn_register_transfer">Register</string>
+    <string name="LName">Last Name</string>
+    <string name="txt_email_test">EMAIL</string>
+    <string name="txt_password_test">PASSWORD</string>
+    <string name="event_upcoming">Upcoming</string>
+    <string name="event_current">Current</string>
+    <string name="title_activity_homepage">activity_homepage</string>
+
+    <string name="drawer_open">drawer open</string>
+    <string name="drawer_close">drawer close</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_view">TITLE</string>
+    <string name="when_view">WHEN</string>
+    />
+    <string name="speaker_view">SPEAKER</string>
+    <string name="where_view">WHERE</string>
+    <string name="details_view">DETAILS</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    />
+</resources>

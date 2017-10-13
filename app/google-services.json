@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "356888463648",
+    "firebase_url": "https://district-7570-conference.firebaseio.com",
+    "project_id": "district-7570-conference",
+    "storage_bucket": "district-7570-conference.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:356888463648:android:bb74f62726af91d1",
+        "android_client_info": {
+          "package_name": "bwastedsoftware.district_7570_conference"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "356888463648-o10lds0asekss6f6oe575vnlo441visn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "bwastedsoftware.district_7570_conference",
+            "certificate_hash": "be4c78bb1ca10d0d2629bf53c3a99f8ed702c69f"
+          }
+        },
+        {
+          "client_id": "356888463648-unngqmnmb4sd8dq5rh9o4g4icmp18ggr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDE7Ar8TPxZ19jJdLYRytGZ1TQtzYH8WX0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "356888463648-unngqmnmb4sd8dq5rh9o4g4icmp18ggr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
