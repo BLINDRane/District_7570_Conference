@@ -106,6 +106,16 @@ public class HomePage extends AppCompatActivity {
                         drawerLayout.closeDrawers();
                         break;
 
+                    case R.id.event_id:
+                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.main_container, new Event());
+                        fragmentTransaction.commit();
+                        Toolbar.setBackground(drawable);
+                        getSupportActionBar().setTitle("Events");
+                        item.setChecked(true);
+                        drawerLayout.closeDrawers();
+                        break;
+
                     case R.id.create_event_id:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.main_container, new Create_EventFragment());
