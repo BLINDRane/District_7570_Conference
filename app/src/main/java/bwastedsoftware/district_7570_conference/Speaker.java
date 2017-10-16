@@ -10,9 +10,9 @@ import android.widget.ImageView;
 public class Speaker
 {
     private String name;
-    private ImageView photo; //need a better way to manage photos of speakers
+    private int photo; //need a better way to manage photos of speakers
 
-    Speaker(String name, ImageView photo)
+    Speaker(String name, int photo)
     {
         this.name = name;
         this.photo = photo;
@@ -28,12 +28,12 @@ public class Speaker
         this.name = name;
     }
 
-    public ImageView getPhoto()
+    public int getPhoto()
     {
         return photo;
     }
 
-    public void setPhoto(ImageView photo)
+    public void setPhoto(int photo)
     {
         this.photo = photo;
     }
