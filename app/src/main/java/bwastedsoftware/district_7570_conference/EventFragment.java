@@ -9,11 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-public class Event extends Fragment {
+public class EventFragment extends Fragment {
 
 
 
-    public Event() {
+    public EventFragment() {
         // Required empty public constructor
     }
     @Override

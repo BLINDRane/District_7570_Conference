@@ -1,33 +1,18 @@
 package bwastedsoftware.district_7570_conference;
 
 
-import android.content.res.Resources;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.text.Layout;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.BaseAdapter;
-import android.widget.Button;
-import android.content.Intent;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.content.Context;
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
 
 
 public class HomePage extends AppCompatActivity {
@@ -108,7 +93,7 @@ public class HomePage extends AppCompatActivity {
 
                     case R.id.event_id:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.main_container, new Event());
+                        fragmentTransaction.replace(R.id.main_container, new EventFragment());
                         fragmentTransaction.commit();
                         Toolbar.setBackground(drawable);
                         getSupportActionBar().setTitle("Events");
