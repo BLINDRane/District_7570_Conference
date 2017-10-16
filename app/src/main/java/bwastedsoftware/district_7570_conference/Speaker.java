@@ -1,5 +1,7 @@
 package bwastedsoftware.district_7570_conference;
 
+import android.widget.ImageView;
+
 /**
  * Class to handle speakers.
  * Created by Boston on 10/16/2017.
@@ -8,9 +10,9 @@ package bwastedsoftware.district_7570_conference;
 public class Speaker
 {
     private String name;
-    private String photo; //need a better way to manage photos of speakers
+    private ImageView photo; //need a better way to manage photos of speakers
 
-    Speaker(String name, String photo)
+    Speaker(String name, ImageView photo)
     {
         this.name = name;
         this.photo = photo;
@@ -26,12 +28,12 @@ public class Speaker
         this.name = name;
     }
 
-    public String getPhoto()
+    public ImageView getPhoto()
     {
         return photo;
     }
 
-    public void setPhoto(String photo)
+    public void setPhoto(ImageView photo)
     {
         this.photo = photo;
     }
