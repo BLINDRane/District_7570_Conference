@@ -1,5 +1,8 @@
 package bwastedsoftware.district_7570_conference;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 /**
  * Event class handling all information regarding an event.
  * <p>
@@ -13,8 +16,7 @@ public class Event
     private String location;
     private String date;
     private String time;
-    private Speaker[] speakers;
-    private int pos;
+    private ArrayList<Speaker> speakers;
 
     Event(String title, String location, String date, String time, Speaker speaker)
     {
@@ -28,21 +30,20 @@ public class Event
         this.location = location;
         this.date = date;
         this.time = time;
-        pos = 0;
+        speakers = new ArrayList<>();
     }
 
     public void addSpeaker(Speaker speaker)
     {
-        speakers[pos] = speaker;
-        pos++;
+        speakers.add(speaker);
     }
 
     public int getNumberOfSpeakers()
     {
-        return speakers.length;
+        return speakers.size();
     }
 
-    public Speaker[] getSpeakers()
+    public ArrayList<Speaker> getSpeakers()
     {
         return speakers;
     }
@@ -51,12 +52,17 @@ public class Event
     {
         for(int i = 0; i <= getNumberOfSpeakers(); i++)
         {
-            if(speakers[i].getName().equals(name))
+            if(speakers.get(i).getName().equals(name))
             {
-                return speakers[i];
+                return speakers.get(i);
             }
         }
         return null;
+    }
+
+    public Speaker getSpeaker() //returns first speaker
+    {
+        return speakers.get(0);
     }
 
     public String getTitle()
