@@ -4,6 +4,10 @@
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\2731353d1c418ae32393fce36b43cb6db21074fe\\output\\res\\layout\\cast_intro_overlay.xml"
     },
     {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\layout\\card_item.xml",
+        "source": "C:\\Dev\\District_7570_Conference\\app\\src\\main\\res\\layout\\card_item.xml"
+    },
+    {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\layout\\mr_chooser_list_item.xml",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\14e33267712e5857e0d0046ed7140632bdabbe59\\output\\res\\layout\\mr_chooser_list_item.xml"
     },
@@ -16,12 +20,12 @@
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\layout\\abc_action_menu_item_layout.xml"
     },
     {
-        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
-        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\layout\\abc_list_menu_item_icon.xml"
-    },
-    {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_snackbar_include.xml",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\6df7c0915f5605081c4ae016c69100fdceea7a15\\output\\res\\layout\\design_layout_snackbar_include.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\layout\\abc_list_menu_item_icon.xml"
     },
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_menu_item.xml",

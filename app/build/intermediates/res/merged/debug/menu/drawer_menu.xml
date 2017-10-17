@@ -18,6 +18,10 @@
                 android:id="@+id/map_id"
                 android:icon="@drawable/ic_room_black_24dp" />
             <item
+                android:id="@+id/event_id"
+                android:icon="@android:drawable/ic_menu_my_calendar"
+                android:title="Event" />
+            <item
                 android:title="Create Event"
                 android:id="@+id/create_event_id"
                 android:icon="@drawable/ic_create_black_24dp" />

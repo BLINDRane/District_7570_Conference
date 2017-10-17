@@ -1,4 +1,4 @@
-#Fri Oct 13 13:47:02 EDT 2017
+#Mon Oct 16 21:09:03 EDT 2017
 base.0=C\:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_700c561f5d6f9a06c81f825aa164601790aaaf15
 renamed.1=classes2.dex
 renamed.0=classes.dex

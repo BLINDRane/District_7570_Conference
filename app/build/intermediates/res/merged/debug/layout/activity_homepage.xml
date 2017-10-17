@@ -36,8 +36,7 @@
         app:menu="@menu/drawer_menu"
         app:headerLayout="@layout/navigation_drawer_header"
         android:layout_gravity="left|start"
-        android:layout_marginTop="@dimen/abc_action_bar_default_height_material"
-        ></android.support.design.widget.NavigationView>
+        android:layout_marginTop="@dimen/abc_action_bar_default_height_material" />
 
 
 

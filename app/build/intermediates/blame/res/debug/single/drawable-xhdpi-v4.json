@@ -88,12 +88,12 @@
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\drawable-xhdpi-v4\\abc_list_longpressed_holo.9.png"
     },
     {
-        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_btn_switch_to_on_mtrl_00001.9.png",
-        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\drawable-xhdpi-v4\\abc_btn_switch_to_on_mtrl_00001.9.png"
-    },
-    {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\quantum_ic_bigtop_updates_white_24.png",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\2731353d1c418ae32393fce36b43cb6db21074fe\\output\\res\\drawable-xhdpi-v4\\quantum_ic_bigtop_updates_white_24.png"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_btn_switch_to_on_mtrl_00001.9.png",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\drawable-xhdpi-v4\\abc_btn_switch_to_on_mtrl_00001.9.png"
     },
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_star_half_black_16dp.png",
@@ -124,28 +124,28 @@
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\2731353d1c418ae32393fce36b43cb6db21074fe\\output\\res\\drawable-xhdpi-v4\\quantum_ic_stop_grey600_48.png"
     },
     {
-        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_media_route_on_06_dark.png",
-        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\14e33267712e5857e0d0046ed7140632bdabbe59\\output\\res\\drawable-xhdpi-v4\\ic_media_route_on_06_dark.png"
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_media_route_connecting_17_dark.png",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\14e33267712e5857e0d0046ed7140632bdabbe59\\output\\res\\drawable-xhdpi-v4\\ic_media_route_connecting_17_dark.png"
     },
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\drawable-xhdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
     },
     {
-        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_media_route_connecting_17_dark.png",
-        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\14e33267712e5857e0d0046ed7140632bdabbe59\\output\\res\\drawable-xhdpi-v4\\ic_media_route_connecting_17_dark.png"
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_media_route_on_06_dark.png",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\14e33267712e5857e0d0046ed7140632bdabbe59\\output\\res\\drawable-xhdpi-v4\\ic_media_route_on_06_dark.png"
     },
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_text_light_normal.9.png",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\f1d022cb0a1d6942f496321662ad24c1c39195fa\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_light_normal.9.png"
     },
     {
-        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_media_route_on_08_dark.png",
-        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\14e33267712e5857e0d0046ed7140632bdabbe59\\output\\res\\drawable-xhdpi-v4\\ic_media_route_on_08_dark.png"
-    },
-    {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\cast_abc_scrubber_primary_mtrl_alpha.9.png",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\2731353d1c418ae32393fce36b43cb6db21074fe\\output\\res\\drawable-xhdpi-v4\\cast_abc_scrubber_primary_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_media_route_on_08_dark.png",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\14e33267712e5857e0d0046ed7140632bdabbe59\\output\\res\\drawable-xhdpi-v4\\ic_media_route_on_08_dark.png"
     },
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_media_route_on_09_light.png",
@@ -276,28 +276,28 @@
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\14e33267712e5857e0d0046ed7140632bdabbe59\\output\\res\\drawable-xhdpi-v4\\ic_media_route_on_10_dark.png"
     },
     {
-        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png",
-        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\drawable-xhdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png"
-    },
-    {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_switch_track_mtrl_alpha.9.png",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\drawable-xhdpi-v4\\abc_switch_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\drawable-xhdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png"
     },
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_media_route_on_18_dark.png",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\14e33267712e5857e0d0046ed7140632bdabbe59\\output\\res\\drawable-xhdpi-v4\\ic_media_route_on_18_dark.png"
     },
     {
-        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_media_route_on_08_light.png",
-        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\14e33267712e5857e0d0046ed7140632bdabbe59\\output\\res\\drawable-xhdpi-v4\\ic_media_route_on_08_light.png"
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\quantum_ic_skip_next_white_36.png",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\2731353d1c418ae32393fce36b43cb6db21074fe\\output\\res\\drawable-xhdpi-v4\\quantum_ic_skip_next_white_36.png"
     },
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\drawable-xhdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png"
     },
     {
-        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\quantum_ic_skip_next_white_36.png",
-        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\2731353d1c418ae32393fce36b43cb6db21074fe\\output\\res\\drawable-xhdpi-v4\\quantum_ic_skip_next_white_36.png"
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_media_route_on_08_light.png",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\14e33267712e5857e0d0046ed7140632bdabbe59\\output\\res\\drawable-xhdpi-v4\\ic_media_route_on_08_light.png"
     },
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\quantum_ic_cast_white_36.png",

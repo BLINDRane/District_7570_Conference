@@ -36,7 +36,7 @@ public class HomePage extends AppCompatActivity {
         Toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(Toolbar);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawable = ContextCompat.getDrawable(this, R.drawable.homestead_fall);
+        drawable = ContextCompat.getDrawable(this, R.drawable.banner);
         //Initialize that dank action bar
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, Toolbar, R.string.drawer_open, R.string.drawer_close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
