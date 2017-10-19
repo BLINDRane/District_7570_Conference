@@ -1,17 +1,28 @@
 package bwastedsoftware.district_7570_conference;
 
 import android.media.Image;
+import android.provider.ContactsContract;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.content.Intent;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
 
@@ -20,10 +31,10 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     Button btnLogin, btnRegisterT;
     EditText etEmail, etPassword;
     UserLocalStore userLocalStore;
-    Button btnFirebase;
     ImageView btnWheel;
 
     //This creates a database instance for Firebase
+    private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
 
 
@@ -47,17 +58,14 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         btnRegisterT = (Button) findViewById(R.id.btn_register_transfer);
 
 
-        //Firebase test setup
-        btnFirebase = (Button) findViewById(R.id.firebase_btn);
-        btnFirebase.setOnClickListener(this);
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
 
         //Set a click listener for the buttons
 
         btnLogin.setOnClickListener(this);
         btnRegisterT.setOnClickListener(this);
         btnWheel.setOnClickListener(this);
-
         userLocalStore = new UserLocalStore(this);
     }
 
@@ -66,23 +74,10 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.btn_login) {
-            //TODO: make it so that a person HAS to register in order to log in.
-            User user = new User(null, null);
-            userLocalStore.storeUserData(user);
-            userLocalStore.setUserLoggedIn(true);
-
-            startActivity(new Intent(this, HomePage.class));
-
+                 checkLogin();
         } else if (v.getId() == R.id.btn_register_transfer) {
 
             startActivity(new Intent(this, Register.class));
-
-        } else if (v.getId() == R.id.firebase_btn) {
-
-            //Create a child in the root object, then assign a value to that child
-            String email = etEmail.getText().toString().trim();
-            mDatabase.child("Email").setValue(email);
-
 
         } else if (v.getId() == R.id.login_rotary_button) {
             if (btnWheel.getRotation() == 0) {
@@ -92,5 +87,58 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             }
 
         }
+    }
+
+    private void checkLogin(){
+        String Email = etEmail.getText().toString().trim();
+        String Password = etPassword.getText().toString().trim();
+
+        if(!TextUtils.isEmpty(Email) && !TextUtils.isEmpty(Password)){
+
+            mAuth.signInWithEmailAndPassword(Email, Password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+
+                    if(task.isSuccessful()){
+
+                        checkUserInDatabase();
+
+                    } else {
+                        Toast.makeText(Login.this, "Login Error", Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
+
+        } else {
+            Toast.makeText(Login.this, "Login Error", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void checkUserInDatabase(){
+
+        final String user_id = mAuth.getCurrentUser().getUid();
+
+        mDatabase.addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.hasChild(user_id)){
+
+                    Intent mIntent = new Intent(Login.this, HomePage.class);
+                    mIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(mIntent);
+
+                }else{
+                    Toast.makeText(Login.this, "You need to set up an account", Toast.LENGTH_LONG);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 }

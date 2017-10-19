@@ -1,8 +1,10 @@
 package bwastedsoftware.district_7570_conference;
 
+import android.app.ProgressDialog;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,6 +13,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.gcm.Task;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -24,12 +28,14 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
     EditText etFName, etLName, etEmail, etPassword, etReEnterPassword;
 
     //For firebase
+    private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
-
+    //Progress dialogue shows the user whats going on
+    private ProgressDialog mProgress;
 
     //Sets up the activity screen
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //getSupportActionBar().hide();
         setContentView(R.layout.activity_register);
@@ -42,20 +48,24 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
         etPassword = (EditText) findViewById(R.id.edit_txt_password);
         etReEnterPassword = (EditText) findViewById(R.id.edit_txt_reenter_password);
         btnRegister = (Button) findViewById(R.id.btn_register);
-        mDatabase = FirebaseDatabase.getInstance().getReference();
 
+        //Set up a progress dialog
+        mProgress = new ProgressDialog(this);
 
         //Set a click listener for the button
         btnRegister.setOnClickListener(this);
+
+        //Get an instance of Firebase authorization and database
+        mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
     }
 
 
-
-    //Registers a new user with Firebase
-    private void registerUser(User user){
+    @Override
+    protected  void onStart(){
+        super.onStart();
 
     }
-
 
     //Tells the click listener what to do
     @Override
@@ -63,44 +73,47 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
 
         if(v.getId() == R.id.btn_register){
 
-            //create a new User using information put in by the *ahem* user.
+            startRegister();
 
-            String Fname = etFName.getText().toString().trim();
-            String Lname = etLName.getText().toString().trim();
-            String email = etEmail.getText().toString().trim();
-            String password = etPassword.getText().toString().trim();
+        }
+    }
 
-            HashMap<String, String> dataMap = new HashMap<String, String>();
-            dataMap.put("Fname", Fname);
-            dataMap.put("Lname", Lname);
-            dataMap.put("Email", email);
-            dataMap.put("Password", password);
+    private void startRegister(){
+        final String Fname = etFName.getText().toString().trim();
+        final String Lname = etLName.getText().toString().trim();
+        String Email = etEmail.getText().toString().trim();
+        final String Password = etPassword.getText().toString().trim();
 
+        if(!TextUtils.isEmpty(Email) && !TextUtils.isEmpty(Password)){
+            //Notify user of what is going on
+            mProgress.setMessage("Registering new user....");
+            mProgress.show();
 
-            //store data in firebase
-            mDatabase.push().setValue(dataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+            mAuth.createUserWithEmailAndPassword(Email, Password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
-                public void onComplete(@NonNull com.google.android.gms.tasks.Task<Void> task) {
+                public void onComplete(@NonNull com.google.android.gms.tasks.Task<AuthResult> task) {
                     if(task.isSuccessful()){
+                        String user_id = mAuth.getCurrentUser().getUid();
+                         DatabaseReference current_user_db = mDatabase.child(user_id);
+                        current_user_db.child("Fname").setValue(Fname);
+                        current_user_db.child("Lname").setValue(Lname);
+                        //remove progress message, so the user knows they are registered.
+                        mProgress.setMessage("User Registered");
+                        mProgress.dismiss();
+                        Intent loginIntent = new Intent(Register.this, Login.class);
+                        loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(loginIntent);
+                    } else{
 
-                        Toast.makeText(Register.this, "Registration Successful", Toast.LENGTH_LONG).show();
 
-                    } else {
 
-                        Toast.makeText(Register.this, "Error: Registration Incomplete", Toast.LENGTH_LONG).show();
+
                     }
                 }
             });
-
-
-
-
-            User user = new User(Fname, Lname, email, password);
-            registerUser(user);
-
-            startActivity(new Intent(this, Login.class));
         }
 
 
     }
+
 }
