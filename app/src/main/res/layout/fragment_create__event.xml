@@ -11,8 +11,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Event Title" />
+        android:hint="Event Title"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/edit_Location"
@@ -21,8 +21,8 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/edit_Title"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Event Location" />
+        android:hint="Event Location"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/edit_When"
@@ -31,8 +31,8 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/edit_Location"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Event Time" />
+        android:hint="Event Time"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/edit_Speakers"
@@ -41,19 +41,19 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/edit_When"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Event Speaker(s)" />
+        android:hint="Event Speaker(s)"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/edit_Details"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textMultiLine"
-        android:text="Event Details"
-        android:layout_below="@+id/edit_Speakers"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="43dp" />
+        android:layout_below="@+id/edit_Speakers"
+        android:layout_marginTop="43dp"
+        android:ems="10"
+        android:hint="Event Details"
+        android:inputType="textMultiLine" />
 
     <Button
         android:id="@+id/btn_Save_Event"
