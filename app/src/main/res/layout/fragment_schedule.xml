@@ -43,8 +43,9 @@
         android:layout_width="match_parent" android:layout_height="match_parent"
         android:padding="16dp"
         android:weightSum="1">
-
-        // adds date picker function
+        <!--
+          adds a scrolling datepicker function
+          -->
 
         <DatePicker
             android:layout_width="wrap_content"
