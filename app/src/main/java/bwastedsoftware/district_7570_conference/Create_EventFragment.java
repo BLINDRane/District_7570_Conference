@@ -1,19 +1,13 @@
 package bwastedsoftware.district_7570_conference;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -78,34 +72,6 @@ public class Create_EventFragment extends Fragment implements View.OnClickListen
 
             mDatabase.updateChildren(childUpdates);
 
-            //HashMap<String, String> dataMap = new HashMap<String, String>();
-            //dataMap.put("Title", Title);
-            //dataMap.put("Location", Location);
-            //dataMap.put("Speakers", Speakers);
-            //dataMap.put("When", When);
-            //dataMap.put("Details", Details);
-//
-//
-            ////store data in firebase
-            //mDatabase.push().setValue(dataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
-            //    @Override
-            //    public void onComplete(@NonNull com.google.android.gms.tasks.Task<Void> task) {
-            //        if(task.isSuccessful()){
-//
-//
-//
-            //        } else {
-//
-//
-            //        }
-            //    }
-            //});
-
-
-
-
-            //cEvent event = new cEvent(Title, Location, When, Speakers, Details);
-            //createEvent(event);
         }
 
 

@@ -1,7 +1,5 @@
 package bwastedsoftware.district_7570_conference;
 
-import android.app.ProgressDialog;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -19,8 +17,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 
 public class ScheduleFragment extends Fragment {
@@ -105,7 +101,7 @@ public class ScheduleFragment extends Fragment {
                 {
                     Event event = childrenSnapShot.getValue(Event.class);
                     newevents.add(new Event(event.getTitle(), event.getLocation(), event.getDate(), event.getTime(), event.getDetails(), event.getSpeaker()));
-                    Log.w("GETTING CARDS", "value is" + event.getDate() + event.getLocation() + childrenSnapShot.getKey());
+                    //Log.w("GETTING CARDS", "value is" + event.getDate() + event.getLocation() + childrenSnapShot.getKey());
                 }
                 //Log.d("FIREBASE", "Value is: " + post);
                 addEvents(newevents);
@@ -118,12 +114,7 @@ public class ScheduleFragment extends Fragment {
                 Log.w("FIREBASE", "Failed to read value.", error.toException());
             }
         });
-
-       //events.addAll(newevents);
-       //Log.w("PROBLEM HERE", "LIST #" + events.size());
-       //newevents.add(new Event("EVENT TITLE 3", "LOCATION", "DATE", "TIME", "DETAILS", new Speaker("Aaron's Little Helper", R.drawable.ic_account_circle_black_24dp)));
-
-       //onItemsLoadComplete();
+        
     }
 
     private void addEvents(ArrayList<Event> newevents)
