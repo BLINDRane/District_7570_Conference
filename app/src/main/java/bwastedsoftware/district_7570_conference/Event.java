@@ -1,7 +1,11 @@
 package bwastedsoftware.district_7570_conference;
 
+import com.google.firebase.database.Exclude;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Event class handling all information regarding an event.
@@ -16,20 +20,22 @@ public class Event
     private String location;
     private String date;
     private String time;
+    private String details;
     private ArrayList<Speaker> speakers;
 
-    Event(String title, String location, String date, String time, Speaker speaker)
+    Event(String title, String location, String date, String time, String details, Speaker speaker)
     {
-        this(title, location, date, time);
+        this(title, location, date, time, details);
         this.addSpeaker(speaker);
     }
 
-    Event(String title, String location, String date, String time)
+    Event(String title, String location, String date, String time, String details)
     {
         this.title = title;
         this.location = location;
         this.date = date;
         this.time = time;
+        this.details = details;
         speakers = new ArrayList<>();
     }
 
@@ -63,6 +69,23 @@ public class Event
     public Speaker getSpeaker() //returns first speaker
     {
         return speakers.get(0);
+    }
+
+    public String getSpeakerString()
+    {
+        String list = null;
+        if(speakers.size() > 1)
+        {
+            for (int i = 0; i < speakers.size(); i++)
+            {
+                list = list + speakers.get(i) + ", ";
+            }
+            return list;
+        }
+        else
+        {
+            return getSpeaker().getName();
+        }
     }
 
     public String getTitle()
@@ -103,5 +126,17 @@ public class Event
     public void setTime(String time)
     {
         this.time = time;
+    }
+
+    @Exclude
+    public Map<String, Object> toMap() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("title", title);
+        result.put("location", location);
+        result.put("date", date);
+        result.put("time", time);
+        result.put("speakers", getSpeakerString());
+
+        return result;
     }
 }
