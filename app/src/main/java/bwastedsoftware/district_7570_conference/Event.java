@@ -1,6 +1,7 @@
 package bwastedsoftware.district_7570_conference;
 
 import com.google.firebase.database.Exclude;
+import com.google.firebase.database.IgnoreExtraProperties;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import java.util.Map;
  * Created by Boston on 10/16/2017.
  */
 
+@IgnoreExtraProperties
 public class Event
 {
     private String title;
@@ -22,6 +24,11 @@ public class Event
     private String time;
     private String details;
     private ArrayList<Speaker> speakers;
+
+    Event()
+    {
+
+    }
 
     Event(String title, String location, String date, String time, String details, Speaker speaker)
     {
@@ -135,8 +142,14 @@ public class Event
         result.put("location", location);
         result.put("date", date);
         result.put("time", time);
-        result.put("speakers", getSpeakerString());
+        result.put("speakers", speakers);
+        //result.put("speakers", getSpeakerString());
 
         return result;
+    }
+
+    public String getDetails()
+    {
+        return details;
     }
 }

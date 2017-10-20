@@ -12,6 +12,11 @@ public class Speaker
     private String name;
     private int photo; //need a better way to manage photos of speakers
 
+    Speaker()
+    {
+
+    }
+
     Speaker(String name, int photo)
     {
         this.name = name;
