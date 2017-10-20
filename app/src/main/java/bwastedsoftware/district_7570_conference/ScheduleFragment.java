@@ -1,7 +1,5 @@
 package bwastedsoftware.district_7570_conference;
 
-import android.app.ProgressDialog;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -19,8 +17,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 
 public class ScheduleFragment extends Fragment {
@@ -42,7 +38,7 @@ public class ScheduleFragment extends Fragment {
         v = inflater.inflate(R.layout.fragment_schedule, container, false);
 
         ////followed tutorial on creating cards, found here: https://code.tutsplus.com/tutorials/getting-started-with-recyclerview-and-cardview-on-android--cms-23465
-        rv = (RecyclerView)v.findViewById(R.id.rv); // !!! THIS IS NOT GOOD PRACTICE; NEED TO FIND A BETTER WAY TO HANDLE THIS
+        rv = (RecyclerView)v.findViewById(R.id.rv);
         rv.setHasFixedSize(true);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rv.setLayoutManager(llm);
@@ -105,7 +101,7 @@ public class ScheduleFragment extends Fragment {
                 {
                     Event event = childrenSnapShot.getValue(Event.class);
                     newevents.add(new Event(event.getTitle(), event.getLocation(), event.getDate(), event.getTime(), event.getDetails(), event.getSpeaker()));
-                    Log.w("GETTING CARDS", "value is" + event.getDate() + event.getLocation() + childrenSnapShot.getKey());
+                    //Log.w("GETTING CARDS", "value is" + event.getDate() + event.getLocation() + childrenSnapShot.getKey());
                 }
                 //Log.d("FIREBASE", "Value is: " + post);
                 addEvents(newevents);
@@ -119,11 +115,6 @@ public class ScheduleFragment extends Fragment {
             }
         });
 
-       //events.addAll(newevents);
-       //Log.w("PROBLEM HERE", "LIST #" + events.size());
-       //newevents.add(new Event("EVENT TITLE 3", "LOCATION", "DATE", "TIME", "DETAILS", new Speaker("Aaron's Little Helper", R.drawable.ic_account_circle_black_24dp)));
-
-       //onItemsLoadComplete();
     }
 
     private void addEvents(ArrayList<Event> newevents)
