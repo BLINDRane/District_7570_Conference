@@ -5,6 +5,16 @@
     android:id="@+id/schedule_layout"
     tools:context="bwastedsoftware.district_7570_conference.ScheduleFragment">
 
+    <!--
+  adds a scrolling datepicker function
+  -->
+
+    <DatePicker
+        android:id="@+id/datePicker"
+        style="@style/date_picker_theme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
@@ -42,16 +52,9 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent" android:layout_height="match_parent"
         android:padding="16dp"
-        android:weightSum="1">
-        <!--
-          adds a scrolling datepicker function
-          -->
-
-        <DatePicker
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/datePicker"
-            style="@style/date_picker_theme" />
+        android:weightSum="1"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true">
 
     </LinearLayout>
 
