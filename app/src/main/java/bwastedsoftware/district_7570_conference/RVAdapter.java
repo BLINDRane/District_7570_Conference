@@ -63,4 +63,15 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.EventViewHolder>{
         super.onAttachedToRecyclerView(recyclerView);
     }
 
+    public void clear() {
+        int size = this.events.size();
+        if (size > 0) {
+            for (int i = 0; i < size; i++) {
+                this.events.remove(0);
+            }
+
+            this.notifyItemRangeRemoved(0, size);
+        }
+    }
+
 }
