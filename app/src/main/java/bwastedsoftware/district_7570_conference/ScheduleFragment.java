@@ -4,13 +4,23 @@ import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class ScheduleFragment extends Fragment {
@@ -21,6 +31,8 @@ public class ScheduleFragment extends Fragment {
     }
 
     View v;
+    SwipeRefreshLayout mSwipeRefreshLayout;
+    RecyclerView rv;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,32 +42,106 @@ public class ScheduleFragment extends Fragment {
         v = inflater.inflate(R.layout.fragment_schedule, container, false);
 
         ////followed tutorial on creating cards, found here: https://code.tutsplus.com/tutorials/getting-started-with-recyclerview-and-cardview-on-android--cms-23465
-        RecyclerView rv = (RecyclerView)v.findViewById(R.id.rv); // !!! THIS IS NOT GOOD PRACTICE; NEED TO FIND A BETTER WAY TO HANDLE THIS
+        rv = (RecyclerView)v.findViewById(R.id.rv); // !!! THIS IS NOT GOOD PRACTICE; NEED TO FIND A BETTER WAY TO HANDLE THIS
         rv.setHasFixedSize(true);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rv.setLayoutManager(llm);
 
         initializeData();
         initializeAdapter(rv);
+        refreshData();
+
+        mSwipeRefreshLayout = (SwipeRefreshLayout) v.findViewById(R.id.swipeRefreshLayout);
+
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // Refresh items
+                refreshData();
+            }
+        });
 
         return v;
     }
 
+    RVAdapter adapter;
+
     private void initializeAdapter(RecyclerView rv)
     {
-        RVAdapter adapter = new RVAdapter(events);
+        adapter = new RVAdapter(events);
         rv.setAdapter(adapter);
     }
 
 
+
+
     private ArrayList<Event> events;
+    FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = mDatabase.getReference().child("events");
 
-
-    private void initializeData(){
+    private void initializeData() {
         events = new ArrayList<>();
-        events.add(new Event("EVENT TITLE 1", "LOCATION", "DATE", "TIME", new Speaker("Billy", R.drawable.ic_account_circle_black_24dp)));
-        events.add(new Event("EVENT TITLE 2", "LOCATION", "DATE", "TIME", new Speaker("Sue", R.drawable.ic_account_circle_black_24dp)));
-        events.add(new Event("EVENT TITLE 3", "LOCATION", "DATE", "TIME", new Speaker("Aaron's Little Helper", R.drawable.ic_account_circle_black_24dp)));
+    }
+
+    private void refreshData()
+    {
+        adapter.clear();
+        events.add(new Event("EVENT  1", "LOCATION", "DATE", "TIME", "DETAILS", new Speaker("Billy", R.drawable.ic_account_circle_black_24dp)));
+        events.add(new Event("EVENT TITLE 2", "LOCATION", "DATE", "TIME", "DETAILS", new Speaker("Sue", R.drawable.ic_account_circle_black_24dp)));
+
+
+        final ArrayList<Event> newevents = new ArrayList<>();
+
+        // Read from the database
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                //String value = dataSnapshot.getValue(String.class);
+                //Event = dataSnapshot.getValue(Post.class);
+                //Post post = dataSnapshot.getValue(Post.class);
+                for(DataSnapshot childrenSnapShot : dataSnapshot.getChildren())
+                {
+                    Event event = childrenSnapShot.getValue(Event.class);
+                    newevents.add(new Event(event.getTitle(), event.getLocation(), event.getDate(), event.getTime(), event.getDetails(), event.getSpeaker()));
+                    Log.w("GETTING CARDS", "value is" + event.getDate() + event.getLocation() + childrenSnapShot.getKey());
+                }
+                //Log.d("FIREBASE", "Value is: " + post);
+                addEvents(newevents);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w("FIREBASE", "Failed to read value.", error.toException());
+            }
+        });
+
+       //events.addAll(newevents);
+       //Log.w("PROBLEM HERE", "LIST #" + events.size());
+       //newevents.add(new Event("EVENT TITLE 3", "LOCATION", "DATE", "TIME", "DETAILS", new Speaker("Aaron's Little Helper", R.drawable.ic_account_circle_black_24dp)));
+
+       //onItemsLoadComplete();
+    }
+
+    private void addEvents(ArrayList<Event> newevents)
+    {
+        events.addAll(newevents);
+        Log.w("PROBLEM HERE", "LIST #" + events.size());
+        newevents.add(new Event("EVENT TITLE 3", "LOCATION", "DATE", "TIME", "DETAILS", new Speaker("Aaron's Little Helper", R.drawable.ic_account_circle_black_24dp)));
+        onItemsLoadComplete();
+
+    }
+
+    void onItemsLoadComplete() {
+        // Update the adapter and notify data set changed
+        // ...
+
+        // Stop refresh animation
+        adapter.notifyDataSetChanged();
+        mSwipeRefreshLayout.setRefreshing(false);
     }
 
 }
