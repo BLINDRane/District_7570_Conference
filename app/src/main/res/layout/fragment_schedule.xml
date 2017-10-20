@@ -47,10 +47,10 @@
         // adds date picker function
 
         <DatePicker
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/datePicker"
-            style="@style/date_picker_theme"
-            android:layout_width="match_parent"
-            android:layout_height="240dp" />
+            style="@style/date_picker_theme" />
 
     </LinearLayout>
 
