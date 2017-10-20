@@ -18,13 +18,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import bwastedsoftware.district_7570_conference.dummy.cEvent;
 
 
 public class Create_EventFragment extends Fragment implements View.OnClickListener {
 
-    EditText etTitle, etLocation, etSpeakers, etWhen, etDetails;
+    EditText etTitle, etLocation, etSpeakers, etWhen, etDetails, etDate;
     Button saveEvent;
     private DatabaseReference mDatabase;
 
@@ -41,6 +42,7 @@ public class Create_EventFragment extends Fragment implements View.OnClickListen
         etLocation = (EditText) view.findViewById(R.id.edit_Location);
         etSpeakers = (EditText) view.findViewById(R.id.edit_Speakers);
         etWhen = (EditText) view.findViewById(R.id.edit_When);
+        etDate = (EditText) view.findViewById(R.id.edit_Date);
         etDetails = (EditText) view.findViewById(R.id.edit_Details);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -62,37 +64,48 @@ public class Create_EventFragment extends Fragment implements View.OnClickListen
             String Title = etTitle.getText().toString().trim();
             String Location = etLocation.getText().toString().trim();
             String Speakers = etSpeakers.getText().toString().trim();
-            String When = etWhen.getText().toString().trim();
+            String Time = etWhen.getText().toString().trim();
+            String Date = etDate.getText().toString().trim();
             String Details = etDetails.getText().toString().trim();
 
-            HashMap<String, String> dataMap = new HashMap<String, String>();
-            dataMap.put("Title", Title);
-            dataMap.put("Location", Location);
-            dataMap.put("Speakers", Speakers);
-            dataMap.put("When", When);
-            dataMap.put("Details", Details);
+            String key = mDatabase.child("posts").push().getKey();
+            Event event = new Event(Title, Location, Date, Time, Details, new Speaker(Speakers, R.drawable.ic_account_circle_black_24dp));
+            Map<String, Object> eventValues = event.toMap();
+
+            Map<String, Object> childUpdates = new HashMap<>();
+            childUpdates.put("/events/" + key, eventValues);
+            //childUpdates.put("/user-posts/" + title + "/" + key, postValues);
+
+            mDatabase.updateChildren(childUpdates);
+
+            //HashMap<String, String> dataMap = new HashMap<String, String>();
+            //dataMap.put("Title", Title);
+            //dataMap.put("Location", Location);
+            //dataMap.put("Speakers", Speakers);
+            //dataMap.put("When", When);
+            //dataMap.put("Details", Details);
+//
+//
+            ////store data in firebase
+            //mDatabase.push().setValue(dataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+            //    @Override
+            //    public void onComplete(@NonNull com.google.android.gms.tasks.Task<Void> task) {
+            //        if(task.isSuccessful()){
+//
+//
+//
+            //        } else {
+//
+//
+            //        }
+            //    }
+            //});
 
 
-            //store data in firebase
-            mDatabase.push().setValue(dataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
-                @Override
-                public void onComplete(@NonNull com.google.android.gms.tasks.Task<Void> task) {
-                    if(task.isSuccessful()){
 
 
-
-                    } else {
-
-
-                    }
-                }
-            });
-
-
-
-
-            cEvent event = new cEvent(Title, Location, When, Speakers, Details);
-            createEvent(event);
+            //cEvent event = new cEvent(Title, Location, When, Speakers, Details);
+            //createEvent(event);
         }
 
 
