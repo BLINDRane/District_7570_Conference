@@ -38,7 +38,7 @@ public class ScheduleFragment extends Fragment {
         v = inflater.inflate(R.layout.fragment_schedule, container, false);
 
         ////followed tutorial on creating cards, found here: https://code.tutsplus.com/tutorials/getting-started-with-recyclerview-and-cardview-on-android--cms-23465
-        rv = (RecyclerView)v.findViewById(R.id.rv); // !!! THIS IS NOT GOOD PRACTICE; NEED TO FIND A BETTER WAY TO HANDLE THIS
+        rv = (RecyclerView)v.findViewById(R.id.rv);
         rv.setHasFixedSize(true);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rv.setLayoutManager(llm);
@@ -114,7 +114,7 @@ public class ScheduleFragment extends Fragment {
                 Log.w("FIREBASE", "Failed to read value.", error.toException());
             }
         });
-        
+
     }
 
     private void addEvents(ArrayList<Event> newevents)
