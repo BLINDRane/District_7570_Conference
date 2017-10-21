@@ -10,6 +10,8 @@ import android.widget.EditText;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,7 +24,7 @@ public class Create_EventFragment extends Fragment implements View.OnClickListen
     EditText etTitle, etLocation, etSpeakers, etWhen, etDetails, etDate;
     Button saveEvent;
     private DatabaseReference mDatabase;
-
+    private StorageReference mStorage;
 
     public Create_EventFragment() {
         // Required empty public constructor
@@ -32,7 +34,7 @@ public class Create_EventFragment extends Fragment implements View.OnClickListen
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_create__event, container, false);
         saveEvent = (Button) view.findViewById(R.id.btn_Save_Event);
-        etTitle = (EditText) view.findViewById(R.id.edit_Title);
+        etTitle = (EditText) view.findViewById(R.id.edit_speakerName);
         etLocation = (EditText) view.findViewById(R.id.edit_Location);
         etSpeakers = (EditText) view.findViewById(R.id.edit_Speakers);
         etWhen = (EditText) view.findViewById(R.id.edit_When);
@@ -45,9 +47,6 @@ public class Create_EventFragment extends Fragment implements View.OnClickListen
         return view;
     }
 
-    private void createEvent(cEvent event) {
-
-    }
 
     @Override
     public void onClick(View v) {
@@ -62,12 +61,12 @@ public class Create_EventFragment extends Fragment implements View.OnClickListen
             String Date = etDate.getText().toString().trim();
             String Details = etDetails.getText().toString().trim();
 
-            String key = mDatabase.child("posts").push().getKey();
-            Event event = new Event(Title, Location, Date, Time, Details, new Speaker(Speakers, R.drawable.ic_account_circle_black_24dp));
+            String key = mDatabase.child("Speakers").push().getKey();
+            Event event = new Event(Title, Location, Date, Time, Details, new Speaker(Speakers, "Photo"));
             Map<String, Object> eventValues = event.toMap();
 
             Map<String, Object> childUpdates = new HashMap<>();
-            childUpdates.put("/events/" + key, eventValues);
+            childUpdates.put("/Events/" + key, eventValues);
             //childUpdates.put("/user-posts/" + title + "/" + key, postValues);
 
             mDatabase.updateChildren(childUpdates);

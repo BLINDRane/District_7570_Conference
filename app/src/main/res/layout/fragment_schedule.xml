@@ -9,12 +9,6 @@
   adds a scrolling datepicker function
   -->
 
-    <DatePicker
-        android:id="@+id/datePicker"
-        style="@style/date_picker_theme"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
@@ -25,29 +19,6 @@
         android:id="@+id/rv"
         />
     </android.support.v4.widget.SwipeRefreshLayout>
-
-    <!---
-        <android.support.v7.widget.CardView
-            android:id="@+id/cards_test"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="16dp">
-
-                <TextView
-                    android:id="@+id/card_one"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Card1" />
-
-            </RelativeLayout>
-
-        </android.support.v7.widget.CardView>
-        -->
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent" android:layout_height="match_parent"

@@ -7,7 +7,7 @@
     <!-- TODO: Update blank fragment layout -->
 
     <EditText
-        android:id="@+id/edit_Title"
+        android:id="@+id/edit_speakerName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/edit_Title"
+        android:layout_below="@+id/edit_speakerName"
         android:ems="10"
         android:hint="Event Location"
         android:inputType="textPersonName" />

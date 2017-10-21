@@ -25,6 +25,10 @@
                 android:title="Create Event"
                 android:id="@+id/create_event_id"
                 android:icon="@drawable/ic_create_black_24dp" />
+            <item
+                android:title="Create Speaker"
+                android:id="@+id/create_speaker_id"
+                android:icon="@drawable/ic_create_black_24dp" />
         </group>
     <item android:title="Social">
         <menu>
