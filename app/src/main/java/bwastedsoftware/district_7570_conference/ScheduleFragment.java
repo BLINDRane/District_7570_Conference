@@ -72,7 +72,7 @@ public class ScheduleFragment extends Fragment {
 
 
 
-    private ArrayList<Event> events;
+    ArrayList<Event> events;
     FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
     DatabaseReference myRef = mDatabase.getReference().child("events");
 

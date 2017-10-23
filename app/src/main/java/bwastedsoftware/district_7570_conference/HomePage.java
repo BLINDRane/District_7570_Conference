@@ -73,7 +73,7 @@ public class HomePage extends AppCompatActivity {
 
                     case R.id.speakers_id:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.main_container, new SpeakersFragment());
+                        fragmentTransaction.replace(R.id.main_container, new SpeakerListFragment());
                         fragmentTransaction.commit();
                         Toolbar.setBackground(drawable);
                         getSupportActionBar().setTitle("Speakers, Leaders, and Sponsors");
