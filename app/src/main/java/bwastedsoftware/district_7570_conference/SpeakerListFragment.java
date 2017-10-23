@@ -74,7 +74,7 @@ public class SpeakerListFragment extends Fragment
 
     ArrayList<Speaker> speakers;
     FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = mDatabase.getReference().child("speakers");
+    DatabaseReference myRef = mDatabase.getReference().child("Speakers");
 
     private void initializeData() {
         speakers = new ArrayList<>();

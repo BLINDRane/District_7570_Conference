@@ -45,7 +45,7 @@ public class speakerRVAdapter extends RecyclerView.Adapter<speakerRVAdapter.Card
     @Override
     public void onBindViewHolder(CardViewHolder cardViewHolder, int i) {
         cardViewHolder.speakerName.setText(cards.get(i).getName());
-        Picasso.with(context).load(cards.get(i).getPhotoURL()).placeholder(R.drawable.ic_account_circle_black_24dp).into(cardViewHolder.speakerPhoto);
+        Picasso.with(context).load(cards.get(i).getPhotoURL()).fit().placeholder(R.drawable.ic_account_circle_black_24dp).into(cardViewHolder.speakerPhoto);
     }
 
     @Override

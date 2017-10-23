@@ -47,7 +47,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.CardViewHolder>{
     public void onBindViewHolder(CardViewHolder cardViewHolder, int i) {
         cardViewHolder.eventTitle.setText(cards.get(i).getTitle());
         cardViewHolder.eventTime.setText(cards.get(i).getTime());
-        Picasso.with(context).load(cards.get(i).getSpeaker().getPhotoURL()).placeholder(R.drawable.ic_account_circle_black_24dp).into(cardViewHolder.speakerPhoto);
+        Picasso.with(context).load(cards.get(i).getSpeaker().getPhotoURL()).fit().placeholder(R.drawable.ic_account_circle_black_24dp).into(cardViewHolder.speakerPhoto);
     }
 
     @Override

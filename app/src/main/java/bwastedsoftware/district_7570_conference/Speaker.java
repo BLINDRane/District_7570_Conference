@@ -84,8 +84,9 @@ public class Speaker
         HashMap<String, Object> result = new HashMap<>();
         result.put("name", name);
         result.put("bio", bio);
-        result.put("photo", getPhotoURL() );
+        result.put("photoURL", getPhotoURL() );
 
         return result;
     }
+
 }

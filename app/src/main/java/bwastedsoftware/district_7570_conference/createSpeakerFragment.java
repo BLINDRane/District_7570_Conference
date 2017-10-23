@@ -67,8 +67,8 @@ public class createSpeakerFragment extends Fragment implements View.OnClickListe
         if(v.getId() == R.id.btn_Save_Speaker){
             //create a new User using information put in by the *ahem* user.
 
-            final String Name = etSpeakerName.getText().toString().trim();
-            final String Bio = etSpeakerName.getText().toString().trim();
+            final String name = etSpeakerName.getText().toString().trim();
+            final String bio = etSpeakerName.getText().toString().trim();
 
             StorageReference filepath = mStorage.child("SpeakerPics").child(imageURI.getLastPathSegment());
             //Check for success.
@@ -81,9 +81,9 @@ public class createSpeakerFragment extends Fragment implements View.OnClickListe
             //also saved the new speaker with name, bio, and image URL string to the database.
                     Uri downloadUrl = taskSnapshot.getDownloadUrl();
                     DatabaseReference newSpeaker = mDatabase.push();
-                    newSpeaker.child("Name").setValue(Name);
-                    newSpeaker.child("Bio").setValue(Bio);
-                    newSpeaker.child("Image").setValue(downloadUrl.toString());
+                    newSpeaker.child("name").setValue(name);
+                    newSpeaker.child("bio").setValue(bio);
+                    newSpeaker.child("photoURL").setValue(downloadUrl.toString());
                     //After creating a speaker, the user should be returned to the homeFragment.
                 }
             });
@@ -91,7 +91,7 @@ public class createSpeakerFragment extends Fragment implements View.OnClickListe
 
             String key = mDatabase.child("Speakers").push().getKey();
             //create a new speaker object
-            Speaker speaker = new Speaker(Name, Bio, imageURI.toString());
+            Speaker speaker = new Speaker(name, bio, imageURI.toString());
 
 
 
@@ -103,8 +103,11 @@ public class createSpeakerFragment extends Fragment implements View.OnClickListe
     }
 
     private void openGallery(){
-        Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-        startActivityForResult(gallery, PICK_IMAGE);
+        //Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        //startActivityForResult(gallery, PICK_IMAGE);
+        Intent photoPickerIntent = new Intent(Intent.ACTION_GET_CONTENT);
+        photoPickerIntent.setType("image/*");
+        startActivityForResult(photoPickerIntent, PICK_IMAGE);
     }
 
 
