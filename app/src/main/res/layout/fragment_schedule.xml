@@ -9,6 +9,14 @@
   adds a scrolling datepicker function
   -->
 
+    <DatePicker
+        android:id="@+id/datePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="473dp"
+        android:layout_weight="0.88"
+        android:forceHasOverlappingRendering="false"
+        android:hapticFeedbackEnabled="true" />
+
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
@@ -26,6 +34,7 @@
         android:weightSum="1"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true">
+
 
     </LinearLayout>
 
