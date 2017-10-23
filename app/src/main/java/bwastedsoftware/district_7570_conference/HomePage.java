@@ -130,6 +130,16 @@ public class HomePage extends AppCompatActivity {
                         item.setChecked(true);
                         drawerLayout.closeDrawers();
                         break;
+
+                    //case R.id.create_speaker_id:
+                    //    fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                    //    fragmentTransaction.replace(R.id.main_container, new createSpeakerFragment());
+                    //    fragmentTransaction.commit();
+                    //    Toolbar.setBackground(drawable);
+                    //    getSupportActionBar().setTitle("Create Speaker");
+                    //    item.setChecked(true);
+                    //    drawerLayout.closeDrawers();
+                    //    break;
                 }
                 return false;
             }

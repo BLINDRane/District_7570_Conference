@@ -52,7 +52,7 @@ public class createSpeakerFragment extends Fragment implements View.OnClickListe
         View view = inflater.inflate(R.layout.fragment_create_speaker, container, false);
         saveSpeaker = (Button) view.findViewById(R.id.btn_Save_Speaker);
         etSpeakerName = (EditText) view.findViewById(R.id.edit_speakerName);
-        etSpeakerBio = (EditText) view.findViewById(R.id.edit_Location);
+        etSpeakerBio = (EditText) view.findViewById(R.id.edit_SpeakerBio);
         speakerPic = (ImageButton) view.findViewById(R.id.speaker_image);
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Speakers");
         mStorage = FirebaseStorage.getInstance().getReference();
@@ -68,7 +68,7 @@ public class createSpeakerFragment extends Fragment implements View.OnClickListe
             //create a new User using information put in by the *ahem* user.
 
             final String name = etSpeakerName.getText().toString().trim();
-            final String bio = etSpeakerName.getText().toString().trim();
+            final String bio = etSpeakerBio.getText().toString().trim();
 
             StorageReference filepath = mStorage.child("SpeakerPics").child(imageURI.getLastPathSegment());
             //Check for success.
