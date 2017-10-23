@@ -13,53 +13,53 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class RVAdapter extends RecyclerView.Adapter<RVAdapter.EventViewHolder>{
+public class RVAdapter extends RecyclerView.Adapter<RVAdapter.CardViewHolder>{
 
 
-    public static class EventViewHolder extends RecyclerView.ViewHolder
+    public static class CardViewHolder extends RecyclerView.ViewHolder
     {
         CardView cv;
         TextView eventTitle;
         TextView eventTime;
         ImageView speakerPhoto;
 
-        EventViewHolder(View itemView)
+        CardViewHolder(View itemView)
         {
             super(itemView);
             cv = (CardView) itemView.findViewById(R.id.cv);
-            eventTitle = (TextView) itemView.findViewById(R.id.event_title);
-            eventTime = (TextView) itemView.findViewById(R.id.event_time);
-            speakerPhoto = (ImageView) itemView.findViewById(R.id.speaker_photo);
+            eventTitle = (TextView) itemView.findViewById(R.id.card_title);
+            eventTime = (TextView) itemView.findViewById(R.id.card_text);
+            speakerPhoto = (ImageView) itemView.findViewById(R.id.card_photo);
         }
     }
 
-    private List<Event> events;
+    private List<Event> cards;
     private Context context;
 
-    RVAdapter(List<Event> events, Context context)
+    RVAdapter(List<Event> cards, Context context)
     {
-        this.events = events;
+        this.cards = cards;
         this.context = context;
     }
 
 
     @Override
-    public void onBindViewHolder(EventViewHolder eventViewHolder, int i) {
-        eventViewHolder.eventTitle.setText(events.get(i).getTitle());
-        eventViewHolder.eventTime.setText(events.get(i).getTime());
-        Picasso.with(context).load(events.get(i).getSpeaker().getPhotoURL()).placeholder(R.drawable.ic_account_circle_black_24dp).into(eventViewHolder.speakerPhoto);
+    public void onBindViewHolder(CardViewHolder cardViewHolder, int i) {
+        cardViewHolder.eventTitle.setText(cards.get(i).getTitle());
+        cardViewHolder.eventTime.setText(cards.get(i).getTime());
+        Picasso.with(context).load(cards.get(i).getSpeaker().getPhotoURL()).placeholder(R.drawable.ic_account_circle_black_24dp).into(cardViewHolder.speakerPhoto);
     }
 
     @Override
     public int getItemCount()
     {
-        return events.size();
+        return cards.size();
     }
 
     @Override
-    public EventViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public CardViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_item, viewGroup, false);
-        EventViewHolder pvh = new EventViewHolder(v);
+        CardViewHolder pvh = new CardViewHolder(v);
         return pvh;
     }
 
@@ -69,10 +69,10 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.EventViewHolder>{
     }
 
     public void clear() {
-        int size = this.events.size();
+        int size = this.cards.size();
         if (size > 0) {
             for (int i = 0; i < size; i++) {
-                this.events.remove(0);
+                this.cards.remove(0);
             }
 
             this.notifyItemRangeRemoved(0, size);

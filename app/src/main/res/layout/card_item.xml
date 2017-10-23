@@ -20,7 +20,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/speaker_photo"
+                android:id="@+id/card_photo"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginRight="16dp"
@@ -29,8 +29,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/event_title"
-                android:layout_toRightOf="@+id/speaker_photo"
+                android:id="@+id/card_title"
+                android:layout_toRightOf="@+id/card_photo"
                 android:layout_alignParentTop="true"
                 android:textSize="30sp"
                 />
@@ -38,9 +38,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/event_time"
-                android:layout_toRightOf="@+id/speaker_photo"
-                android:layout_below="@+id/event_title"
+                android:id="@+id/card_text"
+                android:layout_toRightOf="@+id/card_photo"
+                android:layout_below="@+id/card_title"
                 />
 
         </RelativeLayout>
