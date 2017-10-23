@@ -80,7 +80,7 @@ public class SpeakersFragment extends Fragment {
     private void refreshData()
     {
         adapter.clear();
-        speakers.add(new Speaker("Speaker  1", "Photo"));
+        speakers.add(new Speaker("Speaker  1","Bio", "Photo"));
 
 
         final ArrayList<Speaker> newspeakers = new ArrayList<>();
