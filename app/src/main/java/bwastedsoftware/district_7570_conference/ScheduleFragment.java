@@ -61,11 +61,11 @@ public class ScheduleFragment extends Fragment {
         return v;
     }
 
-    eventRVAdapter adapter;
+    RVAdapter adapter;
 
     private void initializeAdapter(RecyclerView rv)
     {
-        adapter = new eventRVAdapter(events);
+        adapter = new RVAdapter(events, getActivity());
         rv.setAdapter(adapter);
     }
 
@@ -83,8 +83,8 @@ public class ScheduleFragment extends Fragment {
     private void refreshData()
     {
         adapter.clear();
-        events.add(new Event("EVENT  1", "LOCATION", "DATE", "TIME", "DETAILS", new Speaker("Billy", "Photo")));
-        events.add(new Event("EVENT TITLE 2", "LOCATION", "DATE", "TIME", "DETAILS", new Speaker("Sue", "Photo")));
+        events.add(new Event("EVENT  1", "LOCATION", "DATE", "TIME", "DETAILS", new Speaker("Billy", "Bio", "http://www.munkurious.com/sharex/2017.10/ghanaTempleStainedGlass_100x.png")));
+        events.add(new Event("EVENT TITLE 2", "LOCATION", "DATE", "TIME", "DETAILS", new Speaker("Sue", "Bio", "Photo")));
 
 
         final ArrayList<Event> newevents = new ArrayList<>();
@@ -122,7 +122,7 @@ public class ScheduleFragment extends Fragment {
     {
         events.addAll(newevents);
         Log.w("PROBLEM HERE", "LIST #" + events.size());
-        newevents.add(new Event("EVENT TITLE 3", "LOCATION", "DATE", "TIME", "DETAILS", new Speaker("Aaron's Little Helper", "Photo")));
+        newevents.add(new Event("EVENT TITLE 3", "LOCATION", "DATE", "TIME", "DETAILS", new Speaker("Aaron's Little Helper", "bio", "Photo")));
         onItemsLoadComplete();
 
     }

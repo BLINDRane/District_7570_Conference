@@ -1,5 +1,6 @@
 package bwastedsoftware.district_7570_conference;
 
+import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -31,10 +34,12 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.EventViewHolder>{
     }
 
     private List<Event> events;
+    private Context context;
 
-    RVAdapter(List<Event> events)
+    RVAdapter(List<Event> events, Context context)
     {
         this.events = events;
+        this.context = context;
     }
 
 
@@ -42,7 +47,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.EventViewHolder>{
     public void onBindViewHolder(EventViewHolder eventViewHolder, int i) {
         eventViewHolder.eventTitle.setText(events.get(i).getTitle());
         eventViewHolder.eventTime.setText(events.get(i).getTime());
-        eventViewHolder.speakerPhoto.setImageResource(events.get(i).getSpeaker().getPhoto());
+        Picasso.with(context).load(events.get(i).getSpeaker().getPhotoURL()).placeholder(R.drawable.ic_account_circle_black_24dp).into(eventViewHolder.speakerPhoto);
     }
 
     @Override
