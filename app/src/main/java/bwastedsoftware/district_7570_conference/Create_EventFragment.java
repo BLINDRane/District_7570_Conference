@@ -131,7 +131,7 @@ public class Create_EventFragment extends Fragment implements View.OnClickListen
 
             String Title = etTitle.getText().toString().trim();
             String Location = etLocation.getText().toString().trim();
-            String timeToString = ("From" + strt.getText() + " to " + end.getText());
+            String timeToString = ("From " + strt.getText() + " to " + end.getText());
             String Date = etDate.getText().toString().trim();
             String Details = etDetails.getText().toString().trim();
             String key = mDatabase.child("Speakers").push().getKey();
