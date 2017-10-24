@@ -15,6 +15,7 @@
     <string name="event_upcoming">Upcoming</string>
     <string name="event_current">Current</string>
     <string name="title_activity_homepage">activity_homepage</string>
+    <string name="spinner_hint">spinner</string>
 
     <string name="drawer_open">drawer open</string>
     <string name="drawer_close">drawer close</string>

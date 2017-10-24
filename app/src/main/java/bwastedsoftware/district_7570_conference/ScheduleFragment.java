@@ -2,6 +2,7 @@ package bwastedsoftware.district_7570_conference;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -65,7 +66,7 @@ public class ScheduleFragment extends Fragment {
 
     private void initializeAdapter(RecyclerView rv)
     {
-        adapter = new RVAdapter(events, getActivity());
+        adapter = new RVAdapter(events, getActivity(), ScheduleFragment.this);
         rv.setAdapter(adapter);
     }
 
@@ -74,7 +75,7 @@ public class ScheduleFragment extends Fragment {
 
     ArrayList<Event> events;
     FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = mDatabase.getReference().child("events");
+    DatabaseReference myRef = mDatabase.getReference().child("Events");
 
     private void initializeData() {
         events = new ArrayList<>();
@@ -134,6 +135,15 @@ public class ScheduleFragment extends Fragment {
         // Stop refresh animation
         adapter.notifyDataSetChanged();
         mSwipeRefreshLayout.setRefreshing(false);
+    }
+
+    public void loadEventDetails(Event event)
+    {
+        FragmentTransaction t = this.getFragmentManager().beginTransaction();
+        EventFragment mFrag = new EventFragment();
+        mFrag.passEvent(getActivity(),event);
+        t.replace(R.id.main_container, mFrag);
+        t.commit();
     }
 
 }
