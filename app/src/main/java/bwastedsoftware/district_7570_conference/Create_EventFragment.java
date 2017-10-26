@@ -140,7 +140,7 @@ public class Create_EventFragment extends Fragment implements View.OnClickListen
 
             String key = mDatabase.child("Speakers").push().getKey();
 
-            Event event = new Event(Title, Location, Date, timeToString, Details, chosenOne, key);
+            Event event = new Event(Title, Location, Date, timeToString, Details, chosenOne);
 
             Map<String, Object> eventValues = event.toMap();
 
