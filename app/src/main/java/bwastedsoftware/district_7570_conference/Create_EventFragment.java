@@ -45,7 +45,8 @@ public class Create_EventFragment extends Fragment implements View.OnClickListen
     Spinner speakerPick;
     Button saveEvent;
     ArrayList<Speaker> speakers;
-    ArrayAdapter<Speaker> sAdapter;
+    ArrayList<String> speakerNames;
+    ArrayAdapter<String> sAdapter;
     String cName, cBio, cPhoto;
     Speaker chosenOne = new Speaker(cName, cBio, cPhoto);
     private DatabaseReference mDatabase;
@@ -78,6 +79,7 @@ public class Create_EventFragment extends Fragment implements View.OnClickListen
         mRef = FirebaseDatabase.getInstance().getReference().child("Speakers");
 
         speakers = new ArrayList<Speaker>();
+        speakerNames = new ArrayList<String>();
 
         //Set click listeners for all these items
         speakerPick.setOnItemSelectedListener(this);
@@ -92,9 +94,10 @@ public class Create_EventFragment extends Fragment implements View.OnClickListen
                 for(DataSnapshot childrenSnapshot : dataSnapshot.getChildren()){
                     Speaker newSpeaker = childrenSnapshot.getValue(Speaker.class);
 
-                    sAdapter = new ArrayAdapter<Speaker>(getActivity(), android.R.layout.select_dialog_item, speakers);
+                    sAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.select_dialog_item, speakerNames);
                     sAdapter.setDropDownViewResource(android.R.layout.select_dialog_item);
                     speakers.add(new Speaker(newSpeaker.getName(), newSpeaker.getBio(), newSpeaker.getPhotoURL()));
+                    speakerNames.add(newSpeaker.getName());
                 }
                 speakerPick.setAdapter(sAdapter);
             }
@@ -113,10 +116,10 @@ public class Create_EventFragment extends Fragment implements View.OnClickListen
     //This is like a click listener for the spinner
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        chosenOne = sAdapter.getItem(position);
+        int index = speakerNames.indexOf(sAdapter.getItem(position));
+        chosenOne = speakers.get(index);
         //Toast.makeText(view.getContext(), "Selected Speaker: " + chosenOne.getName() + chosenOne.getBio(), Toast.LENGTH_LONG).show();
     }
-
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
@@ -134,9 +137,10 @@ public class Create_EventFragment extends Fragment implements View.OnClickListen
             String timeToString = ("From " + strt.getText() + " to " + end.getText());
             String Date = etDate.getText().toString().trim();
             String Details = etDetails.getText().toString().trim();
+
             String key = mDatabase.child("Speakers").push().getKey();
 
-            Event event = new Event(Title, Location, Date, timeToString, Details, chosenOne);
+            Event event = new Event(Title, Location, Date, timeToString, Details, chosenOne, key);
 
             Map<String, Object> eventValues = event.toMap();
 
@@ -157,7 +161,7 @@ public class Create_EventFragment extends Fragment implements View.OnClickListen
                             if(hourOfDay == 00){
                                 strt.setText(new StringBuilder().append("12").append(":").append(pad(minute)) + " " + am_pm);
                             }else {
-                                strt.setText(new StringBuilder().append(pad(hourOfDay)).append(":").append(pad(minute)) + " " + am_pm);
+                                strt.setText(new StringBuilder().append((hourOfDay-12)).append(":").append(pad(minute)) + " " + am_pm);
                             }
                         }
                     }, mHour, mMinute, false);
@@ -173,7 +177,7 @@ public class Create_EventFragment extends Fragment implements View.OnClickListen
                             if(hourOfDay == 00){
                                 end.setText(new StringBuilder().append("12").append(":").append(pad(minute)) + " " + am_pm);
                             }else {
-                                end.setText(new StringBuilder().append(pad(hourOfDay)).append(":").append(pad(minute)) + " " + am_pm);
+                                end.setText(new StringBuilder().append((hourOfDay-12)).append(":").append(pad(minute)) + " " + am_pm);
                             }
                         }
                     }, mHour, mMinute, false);

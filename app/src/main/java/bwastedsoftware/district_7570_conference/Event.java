@@ -23,6 +23,7 @@ public class Event
     private String date;
     private String time;
     private String details;
+    private String key;
     private ArrayList<Speaker> speakers;
 
     Event()
@@ -30,10 +31,11 @@ public class Event
 
     }
 
-    Event(String title, String location, String date, String time, String details, Speaker speaker)
+    Event(String title, String location, String date, String time, String details, Speaker speaker, String key)
     {
         this(title, location, date, time, details);
         this.addSpeaker(speaker);
+        this.key = key;
     }
 
     Event(String title, String location, String date, String time, String details)
@@ -134,6 +136,8 @@ public class Event
     {
         this.time = time;
     }
+
+    public String getKey(){return key;}
 
     @Exclude
     public Map<String, Object> toMap() {

@@ -1,6 +1,7 @@
 package bwastedsoftware.district_7570_conference;
 
 
+import java.util.ArrayList;
 
 /**
  * This class will define what a user is, giving them all necessary attributes.
@@ -11,6 +12,7 @@ public class User {
 
     String Fname, Lname, email, password;
 
+
     /* a user object must also have a list of events they have RSVP'd to, as well as a list of
      events that they have attended. The RSVP list will enable us to show only events they have
      RSVP'd to, as well as the inverse. The second list will enable us to ask for a review score
@@ -18,13 +20,12 @@ public class User {
       */
     //TODO: add two array lists to USER class so that the above comment can be fulfilled.
 
-    public User (String Fname, String Lname,  String email, String password){
+    public User(String Fname, String Lname, String email, String password) {
 
       /*here we extract the data that will be passed in upon creation of a user (the data to be
         received is listed in the parentheses above) and then apply it to the User object that this
         particular method creates.
        */
-
         this.Fname = Fname;
         this.Lname = Lname;
         this.email = email;
@@ -37,11 +38,13 @@ public class User {
     as a user with a name that is empty
      */
 
-    public User (String email, String password){
+    public User(String email, String password) {
 
         this.Fname = "";
         this.Lname = "";
         this.email = email;
         this.password = password;
     }
+
+
 }
