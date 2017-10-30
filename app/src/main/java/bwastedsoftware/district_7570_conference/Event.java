@@ -135,18 +135,20 @@ public class Event
         this.time = time;
     }
 
+
     @Exclude
     public Map<String, Object> toMap() {
-    HashMap<String, Object> result = new HashMap<>();
-    result.put("title", title);
-    result.put("location", location);
-    result.put("date", date);
-    result.put("time", time);
-    result.put("speakers", speakers);
-    //result.put("speakers", getSpeakerString());
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("title", title);
+        result.put("location", location);
+        result.put("date", date);
+        result.put("time", time);
+        result.put("speakers", speakers);
+        result.put("details", details);
+        //result.put("speakers", getSpeakerString());
 
-    return result;
-}
+        return result;
+    }
 
     public String getDetails()
     {

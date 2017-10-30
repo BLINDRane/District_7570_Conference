@@ -35,7 +35,6 @@ public class Speaker
     {
         this.name = name;
         this.bio = bio;
-        //this.photo = photo;
         this.photoURL = photoURL;
 
     }

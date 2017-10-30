@@ -30,18 +30,18 @@
         android:id="@+id/edit_SpeakerBio"
         android:layout_width="395dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/speaker_image"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="118dp"
         android:ems="10"
         android:hint="Please provide a short bio about the speaker."
-        android:inputType="textMultiLine"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="118dp"
+        android:inputType="textWebEditText"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_below="@+id/speaker_image"
-        android:layout_alignParentEnd="true" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_Save_Speaker"

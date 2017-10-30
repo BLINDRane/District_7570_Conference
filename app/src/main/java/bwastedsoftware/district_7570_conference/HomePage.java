@@ -130,6 +130,7 @@ public class HomePage extends AppCompatActivity {
                         item.setChecked(true);
                         drawerLayout.closeDrawers();
                         break;
+
                 }
                 return false;
             }
@@ -143,27 +144,5 @@ public class HomePage extends AppCompatActivity {
         super.onPostCreate(savedInstanceState);
         actionBarDrawerToggle.syncState();
     }
-
-    //Checks that a user has been authenticated, then sets up the welcome texts.
-    protected void onStart() {
-        super.onStart();
-
-        if (authenticate() == true) {
-            customizeWelcomeText();
-        }
-    }
-
-    //Will return the value of the boolean in the local database that says a user is logged in
-    private boolean authenticate() {
-        return userLocalStore.getUserLoggedIn();
-    }
-
-
-    /*This statement will add a little flair to the welcome statement, personalizing it,
- provided the user has given a name.
-  */
-    private void customizeWelcomeText() {
-        User user = userLocalStore.getLoggedInUser();
-    }
-
 }
+

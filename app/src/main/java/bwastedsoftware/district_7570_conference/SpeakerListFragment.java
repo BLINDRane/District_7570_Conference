@@ -84,7 +84,6 @@ public class SpeakerListFragment extends Fragment
     {
         adapter.clear();
         speakers.add(new Speaker("Billy", "Bio", "http://www.munkurious.com/sharex/2017.10/ghanaTempleStainedGlass_100x.png"));
-        speakers.add(new Speaker("Sue", "Bio", "Photo"));
 
 
         final ArrayList<Speaker> newspeakers = new ArrayList<>();

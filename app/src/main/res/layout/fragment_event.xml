@@ -47,96 +47,52 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
         <RelativeLayout
-            android:id="@+id/eventView1_speakerLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="72dp">
-
-            <ImageView
-                android:id="@+id/speakerLayout1_avatarView"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:src="@drawable/ic_account_circle_black_24dp" />
-
-            <LinearLayout
-                android:id="@+id/speakerLayout1_textViewContainer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignWithParentIfMissing="true"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_toRightOf="@+id/speakerLayout1_avatarView"
-                android:orientation="vertical"
-                android:paddingBottom="16dp"
-                android:paddingTop="16dp">
-
-                <TextView
-                    android:id="@+id/speakerLayout1_textViewContainer_titleText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Speaker Name"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
-
-                <TextView
-                    android:id="@+id/speakerLayout1_textViewcontainer_subTitleText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Title"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
-
-            </LinearLayout>
-
-        </RelativeLayout>
-
-        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/eventView_speakerLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="72dp">
 
-            <ImageView
-                android:id="@+id/speakerLayout_avatarView"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:src="@drawable/ic_account_circle_black_24dp" />
+                <ImageView
+                    android:id="@+id/speakerLayout_avatarView"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/ic_account_circle_black_24dp"
+                    android:contentDescription="speaker"/>
 
-            <LinearLayout
-                android:id="@+id/speakerLayout_textViewContainer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignWithParentIfMissing="true"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_toRightOf="@+id/speakerLayout_avatarView"
-                android:orientation="vertical"
-                android:paddingBottom="16dp"
-                android:paddingTop="16dp">
-
-                <TextView
-                    android:id="@+id/speakerLayout_textViewContainer_titleText"
+                <LinearLayout
+                    android:id="@+id/speakerLayout_textViewContainer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Speaker Name"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+                    android:layout_alignWithParentIfMissing="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_toRightOf="@+id/speakerLayout_avatarView"
+                    android:orientation="vertical"
+                    android:paddingBottom="16dp"
+                    android:paddingTop="16dp">
 
-                <TextView
-                    android:id="@+id/speakerLayout_textViewcontainer_subTitleText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Title"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+                    <TextView
+                        android:id="@+id/speakerLayout_textViewContainer_titleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Speaker Name"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body2"/>
 
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/speakerLayout_textViewContainer_subTitleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Title"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+
+                </LinearLayout>
+
+
 
         </RelativeLayout>
 
