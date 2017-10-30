@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -103,8 +104,9 @@ public class Create_EventFragment extends Fragment implements View.OnClickListen
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
-
+            public void onCancelled(DatabaseError error) {
+                    // Failed to read value
+                Log.w("FIREBASE", "Failed to read value.", error.toException());
             }
         });
 
@@ -122,7 +124,7 @@ public class Create_EventFragment extends Fragment implements View.OnClickListen
     }
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-
+        //TODO Error catch
     }
 
 
@@ -177,7 +179,11 @@ public class Create_EventFragment extends Fragment implements View.OnClickListen
                             if(hourOfDay == 00){
                                 end.setText(new StringBuilder().append("12").append(":").append(pad(minute)) + " " + am_pm);
                             }else {
-                                end.setText(new StringBuilder().append((hourOfDay-12)).append(":").append(pad(minute)) + " " + am_pm);
+                                if(hourOfDay > 12) {
+                                    end.setText(new StringBuilder().append((hourOfDay - 12)).append(":").append(pad(minute)) + " " + am_pm);
+                                } else {
+                                    end.setText(new StringBuilder().append((hourOfDay)).append(":").append(pad(minute)) + " " + am_pm);
+                                }
                             }
                         }
                     }, mHour, mMinute, false);

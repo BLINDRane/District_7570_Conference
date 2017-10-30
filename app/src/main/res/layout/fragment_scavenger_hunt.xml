@@ -1,0 +1,58 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="bwastedsoftware.district_7570_conference.scavengerHunt">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/welcome_scav_Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/scav_Pic"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="33dp"
+        android:layout_marginTop="50dp"
+        android:text="Welcome to the 2017 Scavenger Hunt" />
+
+    <TextView
+        android:id="@+id/instruction_Scav_Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/scav_Button"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="35dp"
+        android:text="@string/scav_Instructions"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/scav_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/submit_Image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="23dp"
+        android:stateListAnimator="@drawable/cast_expanded_controller_bg_gradient_light"
+        android:text="Yes, I'm Ready!" />
+
+    <ImageButton
+        android:id="@+id/scav_Pic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/instruction_Scav_Text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="117dp"
+        android:src="@drawable/homestead_winter" />
+
+    <Button
+        android:id="@+id/submit_Image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="37dp"
+        android:text="Submit Image" />
+
+</RelativeLayout>
