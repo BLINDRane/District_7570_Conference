@@ -47,6 +47,10 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.CardViewHolder>{
         this.fragment = fragment;
     }
 
+    public void setCards(List<Event> cards)
+    {
+        this.cards = cards;
+    }
 
     @Override
     public void onBindViewHolder(CardViewHolder cardViewHolder, final int i) {
