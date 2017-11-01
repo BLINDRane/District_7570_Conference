@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -35,24 +36,30 @@ public class ScheduleFragment extends Fragment {
     ArrayList<ArrayList<Event>> days;
     ViewPager viewPager;
     PagerAdapter adapter;
-
+    Boolean isMine;
+    FirebaseAuth mAuth;
+    String user_id;
+    DatabaseReference myRef;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
         v = inflater.inflate(R.layout.fragment_schedule, container, false);
-
-
+        Bundle args = getArguments();
+        isMine = args.getBoolean("IS_MY_SCHEDULE");
+        mAuth = FirebaseAuth.getInstance();
+        user_id = mAuth.getCurrentUser().getUid();
+        myRef = mDatabase.getReference().child("Users").child(user_id).child("userEvents");
         initializeData();
         //initializeAdapters(rv);
-
+        if(!isMine){
+            refreshData();} else {
+            refreshMyData();
+        }
         // Locate the ViewPager in viewpager_main.xml
         viewPager = (ViewPager) v.findViewById(R.id.pager);
         // Pass results to ViewPagerAdapter Class
-
-
-        refreshData();
         initializeAdapter();
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) v.findViewById(R.id.swipeRefreshLayout);
@@ -61,7 +68,10 @@ public class ScheduleFragment extends Fragment {
             @Override
             public void onRefresh() {
                 // Refresh items
-                refreshData();
+                if(!isMine){
+                    refreshData();} else {
+                    refreshMyData();
+                }
             }
         });
 
@@ -70,7 +80,8 @@ public class ScheduleFragment extends Fragment {
 
 
     FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = mDatabase.getReference().child("Events");
+    DatabaseReference allRef = mDatabase.getReference().child("Events");
+
 
     private void initializeData() {
         days = new ArrayList<>();
@@ -81,21 +92,6 @@ public class ScheduleFragment extends Fragment {
         adapter = new ViewPagerAdapter(getActivity(), days, ScheduleFragment.this);
         // Binds the Adapter to the ViewPager
         viewPager.setAdapter(adapter);
-
-        viewPager.addOnPageChangeListener( new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled( int position, float v, int i1 ) {
-            }
-
-            @Override
-            public void onPageSelected( int position ) {
-            }
-
-            @Override
-            public void onPageScrollStateChanged( int state ) {
-                enableDisableSwipeRefresh( state == ViewPager.SCROLL_STATE_IDLE );
-            }
-        } );
     }
 
     private void refreshData()
@@ -107,7 +103,7 @@ public class ScheduleFragment extends Fragment {
         final ArrayList<Event> newevents = new ArrayList<>();
 
         // Read from the database
-        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        allRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot childrenSnapShot : dataSnapshot.getChildren())
@@ -115,6 +111,39 @@ public class ScheduleFragment extends Fragment {
                     Event event = childrenSnapShot.getValue(Event.class);
                     newevents.add(new Event(event.getTitle(), event.getLocation(), event.getDate(), event.getTime(), event.getDetails(), event.getSpeaker()));
                 }
+                addEvents(newevents);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w("FIREBASE", "Failed to read value.", error.toException());
+            }
+        });
+
+    }
+
+    private void refreshMyData()
+    {
+        final ArrayList<Event> newevents = new ArrayList<>();
+
+        // Read from the database
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                //String value = dataSnapshot.getValue(String.class);
+                //Event = dataSnapshot.getValue(Post.class);
+                //Post post = dataSnapshot.getValue(Post.class);
+                for(DataSnapshot childrenSnapShot : dataSnapshot.getChildren())
+                {
+                    Event event = childrenSnapShot.getValue(Event.class);
+                    newevents.add(new Event(event.getTitle(), event.getLocation(), event.getDate(), event.getTime(), event.getDetails(), event.getSpeaker()));
+                    //Log.w("GETTING CARDS", "value is" + event.getDate() + event.getLocation() + childrenSnapShot.getKey());
+                }
+                //Log.d("FIREBASE", "Value is: " + post);
                 addEvents(newevents);
 
             }
@@ -144,30 +173,24 @@ public class ScheduleFragment extends Fragment {
                 ArrayList<Event> day2 = new ArrayList<>();
                 day2.add(e);
                 days.add(day2);
-                //Log.w("LOOK HERE", "INIT DAY, MAKING NEW ARRAY LIST." + days.size());
+                Log.w("LOOK HERE", "INIT DAY, MAKING NEW ARRAY LIST." + days.size());
             }
             else
             {
-                boolean needNewDay = true;
-
-                for(int i = 0; i < days.size(); i++)
+                for (int i = 0; i < days.size(); i++)
                 {
-                    //Log.w("LOOK HERE", "COMPARING DAYS " + e.getDate() + " VS " + days.get(i).get(0).getDate() + " = " + days.get(i).get(0).getDate().contains(e.getDate()));
-                    if (days.get(i) != null && days.get(i).get(0).getDate().contains(e.getDate()))
+                    if (days.get(i) != null && days.get(i).get(0).getDate().equals(e.getDate()))
                     {
                         days.get(i).add(e);
-                        //Log.w("LOOK HERE", "SAME DAY, ADDED");
-                        needNewDay = false;
-                        break;
+                        Log.w("LOOK HERE", "SAME DAY, ADDED");
                     }
-                }
-
-                if(needNewDay)
-                {
-                    ArrayList<Event> day2 = new ArrayList<>();
-                    day2.add(e);
-                    days.add(day2);
-                    //Log.w("LOOK HERE", "NEW DAY, MAKING NEW ARRAY LIST." + days.size() + e.getDate());
+                    else
+                    {
+                        ArrayList<Event> day2 = new ArrayList<>();
+                        day2.add(e);
+                        days.add(day2);
+                        Log.w("LOOK HERE", "NEW DAY, MAKING NEW ARRAY LIST." + days.size());
+                    }
                 }
             }
         }
@@ -190,11 +213,4 @@ public class ScheduleFragment extends Fragment {
         t.commit();
     }
 
-    private void enableDisableSwipeRefresh(boolean enable) {
-        if (mSwipeRefreshLayout != null) {
-            mSwipeRefreshLayout.setEnabled(enable);
-        }
-    }
-
 }
-
