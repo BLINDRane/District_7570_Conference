@@ -81,6 +81,21 @@ public class ScheduleFragment extends Fragment {
         adapter = new ViewPagerAdapter(getActivity(), days, ScheduleFragment.this);
         // Binds the Adapter to the ViewPager
         viewPager.setAdapter(adapter);
+
+        viewPager.addOnPageChangeListener( new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled( int position, float v, int i1 ) {
+            }
+
+            @Override
+            public void onPageSelected( int position ) {
+            }
+
+            @Override
+            public void onPageScrollStateChanged( int state ) {
+                enableDisableSwipeRefresh( state == ViewPager.SCROLL_STATE_IDLE );
+            }
+        } );
     }
 
     private void refreshData()
@@ -167,6 +182,12 @@ public class ScheduleFragment extends Fragment {
         mFrag.passEvent(getActivity(),event);
         t.replace(R.id.main_container, mFrag);
         t.commit();
+    }
+
+    private void enableDisableSwipeRefresh(boolean enable) {
+        if (mSwipeRefreshLayout != null) {
+            mSwipeRefreshLayout.setEnabled(enable);
+        }
     }
 
 }
