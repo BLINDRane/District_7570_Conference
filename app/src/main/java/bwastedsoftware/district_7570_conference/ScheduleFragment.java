@@ -144,7 +144,7 @@ public class ScheduleFragment extends Fragment {
                 ArrayList<Event> day2 = new ArrayList<>();
                 day2.add(e);
                 days.add(day2);
-                Log.w("LOOK HERE", "INIT DAY, MAKING NEW ARRAY LIST." + days.size());
+                //Log.w("LOOK HERE", "INIT DAY, MAKING NEW ARRAY LIST." + days.size());
             }
             else
             {
@@ -153,14 +153,14 @@ public class ScheduleFragment extends Fragment {
                     if (days.get(i) != null && days.get(i).get(0).getDate().equals(e.getDate()))
                     {
                         days.get(i).add(e);
-                        Log.w("LOOK HERE", "SAME DAY, ADDED");
+                        //Log.w("LOOK HERE", "SAME DAY, ADDED");
                     }
                     else
                     {
                         ArrayList<Event> day2 = new ArrayList<>();
                         day2.add(e);
                         days.add(day2);
-                        Log.w("LOOK HERE", "NEW DAY, MAKING NEW ARRAY LIST." + days.size());
+                        //Log.w("LOOK HERE", "NEW DAY, MAKING NEW ARRAY LIST." + days.size());
                     }
                 }
             }
