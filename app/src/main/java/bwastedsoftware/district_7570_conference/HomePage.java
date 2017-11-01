@@ -1,6 +1,7 @@
 package bwastedsoftware.district_7570_conference;
 
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
@@ -14,6 +15,10 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 
 public class HomePage extends AppCompatActivity {
 
@@ -26,12 +31,15 @@ public class HomePage extends AppCompatActivity {
     FragmentTransaction fragmentTransaction;
     NavigationView navView;
     Drawable drawable;
-
+    FirebaseAuth mAuth;
+    String user_id;
 
     //Sets up the activity screen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mAuth = FirebaseAuth.getInstance();
+        user_id = mAuth.getCurrentUser().getUid();
         setContentView(R.layout.activity_homepage);
         Toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(Toolbar);
@@ -44,6 +52,11 @@ public class HomePage extends AppCompatActivity {
         fragmentTransaction.add(R.id.main_container, new HomeFragment());
         fragmentTransaction.commit();
         getSupportActionBar().setTitle("Home");
+        final Bundle bundle = new Bundle();
+        final ScheduleFragment Schedule = new ScheduleFragment();
+        final ScheduleFragment mySchedule = new ScheduleFragment();
+        mySchedule.setArguments(bundle);
+        Schedule.setArguments(bundle);
 
         userLocalStore = new UserLocalStore(this);
         navView = (NavigationView) findViewById(R.id.navigation_view);
@@ -62,8 +75,9 @@ public class HomePage extends AppCompatActivity {
                         break;
 
                     case R.id.schedule_id:
+                        bundle.putBoolean("IS_MY_SCHEDULE", false);
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.main_container, new ScheduleFragment());
+                        fragmentTransaction.replace(R.id.main_container, Schedule);
                         fragmentTransaction.commit();
                         Toolbar.setBackground(drawable);
                         getSupportActionBar().setTitle("Schedule");
@@ -91,12 +105,13 @@ public class HomePage extends AppCompatActivity {
                         drawerLayout.closeDrawers();
                         break;
 
-                    case R.id.event_id:
+                    case R.id.my_schedule_id:
+                        bundle.putBoolean("IS_MY_SCHEDULE", true);
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.main_container, new EventFragment());
+                        fragmentTransaction.replace(R.id.main_container, mySchedule);
                         fragmentTransaction.commit();
                         Toolbar.setBackground(drawable);
-                        getSupportActionBar().setTitle("Events");
+                        getSupportActionBar().setTitle("My Schedule");
                         item.setChecked(true);
                         drawerLayout.closeDrawers();
                         break;
@@ -130,7 +145,14 @@ public class HomePage extends AppCompatActivity {
                         item.setChecked(true);
                         drawerLayout.closeDrawers();
                         break;
-
+                    case R.id.scav_id:
+                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.main_container, new scavengerHunt());
+                        fragmentTransaction.commit();
+                        Toolbar.setBackground(drawable);
+                        getSupportActionBar().setTitle("Scavenger Hunt");
+                        item.setChecked(true);
+                        drawerLayout.closeDrawers();
                 }
                 return false;
             }

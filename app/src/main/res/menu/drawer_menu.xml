@@ -10,6 +10,10 @@
                 android:title="Schedule"
                 android:icon="@drawable/ic_date_range_black_24dp" />
             <item
+                android:id="@+id/my_schedule_id"
+                android:icon="@android:drawable/ic_menu_my_calendar"
+                android:title="My Schedule" />
+            <item
                 android:id="@+id/speakers_id"
                 android:title="Speakers, Leaders, and Sponsors"
                 android:icon="@drawable/ic_record_voice_over_black_24dp" />
@@ -17,10 +21,6 @@
                 android:title="Map"
                 android:id="@+id/map_id"
                 android:icon="@drawable/ic_room_black_24dp" />
-            <item
-                android:id="@+id/event_id"
-                android:icon="@android:drawable/ic_menu_my_calendar"
-                android:title="Event" />
             <item
                 android:title="Create Event"
                 android:id="@+id/create_event_id"
@@ -36,6 +36,10 @@
                 android:title="Forum"
                 android:id="@+id/forum_id"
                 android:icon="@drawable/ic_forum_black_24dp" />
+            <item
+                android:title="Scavenger Hunt"
+                android:id="@+id/scav_id"
+                android:icon="@drawable/ic_action_name" />
         </menu>
 
     </item>
