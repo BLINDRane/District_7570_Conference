@@ -82,4 +82,9 @@ public class ViewPagerAdapter extends PagerAdapter {
     public void destroyItem(ViewGroup container, int position, Object object) {
         ((ViewPager) container).removeView((RelativeLayout) object);
     }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return days.get(position).get(0).getDate();
+    }
 }
