@@ -148,20 +148,26 @@ public class ScheduleFragment extends Fragment {
             }
             else
             {
-                for (int i = 0; i < days.size(); i++)
+                boolean needNewDay = true;
+
+                for(int i = 0; i < days.size(); i++)
                 {
-                    if (days.get(i) != null && days.get(i).get(0).getDate().equals(e.getDate()))
+                    //Log.w("LOOK HERE", "COMPARING DAYS " + e.getDate() + " VS " + days.get(i).get(0).getDate() + " = " + days.get(i).get(0).getDate().contains(e.getDate()));
+                    if (days.get(i) != null && days.get(i).get(0).getDate().contains(e.getDate()))
                     {
                         days.get(i).add(e);
                         //Log.w("LOOK HERE", "SAME DAY, ADDED");
+                        needNewDay = false;
+                        break;
                     }
-                    else
-                    {
-                        ArrayList<Event> day2 = new ArrayList<>();
-                        day2.add(e);
-                        days.add(day2);
-                        //Log.w("LOOK HERE", "NEW DAY, MAKING NEW ARRAY LIST." + days.size());
-                    }
+                }
+
+                if(needNewDay)
+                {
+                    ArrayList<Event> day2 = new ArrayList<>();
+                    day2.add(e);
+                    days.add(day2);
+                    //Log.w("LOOK HERE", "NEW DAY, MAKING NEW ARRAY LIST." + days.size() + e.getDate());
                 }
             }
         }
