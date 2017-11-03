@@ -8,7 +8,7 @@ import com.google.firebase.iid.FirebaseInstanceIdService;
 /**
  * Created by aaron on 10/30/2017.
  */
-public class FirebaseIDService extends FirebaseInstanceIdService {
+class FirebaseIDService extends FirebaseInstanceIdService {
     private static final String TAG = "FirebaseIDService";
 
     @Override
@@ -21,6 +21,12 @@ public class FirebaseIDService extends FirebaseInstanceIdService {
         sendRegistrationToServer(refreshedToken);
     }
 
+    private void sendRegistrationToServer(String token)
+    {
+        Log.d("PUSH_EXAMPLE_LOG", "Refreshed token: " + token);
+    }
+}
+
     /**
      * Persist token to third-party servers.
      *
@@ -29,7 +35,4 @@ public class FirebaseIDService extends FirebaseInstanceIdService {
      *
      * @param token The new token.
      */
-    private void sendRegistrationToServer(String token) {
-        // Add custom implementation, as needed.
-    }
-}
+
