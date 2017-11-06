@@ -24,6 +24,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class Login extends AppCompatActivity implements View.OnClickListener {
 
     //Creates the buttons and text boxes on the page
@@ -36,8 +38,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     //This creates a database instance for Firebase
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
-
-
+    Bundle bundle;
+    Boolean isAdmin;
+    ArrayList<String> adminEmails = new ArrayList<>();
     //Here android is setting up the activity that will be displayed
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +55,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
         etEmail = (EditText) findViewById(R.id.edit_txt_useremail);
         etPassword = (EditText) findViewById(R.id.edit_txt_password);
-
         btnWheel = (ImageView) findViewById(R.id.login_rotary_button);
         btnLogin = (Button) findViewById(R.id.btn_login);
         btnRegisterT = (Button) findViewById(R.id.btn_register_transfer);
@@ -67,8 +69,19 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         btnRegisterT.setOnClickListener(this);
         btnWheel.setOnClickListener(this);
         userLocalStore = new UserLocalStore(this);
+
+        //populate the list of admins
+        adminEmails.add("wyatt.karnes@gmail.com");
+
     }
 
+    private void checkAdminStatus(){
+        if(adminEmails.contains(etEmail.getText().toString().trim())){
+            isAdmin = true;
+        } else {
+            isAdmin = false;
+        }
+    }
 
     // Defines what happens when a button is clicked
     @Override
@@ -94,7 +107,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         String Password = etPassword.getText().toString().trim();
 
         if(!TextUtils.isEmpty(Email) && !TextUtils.isEmpty(Password)){
-
+            checkAdminStatus();
             mAuth.signInWithEmailAndPassword(Email, Password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
@@ -124,8 +137,10 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 if(dataSnapshot.hasChild(user_id)){
-
+                    bundle = new Bundle();
+                    bundle.putBoolean("IS_ADMIN", isAdmin);
                     Intent mIntent = new Intent(Login.this, HomePage.class);
+                    mIntent.putExtras(bundle);
                     mIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(mIntent);
 

@@ -1,48 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-        <group android:checkableBehavior="single">
-            <item
-                android:id="@+id/home_id"
-                android:title="Home"
-                android:icon="@drawable/ic_home_black_24dp" />
-            <item
-                android:id="@+id/schedule_id"
-                android:title="Schedule"
-                android:icon="@drawable/ic_date_range_black_24dp" />
-            <item
-                android:id="@+id/my_schedule_id"
-                android:icon="@android:drawable/ic_menu_my_calendar"
-                android:title="My Schedule" />
-            <item
-                android:id="@+id/speakers_id"
-                android:title="Speakers, Leaders, and Sponsors"
-                android:icon="@drawable/ic_record_voice_over_black_24dp" />
-            <item
-                android:title="Map"
-                android:id="@+id/map_id"
-                android:icon="@drawable/ic_room_black_24dp" />
-            <item
-                android:title="Create Event"
-                android:id="@+id/create_event_id"
-                android:icon="@drawable/ic_create_black_24dp" />
-            <item
-                android:title="Create Speaker"
-                android:id="@+id/create_speaker_id"
-                android:icon="@drawable/ic_create_black_24dp" />
-        </group>
-    <item android:title="Social">
-        <menu>
-            <item
-                android:title="Forum"
-                android:id="@+id/forum_id"
-                android:icon="@drawable/ic_forum_black_24dp" />
-            <item
-                android:title="Scavenger Hunt"
-                android:id="@+id/scav_id"
-                android:icon="@drawable/ic_action_name" />
-        </menu>
+<group android:checkableBehavior="single">
+    <item
+        android:id="@+id/home_id"
+        android:title="Home"
+        android:icon="@drawable/ic_home_black_24dp" />
+    <item
+        android:id="@+id/schedule_id"
+        android:title="Schedule"
+        android:icon="@drawable/ic_date_range_black_24dp" />
+    <item
+        android:id="@+id/my_schedule_id"
+        android:icon="@android:drawable/ic_menu_my_calendar"
+        android:title="My Schedule" />
+    <item
+        android:id="@+id/speakers_id"
+        android:title="Speakers, Leaders, and Sponsors"
+        android:icon="@drawable/ic_record_voice_over_black_24dp" />
+    <item
+        android:title="Map"
+        android:id="@+id/map_id"
+        android:icon="@drawable/ic_room_black_24dp" />
+    <item
+        android:visible="false"
+        android:title="Create Event"
+        android:id="@+id/create_event_id"
+        android:icon="@drawable/ic_create_black_24dp" />
+    <item
+        android:visible = "false"
+        android:title="Create Speaker"
+        android:id="@+id/create_speaker_id"
+        android:icon="@drawable/ic_create_black_24dp" />
+</group>
+<item android:title="Social">
+    <menu>
+        <item
+            android:title="Forum"
+            android:id="@+id/forum_id"
+            android:icon="@drawable/ic_forum_black_24dp" />
+        <item
+            android:title="Scavenger Hunt"
+            android:id="@+id/scav_id"
+            android:icon="@drawable/ic_action_name" />
+    </menu>
 
-    </item>
+</item>
 
 
 </menu>

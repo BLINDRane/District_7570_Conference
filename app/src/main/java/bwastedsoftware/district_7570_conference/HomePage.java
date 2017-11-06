@@ -13,7 +13,9 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -33,11 +35,16 @@ public class HomePage extends AppCompatActivity {
     Drawable drawable;
     FirebaseAuth mAuth;
     String user_id;
-
+    Bundle inBundle;
+    Boolean isAdmin;
+    MenuItem createEvent;
+    MenuItem createSpeaker;
     //Sets up the activity screen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        inBundle = getIntent().getExtras();
+        isAdmin = inBundle.getBoolean("IS_ADMIN");
         mAuth = FirebaseAuth.getInstance();
         user_id = mAuth.getCurrentUser().getUid();
         setContentView(R.layout.activity_homepage);
@@ -48,6 +55,11 @@ public class HomePage extends AppCompatActivity {
         //Initialize that dank action bar
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, Toolbar, R.string.drawer_open, R.string.drawer_close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        navView = (NavigationView) findViewById(R.id.navigation_view);
+        
+        createEvent =  navView.getMenu().findItem(R.id.create_event_id);
+        createSpeaker = navView.getMenu().findItem(R.id.create_speaker_id);
+
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.add(R.id.main_container, new HomeFragment());
         fragmentTransaction.commit();
@@ -57,9 +69,15 @@ public class HomePage extends AppCompatActivity {
         final ScheduleFragment mySchedule = new ScheduleFragment();
         mySchedule.setArguments(bundle);
         Schedule.setArguments(bundle);
-
+        if(isAdmin){
+            createEvent.setVisible(true);
+            createSpeaker.setVisible(true);
+            Toast.makeText(HomePage.this, "Admin Detected", Toast.LENGTH_LONG).show();
+        } else if(!isAdmin){
+            Toast.makeText(HomePage.this, "Normie Detected", Toast.LENGTH_LONG).show();
+        }
         userLocalStore = new UserLocalStore(this);
-        navView = (NavigationView) findViewById(R.id.navigation_view);
+
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
