@@ -10,6 +10,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -79,6 +80,19 @@ public class ScheduleFragment extends Fragment {
                     refreshData();} else {
                     refreshMyData();
                 }
+            }
+        });
+
+        viewPager.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                mSwipeRefreshLayout.setEnabled(false);
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_UP:
+                        mSwipeRefreshLayout.setEnabled(true);
+                        break;
+                }
+                return false;
             }
         });
 
@@ -175,7 +189,7 @@ public class ScheduleFragment extends Fragment {
         for(Event e : newevents)
         {
             //Log.w("LOOK HERE", "HEY TRYING AN EVENT");
-            if(days.size() == 0)
+            if(days.size() == 0) //make first day
             {
                 ArrayList<Event> day2 = new ArrayList<>();
                 day2.add(e);
@@ -184,20 +198,23 @@ public class ScheduleFragment extends Fragment {
             }
             else
             {
-                for (int i = 0; i < days.size(); i++)
+                boolean sorted = false;
+                for (int i = 0; i < days.size(); i++) //check each day in the thing
                 {
-                    if (days.get(i) != null && days.get(i).get(0).getDate().contains(e.getDate()))
+                    if(days.get(i) != null && getDateFromString(days.get(i).get(0).getDate()).compareTo(getDateFromString(e.getDate())) == 0)
                     {
                         days.get(i).add(e);
+                        sorted = true;
+                        break;
                         //Log.w("LOOK HERE", "SAME DAY, ADDED");
                     }
-                    else
-                    {
-                        ArrayList<Event> day2 = new ArrayList<>();
-                        day2.add(e);
-                        days.add(day2);
-                        //Log.w("LOOK HERE", "NEW DAY, MAKING NEW ARRAY LIST." + days.size());
-                    }
+                }
+
+                if(!sorted)
+                {
+                    ArrayList<Event> day2 = new ArrayList<>();
+                    day2.add(e);
+                    days.add(day2);
                 }
             }
         }
