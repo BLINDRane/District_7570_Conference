@@ -14,6 +14,8 @@ import com.twitter.sdk.android.core.models.Card;
 
 import java.util.List;
 
+import static android.R.attr.fragment;
+
 public class speakerRVAdapter extends RecyclerView.Adapter<speakerRVAdapter.CardViewHolder>{
 
 
@@ -22,10 +24,12 @@ public class speakerRVAdapter extends RecyclerView.Adapter<speakerRVAdapter.Card
         CardView cv;
         TextView speakerName;
         ImageView speakerPhoto;
+        View view;
 
         CardViewHolder(View itemView)
         {
             super(itemView);
+            this.view = itemView;
             cv = (CardView) itemView.findViewById(R.id.cv);
             speakerName = (TextView) itemView.findViewById(R.id.card_title);
             speakerPhoto = (ImageView) itemView.findViewById(R.id.card_photo);
@@ -34,18 +38,27 @@ public class speakerRVAdapter extends RecyclerView.Adapter<speakerRVAdapter.Card
 
     private List<Speaker> cards;
     private Context context;
+    private SpeakerListFragment fragment;
 
-    speakerRVAdapter(List<Speaker> cards, Context context)
+    speakerRVAdapter(List<Speaker> cards, Context context, SpeakerListFragment fragment)
     {
         this.cards = cards;
         this.context = context;
+        this.fragment = fragment;
     }
 
-
     @Override
-    public void onBindViewHolder(CardViewHolder cardViewHolder, int i) {
+    public void onBindViewHolder(CardViewHolder cardViewHolder, final int i) {
         cardViewHolder.speakerName.setText(cards.get(i).getName());
         Picasso.with(context).load(cards.get(i).getPhotoURL()).fit().placeholder(R.drawable.ic_account_circle_black_24dp).into(cardViewHolder.speakerPhoto);
+
+        cardViewHolder.view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Log.i("W4K","Click-"+position);
+                fragment.loadSpeakerDetails(cards.get(i));
+            }
+        });
     }
 
     @Override

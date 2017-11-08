@@ -2,6 +2,7 @@ package bwastedsoftware.district_7570_conference;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -67,7 +68,7 @@ public class SpeakerListFragment extends Fragment
 
     private void initializeAdapter(RecyclerView rv)
     {
-        adapter = new speakerRVAdapter(speakers, getActivity());
+        adapter = new speakerRVAdapter(speakers, getActivity(), this);
         rv.setAdapter(adapter);
     }
 
@@ -134,4 +135,14 @@ public class SpeakerListFragment extends Fragment
         adapter.notifyDataSetChanged();
         mSwipeRefreshLayout.setRefreshing(false);
     }
+
+    public void loadSpeakerDetails(Speaker speaker)
+    {
+        FragmentTransaction t = this.getFragmentManager().beginTransaction();
+        SpeakerFragment mFrag = new SpeakerFragment();
+        mFrag.passSpeaker(getActivity(),speaker);
+        t.replace(R.id.main_container, mFrag);
+        t.commit();
+    }
+
 }
