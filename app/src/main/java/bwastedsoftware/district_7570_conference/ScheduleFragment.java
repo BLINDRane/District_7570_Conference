@@ -21,7 +21,14 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.Locale;
 
 
 public class ScheduleFragment extends Fragment {
@@ -173,30 +180,92 @@ public class ScheduleFragment extends Fragment {
                 ArrayList<Event> day2 = new ArrayList<>();
                 day2.add(e);
                 days.add(day2);
-                Log.w("LOOK HERE", "INIT DAY, MAKING NEW ARRAY LIST." + days.size());
+                //Log.w("LOOK HERE", "INIT DAY, MAKING NEW ARRAY LIST." + days.size());
             }
             else
             {
                 for (int i = 0; i < days.size(); i++)
                 {
-                    if (days.get(i) != null && days.get(i).get(0).getDate().equals(e.getDate()))
+                    if (days.get(i) != null && days.get(i).get(0).getDate().contains(e.getDate()))
                     {
                         days.get(i).add(e);
-                        Log.w("LOOK HERE", "SAME DAY, ADDED");
+                        //Log.w("LOOK HERE", "SAME DAY, ADDED");
                     }
                     else
                     {
                         ArrayList<Event> day2 = new ArrayList<>();
                         day2.add(e);
                         days.add(day2);
-                        Log.w("LOOK HERE", "NEW DAY, MAKING NEW ARRAY LIST." + days.size());
+                        //Log.w("LOOK HERE", "NEW DAY, MAKING NEW ARRAY LIST." + days.size());
                     }
                 }
             }
         }
         //Log.w("LOOK HERE", "Did Events! " + days.size() + days.get(0).size());
 
+        sortEventsByDay();
+
+        sortEventsByTime();
         onItemsLoadComplete();
+    }
+
+    void sortEventsByDay()
+    {
+        Collections.sort(days, new Comparator<ArrayList<Event>>()
+        {
+            @Override
+            public int compare(ArrayList<Event> o1, ArrayList<Event> o2)
+            {
+                if(getDateFromString(o1.get(0).getDate()) != null && getDateFromString(o1.get(0).getDate()) != null)
+                {
+                    return getDateFromString(o1.get(0).getDate()).compareTo(getDateFromString(o2.get(0).getDate()));
+                }
+
+                return 0;
+            }
+        });
+    }
+
+    private Date getDateFromString(String str)
+    {
+        DateFormat format = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH);
+        try
+        {
+            Date date = format.parse(str);
+            return date;
+        } catch (ParseException e)
+        {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    void sortEventsByTime()
+    {
+        for(int i = 0; i < days.size(); i++)
+        {
+            Collections.sort(days.get(i), new Comparator<Event>()
+            {
+                @Override
+                public int compare(Event o1, Event o2)
+                {
+                    try {
+                        return new SimpleDateFormat("hh:mm a").parse(getStartTime(o1.getTime())).compareTo(new SimpleDateFormat("hh:mm a").parse(getStartTime(o2.getTime())));
+                    } catch (ParseException e) {
+                        return 0;
+                    }
+                }
+            });
+        }
+    }
+
+    private String getStartTime(String time)
+    {
+        String[] out = time.split(" to");
+
+        String res = out[0];
+
+        return res.replace("From ", "");
     }
 
     void onItemsLoadComplete() {
