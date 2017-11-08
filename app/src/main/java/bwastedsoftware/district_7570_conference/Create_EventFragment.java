@@ -161,9 +161,12 @@ public class Create_EventFragment extends Fragment implements View.OnClickListen
                                               int minute) {
                             String am_pm = (hourOfDay < 12) ? "AM" : "PM";
                             if(hourOfDay == 00){
+
                                 strt.setText(new StringBuilder().append("12").append(":").append(pad(minute)) + " " + am_pm);
-                            }else {
+                            }else if(hourOfDay > 12) {
                                 strt.setText(new StringBuilder().append((hourOfDay-12)).append(":").append(pad(minute)) + " " + am_pm);
+                            } else {
+                                strt.setText(new StringBuilder().append((hourOfDay)).append(":").append(pad(minute)) + " " + am_pm);
                             }
                         }
                     }, mHour, mMinute, false);
