@@ -1,7 +1,9 @@
 package bwastedsoftware.district_7570_conference;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,6 +14,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RVAdapter extends RecyclerView.Adapter<RVAdapter.CardViewHolder>{
@@ -24,6 +27,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.CardViewHolder>{
         TextView eventTime;
         ImageView speakerPhoto;
         View view;
+
 
         CardViewHolder(View itemView)
         {
@@ -53,10 +57,41 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.CardViewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(CardViewHolder cardViewHolder, final int i) {
+    public void onBindViewHolder(final CardViewHolder cardViewHolder, final int i) {
         cardViewHolder.eventTitle.setText(cards.get(i).getTitle());
         cardViewHolder.eventTime.setText(cards.get(i).getTime());
         Picasso.with(context).load(cards.get(i).getSpeaker().getPhotoURL()).fit().placeholder(R.drawable.ic_account_circle_black_24dp).transform(new PicassoCircleTransform()).into(cardViewHolder.speakerPhoto);
+
+
+
+        cardViewHolder.view.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                CharSequence options[] = new CharSequence[] {"View Event", "Remove Event", "Cancel"};
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(cardViewHolder.view.getContext());
+                builder.setTitle("Options");
+                builder.setItems(options, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        int choice = which;
+                        switch(choice) {
+                            case 0:
+                                fragment.loadEventDetails(cards.get(i));
+                                break;
+                            case 1:
+                                fragment.removeEvent(cards.get(i));
+                                break;
+                            case 2:
+                                break;
+                        }
+
+                    }
+                });
+                builder.show();
+                return true;
+            }
+        });
 
         cardViewHolder.view.setOnClickListener(new View.OnClickListener() {
             @Override

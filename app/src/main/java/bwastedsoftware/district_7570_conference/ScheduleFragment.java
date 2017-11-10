@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -20,6 +21,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.text.DateFormat;
@@ -30,6 +32,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.Locale;
+
+import static android.content.ContentValues.TAG;
 
 
 public class ScheduleFragment extends Fragment {
@@ -45,9 +49,11 @@ public class ScheduleFragment extends Fragment {
     ViewPager viewPager;
     PagerAdapter adapter;
     Boolean isMine;
+    Boolean isAdmin;
     FirebaseAuth mAuth;
     String user_id;
     DatabaseReference myRef;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -56,13 +62,15 @@ public class ScheduleFragment extends Fragment {
         v = inflater.inflate(R.layout.fragment_schedule, container, false);
         Bundle args = getArguments();
         isMine = args.getBoolean("IS_MY_SCHEDULE");
+        isAdmin = args.getBoolean("IS_ADMIN");
         mAuth = FirebaseAuth.getInstance();
         user_id = mAuth.getCurrentUser().getUid();
         myRef = mDatabase.getReference().child("Users").child(user_id).child("userEvents");
         initializeData();
         //initializeAdapters(rv);
-        if(!isMine){
-            refreshData();} else {
+        if (!isMine) {
+            refreshData();
+        } else {
             refreshMyData();
         }
         // Locate the ViewPager in viewpager_main.xml
@@ -76,8 +84,9 @@ public class ScheduleFragment extends Fragment {
             @Override
             public void onRefresh() {
                 // Refresh items
-                if(!isMine){
-                    refreshData();} else {
+                if (!isMine) {
+                    refreshData();
+                } else {
                     refreshMyData();
                 }
             }
@@ -108,15 +117,13 @@ public class ScheduleFragment extends Fragment {
         days = new ArrayList<>();
     }
 
-    private void initializeAdapter()
-    {
+    private void initializeAdapter() {
         adapter = new ViewPagerAdapter(getActivity(), days, ScheduleFragment.this);
         // Binds the Adapter to the ViewPager
         viewPager.setAdapter(adapter);
     }
 
-    private void refreshData()
-    {
+    private void refreshData() {
         //days(0).add(new Event("EVENT  1", "LOCATION", "DATE", "TIME", "DETAILS", new Speaker("Billy", "Bio", "http://www.munkurious.com/sharex/2017.10/ghanaTempleStainedGlass_100x.png")));
         //events.add(new Event("EVENT TITLE 2", "LOCATION", "DATE", "TIME", "DETAILS", new Speaker("Sue", "Bio", "Photo")));
 
@@ -127,8 +134,7 @@ public class ScheduleFragment extends Fragment {
         allRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for(DataSnapshot childrenSnapShot : dataSnapshot.getChildren())
-                {
+                for (DataSnapshot childrenSnapShot : dataSnapshot.getChildren()) {
                     Event event = childrenSnapShot.getValue(Event.class);
                     newevents.add(new Event(event.getTitle(), event.getLocation(), event.getDate(), event.getTime(), event.getDetails(), event.getSpeaker()));
                 }
@@ -145,8 +151,7 @@ public class ScheduleFragment extends Fragment {
 
     }
 
-    private void refreshMyData()
-    {
+    private void refreshMyData() {
         final ArrayList<Event> newevents = new ArrayList<>();
 
         // Read from the database
@@ -158,8 +163,7 @@ public class ScheduleFragment extends Fragment {
                 //String value = dataSnapshot.getValue(String.class);
                 //Event = dataSnapshot.getValue(Post.class);
                 //Post post = dataSnapshot.getValue(Post.class);
-                for(DataSnapshot childrenSnapShot : dataSnapshot.getChildren())
-                {
+                for (DataSnapshot childrenSnapShot : dataSnapshot.getChildren()) {
                     Event event = childrenSnapShot.getValue(Event.class);
                     newevents.add(new Event(event.getTitle(), event.getLocation(), event.getDate(), event.getTime(), event.getDetails(), event.getSpeaker()));
                     //Log.w("GETTING CARDS", "value is" + event.getDate() + event.getLocation() + childrenSnapShot.getKey());
@@ -178,31 +182,26 @@ public class ScheduleFragment extends Fragment {
 
     }
 
-    private void addEvents(ArrayList<Event> newevents)
-    {
+    private void addEvents(ArrayList<Event> newevents) {
         //events.addAll(newevents);
         //Log.w("PROBLEM HERE", "LIST #" + events.size());
         //newevents.add(new Event("EVENT TITLE 3", "LOCATION", "DATE", "TIME", "DETAILS", new Speaker("Aaron's Little Helper", "bio", "Photo")));
 
         days.clear();
 
-        for(Event e : newevents)
-        {
+        for (Event e : newevents) {
             //Log.w("LOOK HERE", "HEY TRYING AN EVENT");
-            if(days.size() == 0) //make first day
+            if (days.size() == 0) //make first day
             {
                 ArrayList<Event> day2 = new ArrayList<>();
                 day2.add(e);
                 days.add(day2);
                 //Log.w("LOOK HERE", "INIT DAY, MAKING NEW ARRAY LIST." + days.size());
-            }
-            else
-            {
+            } else {
                 boolean sorted = false;
                 for (int i = 0; i < days.size(); i++) //check each day in the thing
                 {
-                    if(days.get(i) != null && getDateFromString(days.get(i).get(0).getDate()).compareTo(getDateFromString(e.getDate())) == 0)
-                    {
+                    if (days.get(i) != null && getDateFromString(days.get(i).get(0).getDate()).compareTo(getDateFromString(e.getDate())) == 0) {
                         days.get(i).add(e);
                         sorted = true;
                         break;
@@ -210,8 +209,7 @@ public class ScheduleFragment extends Fragment {
                     }
                 }
 
-                if(!sorted)
-                {
+                if (!sorted) {
                     ArrayList<Event> day2 = new ArrayList<>();
                     day2.add(e);
                     days.add(day2);
@@ -226,15 +224,11 @@ public class ScheduleFragment extends Fragment {
         onItemsLoadComplete();
     }
 
-    void sortEventsByDay()
-    {
-        Collections.sort(days, new Comparator<ArrayList<Event>>()
-        {
+    void sortEventsByDay() {
+        Collections.sort(days, new Comparator<ArrayList<Event>>() {
             @Override
-            public int compare(ArrayList<Event> o1, ArrayList<Event> o2)
-            {
-                if(getDateFromString(o1.get(0).getDate()) != null && getDateFromString(o1.get(0).getDate()) != null)
-                {
+            public int compare(ArrayList<Event> o1, ArrayList<Event> o2) {
+                if (getDateFromString(o1.get(0).getDate()) != null && getDateFromString(o1.get(0).getDate()) != null) {
                     return getDateFromString(o1.get(0).getDate()).compareTo(getDateFromString(o2.get(0).getDate()));
                 }
 
@@ -243,29 +237,22 @@ public class ScheduleFragment extends Fragment {
         });
     }
 
-    private Date getDateFromString(String str)
-    {
+    private Date getDateFromString(String str) {
         DateFormat format = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH);
-        try
-        {
+        try {
             Date date = format.parse(str);
             return date;
-        } catch (ParseException e)
-        {
+        } catch (ParseException e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    void sortEventsByTime()
-    {
-        for(int i = 0; i < days.size(); i++)
-        {
-            Collections.sort(days.get(i), new Comparator<Event>()
-            {
+    void sortEventsByTime() {
+        for (int i = 0; i < days.size(); i++) {
+            Collections.sort(days.get(i), new Comparator<Event>() {
                 @Override
-                public int compare(Event o1, Event o2)
-                {
+                public int compare(Event o1, Event o2) {
                     try {
                         return new SimpleDateFormat("hh:mm a").parse(getStartTime(o1.getTime())).compareTo(new SimpleDateFormat("hh:mm a").parse(getStartTime(o2.getTime())));
                     } catch (ParseException e) {
@@ -276,8 +263,7 @@ public class ScheduleFragment extends Fragment {
         }
     }
 
-    private String getStartTime(String time)
-    {
+    private String getStartTime(String time) {
         String[] out = time.split(" to");
 
         String res = out[0];
@@ -290,13 +276,89 @@ public class ScheduleFragment extends Fragment {
         mSwipeRefreshLayout.setRefreshing(false);
     }
 
-    public void loadEventDetails(Event event)
-    {
+    public void loadEventDetails(Event event) {
         FragmentTransaction t = this.getFragmentManager().beginTransaction();
         EventFragment mFrag = new EventFragment();
-        mFrag.passEvent(getActivity(),event);
+        mFrag.passEvent(getActivity(), event);
         t.replace(R.id.main_container, mFrag);
         t.commit();
     }
 
+    public void removeEvent(final Event event) {
+        //remove an event a specific user
+        if (isMine) {
+            DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
+
+            Query titleQuery = userRef.child("userEvents").orderByChild("title").equalTo(event.getTitle());
+
+            titleQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    for (DataSnapshot titleSnapshot : dataSnapshot.getChildren()) {
+                        titleSnapshot.getRef().removeValue();
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    Log.e(TAG, "onCancelled", databaseError.toException());
+                }
+            });
+        } else if (!isMine && isAdmin) {
+            //Delete the event for any user who has RSVP'd to it.
+            DatabaseReference fullRef = FirebaseDatabase.getInstance().getReference();
+
+            Query fullTitleQuery = fullRef.child("Events").orderByChild("title").equalTo(event.getTitle());
+            Query userQuery = fullRef.child("Users");
+
+            //This is a bit of a complex bit here. First, get a snapshot of the database at "Users."
+                    userQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            //For every datasnapshot taken (one for each user) do block
+                            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                                //Get yet another database reference pointing to each snapshot, which should be a user.
+                                DatabaseReference temp = FirebaseDatabase.getInstance().getReference().child("Users").child(snapshot.getKey());
+                                //Query that reference as with any other, and remove any matching events.
+                                Query userEventQuery = temp.child("userEvents").orderByChild("title").equalTo(event.getTitle());
+                                userEventQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        for (DataSnapshot userEventSnapshot : dataSnapshot.getChildren()) {
+                                            userEventSnapshot.getRef().removeValue();
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+                                        Log.e(TAG, "onCancelled", databaseError.toException());
+                                    }
+                                });
+
+                            }
+                        }
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+                        }
+                    });
+            //Delete the event from the schedule.
+            fullTitleQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    for (DataSnapshot titleSnapshot : dataSnapshot.getChildren()) {
+                        titleSnapshot.getRef().removeValue();
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    Log.e(TAG, "onCancelled", databaseError.toException());
+                }
+            });
+        } else {
+            Toast.makeText(getContext(), "Admin permissions Required", Toast.LENGTH_LONG).show();
+        }
+        FragmentTransaction refresh = getFragmentManager().beginTransaction();
+        refresh.detach(this).attach(this).commit();
+    }
 }

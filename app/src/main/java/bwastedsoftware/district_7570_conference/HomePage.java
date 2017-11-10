@@ -56,7 +56,7 @@ public class HomePage extends AppCompatActivity {
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, Toolbar, R.string.drawer_open, R.string.drawer_close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         navView = (NavigationView) findViewById(R.id.navigation_view);
-        
+
         createEvent =  navView.getMenu().findItem(R.id.create_event_id);
         createSpeaker = navView.getMenu().findItem(R.id.create_speaker_id);
 
@@ -73,8 +73,6 @@ public class HomePage extends AppCompatActivity {
             createEvent.setVisible(true);
             createSpeaker.setVisible(true);
             Toast.makeText(HomePage.this, "Admin Detected", Toast.LENGTH_LONG).show();
-        } else if(!isAdmin){
-            Toast.makeText(HomePage.this, "Normie Detected", Toast.LENGTH_LONG).show();
         }
         userLocalStore = new UserLocalStore(this);
 
@@ -94,6 +92,7 @@ public class HomePage extends AppCompatActivity {
 
                     case R.id.schedule_id:
                         bundle.putBoolean("IS_MY_SCHEDULE", false);
+                        bundle.putBoolean("IS_ADMIN",isAdmin);
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.main_container, Schedule);
                         fragmentTransaction.commit();
@@ -125,6 +124,7 @@ public class HomePage extends AppCompatActivity {
 
                     case R.id.my_schedule_id:
                         bundle.putBoolean("IS_MY_SCHEDULE", true);
+                        bundle.putBoolean("IS_ADMIN",isAdmin);
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.main_container, mySchedule);
                         fragmentTransaction.commit();

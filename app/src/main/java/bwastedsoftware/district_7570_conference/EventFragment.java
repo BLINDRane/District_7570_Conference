@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -27,6 +28,10 @@ import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -40,6 +45,7 @@ public class EventFragment extends Fragment implements View.OnClickListener {
     protected View mView;
     private FirebaseAuth mAuth;
     private DatabaseReference nDatabase;
+    RatingBar rate;
 
     public EventFragment() {
         // Required empty public constructor
@@ -52,6 +58,9 @@ public class EventFragment extends Fragment implements View.OnClickListener {
 
         mAuth = FirebaseAuth.getInstance();
         nDatabase = FirebaseDatabase.getInstance().getReference();
+
+
+        rate = (RatingBar) mView.findViewById(R.id.eventRater);
         rsvp = (FloatingActionButton) mView.findViewById(R.id.eventView_attendingButton);
         rsvp.setOnClickListener(this);
 
@@ -96,6 +105,22 @@ public class EventFragment extends Fragment implements View.OnClickListener {
         mLocationView.setText(mEvent.getLocation());
         mTimeView.setText(mEvent.getTime());
         mBodyView.setText(mEvent.getDetails());
+
+        SimpleDateFormat formatter = new SimpleDateFormat("MMM dd, yyyy");
+        Date current = Calendar.getInstance().getTime();
+        Date date = null;
+        try {
+            date = (Date) formatter.parse(mEvent.getDate().toString().trim());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        long eventDate = date.getTime();
+        long currentDate = current.getTime();
+
+        if(eventDate < currentDate){
+            rate.setIsIndicator(true);
+        }
+
     }
 
     @Override
