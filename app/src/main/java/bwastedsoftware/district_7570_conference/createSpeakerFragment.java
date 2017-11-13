@@ -1,12 +1,18 @@
 package bwastedsoftware.district_7570_conference;
 
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +29,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 
 import static android.app.Activity.RESULT_OK;
@@ -89,7 +96,15 @@ public class createSpeakerFragment extends Fragment implements View.OnClickListe
             e.printStackTrace();
         }
 
-        Bitmap resized = Bitmap.createScaledBitmap(bitmap, 300, 300, false);
+        //resize the bitmap
+        Bitmap resized = null;
+        try
+        {
+            resized = Bitmap.createScaledBitmap(rotateImageIfRequired(bitmap, getActivity(), imageURI), 300, 300, false);
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         resized.compress(Bitmap.CompressFormat.JPEG, 100, baos);
@@ -105,6 +120,7 @@ public class createSpeakerFragment extends Fragment implements View.OnClickListe
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                 // taskSnapshot.getMetadata() contains file metadata such as size, content-type, and download URL.
+                //noinspection VisibleForTests
                 Uri downloadUrl = taskSnapshot.getDownloadUrl();
                 DatabaseReference newSpeaker = mDatabase.push();
                 newSpeaker.child("name").setValue(name);
@@ -137,6 +153,46 @@ public class createSpeakerFragment extends Fragment implements View.OnClickListe
     }
 
 
+    //so samsung likes to take pictures with an exif showing their rotation instead of the pixels; dumb right?
+    //anyway thanks to some code from online (https://teamtreehouse.com/community/how-to-rotate-images-to-the-correct-orientation-portrait-by-editing-the-exif-data-once-photo-has-been-taken)
+    //we can fix this rotation if required
+    public static Bitmap rotateImageIfRequired(Bitmap img, Context context, Uri selectedImage) throws IOException {
+
+        if (selectedImage.getScheme().equals("content")) {
+            String[] projection = { MediaStore.Images.ImageColumns.ORIENTATION };
+            Cursor c = context.getContentResolver().query(selectedImage, projection, null, null, null);
+            if (c.moveToFirst()) {
+                final int rotation = c.getInt(0);
+                c.close();
+                return rotateImage(img, rotation);
+            }
+            return img;
+        } else {
+            ExifInterface ei = new ExifInterface(selectedImage.getPath());
+            int orientation = ei.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
+
+            switch (orientation) {
+                case ExifInterface.ORIENTATION_ROTATE_90:
+                    return rotateImage(img, 90);
+                case ExifInterface.ORIENTATION_ROTATE_180:
+                    return rotateImage(img, 180);
+                case ExifInterface.ORIENTATION_ROTATE_270:
+                    return rotateImage(img, 270);
+                default:
+                    return img;
+            }
+        }
+    }
+
+    private static Bitmap rotateImage(Bitmap img, int degree) {
+        Matrix matrix = new Matrix();
+        matrix.postRotate(degree);
+        Bitmap rotatedImg = Bitmap.createBitmap(img, 0, 0, img.getWidth(), img.getHeight(), matrix, true);
+        return rotatedImg;
+    }
+
+
+
     private void openGallery(){
         //Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
         //startActivityForResult(gallery, PICK_IMAGE);
@@ -151,6 +207,7 @@ public class createSpeakerFragment extends Fragment implements View.OnClickListe
         if(resultCode == RESULT_OK && requestCode == PICK_IMAGE){
             imageURI = data.getData();
             speakerPic.setImageURI(imageURI);
+
         }
     }
 }
