@@ -9,6 +9,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -278,6 +279,7 @@ public class ScheduleFragment extends Fragment {
 
     public void loadEventDetails(Event event) {
         FragmentTransaction t = this.getFragmentManager().beginTransaction();
+        t.addToBackStack("Event");
         EventFragment mFrag = new EventFragment();
         mFrag.passEvent(getActivity(), event);
         t.replace(R.id.main_container, mFrag);
@@ -361,4 +363,30 @@ public class ScheduleFragment extends Fragment {
         FragmentTransaction refresh = getFragmentManager().beginTransaction();
         refresh.detach(this).attach(this).commit();
     }
+
+    @Override
+    public void onResume() {
+
+        super.onResume();
+
+        getView().setFocusableInTouchMode(true);
+        getView().requestFocus();
+        getView().setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+
+                if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK){
+
+                    getActivity().getSupportFragmentManager().popBackStack();
+                    ((HomePage)getActivity()).getSupportActionBar().setTitle("Home");
+                    ((HomePage)getActivity()).toolbarBackground(false);
+                    return true;
+
+                }
+
+                return false;
+            }
+        });
+    }
+
 }

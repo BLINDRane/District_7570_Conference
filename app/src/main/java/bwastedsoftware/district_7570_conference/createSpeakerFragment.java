@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -118,4 +119,31 @@ public class createSpeakerFragment extends Fragment implements View.OnClickListe
             speakerPic.setImageURI(imageURI);
         }
     }
+
+    //this will enable using the back button to pop the stack, which will go to previous fragment instead of the login screen.
+    @Override
+    public void onResume() {
+
+        super.onResume();
+
+        getView().setFocusableInTouchMode(true);
+        getView().requestFocus();
+        getView().setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+
+                if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK){
+
+                    getActivity().getSupportFragmentManager().popBackStack();
+                    ((HomePage)getActivity()).getSupportActionBar().setTitle("Home");
+                    ((HomePage)getActivity()).toolbarBackground(false);
+                    return true;
+
+                }
+
+                return false;
+            }
+        });
+    }
+
 }

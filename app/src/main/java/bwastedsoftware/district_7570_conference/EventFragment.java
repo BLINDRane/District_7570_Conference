@@ -8,6 +8,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.view.menu.MenuView;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -140,31 +141,36 @@ public class EventFragment extends Fragment implements View.OnClickListener {
             //childUpdates.put("/user-posts/" + title + "/" + key, postValues);
 
             mDatabase.updateChildren(childUpdates);
-            /*
-            DatabaseReference findEvent = mDatabase.child("Events");
-            findEvent.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    boolean found;
-                    String search = mEvent.getTitle();
-                    for(DataSnapshot childrenSnapShot : dataSnapshot.getChildren()){
-                       String title = childrenSnapShot.child("title").getValue(String.class);
-                        found = title.contains(search);
-                        Log.d("TAG", title + " / " + found);
-                    }
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-
-                }
-            });
-            //DatabaseReference current_user_db = mDatabase.child(user_id);
-            //current_user_db.child("userEvents").setValue();
-*/
 
         } else {
 
         }
     }
+
+    //this will enable using the back button to pop the stack, which will go to previous fragment instead of the login screen.
+    @Override
+    public void onResume() {
+
+        super.onResume();
+
+        getView().setFocusableInTouchMode(true);
+        getView().requestFocus();
+        getView().setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+
+                if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK){
+
+                    getActivity().getSupportFragmentManager().popBackStack();
+                    ((HomePage)getActivity()).getSupportActionBar().setTitle("Schedule");
+                    ((HomePage)getActivity()).toolbarBackground(true);
+                    return true;
+
+                }
+
+                return false;
+            }
+        });
+    }
+
 }

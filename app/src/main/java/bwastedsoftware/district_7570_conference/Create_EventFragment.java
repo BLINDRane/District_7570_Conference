@@ -2,9 +2,11 @@ package bwastedsoftware.district_7570_conference;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -239,7 +241,6 @@ public class Create_EventFragment extends Fragment implements View.OnClickListen
                             letterMonth = "November";
                             break;
                     }
-
                     etDate.setText(letterMonth + " " + String.valueOf(dayOfMonth)+ ", " + String.valueOf(year));
                 }
             }, yy, mm, dd);
@@ -256,5 +257,29 @@ private static String pad(int c) {
     }
 }
 
+//this will enable using the back button to pop the stack, which will go to previous fragment instead of the login screen.
+    @Override
+    public void onResume() {
 
+        super.onResume();
+
+        getView().setFocusableInTouchMode(true);
+        getView().requestFocus();
+        getView().setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+
+                if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK){
+
+                    getActivity().getSupportFragmentManager().popBackStack();
+                    ((HomePage)getActivity()).getSupportActionBar().setTitle("Home");
+                    ((HomePage)getActivity()).toolbarBackground(false);
+                    return true;
+
+                }
+
+                return false;
+            }
+        });
+    }
 }

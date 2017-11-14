@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -82,6 +83,7 @@ public class HomePage extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.home_id:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.addToBackStack("Home");
                         fragmentTransaction.replace(R.id.main_container, new HomeFragment());
                         fragmentTransaction.commit();
                         Toolbar.setBackgroundColor((Color.parseColor("#303F9F")));
@@ -94,6 +96,7 @@ public class HomePage extends AppCompatActivity {
                         bundle.putBoolean("IS_MY_SCHEDULE", false);
                         bundle.putBoolean("IS_ADMIN",isAdmin);
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.addToBackStack("Schedule");
                         fragmentTransaction.replace(R.id.main_container, Schedule);
                         fragmentTransaction.commit();
                         Toolbar.setBackground(drawable);
@@ -104,6 +107,7 @@ public class HomePage extends AppCompatActivity {
 
                     case R.id.speakers_id:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.addToBackStack("Speakers, Leaders, and Sponsors");
                         fragmentTransaction.replace(R.id.main_container, new SpeakerListFragment());
                         fragmentTransaction.commit();
                         Toolbar.setBackground(drawable);
@@ -112,20 +116,11 @@ public class HomePage extends AppCompatActivity {
                         drawerLayout.closeDrawers();
                         break;
 
-                    case R.id.map_id:
-                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.main_container, new MapFragment());
-                        fragmentTransaction.commit();
-                        Toolbar.setBackground(drawable);
-                        getSupportActionBar().setTitle("Map");
-                        item.setChecked(true);
-                        drawerLayout.closeDrawers();
-                        break;
-
                     case R.id.my_schedule_id:
                         bundle.putBoolean("IS_MY_SCHEDULE", true);
                         bundle.putBoolean("IS_ADMIN",isAdmin);
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.addToBackStack("My Schedule");
                         fragmentTransaction.replace(R.id.main_container, mySchedule);
                         fragmentTransaction.commit();
                         Toolbar.setBackground(drawable);
@@ -136,6 +131,7 @@ public class HomePage extends AppCompatActivity {
 
                     case R.id.create_event_id:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.addToBackStack("Event Creation");
                         fragmentTransaction.replace(R.id.main_container, new Create_EventFragment());
                         fragmentTransaction.commit();
                         Toolbar.setBackground(drawable);
@@ -146,6 +142,7 @@ public class HomePage extends AppCompatActivity {
 
                     case R.id.create_speaker_id:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.addToBackStack("Speaker Creation");
                         fragmentTransaction.replace(R.id.main_container, new createSpeakerFragment());
                         fragmentTransaction.commit();
                         Toolbar.setBackground(drawable);
@@ -154,17 +151,9 @@ public class HomePage extends AppCompatActivity {
                         drawerLayout.closeDrawers();
                         break;
 
-                    case R.id.forum_id:
-                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.main_container, new ForumFragment());
-                        fragmentTransaction.commit();
-                        Toolbar.setBackground(drawable);
-                        getSupportActionBar().setTitle("Forum");
-                        item.setChecked(true);
-                        drawerLayout.closeDrawers();
-                        break;
                     case R.id.scav_id:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.addToBackStack("Scavenger Hunt");
                         fragmentTransaction.replace(R.id.main_container, new scavengerHunt());
                         fragmentTransaction.commit();
                         Toolbar.setBackground(drawable);
@@ -184,5 +173,15 @@ public class HomePage extends AppCompatActivity {
         super.onPostCreate(savedInstanceState);
         actionBarDrawerToggle.syncState();
     }
+
+    //This method can be called when a fragment pops the backstack, so that the toolbar can be changed correctly.
+    public void toolbarBackground(Boolean isDrawable){
+        if(isDrawable){
+            Toolbar.setBackground(drawable);
+        } else {
+            Toolbar.setBackgroundColor((Color.parseColor("#303F9F")));
+        }
+    }
+
 }
 

@@ -7,6 +7,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -139,10 +140,36 @@ public class SpeakerListFragment extends Fragment
     public void loadSpeakerDetails(Speaker speaker)
     {
         FragmentTransaction t = this.getFragmentManager().beginTransaction();
+        t.addToBackStack("Speaker");
         SpeakerFragment mFrag = new SpeakerFragment();
         mFrag.passSpeaker(getActivity(),speaker);
         t.replace(R.id.main_container, mFrag);
         t.commit();
+    }
+
+    @Override
+    public void onResume() {
+
+        super.onResume();
+
+        getView().setFocusableInTouchMode(true);
+        getView().requestFocus();
+        getView().setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+
+                if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK){
+
+                    getActivity().getSupportFragmentManager().popBackStack();
+                    ((HomePage)getActivity()).getSupportActionBar().setTitle("Home");
+                    ((HomePage)getActivity()).toolbarBackground(false);
+                    return true;
+
+                }
+
+                return false;
+            }
+        });
     }
 
 }
