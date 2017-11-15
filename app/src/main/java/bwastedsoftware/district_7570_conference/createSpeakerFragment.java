@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.media.ExifInterface;
 import android.net.Uri;
@@ -12,7 +11,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,7 +28,6 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
 
 import static android.app.Activity.RESULT_OK;
@@ -53,7 +51,7 @@ public class createSpeakerFragment extends Fragment implements View.OnClickListe
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_create_speaker, container, false);
         saveSpeaker = (Button) view.findViewById(R.id.btn_Save_Speaker);
-        etSpeakerName = (EditText) view.findViewById(R.id.edit_speakerName);
+        etSpeakerName = (EditText) view.findViewById(R.id.edit_);
         etSpeakerBio = (EditText) view.findViewById(R.id.edit_SpeakerBio);
         speakerPic = (ImageButton) view.findViewById(R.id.speaker_image);
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Speakers");
@@ -210,4 +208,31 @@ public class createSpeakerFragment extends Fragment implements View.OnClickListe
 
         }
     }
+
+    @Override
+    public void onResume() {
+
+        super.onResume();
+
+        getView().setFocusableInTouchMode(true);
+        getView().requestFocus();
+        getView().setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+
+                if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK){
+
+                    getActivity().getSupportFragmentManager().popBackStack();
+                    ((HomePage)getActivity()).getSupportActionBar().setTitle("Speakers, Leaders, and Sponsors");
+                    ((HomePage)getActivity()).toolbarBackground(true);
+                    return true;
+
+                }
+
+                return false;
+            }
+        });
+    }
+
+
 }

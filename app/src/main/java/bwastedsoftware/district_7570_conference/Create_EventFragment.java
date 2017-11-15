@@ -2,7 +2,6 @@ package bwastedsoftware.district_7570_conference;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -18,25 +17,17 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
-import org.w3c.dom.Text;
-
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
-
-import bwastedsoftware.district_7570_conference.dummy.cEvent;
 
 
 public class Create_EventFragment extends Fragment implements View.OnClickListener, AdapterView.OnItemSelectedListener {
@@ -70,7 +61,7 @@ public class Create_EventFragment extends Fragment implements View.OnClickListen
         timePicker = (TimePicker) view.findViewById(R.id.timePicker);
         datePicker = (DatePicker) view.findViewById(R.id.datePicker);
         saveEvent = (Button) view.findViewById(R.id.btn_Save_Event);
-        etTitle = (EditText) view.findViewById(R.id.edit_speakerName);
+        etTitle = (EditText) view.findViewById(R.id.edit_);
         etLocation = (EditText) view.findViewById(R.id.edit_Location);
 
         etDate = (EditText) view.findViewById(R.id.edit_Date);

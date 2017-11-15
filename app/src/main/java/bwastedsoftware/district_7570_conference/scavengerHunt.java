@@ -1,205 +1,194 @@
 package bwastedsoftware.district_7570_conference;
 
+
+
 import android.content.Context;
+
 import android.content.Intent;
+
 import android.media.Image;
+
 import android.net.Uri;
+
 import android.os.Bundle;
+
 import android.support.v4.app.Fragment;
+
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+
 import android.view.KeyEvent;
+
 import android.view.LayoutInflater;
+
 import android.view.View;
+
 import android.view.ViewGroup;
+
 import android.widget.Button;
+
 import android.widget.ImageButton;
+
 import android.widget.Switch;
+
 import android.widget.TextView;
+
 import android.widget.Toast;
 
+
+
 import com.google.android.gms.tasks.OnSuccessListener;
+
 import com.google.firebase.auth.FirebaseAuth;
+
 import com.google.firebase.database.DataSnapshot;
+
 import com.google.firebase.database.DatabaseError;
+
 import com.google.firebase.database.DatabaseReference;
+
 import com.google.firebase.database.FirebaseDatabase;
+
 import com.google.firebase.database.ValueEventListener;
+
 import com.google.firebase.storage.FirebaseStorage;
+
 import com.google.firebase.storage.StorageReference;
+
 import com.google.firebase.storage.UploadTask;
+
+
+import java.util.ArrayList;
 
 import static android.app.Activity.RESULT_OK;
 
 
-public class scavengerHunt extends Fragment implements View.OnClickListener {
 
-Button letsGo, submit;
-ImageButton uploadImage;
-TextView welcomeScav;
-TextView instructions;
-FirebaseAuth mAuth;
-DatabaseReference mDatabase;
-StorageReference mStorage;
-private String user_id;
-private String winner;
-private static final int PICK_IMAGE = 1;
-private Uri imageURI;
+
+public class scavengerHunt extends Fragment {
+
+
+
 
     public scavengerHunt() {
+
         // Required empty public constructor
+
     }
 
+    SwipeRefreshLayout mSwipeRefreshLayout;
+    RecyclerView rv;
+    FirebaseAuth mAuth;
+    String user_id;
+    View view;
     @Override
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
+
                              Bundle savedInstanceState) {
+        view = inflater.inflate(R.layout.fragment_scavenger_hunt, container, false);
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_scavenger_hunt, container, false);
-        //initialization code
-        letsGo = (Button) view.findViewById(R.id.scav_Button);
-        submit = (Button) view.findViewById(R.id.submit_Image);
-        uploadImage = (ImageButton) view.findViewById(R.id.scav_Pic);
-        winner = "complete";
-        welcomeScav = (TextView) view.findViewById(R.id.welcome_scav_Text);
-        instructions = (TextView) view.findViewById(R.id.instruction_Scav_Text);
-        mAuth = FirebaseAuth.getInstance();
-        user_id = mAuth.getCurrentUser().getUid();
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
-        mStorage = FirebaseStorage.getInstance().getReference();
 
+        rv = (RecyclerView)view.findViewById(R.id.rv);
+        rv.setHasFixedSize(true);
+        LinearLayoutManager llm = new LinearLayoutManager(getContext());
+        rv.setLayoutManager(llm);
 
-        letsGo.setOnClickListener(this);
-        uploadImage.setOnClickListener(this);
-        submit.setOnClickListener(this);
-        submit.setClickable(false);
+        initializeData();
+        initializeAdapter(rv);
+        refreshData();
+
+        mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
+
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // Refresh items
+                refreshData();
+            }
+        });
 
         return view;
     }
 
-    @Override
-    public void onClick(View v) {
-        if(v.getId() == R.id.scav_Button){
-
-                letsGo.setText("Find it!");
-                letsGo.setClickable(false);
-                scavengerHunt();
-
-        } else if(v.getId() == R.id.scav_Pic){
-
-            openGallery();
-            submit.setClickable(true);
-
-        } else if(v.getId() == R.id.submit_Image){
-            StorageReference filepath = mStorage.child("Scavenger Hunt Pictures").child(imageURI.getLastPathSegment());
-            filepath.putFile(imageURI).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    Toast.makeText(getContext(), "Your offering has been accepted.", Toast.LENGTH_LONG).show();
-                    letsGo.setText("Next Clue");
-                    letsGo.setClickable(true);
-                    submit.setClickable(false);
-                    //@SuppressWarnings("VisibleForTests")
-
-                    //The following commented out code is a template for saving the photo URL.
-                    // Uri downloadUrl = taskSnapshot.getDownloadUrl();
-                    //DatabaseReference newSpeaker = mDatabase.push();
-                    //newSpeaker.child("name").setValue(name);
-                    //newSpeaker.child("bio").setValue(bio);
-                    //newSpeaker.child("photoURL").setValue(downloadUrl.toString());
-                }
-            });
-        }
+    clueRVAdapter adapter;
+    private void initializeAdapter(RecyclerView rv){
+        adapter = new clueRVAdapter(clues, getActivity(), this);
+        rv.setAdapter(adapter);
     }
 
-    public void scavengerHunt() {
-        //Get a snapshot of the database to see where the user is at on the clues.
 
-        mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                    //get the current value of scavenger hunt instructions
-                    String currentInstruction = dataSnapshot.child("Scavenger Hunt Instructions").getValue(String.class);
+    ArrayList<Clue> clues;
+    FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = mDatabase.getReference().child("Speakers");
 
-                        //if this is the first time the user has started the scavenger hunt
-                    if (dataSnapshot.child("Scavenger Hunt Instructions").getValue(String.class) == null) {
-
-                        mDatabase.child("Scavenger Hunt Instructions").setValue("Start");
-                        mDatabase.child("Scavenger Hunt Instructions").setValue(getInstruction("Start"));
-
-
-                        updateInstructions();
-
-                    } else
-
-                        //if the user has finished the hunt
-                    if (dataSnapshot.child("Scavenger Hunt Instructions").getValue(String.class) == "Winner") {
-                        Toast.makeText(getContext(), "You have completed the challenge!", Toast.LENGTH_LONG).show();
-                        //exit the fragment
-                    } else {
-
-                        //this is normal operation
-
-                        //Change the database value to the next instruction
-                        mDatabase.child("Scavenger Hunt Instructions").setValue(getInstruction(currentInstruction));
-                        updateInstructions();
-                    }
-                }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                //TODO: Error catch
-            }
-        });
-//maybe something needs to go here
+    public void loadClue(Clue clue){
+        FragmentTransaction t = this.getFragmentManager().beginTransaction();
+        t.addToBackStack("Speaker");
+        clueFragment mFrag = new clueFragment();
+        mFrag.passClue(getActivity(),clue);
+        t.replace(R.id.main_container, mFrag);
+        t.commit();
     }
 
-    private void updateInstructions(){
-        //Take a new (and freshly updated) snapshot
-        mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+    private void initializeData(){
+clues = new ArrayList<>();
+    }
+
+
+    private void refreshData(){
+        adapter.clear();
+        clues.add(new Clue("First Clue", "Grab a drink with the Presidents of the United States"));
+        clues.add(new Clue("Second Clue", "Turns out Lincoln was a bit clingy. Go somewhere he won't want to be"));
+        final ArrayList<Clue> newClues = new ArrayList<>();
+
+        // Read from the database
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                //Change the instruction text to the instruction the user needs to see.
-                instructions.setText(dataSnapshot.child("Scavenger Hunt Instructions").getValue(String.class));
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                //String value = dataSnapshot.getValue(String.class);
+                //Event = dataSnapshot.getValue(Post.class);
+                //Post post = dataSnapshot.getValue(Post.class);
+                for(DataSnapshot childrenSnapShot : dataSnapshot.getChildren())
+                {
+                    Clue clue = childrenSnapShot.getValue(Clue.class);
+                    newClues.add(new Clue(clue.getTitle(), clue.getInstruction()));
+                    //Log.w("GETTING CARDS", "value is" + event.getDate() + event.getLocation() + childrenSnapShot.getKey());
+                }
+                //Log.d("FIREBASE", "Value is: " + post);
+                addClues(newClues);
+
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
-                //TODO: Error catch
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w("FIREBASE", "Failed to read value.", error.toException());
             }
         });
     }
 
+    private void addClues(ArrayList<Clue> newClues)
+    {
+        clues.addAll(newClues);
+        //Log.w("PROBLEM HERE", "LIST #" + speakers.size());
+        //newevents.add(new Event("EVENT TITLE 3", "LOCATION", "DATE", "TIME", "DETAILS", new Speaker("Aaron's Little Helper", "bio", "Photo")));
+        onItemsLoadComplete();
 
-    public String getInstruction(String current){
-        String instruction = current;
-      switch (current){
-          case "Start":
-              instruction =  "Grab a drink with the Presidents of the United States";
-                break;
-          case "Grab a drink with the Presidents of the United States":
-              instruction = "Turns out Lincoln is a bit clingy. Go somewhere he wouldn't want to go.";
-                break;
-          case "Turns out Lincoln is a bit clingy. Go somewhere he wouldn't want to go.":
-              instruction = "Winner";
-              break;
-        }
-       return instruction;
     }
+    void onItemsLoadComplete() {
+        // Update the adapter and notify data set changed
+        // ...
 
-    private void openGallery(){
-        //Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-        //startActivityForResult(gallery, PICK_IMAGE);
-        Intent photoPickerIntent = new Intent(Intent.ACTION_GET_CONTENT);
-        photoPickerIntent.setType("image/*");
-        startActivityForResult(photoPickerIntent, PICK_IMAGE);
+        // Stop refresh animation
+        adapter.notifyDataSetChanged();
+        mSwipeRefreshLayout.setRefreshing(false);
     }
-
-    public void onActivityResult(int requestCode, int resultCode, Intent data){
-        super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode == RESULT_OK && requestCode == PICK_IMAGE){
-            imageURI = data.getData();
-            uploadImage.setImageURI(imageURI);
-        }
-    }
-
     @Override
     public void onResume() {
 
@@ -226,5 +215,4 @@ private Uri imageURI;
     }
 
 }
-
 
