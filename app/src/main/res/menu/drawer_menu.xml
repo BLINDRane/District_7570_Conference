@@ -18,10 +18,6 @@
         android:title="Speakers, Leaders, and Sponsors"
         android:icon="@drawable/ic_record_voice_over_black_24dp" />
     <item
-        android:title="Map"
-        android:id="@+id/map_id"
-        android:icon="@drawable/ic_room_black_24dp" />
-    <item
         android:visible="false"
         android:title="Create Event"
         android:id="@+id/create_event_id"
@@ -34,10 +30,6 @@
 </group>
 <item android:title="Social">
     <menu>
-        <item
-            android:title="Forum"
-            android:id="@+id/forum_id"
-            android:icon="@drawable/ic_forum_black_24dp" />
         <item
             android:title="Scavenger Hunt"
             android:id="@+id/scav_id"
