@@ -16,7 +16,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".HomePage">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
@@ -27,6 +26,7 @@
         </activity>
         <activity android:name=".Register" />
         <activity android:name=".Login" />
+
     </application>
     <uses-permission android:name="android.permission.READ_CALENDAR" />
     <uses-permission android:name="android.permission.WRITE_CALENDAR" />

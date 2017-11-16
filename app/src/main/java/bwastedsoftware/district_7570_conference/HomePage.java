@@ -1,13 +1,17 @@
 package bwastedsoftware.district_7570_conference;
 
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -19,8 +23,14 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 
 public class HomePage extends AppCompatActivity {
@@ -28,7 +38,7 @@ public class HomePage extends AppCompatActivity {
     //Initializes the buttons that will be used on the home page
 
     Toolbar Toolbar;
-    UserLocalStore userLocalStore;
+    //UserLocalStore userLocalStore;
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
     FragmentTransaction fragmentTransaction;
@@ -40,10 +50,14 @@ public class HomePage extends AppCompatActivity {
     Boolean isAdmin;
     MenuItem createEvent;
     MenuItem createSpeaker;
+
     //Sets up the activity screen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
         inBundle = getIntent().getExtras();
         isAdmin = inBundle.getBoolean("IS_ADMIN");
         mAuth = FirebaseAuth.getInstance();
@@ -65,17 +79,45 @@ public class HomePage extends AppCompatActivity {
         fragmentTransaction.add(R.id.main_container, new HomeFragment());
         fragmentTransaction.commit();
         getSupportActionBar().setTitle("Home");
+
+
         final Bundle bundle = new Bundle();
         final ScheduleFragment Schedule = new ScheduleFragment();
         final ScheduleFragment mySchedule = new ScheduleFragment();
         mySchedule.setArguments(bundle);
         Schedule.setArguments(bundle);
+
+
         if(isAdmin){
             createEvent.setVisible(true);
             createSpeaker.setVisible(true);
             Toast.makeText(HomePage.this, "Admin Detected", Toast.LENGTH_LONG).show();
         }
-        userLocalStore = new UserLocalStore(this);
+
+        //This is like onCreate() but if the activity was called from a push notification
+        String type = getIntent().getStringExtra("From");
+        if (type != null) {
+            switch (type) {
+                case "notifyFrag":
+                   
+                    Bundle bundle2 = new Bundle();
+                    ScheduleFragment mySchedule2 = new ScheduleFragment();
+                    mySchedule2.setArguments(bundle2);
+                    bundle2.putBoolean("IS_MY_SCHEDULE", true);
+                    bundle2.putBoolean("IS_ADMIN",isAdmin);
+                    fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.addToBackStack("My Schedule");
+                    fragmentTransaction.replace(R.id.main_container, mySchedule2);
+                    fragmentTransaction.commit();
+                    Toolbar.setBackground(drawable);
+                    getSupportActionBar().setTitle("My Schedule");
+                    navView.setCheckedItem(R.id.my_schedule_id);
+                    drawerLayout.closeDrawers();
+                    break;
+            }
+        }
+
+        //userLocalStore = new UserLocalStore(this);
 
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override

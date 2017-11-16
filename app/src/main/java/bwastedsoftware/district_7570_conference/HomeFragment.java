@@ -1,5 +1,7 @@
 package bwastedsoftware.district_7570_conference;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -7,6 +9,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AlertDialog;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -29,7 +32,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
     private String user_id;
-
 
     public HomeFragment(){
         // Required empty constructor
@@ -56,7 +58,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-
+if(v.getId() == R.id.current_button){
+    sendNotification();
+}
     }
 
     //This method changes the welcome text, giving it a personal (and professional) touch.
@@ -74,6 +78,33 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
 
             }
         });
+    }
+
+
+    public void sendNotification(){
+
+        NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(getContext());
+
+//Create the intent that’ll fire when the user taps the notification//
+
+        Intent intent = new Intent(getContext(), HomePage.class);
+        intent.putExtra("From", "notifyFrag");
+        PendingIntent pendingIntent = PendingIntent.getActivity(getContext(), 0, intent, 0);
+
+        mBuilder.setContentIntent(pendingIntent);
+
+        mBuilder.setSmallIcon(R.drawable.homestead_fall);
+        mBuilder.setContentTitle("Rate Event");
+        mBuilder.setContentText("Please take a moment to rate that last event!");
+
+        NotificationManager mNotificationManager =
+
+                (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+
+        mNotificationManager.notify(001, mBuilder.build());
+
+
     }
 
     //this will enable using the back button to pop the stack, which will go to previous fragment instead of the login screen.

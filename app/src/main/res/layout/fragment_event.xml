@@ -113,8 +113,7 @@
     <RatingBar
         android:id="@+id/eventRater"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:numStars="5" />
+        android:layout_height="wrap_content" />
 
 </LinearLayout>
 

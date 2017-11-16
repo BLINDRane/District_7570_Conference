@@ -8,6 +8,8 @@ import android.provider.CalendarContract;
 import android.provider.ContactsContract;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.NotificationBuilderWithBuilderAccessor;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.view.menu.MenuView;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -69,7 +71,6 @@ public class EventFragment extends Fragment implements View.OnClickListener {
         rate = (RatingBar) mView.findViewById(R.id.eventRater);
         rsvp = (FloatingActionButton) mView.findViewById(R.id.eventView_attendingButton);
         rsvp.setOnClickListener(this);
-
 
         return mView;
     }
