@@ -26,6 +26,7 @@ import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.formats.NativeAd;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -118,12 +119,13 @@ public class clueFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        if(v.getId() == R.id.clue_Image){
-            uploadPhoto();
-        } else if(v.getId() == R.id.btn_submit_photo){
+        if (v.getId() == R.id.clue_Image) {
             openImageOptions();
+        } else if (v.getId() == R.id.btn_submit_photo) {
+                uploadPhoto();
+            }
         }
-    }
+
 
 
     private void uploadPhoto()
