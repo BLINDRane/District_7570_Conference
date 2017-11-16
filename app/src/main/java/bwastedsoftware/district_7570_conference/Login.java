@@ -73,6 +73,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         //populate the list of admins
         adminEmails.add("wyatt.karnes@gmail.com");
         adminEmails.add("george.karnes@yahoo.com");
+        adminEmails.add("bostonc@gmail.com");
 
     }
 

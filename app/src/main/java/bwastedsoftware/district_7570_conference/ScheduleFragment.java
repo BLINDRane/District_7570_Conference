@@ -255,7 +255,7 @@ public class ScheduleFragment extends Fragment {
                 @Override
                 public int compare(Event o1, Event o2) {
                     try {
-                        return new SimpleDateFormat("hh:mm a").parse(getStartTime(o1.getTime())).compareTo(new SimpleDateFormat("hh:mm a").parse(getStartTime(o2.getTime())));
+                        return new SimpleDateFormat("hh:mm a").parse(o1.getStartTime()).compareTo(new SimpleDateFormat("hh:mm a").parse(o2.getStartTime()));
                     } catch (ParseException e) {
                         return 0;
                     }
@@ -264,13 +264,6 @@ public class ScheduleFragment extends Fragment {
         }
     }
 
-    private String getStartTime(String time) {
-        String[] out = time.split(" to");
-
-        String res = out[0];
-
-        return res.replace("From ", "");
-    }
 
     void onItemsLoadComplete() {
         adapter.notifyDataSetChanged();

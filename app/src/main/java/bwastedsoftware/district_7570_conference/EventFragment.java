@@ -1,8 +1,10 @@
 package bwastedsoftware.district_7570_conference;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.provider.ContactsContract;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -29,11 +31,14 @@ import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 
@@ -128,8 +133,11 @@ public class EventFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         if(v.getId() == R.id.eventView_attendingButton){
 
+            //add to their calendar
+            addEventToCalendar();
+
             user_id = mAuth.getCurrentUser().getUid();
-           FirebaseDatabase mydb = FirebaseDatabase.getInstance();
+            FirebaseDatabase mydb = FirebaseDatabase.getInstance();
             DatabaseReference mDatabase = mydb.getReference().child("Users").child(user_id);
 
             String key = nDatabase.child("Speakers").push().getKey();
@@ -142,9 +150,37 @@ public class EventFragment extends Fragment implements View.OnClickListener {
 
             mDatabase.updateChildren(childUpdates);
 
+
         } else {
 
         }
+    }
+
+    private void addEventToCalendar()
+    {
+        //special thanks to https://code.tutsplus.com/tutorials/android-essentials-adding-events-to-the-users-calendar--mobile-8363 !!
+        Intent calIntent = new Intent(Intent.ACTION_EDIT, CalendarContract.Events.CONTENT_URI);
+        calIntent.setType("vnd.android.cursor.item/event");
+        calIntent.putExtra(CalendarContract.Events.TITLE, mEvent.getTitle());
+        calIntent.putExtra(CalendarContract.Events.EVENT_LOCATION, mEvent.getLocation());
+        calIntent.putExtra(CalendarContract.Events.DESCRIPTION, mEvent.getDetails() + " SPEAKING: " + mEvent.getSpeakerString());
+
+        Calendar calendar = mEvent.getCalendarObject();
+        calIntent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME,
+                calendar.getTimeInMillis());
+        DateFormat endtoMilis = new SimpleDateFormat("HH:MM a", Locale.ENGLISH);
+        Calendar c2 = Calendar.getInstance();
+        try
+        {
+            c2.setTime(endtoMilis.parse(mEvent.getEndTime()));
+        } catch (ParseException e)
+        {
+            e.printStackTrace();
+        }
+        calIntent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME,
+                    c2.getTimeInMillis());
+
+        startActivity(calIntent);
     }
 
     //this will enable using the back button to pop the stack, which will go to previous fragment instead of the login screen.

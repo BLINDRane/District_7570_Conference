@@ -4,8 +4,15 @@ import com.google.firebase.database.Exclude;
 import com.google.firebase.database.IgnoreExtraProperties;
 
 import java.lang.reflect.Array;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 /**
@@ -153,5 +160,37 @@ public class Event
     public String getDetails()
     {
         return details;
+    }
+
+    public Calendar getCalendarObject()
+    {
+        DateFormat format = new SimpleDateFormat("MMMM d, yyyy HH:mm a", Locale.ENGLISH);
+        try {
+            Date date = format.parse(this.date + " " + this.getStartTime());
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(date);
+            return calendar;
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public String getStartTime() {
+        String tim = this.time;
+        String[] out = tim.split(" to");
+
+        String res = out[0];
+
+        return res.replace("From ", "");
+    }
+
+    public String getEndTime() {
+        String tim = this.time;
+        String[] out = tim.split(" to");
+
+        String res = out[1];
+
+        return res;
     }
 }
