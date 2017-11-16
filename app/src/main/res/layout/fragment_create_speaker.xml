@@ -44,7 +44,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_Save_Speaker"
+        android:id="@+id/btn_submit_photo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Save New Speaker"

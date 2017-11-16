@@ -22,12 +22,12 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textSize="18sp"
-        android:layout_above="@+id/btn_Save_Speaker"
+        android:layout_above="@+id/btn_submit_photo"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="124dp" />
 
     <Button
-        android:id="@+id/btn_Save_Speaker"
+        android:id="@+id/btn_submit_photo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

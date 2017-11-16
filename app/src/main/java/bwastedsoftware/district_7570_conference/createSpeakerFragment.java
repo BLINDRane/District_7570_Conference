@@ -50,7 +50,7 @@ public class createSpeakerFragment extends Fragment implements View.OnClickListe
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_create_speaker, container, false);
-        saveSpeaker = (Button) view.findViewById(R.id.btn_Save_Speaker);
+        saveSpeaker = (Button) view.findViewById(R.id.btn_submit_photo);
         etSpeakerName = (EditText) view.findViewById(R.id.edit_);
         etSpeakerBio = (EditText) view.findViewById(R.id.edit_SpeakerBio);
         speakerPic = (ImageButton) view.findViewById(R.id.speaker_image);
@@ -64,7 +64,7 @@ public class createSpeakerFragment extends Fragment implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        if(v.getId() == R.id.btn_Save_Speaker){
+        if(v.getId() == R.id.btn_submit_photo){
             //create a new User using information put in by the *ahem* user.
 
             uploadSpeaker();
