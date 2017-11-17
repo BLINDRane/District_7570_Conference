@@ -114,17 +114,22 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View v) {
         if (v.getId() == R.id.btn_login) {
                  checkLogin();
+
         } else if (v.getId() == R.id.btn_register_transfer) {
 
             startActivity(new Intent(this, Register.class));
 
         } else if (v.getId() == R.id.login_rotary_button) {
-            if (btnWheel.getRotation() == 0) {
-                btnWheel.animate().rotation(360).start();
-            } else {
-                btnWheel.animate().rotation(360-(btnWheel.getRotation()));
-            }
+          rotateWheel();
 
+        }
+    }
+
+    private void rotateWheel(){
+        if (btnWheel.getRotation() == 0) {
+            btnWheel.animate().rotation(360).start();
+        } else {
+            btnWheel.animate().rotation(360-(btnWheel.getRotation()));
         }
     }
 
@@ -144,7 +149,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             overlayLayout.setVisibility(View.VISIBLE);
             String Email = etEmail.getText().toString().trim();
             String Password = etPassword.getText().toString().trim();
-
             if (!TextUtils.isEmpty(Email) && !TextUtils.isEmpty(Password))
             {
                 checkAdminStatus();

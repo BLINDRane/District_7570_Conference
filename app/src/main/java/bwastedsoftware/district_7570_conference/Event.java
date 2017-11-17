@@ -1,6 +1,7 @@
 package bwastedsoftware.district_7570_conference;
 
 import android.provider.CalendarContract;
+import android.util.Log;
 
 import com.google.firebase.database.Exclude;
 import com.google.firebase.database.IgnoreExtraProperties;
@@ -28,8 +29,7 @@ import static java.text.DateFormat.SHORT;
  */
 
 @IgnoreExtraProperties
-public class Event
-{
+public class Event {
     private String title;
     private String location;
     private String date;
@@ -37,19 +37,16 @@ public class Event
     private String details;
     private ArrayList<Speaker> speakers;
 
-    Event()
-    {
+    Event() {
 
     }
 
-    Event(String title, String location, String date, String time, String details, Speaker speaker)
-    {
+    Event(String title, String location, String date, String time, String details, Speaker speaker) {
         this(title, location, date, time, details);
         this.addSpeaker(speaker);
     }
 
-    Event(String title, String location, String date, String time, String details)
-    {
+    Event(String title, String location, String date, String time, String details) {
         this.title = title;
         this.location = location;
         this.date = date;
@@ -58,27 +55,21 @@ public class Event
         speakers = new ArrayList<>();
     }
 
-    public void addSpeaker(Speaker speaker)
-    {
+    public void addSpeaker(Speaker speaker) {
         speakers.add(speaker);
     }
 
-    public int getNumberOfSpeakers()
-    {
+    public int getNumberOfSpeakers() {
         return speakers.size();
     }
 
-    public ArrayList<Speaker> getSpeakers()
-    {
+    public ArrayList<Speaker> getSpeakers() {
         return speakers;
     }
 
-    public Speaker getSpeakerByName(String name)
-    {
-        for(int i = 0; i <= getNumberOfSpeakers(); i++)
-        {
-            if(speakers.get(i).getName().equals(name))
-            {
+    public Speaker getSpeakerByName(String name) {
+        for (int i = 0; i <= getNumberOfSpeakers(); i++) {
+            if (speakers.get(i).getName().equals(name)) {
                 return speakers.get(i);
             }
         }
@@ -90,60 +81,47 @@ public class Event
         return speakers.get(0);
     }
 
-    public String getSpeakerString()
-    {
+    public String getSpeakerString() {
         String list = null;
-        if(speakers.size() > 1)
-        {
-            for (int i = 0; i < speakers.size(); i++)
-            {
+        if (speakers.size() > 1) {
+            for (int i = 0; i < speakers.size(); i++) {
                 list = list + speakers.get(i) + ", ";
             }
             return list;
-        }
-        else
-        {
+        } else {
             return getSpeaker().getName();
         }
     }
 
-    public String getTitle()
-    {
+    public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title)
-    {
+    public void setTitle(String title) {
         this.title = title;
     }
 
-    public String getLocation()
-    {
+    public String getLocation() {
         return location;
     }
 
-    public void setLocation(String location)
-    {
+    public void setLocation(String location) {
         this.location = location;
     }
 
-    public String getDate()
-    {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(String date)
-    {
+    public void setDate(String date) {
         this.date = date;
     }
 
-    public String getTime()
-    {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(String time)
-    {
+    public void setTime(String time) {
         this.time = time;
     }
 
@@ -162,18 +140,19 @@ public class Event
         return result;
     }
 
-    public String getDetails()
-    {
+    public String getDetails() {
         return details;
     }
 
-    public Calendar getCalendarObject()
-    {
-        DateFormat format = new SimpleDateFormat("MMMM d, yyyy HH:mm a", Locale.ENGLISH);
+    public Calendar getCalendarStartTime() {
+        DateFormat format = new SimpleDateFormat("MMMM d, yyyy hh:mm a", Locale.ENGLISH);
         try {
             Date date = format.parse(this.date + " " + this.getStartTime());
+            Log.v("Start date is", date.toString());
+            Log.v("Start time is", this.getStartTime());
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(date);
+            
             return calendar;
         } catch (ParseException e) {
             e.printStackTrace();
@@ -195,51 +174,57 @@ public class Event
         String[] out = tim.split(" to");
 
         String res = out[1];
-
+        Log.v("END TIME IS",   res);
         return res;
     }
 
-    public boolean isCurrent(){
-        try
-        {
-          String eDate = this.getDate();
-          String eStartTime = this.getStartTime();
-          String eEndTime = this.getEndTime();
 
-            SimpleDateFormat formatter = new SimpleDateFormat("MMMM DD, yyyy HH:MM a");
-            Date eventStart = formatter.parse(eDate + " " + eStartTime);
-            Date eventEnd = formatter.parse(eDate + " " + eEndTime);
-
-            if (eventEnd.after(new Date()) && eventStart.before(new Date())) {
-                return true;
+    public boolean isCurrent() {
+            long compare = getCalendarEndTime().getTimeInMillis() - getCalendarRightNow().getTimeInMillis();
+       // Log.v("LOOK HERE", "compare = " + compare + " " + "Duration is: " + getDuration() + "="  + (compare < getDuration()));
+            if(compare > 0 && compare < getDuration()){
+                    return true;
             }
-
-        } catch (ParseException e)
-        {
-            e.printStackTrace();
-        }
-
-
-
         return false;
     }
 
-    public boolean isOver(){
-        try
-        {
-            String eDate = this.getDate();
-            String eEndTime = this.getEndTime();
-            SimpleDateFormat formatter = new SimpleDateFormat("MMMM dd, yyyy HH:MM a");
-            Date eventEnd = formatter.parse(eDate + " " + eEndTime);
-
-            if (eventEnd.before(new Date())){
+    public boolean isOver() {
+        if(!isCurrent()) {
+            long compare = getCalendarRightNow().compareTo(getCalendarEndTime());
+           // Log.v("LOOK HERE", "Compare = " + compare);
+            if (compare == 0) {
+                return false;
+            } else if (compare < 0) {
+                return false;
+            } else if (compare > 0) {
                 return true;
             }
-        } catch (ParseException e)
-        {
-            e.printStackTrace();
         }
-
         return false;
+    }
+
+    public Calendar getCalendarEndTime() {
+        DateFormat format = new SimpleDateFormat("MMMM d, yyyy hh:mm a", Locale.ENGLISH);
+        try {
+            Date date = format.parse(this.date + " " + this.getEndTime());
+            Log.v("END Date IS: ", date.toString());
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(date);
+            return calendar;
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public Calendar getCalendarRightNow() {
+        Calendar rightNow = Calendar.getInstance();
+        return rightNow;
+    }
+
+
+    public long getDuration(){
+       long duration = getCalendarEndTime().getTimeInMillis() - getCalendarStartTime().getTimeInMillis();
+        return duration;
     }
 }

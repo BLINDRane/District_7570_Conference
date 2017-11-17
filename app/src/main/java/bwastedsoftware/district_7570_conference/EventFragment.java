@@ -54,6 +54,7 @@ public class EventFragment extends Fragment implements View.OnClickListener {
     protected View mView;
     private FirebaseAuth mAuth;
     private DatabaseReference nDatabase;
+    Boolean Current, Over;
     RatingBar rate;
 
     public EventFragment() {
@@ -72,12 +73,10 @@ public class EventFragment extends Fragment implements View.OnClickListener {
         rate = (RatingBar) mView.findViewById(R.id.eventRater);
         rsvp = (FloatingActionButton) mView.findViewById(R.id.eventView_attendingButton);
         rsvp.setOnClickListener(this);
-
-        if(mEvent.isCurrent()){
-            Toast.makeText(getContext(), "This is a current event", Toast.LENGTH_LONG).show();
-        } else if(mEvent.isOver()){
-            Toast.makeText(getContext(), "This event is over", Toast.LENGTH_LONG).show();
-        }
+        Over = mEvent.isOver();
+        Current = mEvent.isCurrent();
+        mEvent.getCalendarStartTime();
+        Toast.makeText(getContext(), Over.toString() + " " + Current.toString(), Toast.LENGTH_LONG).show();
         return mView;
     }
 
@@ -170,7 +169,7 @@ public class EventFragment extends Fragment implements View.OnClickListener {
         calIntent.putExtra(CalendarContract.Events.EVENT_LOCATION, mEvent.getLocation());
         calIntent.putExtra(CalendarContract.Events.DESCRIPTION, mEvent.getDetails() + " SPEAKING: " + mEvent.getSpeakerString());
 
-        Calendar calendar = mEvent.getCalendarObject();
+        Calendar calendar = mEvent.getCalendarStartTime();
         calIntent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME,
                 calendar.getTimeInMillis());
         DateFormat endtoMilis = new SimpleDateFormat("HH:MM a", Locale.ENGLISH);
