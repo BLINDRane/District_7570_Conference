@@ -101,14 +101,11 @@ public class EventFragment extends Fragment implements View.OnClickListener {
         TextView mTimeView = (TextView) mView.findViewById(R.id.eventView_timeText);
 
         //add speakers code here
-        RelativeLayout mSpeakerList = (RelativeLayout) mView.findViewById(R.id.eventView_speakerLayout);
-        LinearLayout sLinearLayout = (LinearLayout) mView.findViewById(R.id.speakerLayout_linear);
         ImageView sImageView = (ImageView) mView.findViewById(R.id.speakerLayout_avatarView);
-        LinearLayout sTextLayout = (LinearLayout) mView.findViewById(R.id.speakerLayout_textViewContainer);
         TextView sSpeakerName = (TextView) mView.findViewById(R.id.speakerLayout_textViewContainer_titleText);
         TextView sSpeakerBio = (TextView) mView.findViewById(R.id.speakerLayout_textViewContainer_subTitleText);
 
-        Picasso.with(mContext).load(mEvent.getSpeaker().getPhotoURL()).fit().placeholder(R.drawable.ic_account_circle_black_24dp).into(sImageView);
+        Picasso.with(mContext).load(mEvent.getSpeaker().getPhotoURL()).fit().transform(new PicassoCircleTransform()).placeholder(R.drawable.ic_account_circle_black_24dp).into(sImageView);
         sSpeakerName.setText(mEvent.getSpeaker().getName());
         sSpeakerBio.setText(mEvent.getSpeaker().getBio());
 
@@ -117,7 +114,7 @@ public class EventFragment extends Fragment implements View.OnClickListener {
 
         mTitleView.setText(mEvent.getTitle());
         mLocationView.setText(mEvent.getLocation());
-        mTimeView.setText(mEvent.getTime());
+        mTimeView.setText(mEvent.getDate() + " " + mEvent.getTime());
         mBodyView.setText(mEvent.getDetails());
 
         SimpleDateFormat formatter = new SimpleDateFormat("MMM dd, yyyy");
