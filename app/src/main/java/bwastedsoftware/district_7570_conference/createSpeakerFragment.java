@@ -98,7 +98,17 @@ public class createSpeakerFragment extends Fragment implements View.OnClickListe
         Bitmap resized = null;
         try
         {
-            resized = Bitmap.createScaledBitmap(rotateImageIfRequired(bitmap, getActivity(), imageURI), 300, 300, false);
+            int height;
+            if (bitmap != null)
+            {
+                height = Math.round((300 / (float) bitmap.getWidth()) * (float) bitmap.getHeight());
+            }
+            else
+            {
+                height = 300;
+            }
+
+            resized = Bitmap.createScaledBitmap(rotateImageIfRequired(bitmap, getActivity(), imageURI), 300, height, false);
         } catch (IOException e)
         {
             e.printStackTrace();

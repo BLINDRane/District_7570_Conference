@@ -105,7 +105,7 @@ public class EventFragment extends Fragment implements View.OnClickListener {
         TextView sSpeakerName = (TextView) mView.findViewById(R.id.speakerLayout_textViewContainer_titleText);
         TextView sSpeakerBio = (TextView) mView.findViewById(R.id.speakerLayout_textViewContainer_subTitleText);
 
-        Picasso.with(mContext).load(mEvent.getSpeaker().getPhotoURL()).fit().transform(new PicassoCircleTransform()).placeholder(R.drawable.ic_account_circle_black_24dp).into(sImageView);
+        Picasso.with(mContext).load(mEvent.getSpeaker().getPhotoURL()).fit().centerCrop().transform(new PicassoCircleTransform()).placeholder(R.drawable.ic_account_circle_black_24dp).into(sImageView);
         sSpeakerName.setText(mEvent.getSpeaker().getName());
         sSpeakerBio.setText(mEvent.getSpeaker().getBio());
 
