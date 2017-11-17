@@ -21,6 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.vision.text.Line;
 import com.google.firebase.auth.FirebaseAuth;
@@ -72,6 +73,11 @@ public class EventFragment extends Fragment implements View.OnClickListener {
         rsvp = (FloatingActionButton) mView.findViewById(R.id.eventView_attendingButton);
         rsvp.setOnClickListener(this);
 
+        if(mEvent.isCurrent()){
+            Toast.makeText(getContext(), "This is a current event", Toast.LENGTH_LONG).show();
+        } else if(mEvent.isOver()){
+            Toast.makeText(getContext(), "This event is over", Toast.LENGTH_LONG).show();
+        }
         return mView;
     }
 
@@ -85,6 +91,7 @@ public class EventFragment extends Fragment implements View.OnClickListener {
     public void passEvent(Context context, Event event) {
         mContext = context;
         mEvent = event;
+
     }
 
     private void updateEventDetails()

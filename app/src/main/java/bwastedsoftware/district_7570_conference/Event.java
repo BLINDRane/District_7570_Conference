@@ -1,5 +1,7 @@
 package bwastedsoftware.district_7570_conference;
 
+import android.provider.CalendarContract;
+
 import com.google.firebase.database.Exclude;
 import com.google.firebase.database.IgnoreExtraProperties;
 
@@ -14,6 +16,9 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+
+import static java.text.DateFormat.LONG;
+import static java.text.DateFormat.SHORT;
 
 /**
  * Event class handling all information regarding an event.
@@ -192,5 +197,49 @@ public class Event
         String res = out[1];
 
         return res;
+    }
+
+    public boolean isCurrent(){
+        try
+        {
+          String eDate = this.getDate();
+          String eStartTime = this.getStartTime();
+          String eEndTime = this.getEndTime();
+
+            SimpleDateFormat formatter = new SimpleDateFormat("MMMM DD, yyyy HH:MM a");
+            Date eventStart = formatter.parse(eDate + " " + eStartTime);
+            Date eventEnd = formatter.parse(eDate + " " + eEndTime);
+
+            if (eventEnd.after(new Date()) && eventStart.before(new Date())) {
+                return true;
+            }
+
+        } catch (ParseException e)
+        {
+            e.printStackTrace();
+        }
+
+
+
+        return false;
+    }
+
+    public boolean isOver(){
+        try
+        {
+            String eDate = this.getDate();
+            String eEndTime = this.getEndTime();
+            SimpleDateFormat formatter = new SimpleDateFormat("MMMM dd, yyyy HH:MM a");
+            Date eventEnd = formatter.parse(eDate + " " + eEndTime);
+
+            if (eventEnd.before(new Date())){
+                return true;
+            }
+        } catch (ParseException e)
+        {
+            e.printStackTrace();
+        }
+
+        return false;
     }
 }

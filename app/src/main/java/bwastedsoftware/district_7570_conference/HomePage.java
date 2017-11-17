@@ -99,7 +99,7 @@ public class HomePage extends AppCompatActivity {
         if (type != null) {
             switch (type) {
                 case "notifyFrag":
-                   
+
                     Bundle bundle2 = new Bundle();
                     ScheduleFragment mySchedule2 = new ScheduleFragment();
                     mySchedule2.setArguments(bundle2);
