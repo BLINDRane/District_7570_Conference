@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.content.Intent;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,6 +37,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     EditText etEmail, etPassword;
     UserLocalStore userLocalStore;
     ImageView btnWheel;
+    RelativeLayout overlayLayout;
+
+    private Boolean isLoggingIn = false;
 
     //This creates a database instance for Firebase
     private FirebaseAuth mAuth;
@@ -60,6 +64,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         btnWheel = (ImageView) findViewById(R.id.login_rotary_button);
         btnLogin = (Button) findViewById(R.id.btn_login);
         btnRegisterT = (Button) findViewById(R.id.btn_register_transfer);
+        overlayLayout = (RelativeLayout) findViewById(R.id.logging_in_overlay);
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -122,27 +127,41 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     }
 
     private void checkLogin(){
-        String Email = etEmail.getText().toString().trim();
-        String Password = etPassword.getText().toString().trim();
+        if(!isLoggingIn)
+        {
+            isLoggingIn = true;
+            overlayLayout.setVisibility(View.VISIBLE);
+            String Email = etEmail.getText().toString().trim();
+            String Password = etPassword.getText().toString().trim();
 
-        if(!TextUtils.isEmpty(Email) && !TextUtils.isEmpty(Password)){
-            checkAdminStatus();
-            mAuth.signInWithEmailAndPassword(Email, Password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
+            if (!TextUtils.isEmpty(Email) && !TextUtils.isEmpty(Password))
+            {
+                checkAdminStatus();
+                mAuth.signInWithEmailAndPassword(Email, Password).addOnCompleteListener(new OnCompleteListener<AuthResult>()
+                {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task)
+                    {
 
-                    if(task.isSuccessful()){
+                        if (task.isSuccessful())
+                        {
 
-                        checkUserInDatabase();
+                            checkUserInDatabase();
 
-                    } else {
-                        Toast.makeText(Login.this, "Login Error", Toast.LENGTH_LONG).show();
+                        } else
+                        {
+                            Toast.makeText(Login.this, "Login Error", Toast.LENGTH_LONG).show();
+                        }
+
+                        isLoggingIn = false;
+                        overlayLayout.setVisibility(View.INVISIBLE);
                     }
-                }
-            });
+                });
 
-        } else {
-            Toast.makeText(Login.this, "Login Error", Toast.LENGTH_LONG).show();
+            } else
+            {
+                Toast.makeText(Login.this, "Login Error", Toast.LENGTH_LONG).show();
+            }
         }
     }
 
