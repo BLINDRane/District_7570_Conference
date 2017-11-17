@@ -17,103 +17,117 @@
         android:orientation="vertical"
         android:weightSum="1">
 
-    <TextView
-        android:id="@+id/eventView_titleText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="Title"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
-
-    <TextView
-        android:id="@+id/eventView_locationText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Location:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
-
-    <TextView
-        android:id="@+id/eventView_timeText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="When:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+    <RelativeLayout
+        android:layout_width="360dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
 
         <TextView
-            android:id="@+id/eventView_speakerTitle"
+            android:id="@+id/eventView_titleText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Speakers:"
-            android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+            android:layout_marginTop="50dp"
+            android:text="Title"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/eventView_locationText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/eventView_titleText"
+            android:layout_marginTop="8dp"
+            android:text="Location:"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
+
+        <TextView
+            android:id="@+id/eventView_timeText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/eventView_locationText"
+            android:layout_marginTop="8dp"
+            android:text="When:"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
 
         <RelativeLayout
             android:id="@+id/eventView_speakerLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="72dp">
+            android:layout_below="@+id/eventView_timeText"
+            android:minHeight="72dp"
+            android:layout_marginTop="8dp">
 
-                <ImageView
-                    android:id="@+id/speakerLayout_avatarView"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="16dp"
-                    android:src="@drawable/ic_account_circle_black_24dp"
-                    android:contentDescription="speaker"/>
+            <ImageView
+                android:id="@+id/speakerLayout_avatarView"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:contentDescription="speaker"
+                android:src="@drawable/ic_account_circle_black_24dp"/>
 
-                <LinearLayout
-                    android:id="@+id/speakerLayout_textViewContainer"
+            <LinearLayout
+                android:id="@+id/speakerLayout_textViewContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignWithParentIfMissing="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_toRightOf="@+id/speakerLayout_avatarView"
+                android:orientation="vertical"
+                android:paddingBottom="16dp"
+                android:paddingTop="16dp">
+
+                <TextView
+                    android:id="@+id/speakerLayout_textViewContainer_titleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignWithParentIfMissing="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_toRightOf="@+id/speakerLayout_avatarView"
-                    android:orientation="vertical"
-                    android:paddingBottom="16dp"
-                    android:paddingTop="16dp">
+                    android:text="Speaker Name"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"/>
 
-                    <TextView
-                        android:id="@+id/speakerLayout_textViewContainer_titleText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Speaker Name"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Body2"/>
+                <TextView
+                    android:id="@+id/speakerLayout_textViewContainer_subTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Title"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
-                    <TextView
-                        android:id="@+id/speakerLayout_textViewContainer_subTitleText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Title"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
-
-                </LinearLayout>
-
+            </LinearLayout>
 
 
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/eventView_detailsTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Details:"
-            android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
-
-    <TextView
             android:id="@+id/eventView_detailsBody"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/eventView_speakerLayout"
             android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eleifend sem eleifend, suscipit sem commodo, iaculis dui. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus faucibus bibendum erat, in maximus ex. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi velit sapien, faucibus sit amet cursus et, luctus nec orci. Quisque vulputate interdum mauris, vitae aliquet enim iaculis vel. In vitae ante non nibh cursus auctor. Quisque dapibus viverra tincidunt. Praesent molestie ullamcorper neque vitae lacinia. Nam efficitur enim mi, non vehicula sem dictum non. Pellentesque quis metus condimentum, ornare urna sed, feugiat massa."
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:layout_marginTop="8dp"/>
 
-    <RatingBar
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/eventView_detailsBody"
+        android:gravity="center"
+        android:layout_marginTop="8dp">
+
+        <RatingBar
         android:id="@+id/eventRater"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        />
+
+        </RelativeLayout>
+    </RelativeLayout>
 
 </LinearLayout>
 

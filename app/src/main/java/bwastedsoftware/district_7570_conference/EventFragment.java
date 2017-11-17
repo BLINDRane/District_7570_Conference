@@ -114,7 +114,7 @@ public class EventFragment extends Fragment implements View.OnClickListener {
 
         mTitleView.setText(mEvent.getTitle());
         mLocationView.setText(mEvent.getLocation());
-        mTimeView.setText(mEvent.getDate() + " " + mEvent.getTime());
+        mTimeView.setText(mEvent.getDate() + ", " + mEvent.getTime().replace("F", "f"));
         mBodyView.setText(mEvent.getDetails());
 
         SimpleDateFormat formatter = new SimpleDateFormat("MMM dd, yyyy");
