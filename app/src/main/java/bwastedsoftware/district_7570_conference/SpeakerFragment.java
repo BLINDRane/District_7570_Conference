@@ -75,7 +75,7 @@ public class SpeakerFragment extends Fragment implements View.OnClickListener {
         ImageView speakerPic = (ImageView) mView.findViewById(R.id.speakerPic);
         TextView name = (TextView) mView.findViewById(R.id.speakerName);
         TextView bio = (TextView) mView.findViewById(R.id.bioLink);
-        Picasso.with(mContext).load(mSpeaker.getPhotoURL()).fit().placeholder(R.drawable.ic_account_circle_black_24dp).transform(new PicassoCircleTransform()).into(speakerPic);
+        Picasso.with(mContext).load(mSpeaker.getPhotoURL()).fit().centerCrop().placeholder(R.drawable.ic_account_circle_black_24dp).transform(new PicassoCircleTransform()).into(speakerPic);
         name.setText(mSpeaker.getName());
         bio.setText(mSpeaker.getBio());
     }
