@@ -1,5 +1,6 @@
 package bwastedsoftware.district_7570_conference;
 
+import android.content.Context;
 import android.media.Image;
 import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.content.Intent;
@@ -129,6 +131,15 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     private void checkLogin(){
         if(!isLoggingIn)
         {
+            //hide keyboard
+            // Check if no view has focus:
+            View view = this.getCurrentFocus();
+            if (view != null) {
+                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+            }
+
+
             isLoggingIn = true;
             overlayLayout.setVisibility(View.VISIBLE);
             String Email = etEmail.getText().toString().trim();
