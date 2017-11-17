@@ -3,7 +3,9 @@ package bwastedsoftware.district_7570_conference;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -145,6 +147,8 @@ public class Create_EventFragment extends Fragment implements View.OnClickListen
 
             mDatabase.updateChildren(childUpdates);
 
+            goToSchedulePage(etTitle.getText().toString());
+
         } else if (v.getId() == R.id.pick_startTime) { //let user pick start time
             TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(),
                     new TimePickerDialog.OnTimeSetListener() {
@@ -237,6 +241,16 @@ public class Create_EventFragment extends Fragment implements View.OnClickListen
             }, yy, mm, dd);
             datePicker.show();
         }
+    }
+
+    private void goToSchedulePage(String name)
+    {
+        FragmentTransaction t = this.getFragmentManager().beginTransaction();
+        ScheduleFragment mFrag = new ScheduleFragment();
+        t.replace(R.id.main_container, mFrag);
+        t.commit();
+
+        Snackbar.make(getActivity().findViewById(android.R.id.content), "Event Created: " + name, Snackbar.LENGTH_LONG).show();
     }
 
 //If a number is less than 10, give it padding of a zero.

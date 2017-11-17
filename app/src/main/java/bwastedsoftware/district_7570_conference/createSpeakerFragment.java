@@ -10,7 +10,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -134,6 +136,7 @@ public class createSpeakerFragment extends Fragment implements View.OnClickListe
                 newSpeaker.child("name").setValue(name);
                 newSpeaker.child("bio").setValue(bio);
                 newSpeaker.child("photoURL").setValue(downloadUrl.toString());
+                goToSpeakerPage(name);
             }
         });
 
@@ -158,6 +161,16 @@ public class createSpeakerFragment extends Fragment implements View.OnClickListe
         //String key = mDatabase.child("Speakers").push().getKey();
         //create a new speaker object
         //Speaker speaker = new Speaker(name, bio, imageURI.toString());
+    }
+
+    private void goToSpeakerPage(String name)
+    {
+        FragmentTransaction t = this.getFragmentManager().beginTransaction();
+        SpeakerListFragment mFrag = new SpeakerListFragment();
+        t.replace(R.id.main_container, mFrag);
+        t.commit();
+
+        Snackbar.make(getActivity().findViewById(android.R.id.content), "Speaker Created: " + name, Snackbar.LENGTH_LONG).show();
     }
 
 
