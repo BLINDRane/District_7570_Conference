@@ -85,7 +85,7 @@ public class SpeakerListFragment extends Fragment
     private void refreshData()
     {
         adapter.clear();
-        speakers.add(new Speaker("Billy", "Bio", "http://www.munkurious.com/sharex/2017.10/ghanaTempleStainedGlass_100x.png"));
+        //speakers.add(new Speaker("Billy", "Bio", "http://www.munkurious.com/sharex/2017.10/ghanaTempleStainedGlass_100x.png"));
 
 
         final ArrayList<Speaker> newspeakers = new ArrayList<>();

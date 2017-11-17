@@ -24,6 +24,7 @@ public class speakerRVAdapter extends RecyclerView.Adapter<speakerRVAdapter.Card
         CardView cv;
         TextView speakerName;
         ImageView speakerPhoto;
+        TextView speakerBio;
         View view;
 
         CardViewHolder(View itemView)
@@ -33,6 +34,7 @@ public class speakerRVAdapter extends RecyclerView.Adapter<speakerRVAdapter.Card
             cv = (CardView) itemView.findViewById(R.id.cv);
             speakerName = (TextView) itemView.findViewById(R.id.card_title);
             speakerPhoto = (ImageView) itemView.findViewById(R.id.card_photo);
+            speakerBio = (TextView) itemView.findViewById(R.id.card_text);
         }
     }
 
@@ -50,6 +52,7 @@ public class speakerRVAdapter extends RecyclerView.Adapter<speakerRVAdapter.Card
     @Override
     public void onBindViewHolder(CardViewHolder cardViewHolder, final int i) {
         cardViewHolder.speakerName.setText(cards.get(i).getName());
+        cardViewHolder.speakerBio.setText(cards.get(i).getBio());
         Picasso.with(context).load(cards.get(i).getPhotoURL()).fit().centerCrop().transform(new PicassoCircleTransform()).placeholder(R.drawable.ic_account_circle_black_24dp).into(cardViewHolder.speakerPhoto);
 
         cardViewHolder.view.setOnClickListener(new View.OnClickListener() {
