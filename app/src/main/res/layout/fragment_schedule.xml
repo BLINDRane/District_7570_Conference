@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/schedule_layout"
-    tools:context="bwastedsoftware.district_7570_conference.ScheduleFragment">
+    tools:context="bwastedsoftware.district_7570_conference.ScheduleFragment"
+    android:background="#E6E6E6">
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefreshLayout"
