@@ -245,10 +245,15 @@ public class Create_EventFragment extends Fragment implements View.OnClickListen
 
     private void goToSchedulePage(String name)
     {
-        FragmentTransaction t = this.getFragmentManager().beginTransaction();
-        ScheduleFragment mFrag = new ScheduleFragment();
-        t.replace(R.id.main_container, mFrag);
-        t.commit();
+        final Bundle bundle = new Bundle();
+        final ScheduleFragment Schedule = new ScheduleFragment();
+        FragmentTransaction fragmentTransaction = this.getFragmentManager().beginTransaction();
+        bundle.putBoolean("IS_MY_SCHEDULE", false);
+        bundle.putBoolean("IS_ADMIN",true);
+        Schedule.setArguments(bundle);
+        fragmentTransaction.addToBackStack("Schedule");
+        fragmentTransaction.replace(R.id.main_container, Schedule);
+        fragmentTransaction.commit();
 
         Snackbar.make(getActivity().findViewById(android.R.id.content), "Event Created: " + name, Snackbar.LENGTH_LONG).show();
     }
