@@ -44,7 +44,7 @@ public class createSpeakerFragment extends Fragment implements View.OnClickListe
     private static final int PICK_IMAGE = 1;
     private Uri imageURI;
     private StorageReference mStorage;
-
+    Boolean isAdmin;
     public createSpeakerFragment() {
         // Required empty public constructor
     }
@@ -52,6 +52,8 @@ public class createSpeakerFragment extends Fragment implements View.OnClickListe
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_create_speaker, container, false);
+        Bundle args = getArguments();
+        isAdmin = args.getBoolean("IS_ADMIN");
         saveSpeaker = (Button) view.findViewById(R.id.btn_submit_photo);
         etSpeakerName = (EditText) view.findViewById(R.id.edit_);
         etSpeakerBio = (EditText) view.findViewById(R.id.edit_SpeakerBio);
@@ -165,8 +167,11 @@ public class createSpeakerFragment extends Fragment implements View.OnClickListe
 
     private void goToSpeakerPage(String name)
     {
-        FragmentTransaction t = this.getFragmentManager().beginTransaction();
+        Bundle bundle = new Bundle();
+        bundle.putBoolean("IS_ADMIN", isAdmin);
         SpeakerListFragment mFrag = new SpeakerListFragment();
+        mFrag.setArguments(bundle);
+        FragmentTransaction t = this.getFragmentManager().beginTransaction();
         t.replace(R.id.main_container, mFrag);
         t.commit();
 

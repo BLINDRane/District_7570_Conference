@@ -1,6 +1,8 @@
 package bwastedsoftware.district_7570_conference;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -50,10 +52,39 @@ public class speakerRVAdapter extends RecyclerView.Adapter<speakerRVAdapter.Card
     }
 
     @Override
-    public void onBindViewHolder(CardViewHolder cardViewHolder, final int i) {
+    public void onBindViewHolder(final CardViewHolder cardViewHolder, final int i) {
         cardViewHolder.speakerName.setText(cards.get(i).getName());
         cardViewHolder.speakerBio.setText(cards.get(i).getBio());
         Picasso.with(context).load(cards.get(i).getPhotoURL()).fit().centerCrop().transform(new PicassoCircleTransform()).placeholder(R.drawable.ic_account_circle_black_24dp).into(cardViewHolder.speakerPhoto);
+
+        cardViewHolder.view.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                CharSequence options[] = new CharSequence[] {"View Speaker", "Remove Speaker", "Cancel"};
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(cardViewHolder.view.getContext());
+                builder.setTitle("Options");
+                builder.setItems(options, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        int choice = which;
+                        switch(choice) {
+                            case 0:
+                                fragment.loadSpeakerDetails(cards.get(i));
+                                break;
+                            case 1:
+                                fragment.removeSpeaker(cards.get(i));
+                                break;
+                            case 2:
+                                break;
+                        }
+
+                    }
+                });
+                builder.show();
+                return true;
+            }
+        });
 
         cardViewHolder.view.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,6 +1,7 @@
 package bwastedsoftware.district_7570_conference;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -11,14 +12,22 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
+
+import static android.content.ContentValues.TAG;
 
 
 /**
@@ -34,6 +43,7 @@ public class SpeakerListFragment extends Fragment
     View v;
     SwipeRefreshLayout mSwipeRefreshLayout;
     RecyclerView rv;
+    Boolean isAdmin;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,7 +51,8 @@ public class SpeakerListFragment extends Fragment
 
         // Inflate the layout for this fragment
         v = inflater.inflate(R.layout.fragment_speakerlist, container, false);
-
+        Bundle args = getArguments();
+        isAdmin = args.getBoolean("IS_ADMIN");
         ////followed tutorial on creating cards, found here: https://code.tutsplus.com/tutorials/getting-started-with-recyclerview-and-cardview-on-android--cms-23465
         rv = (RecyclerView)v.findViewById(R.id.rv);
         rv.setHasFixedSize(true);
@@ -145,6 +156,57 @@ public class SpeakerListFragment extends Fragment
         mFrag.passSpeaker(getActivity(),speaker);
         t.replace(R.id.main_container, mFrag);
         t.commit();
+    }
+
+    public void removeSpeaker(final Speaker speaker) {
+
+      if (isAdmin) {
+
+          //Remove the speaker's photo from storage
+
+          StorageReference speakerStorage = FirebaseStorage.getInstance().getReferenceFromUrl(speaker.getPhotoURL());
+          speakerStorage.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+              @Override
+              public void onSuccess(Void aVoid) {
+                  // File deleted successfully
+                  Log.d(TAG, "onSuccess: deleted file");
+              }
+          }).addOnFailureListener(new OnFailureListener() {
+              @Override
+              public void onFailure(@NonNull Exception exception) {
+                  // Uh-oh, an error occurred!
+                  Log.d(TAG, "onFailure: did not delete file");
+              }
+          });
+
+            //Delete a speaker from the database list
+            DatabaseReference speakerRef = FirebaseDatabase.getInstance().getReference();
+
+            Query speakerQuery = speakerRef.child("Speakers").orderByChild("name").equalTo(speaker.getName());
+
+            speakerQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    for (DataSnapshot titleSnapshot : dataSnapshot.getChildren()) {
+                        titleSnapshot.getRef().removeValue();
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    Log.e(TAG, "onCancelled", databaseError.toException());
+                }
+            });
+        } else {
+            Toast.makeText(getContext(), "Admin permissions Required", Toast.LENGTH_LONG).show();
+        }
+       adapter.notifyDataSetChanged();
+        FragmentTransaction refresh = getFragmentManager().beginTransaction();
+        refresh.detach(this).attach(this).commit();
+
+
+
+
     }
 
     @Override

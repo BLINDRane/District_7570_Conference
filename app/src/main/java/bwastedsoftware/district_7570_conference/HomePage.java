@@ -84,8 +84,14 @@ public class HomePage extends AppCompatActivity {
         final Bundle bundle = new Bundle();
         final ScheduleFragment Schedule = new ScheduleFragment();
         final ScheduleFragment mySchedule = new ScheduleFragment();
+        final Create_EventFragment createEventFrag = new Create_EventFragment();
+        final SpeakerListFragment speakerList = new SpeakerListFragment();
+        final createSpeakerFragment speakerCreate = new createSpeakerFragment();
+        speakerCreate.setArguments(bundle);
+        speakerList.setArguments(bundle);
         mySchedule.setArguments(bundle);
         Schedule.setArguments(bundle);
+        createEventFrag.setArguments(bundle);
 
 
         if(isAdmin){
@@ -148,12 +154,13 @@ public class HomePage extends AppCompatActivity {
                         break;
 
                     case R.id.speakers_id:
+                        bundle.putBoolean("IS_ADMIN", isAdmin);
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.addToBackStack("Speakers, Leaders, and Sponsors");
-                        fragmentTransaction.replace(R.id.main_container, new SpeakerListFragment());
+                        fragmentTransaction.addToBackStack("Speakers");
+                        fragmentTransaction.replace(R.id.main_container, speakerList);
                         fragmentTransaction.commit();
                         Toolbar.setBackground(drawable);
-                        getSupportActionBar().setTitle("Speakers, Leaders, and Sponsors");
+                        getSupportActionBar().setTitle("Speakers");
                         item.setChecked(true);
                         drawerLayout.closeDrawers();
                         break;
@@ -172,9 +179,10 @@ public class HomePage extends AppCompatActivity {
                         break;
 
                     case R.id.create_event_id:
+                        bundle.putBoolean("IS_ADMIN", isAdmin);
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.addToBackStack("Event Creation");
-                        fragmentTransaction.replace(R.id.main_container, new Create_EventFragment());
+                        fragmentTransaction.replace(R.id.main_container, createEventFrag);
                         fragmentTransaction.commit();
                         Toolbar.setBackground(drawable);
                         getSupportActionBar().setTitle("Event Creation");
@@ -183,9 +191,10 @@ public class HomePage extends AppCompatActivity {
                         break;
 
                     case R.id.create_speaker_id:
+                        bundle.putBoolean("IS_ADMIN", isAdmin);
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.addToBackStack("Speaker Creation");
-                        fragmentTransaction.replace(R.id.main_container, new createSpeakerFragment());
+                        fragmentTransaction.replace(R.id.main_container, speakerCreate);
                         fragmentTransaction.commit();
                         Toolbar.setBackground(drawable);
                         getSupportActionBar().setTitle("Speaker Creation");
@@ -209,6 +218,7 @@ public class HomePage extends AppCompatActivity {
 
 
     }
+
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {

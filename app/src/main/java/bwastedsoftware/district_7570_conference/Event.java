@@ -148,8 +148,8 @@ public class Event {
         DateFormat format = new SimpleDateFormat("MMMM d, yyyy hh:mm a", Locale.ENGLISH);
         try {
             Date date = format.parse(this.date + " " + this.getStartTime());
-            Log.v("Start date is", date.toString());
-            Log.v("Start time is", this.getStartTime());
+           // Log.v("Start date is", date.toString());
+           // Log.v("Start time is", this.getStartTime());
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(date);
             
@@ -174,7 +174,7 @@ public class Event {
         String[] out = tim.split(" to");
 
         String res = out[1];
-        Log.v("END TIME IS",   res);
+        //Log.v("END TIME IS",   res);
         return res;
     }
 
@@ -207,7 +207,7 @@ public class Event {
         DateFormat format = new SimpleDateFormat("MMMM d, yyyy hh:mm a", Locale.ENGLISH);
         try {
             Date date = format.parse(this.date + " " + this.getEndTime());
-            Log.v("END Date IS: ", date.toString());
+            //Log.v("END Date IS: ", date.toString());
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(date);
             return calendar;

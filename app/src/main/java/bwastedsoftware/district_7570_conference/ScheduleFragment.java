@@ -353,6 +353,7 @@ public class ScheduleFragment extends Fragment {
         } else {
             Toast.makeText(getContext(), "Admin permissions Required", Toast.LENGTH_LONG).show();
         }
+        adapter.notifyDataSetChanged();
         FragmentTransaction refresh = getFragmentManager().beginTransaction();
         refresh.detach(this).attach(this).commit();
     }

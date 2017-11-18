@@ -33,7 +33,6 @@ import java.util.Map;
 
 
 public class Create_EventFragment extends Fragment implements View.OnClickListener, AdapterView.OnItemSelectedListener {
-    //Lots of stuff
     EditText etTitle, etLocation, etDetails, etDate;
     TextView strt, end;
     TimePicker timePicker;
@@ -45,6 +44,7 @@ public class Create_EventFragment extends Fragment implements View.OnClickListen
     ArrayAdapter<String> sAdapter;
     String cName, cBio, cPhoto;
     Speaker chosenOne = new Speaker(cName, cBio, cPhoto);
+    Boolean isAdmin;
     private DatabaseReference mDatabase;
     private DatabaseReference mRef;
     private int mHour;
@@ -57,6 +57,8 @@ public class Create_EventFragment extends Fragment implements View.OnClickListen
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_create__event, container, false);
+        Bundle args = getArguments();
+        isAdmin = args.getBoolean("IS_ADMIN");
         //Initialize the large amount of things in this fragment
         strt = (TextView) view.findViewById(R.id.pick_startTime);
         end = (TextView) view.findViewById(R.id.pick_EndTime);
@@ -245,15 +247,14 @@ public class Create_EventFragment extends Fragment implements View.OnClickListen
 
     private void goToSchedulePage(String name)
     {
-        final Bundle bundle = new Bundle();
-        final ScheduleFragment Schedule = new ScheduleFragment();
-        FragmentTransaction fragmentTransaction = this.getFragmentManager().beginTransaction();
+        Bundle bundle = new Bundle();
         bundle.putBoolean("IS_MY_SCHEDULE", false);
-        bundle.putBoolean("IS_ADMIN",true);
-        Schedule.setArguments(bundle);
-        fragmentTransaction.addToBackStack("Schedule");
-        fragmentTransaction.replace(R.id.main_container, Schedule);
-        fragmentTransaction.commit();
+        bundle.putBoolean("IS_ADMIN", isAdmin);
+        ScheduleFragment mFrag = new ScheduleFragment();
+        mFrag.setArguments(bundle);
+        FragmentTransaction t = this.getFragmentManager().beginTransaction();
+        t.replace(R.id.main_container, mFrag);
+        t.commit();
 
         Snackbar.make(getActivity().findViewById(android.R.id.content), "Event Created: " + name, Snackbar.LENGTH_LONG).show();
     }
