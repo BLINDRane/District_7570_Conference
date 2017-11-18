@@ -1,48 +1,35 @@
 package bwastedsoftware.district_7570_conference;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.CalendarContract;
-import android.provider.ContactsContract;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.NotificationBuilderWithBuilderAccessor;
-import android.support.v4.app.NotificationCompat;
-import android.support.v7.view.menu.MenuView;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RatingBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.android.gms.vision.text.Line;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
-
-import org.w3c.dom.Text;
-
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+
+
 
 
 public class EventFragment extends Fragment implements View.OnClickListener {
@@ -55,7 +42,6 @@ public class EventFragment extends Fragment implements View.OnClickListener {
     private FirebaseAuth mAuth;
     private DatabaseReference nDatabase;
     Boolean Current, Over;
-    RatingBar rate;
 
     public EventFragment() {
         // Required empty public constructor
@@ -69,14 +55,18 @@ public class EventFragment extends Fragment implements View.OnClickListener {
         mAuth = FirebaseAuth.getInstance();
         nDatabase = FirebaseDatabase.getInstance().getReference();
 
-
-        rate = (RatingBar) mView.findViewById(R.id.eventRater);
         rsvp = (FloatingActionButton) mView.findViewById(R.id.eventView_attendingButton);
         rsvp.setOnClickListener(this);
         Over = mEvent.isOver();
         Current = mEvent.isCurrent();
         mEvent.getCalendarStartTime();
         Toast.makeText(getContext(), Over.toString() + " " + Current.toString(), Toast.LENGTH_LONG).show();
+
+
+
+        if(Over){
+            askForRating();
+        }
         return mView;
     }
 
@@ -126,10 +116,6 @@ public class EventFragment extends Fragment implements View.OnClickListener {
         }
         long eventDate = date.getTime();
         long currentDate = current.getTime();
-
-        if(eventDate < currentDate){
-            rate.setIsIndicator(true);
-        }
 
     }
 
@@ -186,6 +172,29 @@ public class EventFragment extends Fragment implements View.OnClickListener {
 
         startActivity(calIntent);
     }
+
+    private void askForRating(){
+              final Dialog rateDialog = new Dialog(getContext(), R.style.FullHeightDialog);
+                rateDialog.setContentView(R.layout.rate_dialog);
+                rateDialog.setCancelable(true);
+                final RatingBar ratingBar = (RatingBar)rateDialog.findViewById(R.id.dialog_ratingbar);
+                //ratingBar.setRating(userRankValue);
+
+                TextView text = (TextView) rateDialog.findViewById(R.id.rank_dialog_text1);
+                text.setText("Please rate this event.");
+
+                Button updateButton = (Button) rateDialog.findViewById(R.id.rank_dialog_button);
+                updateButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        rateDialog.dismiss();
+                       Toast.makeText(getContext(), "Your rating of " + ratingBar.getRating() + " stars has been recorded.", Toast.LENGTH_LONG).show();
+                    }
+                });
+                //now that the dialog is set up, it's time to show it
+                rateDialog.show();
+            }
+
 
     //this will enable using the back button to pop the stack, which will go to previous fragment instead of the login screen.
     @Override
