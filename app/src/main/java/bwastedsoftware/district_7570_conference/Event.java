@@ -1,6 +1,7 @@
 package bwastedsoftware.district_7570_conference;
 
 import android.provider.CalendarContract;
+import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.google.firebase.database.Exclude;
@@ -227,4 +228,6 @@ public class Event {
        long duration = getCalendarEndTime().getTimeInMillis() - getCalendarStartTime().getTimeInMillis();
         return duration;
     }
+
+
 }

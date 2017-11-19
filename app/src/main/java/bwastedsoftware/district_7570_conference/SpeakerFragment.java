@@ -43,7 +43,7 @@ public class SpeakerFragment extends Fragment implements View.OnClickListener {
     private Speaker mSpeaker;
     private Context mContext;
     protected View mView;
-    RatingBar rate;
+
 
     public SpeakerFragment() {
         // Required empty public constructor
@@ -54,7 +54,6 @@ public class SpeakerFragment extends Fragment implements View.OnClickListener {
         // Inflate the layout for this fragment
         mView = inflater.inflate(R.layout.fragment_speaker, container, false);
 
-        rate = (RatingBar) mView.findViewById(R.id.eventRater);
 
         return mView;
     }

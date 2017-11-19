@@ -211,7 +211,6 @@ public class EventFragment extends Fragment implements View.OnClickListener {
                 if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK){
 
                     getActivity().getSupportFragmentManager().popBackStack();
-                    ((HomePage)getActivity()).getSupportActionBar().setTitle("Schedule");
                     ((HomePage)getActivity()).toolbarBackground(true);
                     return true;
 
