@@ -95,7 +95,7 @@ public class HomePage extends AppCompatActivity {
 
 
         if(isAdmin){
-            createEvent.setVisible(true);
+            //createEvent.setVisible(true);
             createSpeaker.setVisible(true);
             Toast.makeText(HomePage.this, "Admin Detected", Toast.LENGTH_LONG).show();
         }
