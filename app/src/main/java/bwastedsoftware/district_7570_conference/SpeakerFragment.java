@@ -99,7 +99,6 @@ public class SpeakerFragment extends Fragment implements View.OnClickListener {
 
                     getActivity().getSupportFragmentManager().popBackStack();
                     ((HomePage)getActivity()).getSupportActionBar().setTitle("Schedule");
-                    ((HomePage)getActivity()).toolbarBackground(true);
                     return true;
 
                 }

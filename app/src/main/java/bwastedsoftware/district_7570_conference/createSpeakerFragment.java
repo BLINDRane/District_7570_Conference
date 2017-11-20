@@ -251,7 +251,6 @@ public class createSpeakerFragment extends Fragment implements View.OnClickListe
 
                     getActivity().getSupportFragmentManager().popBackStack();
                     ((HomePage)getActivity()).getSupportActionBar().setTitle("Speakers, Leaders, and Sponsors");
-                    ((HomePage)getActivity()).toolbarBackground(true);
                     return true;
 
                 }

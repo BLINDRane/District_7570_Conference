@@ -43,7 +43,6 @@ public class HomePage extends AppCompatActivity {
     ActionBarDrawerToggle actionBarDrawerToggle;
     FragmentTransaction fragmentTransaction;
     NavigationView navView;
-    Drawable drawable;
     FirebaseAuth mAuth;
     String user_id;
     Bundle inBundle;
@@ -66,7 +65,6 @@ public class HomePage extends AppCompatActivity {
         Toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(Toolbar);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawable = ContextCompat.getDrawable(this, R.drawable.banner);
         //Initialize that dank action bar
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, Toolbar, R.string.drawer_open, R.string.drawer_close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
@@ -115,7 +113,6 @@ public class HomePage extends AppCompatActivity {
                     fragmentTransaction.addToBackStack("My Schedule");
                     fragmentTransaction.replace(R.id.main_container, mySchedule2);
                     fragmentTransaction.commit();
-                    Toolbar.setBackground(drawable);
                     getSupportActionBar().setTitle("My Schedule");
                     navView.setCheckedItem(R.id.my_schedule_id);
                     drawerLayout.closeDrawers();
@@ -134,7 +131,6 @@ public class HomePage extends AppCompatActivity {
                         fragmentTransaction.addToBackStack("Home");
                         fragmentTransaction.replace(R.id.main_container, new HomeFragment());
                         fragmentTransaction.commit();
-                        Toolbar.setBackgroundColor((Color.parseColor("#303F9F")));
                         getSupportActionBar().setTitle("Home");
                         item.setChecked(true);
                         drawerLayout.closeDrawers();
@@ -147,7 +143,6 @@ public class HomePage extends AppCompatActivity {
                         fragmentTransaction.addToBackStack("Schedule");
                         fragmentTransaction.replace(R.id.main_container, Schedule);
                         fragmentTransaction.commit();
-                        Toolbar.setBackground(drawable);
                         getSupportActionBar().setTitle("Schedule");
                         item.setChecked(true);
                         drawerLayout.closeDrawers();
@@ -159,7 +154,6 @@ public class HomePage extends AppCompatActivity {
                         fragmentTransaction.addToBackStack("Speakers");
                         fragmentTransaction.replace(R.id.main_container, speakerList);
                         fragmentTransaction.commit();
-                        Toolbar.setBackground(drawable);
                         getSupportActionBar().setTitle("Speakers");
                         item.setChecked(true);
                         drawerLayout.closeDrawers();
@@ -172,7 +166,6 @@ public class HomePage extends AppCompatActivity {
                         fragmentTransaction.addToBackStack("My Schedule");
                         fragmentTransaction.replace(R.id.main_container, mySchedule);
                         fragmentTransaction.commit();
-                        Toolbar.setBackground(drawable);
                         getSupportActionBar().setTitle("My Schedule");
                         item.setChecked(true);
                         drawerLayout.closeDrawers();
@@ -184,7 +177,6 @@ public class HomePage extends AppCompatActivity {
                         fragmentTransaction.addToBackStack("Event Creation");
                         fragmentTransaction.replace(R.id.main_container, createEventFrag);
                         fragmentTransaction.commit();
-                        Toolbar.setBackground(drawable);
                         getSupportActionBar().setTitle("Event Creation");
                         item.setChecked(true);
                         drawerLayout.closeDrawers();
@@ -196,7 +188,6 @@ public class HomePage extends AppCompatActivity {
                         fragmentTransaction.addToBackStack("Speaker Creation");
                         fragmentTransaction.replace(R.id.main_container, speakerCreate);
                         fragmentTransaction.commit();
-                        Toolbar.setBackground(drawable);
                         getSupportActionBar().setTitle("Speaker Creation");
                         item.setChecked(true);
                         drawerLayout.closeDrawers();
@@ -207,7 +198,6 @@ public class HomePage extends AppCompatActivity {
                         fragmentTransaction.addToBackStack("Scavenger Hunt");
                         fragmentTransaction.replace(R.id.main_container, new scavengerHunt());
                         fragmentTransaction.commit();
-                        Toolbar.setBackground(drawable);
                         getSupportActionBar().setTitle("Scavenger Hunt");
                         item.setChecked(true);
                         drawerLayout.closeDrawers();
@@ -225,16 +215,6 @@ public class HomePage extends AppCompatActivity {
         super.onPostCreate(savedInstanceState);
         actionBarDrawerToggle.syncState();
     }
-
-    //This method can be called when a fragment pops the backstack, so that the toolbar can be changed correctly.
-    public void toolbarBackground(Boolean isDrawable){
-        if(isDrawable){
-            Toolbar.setBackground(drawable);
-        } else {
-            Toolbar.setBackgroundColor((Color.parseColor("#303F9F")));
-        }
-    }
-
 
 
 

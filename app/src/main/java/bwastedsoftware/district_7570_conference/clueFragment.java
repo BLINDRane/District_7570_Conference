@@ -257,7 +257,6 @@ public class clueFragment extends Fragment implements View.OnClickListener {
 
                     getActivity().getSupportFragmentManager().popBackStack();
                     ((HomePage)getActivity()).getSupportActionBar().setTitle("Scavenger Hunt");
-                    ((HomePage)getActivity()).toolbarBackground(true);
                     return true;
 
                 }

@@ -284,7 +284,6 @@ private static String pad(int c) {
 
                     getActivity().getSupportFragmentManager().popBackStack();
                     ((HomePage)getActivity()).getSupportActionBar().setTitle("Home");
-                    ((HomePage)getActivity()).toolbarBackground(false);
                     return true;
 
                 }

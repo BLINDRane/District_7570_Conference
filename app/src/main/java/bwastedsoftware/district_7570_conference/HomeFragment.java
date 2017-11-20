@@ -164,7 +164,7 @@ if(v.getId() == R.id.current_button){
                 return e1.getCalendarStartTime().compareTo(e2.getCalendarStartTime());
             }
         });
-        
+
        for(int i = 0; i<events.size(); i++){
            Log.v("EVENT AT I", events.get(i).getTitle());
            if(!events.get(i).isOver() && !events.get(i).isCurrent()){
@@ -197,6 +197,7 @@ if(v.getId() == R.id.current_button){
         EventFragment mFrag = new EventFragment();
         mFrag.passEvent(getActivity(), event);
         t.replace(R.id.main_container, mFrag);
+        ((HomePage)getActivity()).getSupportActionBar().setTitle("Event");
         t.commit();
     }
     //this will enable using the back button to pop the stack, which will go to previous fragment instead of the login screen.

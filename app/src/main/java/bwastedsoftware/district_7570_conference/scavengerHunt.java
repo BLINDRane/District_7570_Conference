@@ -204,7 +204,6 @@ clues = new ArrayList<>();
 
                     getActivity().getSupportFragmentManager().popBackStack();
                     ((HomePage)getActivity()).getSupportActionBar().setTitle("Home");
-                    ((HomePage)getActivity()).toolbarBackground(false);
                     return true;
 
                 }

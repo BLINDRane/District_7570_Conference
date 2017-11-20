@@ -249,7 +249,6 @@ public class SpeakerListFragment extends Fragment
 
                     getActivity().getSupportFragmentManager().popBackStack();
                     ((HomePage)getActivity()).getSupportActionBar().setTitle("Home");
-                    ((HomePage)getActivity()).toolbarBackground(false);
                     return true;
 
                 }
