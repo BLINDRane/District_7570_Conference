@@ -2,6 +2,7 @@ package bwastedsoftware.district_7570_conference;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -62,6 +63,30 @@ public class SpeakerListFragment extends Fragment
         initializeData();
         initializeAdapter(rv);
         refreshData();
+
+        if (isAdmin)
+        {
+            FloatingActionButton fab = (FloatingActionButton) v.findViewById(R.id.fab_createSpeaker);
+            fab.setVisibility(View.VISIBLE);
+
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v)
+                {
+                    //go to create event fragment
+                    final Bundle bundle = new Bundle();
+                    final createSpeakerFragment createSpeakerFrag = new createSpeakerFragment();
+                    createSpeakerFrag.setArguments(bundle);
+                    bundle.putBoolean("IS_ADMIN", isAdmin);
+                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.addToBackStack("Speaker Creation");
+                    fragmentTransaction.replace(R.id.main_container, createSpeakerFrag);
+                    fragmentTransaction.commit();
+                    //v.findViewById(R.id.toolbar).setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.banner));
+                    ((HomePage) getActivity()).getSupportActionBar().setTitle("Speaker Creation");
+                }}
+            );
+        }
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) v.findViewById(R.id.swipeRefreshLayout);
 
