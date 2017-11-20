@@ -72,7 +72,6 @@ public class Create_EventFragment extends Fragment implements View.OnClickListen
 
         etDetails = (EditText) view.findViewById(R.id.edit_Details);
         speakerPick = (Spinner) view.findViewById(R.id.spinner_Speakers);
-
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mRef = FirebaseDatabase.getInstance().getReference().child("Speakers");
 

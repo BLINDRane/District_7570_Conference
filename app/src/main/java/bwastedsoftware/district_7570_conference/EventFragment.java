@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,12 +18,16 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -40,8 +45,8 @@ public class EventFragment extends Fragment implements View.OnClickListener {
     private String user_id;
     protected View mView;
     private FirebaseAuth mAuth;
-    private DatabaseReference nDatabase;
-    Boolean Current, Over;
+    private DatabaseReference nDatabase, userEvents;
+    Boolean Current, Over, isMine;
 
     public EventFragment() {
         // Required empty public constructor
@@ -49,20 +54,24 @@ public class EventFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Bundle args = getArguments();
         // Inflate the layout for this fragment
         mView = inflater.inflate(R.layout.fragment_event, container, false);
-
         mAuth = FirebaseAuth.getInstance();
+        user_id = mAuth.getCurrentUser().getUid();
         nDatabase = FirebaseDatabase.getInstance().getReference();
-
-        rsvp = (FloatingActionButton) mView.findViewById(R.id.eventView_attendingButton);
-        rsvp.setOnClickListener(this);
+        userEvents = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("userEvents");
         Over = mEvent.isOver();
         Current = mEvent.isCurrent();
+        isMine = args.getBoolean("IS_MINE");
+        rsvp = (FloatingActionButton) mView.findViewById(R.id.eventView_attendingButton);
         mEvent.getCalendarStartTime();
-        Toast.makeText(getContext(), Over.toString() + " " + Current.toString(), Toast.LENGTH_LONG).show();
 
-
+        if(!isMine) {
+            rsvp.setOnClickListener(this);
+        } else {
+            rsvp.hide();
+        }
 
         if(Over){
             askForRating();
@@ -126,7 +135,7 @@ public class EventFragment extends Fragment implements View.OnClickListener {
             //add to their calendar
             addEventToCalendar();
 
-            user_id = mAuth.getCurrentUser().getUid();
+
             FirebaseDatabase mydb = FirebaseDatabase.getInstance();
             DatabaseReference mDatabase = mydb.getReference().child("Users").child(user_id);
 

@@ -41,7 +41,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     private DatabaseReference mDatabase;
     private DatabaseReference userEvents;
     private String user_id;
-    private ArrayList<Event> eventList;
+    private  ArrayList<Event> eventList;
     private ArrayList<Event> tempEvents;
     boolean currentFound;
     boolean upcomingFound;

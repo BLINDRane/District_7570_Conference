@@ -340,9 +340,12 @@ public class ScheduleFragment extends Fragment
 
     public void loadEventDetails(Event event)
     {
+        Bundle bundle =  new Bundle();
+        EventFragment mFrag = new EventFragment();
+        bundle.putBoolean("IS_MINE", isMine);
+        mFrag.setArguments(bundle);
         FragmentTransaction t = this.getFragmentManager().beginTransaction();
         t.addToBackStack("Event");
-        EventFragment mFrag = new EventFragment();
         mFrag.passEvent(getActivity(), event);
         t.replace(R.id.main_container, mFrag);
         t.commit();

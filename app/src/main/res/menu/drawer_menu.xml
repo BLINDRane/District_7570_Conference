@@ -15,7 +15,7 @@
         android:title="My Schedule" />
     <item
         android:id="@+id/speakers_id"
-        android:title="Speakers, Leaders, and Sponsors"
+        android:title="Speakers"
         android:icon="@drawable/ic_record_voice_over_black_24dp" />
     <item
         android:visible="false"
