@@ -71,7 +71,7 @@ public class ScheduleFragment extends Fragment
         user_id = mAuth.getCurrentUser().getUid();
         myRef = mDatabase.getReference().child("Users").child(user_id).child("userEvents");
 
-        if (isAdmin)
+        if (isAdmin && !isMine)
         {
             FloatingActionButton fab = (FloatingActionButton) v.findViewById(R.id.fab_createEvent);
             fab.setVisibility(View.VISIBLE);
