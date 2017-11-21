@@ -36,18 +36,22 @@ public class Event {
     private String date;
     private String time;
     private String details;
+    private float numRates;
+    private float currentRating;
     private ArrayList<Speaker> speakers;
 
     Event() {
 
     }
 
-    Event(String title, String location, String date, String time, String details, Speaker speaker) {
-        this(title, location, date, time, details);
+    Event(String title, String location, String date, String time, String details, Speaker speaker, float numRates, float currentRating) {
+        this(title, location, date, time, details, numRates, currentRating);
         this.addSpeaker(speaker);
     }
 
-    Event(String title, String location, String date, String time, String details) {
+    Event(String title, String location, String date, String time, String details, float numRates, float currentRating) {
+        this.numRates = numRates;
+        this.currentRating = currentRating;
         this.title = title;
         this.location = location;
         this.date = date;
@@ -126,6 +130,13 @@ public class Event {
         this.time = time;
     }
 
+    public float getNumRates(){return numRates;}
+
+    public float getCurrentRating(){return numRates;}
+
+    public void setNumRates(int a){this.numRates = a;}
+
+    public void setCurrentRating(int a){this.currentRating = a;}
 
     @Exclude
     public Map<String, Object> toMap() {
@@ -136,7 +147,8 @@ public class Event {
         result.put("time", time);
         result.put("speakers", speakers);
         result.put("details", details);
-        //result.put("speakers", getSpeakerString());
+        result.put("numRates", numRates);
+        result.put("currentRating", currentRating);
 
         return result;
     }
@@ -149,8 +161,6 @@ public class Event {
         DateFormat format = new SimpleDateFormat("MMMM d, yyyy hh:mm a", Locale.ENGLISH);
         try {
             Date date = format.parse(this.date + " " + this.getStartTime());
-           // Log.v("Start date is", date.toString());
-           // Log.v("Start time is", this.getStartTime());
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(date);
             
@@ -175,14 +185,12 @@ public class Event {
         String[] out = tim.split(" to");
 
         String res = out[1];
-        //Log.v("END TIME IS",   res);
         return res;
     }
 
 
     public boolean isCurrent() {
             long compare = getCalendarEndTime().getTimeInMillis() - getCalendarRightNow().getTimeInMillis();
-       // Log.v("LOOK HERE", "compare = " + compare + " " + "Duration is: " + getDuration() + "="  + (compare < getDuration()));
             if(compare > 0 && compare < getDuration()){
                     return true;
             }
@@ -192,7 +200,6 @@ public class Event {
     public boolean isOver() {
         if(!isCurrent()) {
             long compare = getCalendarRightNow().compareTo(getCalendarEndTime());
-           // Log.v("LOOK HERE", "Compare = " + compare);
             if (compare == 0) {
                 return false;
             } else if (compare < 0) {

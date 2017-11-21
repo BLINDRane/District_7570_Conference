@@ -22,6 +22,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 import java.text.DateFormat;
@@ -34,7 +35,7 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-
+import static android.content.ContentValues.TAG;
 
 
 public class EventFragment extends Fragment implements View.OnClickListener {
@@ -45,7 +46,10 @@ public class EventFragment extends Fragment implements View.OnClickListener {
     private String user_id;
     protected View mView;
     private FirebaseAuth mAuth;
-    private DatabaseReference nDatabase, userEvents;
+    private DatabaseReference nDatabase;
+    private float userRating;
+    private float numRates;
+    private float currentRating;
     Boolean Current, Over, isMine;
 
     public EventFragment() {
@@ -60,12 +64,13 @@ public class EventFragment extends Fragment implements View.OnClickListener {
         mAuth = FirebaseAuth.getInstance();
         user_id = mAuth.getCurrentUser().getUid();
         nDatabase = FirebaseDatabase.getInstance().getReference();
-        userEvents = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("userEvents");
         Over = mEvent.isOver();
         Current = mEvent.isCurrent();
         isMine = args.getBoolean("IS_MINE");
         rsvp = (FloatingActionButton) mView.findViewById(R.id.eventView_attendingButton);
         mEvent.getCalendarStartTime();
+
+        Toast.makeText(getContext(), mEvent.getTitle(), Toast.LENGTH_LONG).show();
 
         if(!isMine) {
             rsvp.setOnClickListener(this);
@@ -73,7 +78,7 @@ public class EventFragment extends Fragment implements View.OnClickListener {
             rsvp.hide();
         }
 
-        if(Over){
+        if(Over && isMine){
             askForRating();
         }
         return mView;
@@ -115,7 +120,7 @@ public class EventFragment extends Fragment implements View.OnClickListener {
         mTimeView.setText(mEvent.getDate() + ", " + mEvent.getTime().replace("F", "f"));
         mBodyView.setText(mEvent.getDetails());
 
-        SimpleDateFormat formatter = new SimpleDateFormat("MMM dd, yyyy");
+      /*  SimpleDateFormat formatter = new SimpleDateFormat("MMM dd, yyyy");
         Date current = Calendar.getInstance().getTime();
         Date date = null;
         try {
@@ -124,7 +129,7 @@ public class EventFragment extends Fragment implements View.OnClickListener {
             e.printStackTrace();
         }
         long eventDate = date.getTime();
-        long currentDate = current.getTime();
+        long currentDate = current.getTime(); */
 
     }
 
@@ -197,6 +202,8 @@ public class EventFragment extends Fragment implements View.OnClickListener {
                     @Override
                     public void onClick(View v) {
                         rateDialog.dismiss();
+                        userRating = ratingBar.getRating();
+                        storeRateInfo();
                        Toast.makeText(getContext(), "Your rating of " + ratingBar.getRating() + " stars has been recorded.", Toast.LENGTH_LONG).show();
                     }
                 });
@@ -204,6 +211,39 @@ public class EventFragment extends Fragment implements View.OnClickListener {
                 rateDialog.show();
             }
 
+
+    private void storeRateInfo(){
+        //Order the information by title
+        final DatabaseReference ratingDB = FirebaseDatabase.getInstance().getReference().child("Events");
+
+        //A query set to match an event title to mEvent, ensuring that we have the right event.
+        Query TitleQuery = ratingDB.orderByChild("title").equalTo(mEvent.getTitle());
+
+        TitleQuery.addListenerForSingleValueEvent(new ValueEventListener()
+        {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot)
+            {
+                for (DataSnapshot titleSnapshot : dataSnapshot.getChildren())
+                {
+
+                    //Toast.makeText(getContext(), titleSnapshot.child("numRates").getValue(float.class).toString(), Toast.LENGTH_LONG).show();
+                    numRates =  titleSnapshot.child("numRates").getValue(float.class) + 1;
+                    currentRating = titleSnapshot.child("currentRating").getValue(float.class);
+                    ratingDB.child(titleSnapshot.getKey()).child("currentRating").setValue(averageRatings(userRating, currentRating, numRates));
+                    ratingDB.child(titleSnapshot.getKey()).child("numRates").setValue((numRates));
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError)
+            {
+                Log.e(TAG, "onCancelled", databaseError.toException());
+            }
+        });
+    }
+
+    private float averageRatings(float a, float b, float c){return ((a+b)/c);}
 
     //this will enable using the back button to pop the stack, which will go to previous fragment instead of the login screen.
     @Override

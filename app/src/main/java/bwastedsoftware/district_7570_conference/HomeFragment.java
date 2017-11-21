@@ -138,7 +138,7 @@ if(v.getId() == R.id.current_button){
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot childrenSnapShot : dataSnapshot.getChildren()) {
                     Event event = childrenSnapShot.getValue(Event.class);
-                    tempEvents.add(new Event(event.getTitle(), event.getLocation(), event.getDate(), event.getTime(), event.getDetails(), event.getSpeaker()));
+                    tempEvents.add(new Event(event.getTitle(), event.getLocation(), event.getDate(), event.getTime(), event.getDetails(), event.getSpeaker(), 0 , 0));
                     //Log.w("GETTING CARDS", "value is" + event.getDate() + event.getLocation() + childrenSnapShot.getKey());
                 }
                 //Log.d("FIREBASE", "Value is: " + post);

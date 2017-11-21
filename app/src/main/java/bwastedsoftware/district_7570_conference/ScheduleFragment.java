@@ -180,7 +180,7 @@ public class ScheduleFragment extends Fragment
                 for (DataSnapshot childrenSnapShot : dataSnapshot.getChildren())
                 {
                     Event event = childrenSnapShot.getValue(Event.class);
-                    newevents.add(new Event(event.getTitle(), event.getLocation(), event.getDate(), event.getTime(), event.getDetails(), event.getSpeaker()));
+                    newevents.add(new Event(event.getTitle(), event.getLocation(), event.getDate(), event.getTime(), event.getDetails(), event.getSpeaker(), event.getNumRates(), event.getCurrentRating()));
                 }
                 addEvents(newevents);
 
@@ -214,7 +214,7 @@ public class ScheduleFragment extends Fragment
                 for (DataSnapshot childrenSnapShot : dataSnapshot.getChildren())
                 {
                     Event event = childrenSnapShot.getValue(Event.class);
-                    newevents.add(new Event(event.getTitle(), event.getLocation(), event.getDate(), event.getTime(), event.getDetails(), event.getSpeaker()));
+                    newevents.add(new Event(event.getTitle(), event.getLocation(), event.getDate(), event.getTime(), event.getDetails(), event.getSpeaker(), event.getNumRates(), event.getCurrentRating()));
                     //Log.w("GETTING CARDS", "value is" + event.getDate() + event.getLocation() + childrenSnapShot.getKey());
                 }
                 //Log.d("FIREBASE", "Value is: " + post);
