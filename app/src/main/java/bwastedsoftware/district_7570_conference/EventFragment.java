@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -18,6 +19,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -63,14 +65,11 @@ public class EventFragment extends Fragment implements View.OnClickListener {
         mView = inflater.inflate(R.layout.fragment_event, container, false);
         mAuth = FirebaseAuth.getInstance();
         user_id = mAuth.getCurrentUser().getUid();
-        nDatabase = FirebaseDatabase.getInstance().getReference();
         Over = mEvent.isOver();
         Current = mEvent.isCurrent();
         isMine = args.getBoolean("IS_MINE");
         rsvp = (FloatingActionButton) mView.findViewById(R.id.eventView_attendingButton);
         mEvent.getCalendarStartTime();
-
-        Toast.makeText(getContext(), mEvent.getTitle(), Toast.LENGTH_LONG).show();
 
         if(!isMine) {
             rsvp.setOnClickListener(this);
@@ -139,7 +138,7 @@ public class EventFragment extends Fragment implements View.OnClickListener {
 
             //add to their calendar
             addEventToCalendar();
-
+            nDatabase = FirebaseDatabase.getInstance().getReference();
 
             FirebaseDatabase mydb = FirebaseDatabase.getInstance();
             DatabaseReference mDatabase = mydb.getReference().child("Users").child(user_id);
@@ -150,7 +149,6 @@ public class EventFragment extends Fragment implements View.OnClickListener {
 
             Map<String, Object> childUpdates = new HashMap<>();
             childUpdates.put("/userEvents/" + key, eventValues);
-            //childUpdates.put("/user-posts/" + title + "/" + key, postValues);
 
             mDatabase.updateChildren(childUpdates);
 
@@ -215,10 +213,11 @@ public class EventFragment extends Fragment implements View.OnClickListener {
     private void storeRateInfo(){
         //Order the information by title
         final DatabaseReference ratingDB = FirebaseDatabase.getInstance().getReference().child("Events");
+        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("userEvents");
 
         //A query set to match an event title to mEvent, ensuring that we have the right event.
-        Query TitleQuery = ratingDB.orderByChild("title").equalTo(mEvent.getTitle());
-
+        final Query TitleQuery = ratingDB.orderByChild("title").equalTo(mEvent.getTitle());
+        final Query userTitleQuery = userRef.orderByChild("title").equalTo(mEvent.getTitle());
         TitleQuery.addListenerForSingleValueEvent(new ValueEventListener()
         {
             @Override
@@ -226,12 +225,27 @@ public class EventFragment extends Fragment implements View.OnClickListener {
             {
                 for (DataSnapshot titleSnapshot : dataSnapshot.getChildren())
                 {
-
-                    //Toast.makeText(getContext(), titleSnapshot.child("numRates").getValue(float.class).toString(), Toast.LENGTH_LONG).show();
                     numRates =  titleSnapshot.child("numRates").getValue(float.class) + 1;
                     currentRating = titleSnapshot.child("currentRating").getValue(float.class);
                     ratingDB.child(titleSnapshot.getKey()).child("currentRating").setValue(averageRatings(userRating, currentRating, numRates));
                     ratingDB.child(titleSnapshot.getKey()).child("numRates").setValue((numRates));
+                    userTitleQuery.addListenerForSingleValueEvent(new ValueEventListener()
+                    {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot)
+                        {
+                            for (DataSnapshot titleSnapshot : dataSnapshot.getChildren())
+                            {
+                                titleSnapshot.getRef().removeValue();
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError)
+                        {
+                            Log.e(TAG, "onCancelled", databaseError.toException());
+                        }
+                    });
                 }
             }
 

@@ -385,7 +385,7 @@ public class ScheduleFragment extends Fragment
             Query fullTitleQuery = fullRef.child("Events").orderByChild("title").equalTo(event.getTitle());
             Query userQuery = fullRef.child("Users");
 
-            //This is a bit of a complex bit here. First, get a snapshot of the database at "Users."
+            //Get a snapshot of "Users"
             userQuery.addListenerForSingleValueEvent(new ValueEventListener()
             {
                 @Override
@@ -424,7 +424,7 @@ public class ScheduleFragment extends Fragment
                 {
                 }
             });
-            //Delete the event from the schedule.
+            //Delete the event from the main schedule.
             fullTitleQuery.addListenerForSingleValueEvent(new ValueEventListener()
             {
                 @Override

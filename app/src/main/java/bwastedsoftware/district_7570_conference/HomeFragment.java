@@ -45,7 +45,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     private ArrayList<Event> tempEvents;
     boolean currentFound;
     boolean upcomingFound;
-
+    boolean isAdmin;
     public HomeFragment(){
         // Required empty constructor
     }
@@ -106,32 +106,6 @@ if(v.getId() == R.id.current_button){
     }
 
 
-    public void sendNotification(){
-
-        NotificationCompat.Builder mBuilder =
-                new NotificationCompat.Builder(getContext());
-
-//Create the intent that’ll fire when the user taps the notification//
-
-        Intent intent = new Intent(getContext(), HomePage.class);
-        intent.putExtra("From", "notifyFrag");
-        PendingIntent pendingIntent = PendingIntent.getActivity(getContext(), 0, intent, 0);
-
-        mBuilder.setContentIntent(pendingIntent);
-
-        mBuilder.setSmallIcon(R.drawable.homestead_fall);
-        mBuilder.setContentTitle("Rate Event");
-        mBuilder.setContentText("Please take a moment to rate that last event!");
-
-        NotificationManager mNotificationManager =
-
-                (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
-
-        mNotificationManager.notify(001, mBuilder.build());
-
-
-    }
-
     private void getUserEvents(){
         userEvents.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -139,11 +113,10 @@ if(v.getId() == R.id.current_button){
                 for (DataSnapshot childrenSnapShot : dataSnapshot.getChildren()) {
                     Event event = childrenSnapShot.getValue(Event.class);
                     tempEvents.add(new Event(event.getTitle(), event.getLocation(), event.getDate(), event.getTime(), event.getDetails(), event.getSpeaker(), 0 , 0));
-                    //Log.w("GETTING CARDS", "value is" + event.getDate() + event.getLocation() + childrenSnapShot.getKey());
                 }
-                //Log.d("FIREBASE", "Value is: " + post);
-                addEvents(tempEvents);
 
+                addEvents(tempEvents);
+                getRateableEvents(tempEvents);
 
             }
             @Override
@@ -191,10 +164,58 @@ if(v.getId() == R.id.current_button){
         }
     }
 
+    private void getRateableEvents(ArrayList<Event> events) {
+        Collections.sort(events, new Comparator<Event>() {
+            @Override
+            public int compare(Event e1, Event e2) {
+                return e1.getCalendarStartTime().compareTo(e2.getCalendarStartTime());
+            }
+        });
+        ArrayList<Event> rateable = new ArrayList<>();
+        for (int i = 0; i < events.size(); i++) {
+            if (events.get(i).isOver()) {
+                rateable.add(events.get(i));
+            }
+        }
+                if (rateable.size() > 0) {
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which) {
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    Bundle bundle = new Bundle();
+                                    ScheduleFragment Schedule = new ScheduleFragment();
+                                    bundle.putBoolean("IS_MY_SCHEDULE", true);
+                                    bundle.putBoolean("IS_ADMIN", isAdmin);
+                                    Schedule.setArguments(bundle);
+                                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                                    fragmentTransaction.addToBackStack("Schedule");
+                                    fragmentTransaction.replace(R.id.main_container, Schedule);
+                                    fragmentTransaction.commit();
+                                    ((HomePage) getActivity()).getSupportActionBar().setTitle("Schedule");
+                                    break;
+
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    //No button clicked
+                                    break;
+                            }
+                        }
+                    };
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                    builder.setMessage("You have " + rateable.size() + " " + "event(s) that need your feedback. Would you like to rate them now?").setPositiveButton("Yes", dialogClickListener)
+                            .setNegativeButton("No", dialogClickListener).show();
+
+                }
+            }
+
+
     public void loadEventDetails(Event event) {
+        Bundle bundle = new Bundle();
+        bundle.putBoolean("IS_MINE", true);
         FragmentTransaction t = this.getFragmentManager().beginTransaction();
         t.addToBackStack("Event");
         EventFragment mFrag = new EventFragment();
+        mFrag.setArguments(bundle);
         mFrag.passEvent(getActivity(), event);
         t.replace(R.id.main_container, mFrag);
         ((HomePage)getActivity()).getSupportActionBar().setTitle("Event");

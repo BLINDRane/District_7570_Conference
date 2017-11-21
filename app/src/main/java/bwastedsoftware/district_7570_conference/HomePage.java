@@ -83,7 +83,7 @@ public class HomePage extends AppCompatActivity {
         if(isAdmin){
             //createEvent.setVisible(true);
             //createSpeaker.setVisible(true);
-            Toast.makeText(HomePage.this, "Admin Detected", Toast.LENGTH_LONG).show();
+            //Toast.makeText(HomePage.this, "Admin Detected", Toast.LENGTH_LONG).show();
         }
 
         //This is like onCreate() but if the activity was called from a push notification
