@@ -1,16 +1,10 @@
 package bwastedsoftware.district_7570_conference;
 
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -18,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,8 +21,8 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -72,6 +67,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         userEvents = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("userEvents");
         personilizeWelcomeText();
         getUserEvents();
+
+        ImageView picture = (ImageView) view.findViewById(R.id.homestead_view);
+        Picasso.with(getActivity()).load(R.drawable.homepageimage).placeholder(R.drawable.homestead_fall).fit().centerCrop().into(picture);
 
         return view;
     }
