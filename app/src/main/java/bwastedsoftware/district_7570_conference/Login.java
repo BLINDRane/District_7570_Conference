@@ -196,6 +196,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                     mIntent.putExtras(bundle);
                     mIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(mIntent);
+                    mDatabase.removeEventListener(this);
 
                 }else{
                     Toast.makeText(Login.this, "You need to set up an account", Toast.LENGTH_LONG);
