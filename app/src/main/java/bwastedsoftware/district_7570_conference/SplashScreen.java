@@ -1,9 +1,14 @@
 package bwastedsoftware.district_7570_conference;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.content.Intent;
+import android.widget.ImageView;
+
+import com.squareup.picasso.Picasso;
+
+import java.io.File;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -14,6 +19,10 @@ public class SplashScreen extends AppCompatActivity {
         overridePendingTransition(R.anim.splash_fadein, R.anim.splash_fadeout);
         //getSupportActionBar().hide();
         setContentView(R.layout.activity_splash_screen);
+
+        ImageView splashImage = (ImageView) findViewById(R.id.splashScreenImage);
+
+        Picasso.with(this).load(R.drawable.ic_splashscreen_newtwo).placeholder(R.mipmap.ic_splashscreen).into(splashImage);
 
 
         final Handler handler = new Handler();
