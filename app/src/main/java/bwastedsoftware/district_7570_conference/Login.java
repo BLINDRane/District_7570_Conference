@@ -2,6 +2,8 @@ package bwastedsoftware.district_7570_conference;
 
 import android.content.Context;
 import android.media.Image;
+import android.os.Handler;
+import android.os.Message;
 import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +11,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,6 +31,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -49,6 +53,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     Bundle bundle;
     Boolean isAdmin;
     ArrayList<String> adminEmails = new ArrayList<>();
+
     //Here android is setting up the activity that will be displayed
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,10 +95,17 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event)
             {
-                if(event.getAction() == KeyEvent.KEYCODE_ENTER)
+                if(event != null)
                 {
-                    checkLogin();
-                    return true;
+                    if (event.getAction() == KeyEvent.KEYCODE_ENTER)
+                    {
+                        checkLogin();
+                        return true;
+                    }
+                    if (actionId == EditorInfo.IME_ACTION_DONE)
+                    {
+                        checkLogin();
+                    }
                 }
                 return false;
             }
@@ -121,7 +133,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
         } else if (v.getId() == R.id.login_rotary_button) {
           rotateWheel();
-
         }
     }
 
@@ -144,8 +155,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
             }
 
-
             isLoggingIn = true;
+
             overlayLayout.setVisibility(View.VISIBLE);
             String Email = etEmail.getText().toString().trim();
             String Password = etPassword.getText().toString().trim();
@@ -160,7 +171,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
                         if (task.isSuccessful())
                         {
-
                             checkUserInDatabase();
 
                         } else
