@@ -31,5 +31,6 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="scav_Instructions">For this scavenger hunt, you will follow the clues, and once you are near the item, you will be able to upload a picture of it! There will be cool prizes for the winner....are you ready?</string>
+    <string name="district_7570_conference">District 7570 Conference</string>
     />
 </resources>
