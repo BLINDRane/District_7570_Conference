@@ -58,6 +58,9 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
         //Get an instance of Firebase authorization and database
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
+        if(!(etPassword.getText().length() >= 6)){
+            Toast.makeText(getApplicationContext(), "Password Must Be At Least Six Characters", Toast.LENGTH_SHORT).show();
+        }
     }
 
 
