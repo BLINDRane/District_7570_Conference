@@ -1,11 +1,6 @@
 package bwastedsoftware.district_7570_conference;
 
 
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
@@ -15,7 +10,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -78,6 +72,9 @@ public class HomePage extends AppCompatActivity {
         mySchedule.setArguments(bundle);
         Schedule.setArguments(bundle);
         createEventFrag.setArguments(bundle);
+
+        final AboutPageFragment aboutPage = new AboutPageFragment();
+        aboutPage.setArguments(bundle);
 
 
         if(isAdmin){
@@ -189,6 +186,18 @@ public class HomePage extends AppCompatActivity {
                         getSupportActionBar().setTitle("Scavenger Hunt");
                         item.setChecked(true);
                         drawerLayout.closeDrawers();
+                        break;
+
+                    case R.id.about_id:
+                        bundle.putBoolean("IS_ADMIN", isAdmin);
+                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.addToBackStack("About Page");
+                        fragmentTransaction.replace(R.id.main_container, aboutPage);
+                        fragmentTransaction.commit();
+                        getSupportActionBar().setTitle("About");
+                        item.setChecked(true);
+                        drawerLayout.closeDrawers();
+                        break;
                 }
                 return false;
             }

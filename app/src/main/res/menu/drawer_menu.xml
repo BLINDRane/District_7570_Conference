@@ -35,8 +35,15 @@
             android:id="@+id/scav_id"
             android:icon="@drawable/ic_action_name" />
     </menu>
-
 </item>
+    <item android:title="About">
+        <menu>
+            <item
+                android:id="@+id/about_id"
+                android:icon="@android:drawable/ic_menu_info_details"
+                android:title="About"/>
+        </menu>
+    </item>
 
 
 </menu>

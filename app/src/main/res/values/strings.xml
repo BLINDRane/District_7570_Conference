@@ -32,5 +32,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="scav_Instructions">For this scavenger hunt, you will follow the clues, and once you are near the item, you will be able to upload a picture of it! There will be cool prizes for the winner....are you ready?</string>
     <string name="district_7570_conference">District 7570 Conference</string>
+    <string name="about_string">Rotary is a global network of 1.2 million neighbors, friends, leaders, and problem-solvers who come together to make positive, lasting change in communities at home and abroad. District 7570 is one of the many divisions of Rotary International.</string>
     />
 </resources>
