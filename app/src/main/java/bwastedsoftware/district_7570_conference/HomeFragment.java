@@ -24,9 +24,15 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
+import java.util.Locale;
 
 
 public class HomeFragment extends Fragment implements View.OnClickListener{
@@ -35,12 +41,21 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
     private DatabaseReference userEvents;
+    private DatabaseReference winners;
     private String user_id;
     private  ArrayList<Event> eventList;
     private ArrayList<Event> tempEvents;
+    private ArrayList<winner> tempWinners;
+    private ArrayList<winner> winnerList;
     boolean currentFound;
     boolean upcomingFound;
     boolean isAdmin;
+    Calendar endHunt = Calendar.getInstance();
+    Calendar now = Calendar.getInstance();
+    String first;
+    String second;
+    String third;
+    String formattedDate;
     public HomeFragment(){
         // Required empty constructor
     }
@@ -60,13 +75,34 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
 
         tempEvents = new ArrayList<>();
         eventList = new ArrayList<>();
+        tempWinners = new ArrayList<>();
+        winnerList = new ArrayList<>();
+
+        //set the date and time when the scavenger hunt ends
+        DateFormat format = new SimpleDateFormat("MMMM d, yyyy hh:mm a", Locale.ENGLISH);
+        try {
+            Date date = format.parse("November 28, 2017 12:57 PM");
+
+            endHunt.setTime(date);
+
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+
+        }
+
 
         mAuth = FirebaseAuth.getInstance();
         user_id = mAuth.getCurrentUser().getUid();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
         userEvents = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("userEvents");
+        winners = FirebaseDatabase.getInstance().getReference().child("Users who have Completed the Scavenger Hunt");
         personilizeWelcomeText();
         getUserEvents();
+
+        if(endHunt.compareTo(now) < 0) {
+            getWinners();
+        }
 
         ImageView picture = (ImageView) view.findViewById(R.id.homestead_view);
         Picasso.with(getActivity()).load(R.drawable.homepageimage).placeholder(R.drawable.homestead_fall).fit().centerCrop().into(picture);
@@ -127,6 +163,9 @@ if(v.getId() == R.id.current_button){
     private void addEvents(ArrayList<Event> events){
         eventList.addAll(events);
     }
+    private void addWinners(ArrayList<winner> Winners){
+        winnerList.addAll(Winners);
+    }
 
     private void getUpcomingEvent(ArrayList<Event> events){
         Collections.sort(events, new Comparator<Event>() {
@@ -137,7 +176,6 @@ if(v.getId() == R.id.current_button){
         });
 
        for(int i = 0; i<events.size(); i++){
-           Log.v("EVENT AT I", events.get(i).getTitle());
            if(!events.get(i).isOver() && !events.get(i).isCurrent()){
                loadEventDetails(events.get(i));
                upcomingFound = true;
@@ -261,5 +299,46 @@ if(v.getId() == R.id.current_button){
             }
         });
     }
+        private void getWinners(){
+            winners.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    for (DataSnapshot childrenSnapShot : dataSnapshot.getChildren()) {
+                        winner Winner = childrenSnapShot.getValue(winner.class);
+                        tempWinners.add(new winner(Winner.getUserName(), Winner.getCompletionTime()));
+                    }
 
+                    addWinners(tempWinners);
+                    getTopThree(tempWinners);
+
+                }
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+        }
+
+        private void getTopThree(ArrayList<winner> Winners){
+            Collections.sort(Winners, new Comparator<winner>() {
+                @Override
+                public int compare(winner e1, winner e2) {
+                    return e1.getDateFormated().compareTo(e2.getDateFormated());
+                }
+            });
+
+            for(int i = 0; i<3; i++){
+                if(i==0){
+                    Log.v("FIRST PLACE", Winners.get(i).getUserName());
+                    first = Winners.get(i).getUserName();
+                } else if(i==1){
+                    Log.v("SECOND PLACE", Winners.get(i).getUserName());
+                    second = Winners.get(i).getUserName();
+                } else if(i==2){
+                    Log.v("THIRD PLACE", Winners.get(i).getUserName());
+                    third = Winners.get(i).getUserName();
+                }
+
+                }
+        }
 }

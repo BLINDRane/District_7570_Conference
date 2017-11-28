@@ -125,7 +125,7 @@ public class EventFragment extends Fragment implements View.OnClickListener {
         Date current = Calendar.getInstance().getTime();
         Date date = null;
         try {
-            date = (Date) formatter.parse(mEvent.getDate().toString().trim());
+            date = (Date) formatter.parse(mEvent.getCompletionTime().toString().trim());
         } catch (ParseException e) {
             e.printStackTrace();
         }

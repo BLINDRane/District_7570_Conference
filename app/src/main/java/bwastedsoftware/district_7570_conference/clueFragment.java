@@ -52,6 +52,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 import bwastedsoftware.district_7570_conference.Clue;
@@ -75,9 +76,12 @@ public class clueFragment extends Fragment implements View.OnClickListener {
     private DatabaseReference mDatabase;
     private DatabaseReference completed;
     private DatabaseReference winnerList;
+    private DatabaseReference nameGetter;
     ImageButton cluePic;
     Button submit;
     String user_id;
+    String Fname;
+    String Lname;
 
     public clueFragment() {
         // Required empty public constructor
@@ -98,6 +102,20 @@ public class clueFragment extends Fragment implements View.OnClickListener {
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("completedClues");
         completed = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("scavProgress");
         winnerList = FirebaseDatabase.getInstance().getReference().child("Users who have Completed the Scavenger Hunt");
+        nameGetter = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
+
+        nameGetter.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Fname = dataSnapshot.child("Fname").getValue(String.class);
+                Lname = dataSnapshot.child("Lname").getValue(String.class);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                //TODO: catch this error
+            }
+        });
         return mView;
     }
 
@@ -155,9 +173,10 @@ public class clueFragment extends Fragment implements View.OnClickListener {
                     numCompletions = (dataSnapshot.getValue(int.class) + 1);
                     completed.setValue(numCompletions);
                     Calendar c = Calendar.getInstance();
-                    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
                     String formattedDate = df.format(c.getTime());
-                    winnerList.child(user_id).setValue(formattedDate);
+                    winnerList.child(user_id).child("completionTime").setValue(formattedDate);
+                    winnerList.child(user_id).child("userName").setValue(Fname + " " + Lname);
                 }
 
             }

@@ -215,7 +215,7 @@ public class ScheduleFragment extends Fragment
                 {
                     Event event = childrenSnapShot.getValue(Event.class);
                     newevents.add(new Event(event.getTitle(), event.getLocation(), event.getDate(), event.getTime(), event.getDetails(), event.getSpeaker(), event.getNumRates(), event.getCurrentRating()));
-                    //Log.w("GETTING CARDS", "value is" + event.getDate() + event.getLocation() + childrenSnapShot.getKey());
+                    //Log.w("GETTING CARDS", "value is" + event.getCompletionTime() + event.getLocation() + childrenSnapShot.getKey());
                 }
                 //Log.d("FIREBASE", "Value is: " + post);
                 addEvents(newevents);

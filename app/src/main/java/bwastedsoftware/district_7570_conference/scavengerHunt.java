@@ -156,7 +156,7 @@ clues = new ArrayList<>();
                 {
                     Clue clue = new Clue(childrenSnapShot.getKey(), childrenSnapShot.getValue(String.class));
                     newClues.add(new Clue(clue.getTitle(), clue.getInstruction()));
-                    //Log.w("GETTING CARDS", "value is" + event.getDate() + event.getLocation() + childrenSnapShot.getKey());
+                    //Log.w("GETTING CARDS", "value is" + event.getCompletionTime() + event.getLocation() + childrenSnapShot.getKey());
                 }
                 //Log.d("FIREBASE", "Value is: " + post);
                 addClues(newClues);

@@ -139,7 +139,7 @@ public class SpeakerListFragment extends Fragment
                 {
                     Speaker speaker = childrenSnapShot.getValue(Speaker.class);
                     newspeakers.add(new Speaker(speaker.getName(), speaker.getBio(), speaker.getPhotoURL()));
-                    //Log.w("GETTING CARDS", "value is" + event.getDate() + event.getLocation() + childrenSnapShot.getKey());
+                    //Log.w("GETTING CARDS", "value is" + event.getCompletionTime() + event.getLocation() + childrenSnapShot.getKey());
                 }
                 //Log.d("FIREBASE", "Value is: " + post);
                 addSpeakers(newspeakers);
