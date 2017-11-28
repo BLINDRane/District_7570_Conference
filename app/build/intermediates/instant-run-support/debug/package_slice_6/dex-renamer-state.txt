@@ -1,4 +1,4 @@
-#Mon Oct 16 13:33:21 EDT 2017
+#Mon Nov 27 16:34:19 EST 2017
 base.0=C\:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_6
 renamed.0=classes.dex
 file.0=C\:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_6\\classes.dex

@@ -4,6 +4,10 @@
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
     },
     {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\color\\com_facebook_send_button_text_color.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\9eef168c9013abb58a35fad952f1c0e31bc92e1c\\output\\res\\color\\com_facebook_send_button_text_color.xml"
+    },
+    {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\color\\wallet_primary_text_holo_light.xml",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\659e3b3bb0fec3d1ecf378ef63248958636370c0\\output\\res\\color\\wallet_primary_text_holo_light.xml"
     },
@@ -50,6 +54,10 @@
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\color\\wallet_secondary_text_holo_dark.xml",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\659e3b3bb0fec3d1ecf378ef63248958636370c0\\output\\res\\color\\wallet_secondary_text_holo_dark.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\color\\com_facebook_button_text_color.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\9eef168c9013abb58a35fad952f1c0e31bc92e1c\\output\\res\\color\\com_facebook_button_text_color.xml"
     },
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_light.xml",

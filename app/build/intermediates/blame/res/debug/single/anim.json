@@ -32,12 +32,24 @@
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\6df7c0915f5605081c4ae016c69100fdceea7a15\\output\\res\\anim\\design_snackbar_in.xml"
     },
     {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\anim\\tw__accelerate_cubic.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\ce6881dfd4855772532492e85acb2832152e86df\\output\\res\\anim\\tw__accelerate_cubic.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\anim\\tw__slide_out.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\ce6881dfd4855772532492e85acb2832152e86df\\output\\res\\anim\\tw__slide_out.xml"
+    },
+    {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_bottom.xml",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\anim\\abc_slide_in_bottom.xml"
     },
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_top.xml",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\anim\\abc_slide_in_top.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\anim\\slide_out_left.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\1b109e9a2d625298357c6ea82b072ecfaad680ce\\output\\res\\anim\\slide_out_left.xml"
     },
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_top.xml",
@@ -66,6 +78,10 @@
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_fab_in.xml",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\6df7c0915f5605081c4ae016c69100fdceea7a15\\output\\res\\anim\\design_fab_in.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\anim\\slide_in_right.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\1b109e9a2d625298357c6ea82b072ecfaad680ce\\output\\res\\anim\\slide_in_right.xml"
     },
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_bottom_sheet_slide_out.xml",

@@ -12,8 +12,16 @@
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\drawable\\abc_list_selector_holo_light.xml"
     },
     {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tw__call_to_action.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\ce6881dfd4855772532492e85acb2832152e86df\\output\\res\\drawable\\tw__call_to_action.xml"
+    },
+    {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_text_dark.xml",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\f1d022cb0a1d6942f496321662ad24c1c39195fa\\output\\res\\drawable\\common_google_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\homepageimage.JPG",
+        "source": "C:\\Dev\\District_7570_Conference\\app\\src\\main\\res\\drawable\\homepageimage.JPG"
     },
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_notification_forward10.xml",
@@ -24,32 +32,56 @@
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\14e33267712e5857e0d0046ed7140632bdabbe59\\output\\res\\drawable\\mr_ic_close_dark.xml"
     },
     {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_light.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\drawable\\abc_item_background_holo_light.xml"
+    },
+    {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_indicator_material.xml",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\drawable\\abc_ratingbar_indicator_material.xml"
     },
     {
-        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_light.xml",
-        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\drawable\\abc_item_background_holo_light.xml"
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tw__login_btn_light.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\0e32143dd5aaaaafc40a6ffd8d0fbb275b6bc750\\output\\res\\drawable\\tw__login_btn_light.xml"
     },
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_expanded_controller_seekbar_track.xml",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\2731353d1c418ae32393fce36b43cb6db21074fe\\output\\res\\drawable\\cast_expanded_controller_seekbar_track.xml"
     },
     {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tw__video_replay_btn.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\ce6881dfd4855772532492e85acb2832152e86df\\output\\res\\drawable\\tw__video_replay_btn.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\messenger_button_blue_bg_selector.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\9eef168c9013abb58a35fad952f1c0e31bc92e1c\\output\\res\\drawable\\messenger_button_blue_bg_selector.xml"
+    },
+    {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_notification_pause.xml",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\2731353d1c418ae32393fce36b43cb6db21074fe\\output\\res\\drawable\\cast_ic_notification_pause.xml"
     },
     {
-        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_dark.xml",
-        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\drawable\\abc_list_selector_holo_dark.xml"
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tw__login_btn.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\0e32143dd5aaaaafc40a6ffd8d0fbb275b6bc750\\output\\res\\drawable\\tw__login_btn.xml"
     },
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_light.xml",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
     },
     {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_dark.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\drawable\\abc_list_selector_holo_dark.xml"
+    },
+    {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_voice_search_api_material.xml",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\drawable\\abc_ic_voice_search_api_material.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_splashscreen_newtwo.png",
+        "source": "C:\\Dev\\District_7570_Conference\\app\\src\\main\\res\\drawable\\ic_splashscreen_newtwo.png"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\idp_button_background_email.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\1b109e9a2d625298357c6ea82b072ecfaad680ce\\output\\res\\drawable\\idp_button_background_email.xml"
     },
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_notification_forward.xml",
@@ -64,8 +96,16 @@
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\2731353d1c418ae32393fce36b43cb6db21074fe\\output\\res\\drawable\\cast_ic_expanded_controller_mute.xml"
     },
     {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\about_icon_youtube.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\8b12441412be9444ae40500b4ed09c6c729f51b9\\output\\res\\drawable\\about_icon_youtube.xml"
+    },
+    {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_mini_controller_skip_next.xml",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\2731353d1c418ae32393fce36b43cb6db21074fe\\output\\res\\drawable\\cast_ic_mini_controller_skip_next.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\rotary_international_logo.png",
+        "source": "C:\\Dev\\District_7570_Conference\\app\\src\\main\\res\\drawable\\rotary_international_logo.png"
     },
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mr_ic_media_route_connecting_dark.xml",
@@ -88,6 +128,10 @@
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\f1d022cb0a1d6942f496321662ad24c1c39195fa\\output\\res\\drawable\\common_google_signin_btn_text_dark_focused.xml"
     },
     {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\messenger_button_white_bg_selector.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\9eef168c9013abb58a35fad952f1c0e31bc92e1c\\output\\res\\drawable\\messenger_button_white_bg_selector.xml"
+    },
+    {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_notification_rewind10.xml",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\2731353d1c418ae32393fce36b43cb6db21074fe\\output\\res\\drawable\\cast_ic_notification_rewind10.xml"
     },
@@ -96,20 +140,32 @@
         "source": "C:\\Dev\\District_7570_Conference\\app\\src\\main\\res\\drawable\\homestead_interior1.jpg"
     },
     {
-        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_expanded_controller_rewind30.xml",
-        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\2731353d1c418ae32393fce36b43cb6db21074fe\\output\\res\\drawable\\cast_ic_expanded_controller_rewind30.xml"
-    },
-    {
-        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml",
-        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml"
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\com_facebook_button_background.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\9eef168c9013abb58a35fad952f1c0e31bc92e1c\\output\\res\\drawable\\com_facebook_button_background.xml"
     },
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mr_dialog_material_background_light.xml",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\14e33267712e5857e0d0046ed7140632bdabbe59\\output\\res\\drawable\\mr_dialog_material_background_light.xml"
     },
     {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_expanded_controller_rewind30.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\2731353d1c418ae32393fce36b43cb6db21074fe\\output\\res\\drawable\\cast_ic_expanded_controller_rewind30.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tw__btn_composer_tweet.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\cafe6a5c8629bfa6ad3ec04c3ca45c768e8b903a\\output\\res\\drawable\\tw__btn_composer_tweet.xml"
+    },
+    {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_search_material.xml",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\drawable\\abc_textfield_search_material.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tw__vine_badge.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\ce6881dfd4855772532492e85acb2832152e86df\\output\\res\\drawable\\tw__vine_badge.xml"
     },
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_notification_play.xml",
@@ -128,6 +184,10 @@
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\2731353d1c418ae32393fce36b43cb6db21074fe\\output\\res\\drawable\\cast_expanded_controller_bg_gradient_light.xml"
     },
     {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\messenger_button_blue_bg_round.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\9eef168c9013abb58a35fad952f1c0e31bc92e1c\\output\\res\\drawable\\messenger_button_blue_bg_round.xml"
+    },
+    {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_mini_controller_rewind30.xml",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\2731353d1c418ae32393fce36b43cb6db21074fe\\output\\res\\drawable\\cast_ic_mini_controller_rewind30.xml"
     },
@@ -140,12 +200,24 @@
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\14e33267712e5857e0d0046ed7140632bdabbe59\\output\\res\\drawable\\ic_collapse.xml"
     },
     {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tw__share_action.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\ce6881dfd4855772532492e85acb2832152e86df\\output\\res\\drawable\\tw__share_action.xml"
+    },
+    {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mr_ic_close_light.xml",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\14e33267712e5857e0d0046ed7140632bdabbe59\\output\\res\\drawable\\mr_ic_close_light.xml"
     },
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_clear_material.xml",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\drawable\\abc_ic_clear_material.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\com_facebook_button_icon.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\9eef168c9013abb58a35fad952f1c0e31bc92e1c\\output\\res\\drawable\\com_facebook_button_icon.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\about_icon_facebook.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\8b12441412be9444ae40500b4ed09c6c729f51b9\\output\\res\\drawable\\about_icon_facebook.xml"
     },
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mr_ic_media_route_connecting_light.xml",
@@ -172,8 +244,24 @@
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\14e33267712e5857e0d0046ed7140632bdabbe59\\output\\res\\drawable\\ic_expand.xml"
     },
     {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tw__login_btn_text_color_light.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\0e32143dd5aaaaafc40a6ffd8d0fbb275b6bc750\\output\\res\\drawable\\tw__login_btn_text_color_light.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\about_icon_google_play.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\8b12441412be9444ae40500b4ed09c6c729f51b9\\output\\res\\drawable\\about_icon_google_play.xml"
+    },
+    {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_password_eye.xml",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\6df7c0915f5605081c4ae016c69100fdceea7a15\\output\\res\\drawable\\design_password_eye.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\idp_button_background_twitter.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\1b109e9a2d625298357c6ea82b072ecfaad680ce\\output\\res\\drawable\\idp_button_background_twitter.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\com_facebook_auth_dialog_header_background.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\9eef168c9013abb58a35fad952f1c0e31bc92e1c\\output\\res\\drawable\\com_facebook_auth_dialog_header_background.xml"
     },
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\navigation_empty_icon.xml",
@@ -184,12 +272,24 @@
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\2731353d1c418ae32393fce36b43cb6db21074fe\\output\\res\\drawable\\cast_ic_mini_controller_stop.xml"
     },
     {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\com_facebook_button_like_background.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\9eef168c9013abb58a35fad952f1c0e31bc92e1c\\output\\res\\drawable\\com_facebook_button_like_background.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\about_icon_twitter.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\8b12441412be9444ae40500b4ed09c6c729f51b9\\output\\res\\drawable\\about_icon_twitter.xml"
+    },
+    {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_menu_overflow_material.xml",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\drawable\\abc_ic_menu_overflow_material.xml"
     },
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_expanded_controller_play.xml",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\2731353d1c418ae32393fce36b43cb6db21074fe\\output\\res\\drawable\\cast_ic_expanded_controller_play.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\about_icon_link.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\8b12441412be9444ae40500b4ed09c6c729f51b9\\output\\res\\drawable\\about_icon_link.xml"
     },
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_radio_material.xml",
@@ -218,6 +318,10 @@
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_dark.xml",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\drawable\\abc_item_background_holo_dark.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tw__bg_media_badge.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\ce6881dfd4855772532492e85acb2832152e86df\\output\\res\\drawable\\tw__bg_media_badge.xml"
     },
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_text_cursor_material.xml",
@@ -264,8 +368,20 @@
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\14e33267712e5857e0d0046ed7140632bdabbe59\\output\\res\\drawable\\mr_ic_audiotrack_light.xml"
     },
     {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\com_facebook_button_send_background.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\9eef168c9013abb58a35fad952f1c0e31bc92e1c\\output\\res\\drawable\\com_facebook_button_send_background.xml"
+    },
+    {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_edit_text_material.xml",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\drawable\\abc_edit_text_material.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\com_facebook_send_button_icon.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\9eef168c9013abb58a35fad952f1c0e31bc92e1c\\output\\res\\drawable\\com_facebook_send_button_icon.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tw__transparent.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\0e32143dd5aaaaafc40a6ffd8d0fbb275b6bc750\\output\\res\\drawable\\tw__transparent.xml"
     },
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_icon_dark.xml",
@@ -274,6 +390,14 @@
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_notification_disconnect.xml",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\2731353d1c418ae32393fce36b43cb6db21074fe\\output\\res\\drawable\\cast_ic_notification_disconnect.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\about_icon_email.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\8b12441412be9444ae40500b4ed09c6c729f51b9\\output\\res\\drawable\\about_icon_email.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tw__login_btn_default_light.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\0e32143dd5aaaaafc40a6ffd8d0fbb275b6bc750\\output\\res\\drawable\\tw__login_btn_default_light.xml"
     },
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_forum_black_24dp.png",
@@ -290,6 +414,14 @@
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_create_black_24dp.png",
         "source": "C:\\Dev\\District_7570_Conference\\app\\src\\main\\res\\drawable\\ic_create_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tw__login_btn_disabled.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\0e32143dd5aaaaafc40a6ffd8d0fbb275b6bc750\\output\\res\\drawable\\tw__login_btn_disabled.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tw__player_overlay.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\ce6881dfd4855772532492e85acb2832152e86df\\output\\res\\drawable\\tw__player_overlay.xml"
     },
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_top_material.xml",
@@ -312,8 +444,16 @@
         "source": "C:\\Dev\\District_7570_Conference\\app\\src\\main\\res\\drawable\\homestead_winter.jpg"
     },
     {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tw__like_action.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\ce6881dfd4855772532492e85acb2832152e86df\\output\\res\\drawable\\tw__like_action.xml"
+    },
+    {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_colored_material.xml",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\drawable\\abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tw__app_info_layout_border.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\cafe6a5c8629bfa6ad3ec04c3ca45c768e8b903a\\output\\res\\drawable\\tw__app_info_layout_border.xml"
     },
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_home_black_24dp.png",
@@ -332,8 +472,20 @@
         "source": "C:\\Dev\\District_7570_Conference\\app\\src\\main\\res\\drawable\\homestead_fall.png"
     },
     {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tw__video_pause_btn.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\ce6881dfd4855772532492e85acb2832152e86df\\output\\res\\drawable\\tw__video_pause_btn.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tw__seekbar_thumb.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\ce6881dfd4855772532492e85acb2832152e86df\\output\\res\\drawable\\tw__seekbar_thumb.xml"
+    },
+    {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mr_ic_cast_light.xml",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\14e33267712e5857e0d0046ed7140632bdabbe59\\output\\res\\drawable\\mr_ic_cast_light.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tw__install_button_border.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\cafe6a5c8629bfa6ad3ec04c3ca45c768e8b903a\\output\\res\\drawable\\tw__install_button_border.xml"
     },
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_notification_forward30.xml",
@@ -348,6 +500,10 @@
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\2731353d1c418ae32393fce36b43cb6db21074fe\\output\\res\\drawable\\cast_ic_expanded_controller_closed_caption.xml"
     },
     {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\messenger_button_white_bg_round.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\9eef168c9013abb58a35fad952f1c0e31bc92e1c\\output\\res\\drawable\\messenger_button_white_bg_round.xml"
+    },
+    {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_mini_controller_pause_large.xml",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\2731353d1c418ae32393fce36b43cb6db21074fe\\output\\res\\drawable\\cast_ic_mini_controller_pause_large.xml"
     },
@@ -358,6 +514,10 @@
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_search_api_material.xml",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\drawable\\abc_ic_search_api_material.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\com_facebook_auth_dialog_background.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\9eef168c9013abb58a35fad952f1c0e31bc92e1c\\output\\res\\drawable\\com_facebook_auth_dialog_background.xml"
     },
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_mini_controller_mute.xml",
@@ -384,8 +544,24 @@
         "source": "C:\\Dev\\District_7570_Conference\\app\\src\\main\\res\\drawable\\ic_account_circle_black_24dp.png"
     },
     {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tw__video_play_btn.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\ce6881dfd4855772532492e85acb2832152e86df\\output\\res\\drawable\\tw__video_play_btn.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\about_icon_instagram.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\8b12441412be9444ae40500b4ed09c6c729f51b9\\output\\res\\drawable\\about_icon_instagram.xml"
+    },
+    {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_date_range_black_24dp.png",
         "source": "C:\\Dev\\District_7570_Conference\\app\\src\\main\\res\\drawable\\ic_date_range_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\com_facebook_auth_dialog_cancel_background.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\9eef168c9013abb58a35fad952f1c0e31bc92e1c\\output\\res\\drawable\\com_facebook_auth_dialog_cancel_background.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tw__login_btn_default.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\0e32143dd5aaaaafc40a6ffd8d0fbb275b6bc750\\output\\res\\drawable\\tw__login_btn_default.xml"
     },
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_internal_bg.xml",
@@ -404,6 +580,14 @@
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\drawable\\notification_bg_low.xml"
     },
     {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\com_facebook_button_login_silver_background.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\9eef168c9013abb58a35fad952f1c0e31bc92e1c\\output\\res\\drawable\\com_facebook_button_login_silver_background.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\idp_button_background_facebook.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\1b109e9a2d625298357c6ea82b072ecfaad680ce\\output\\res\\drawable\\idp_button_background_facebook.xml"
+    },
+    {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_thumb_material.xml",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\drawable\\abc_seekbar_thumb_material.xml"
     },
@@ -416,12 +600,20 @@
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\drawable\\abc_btn_borderless_material.xml"
     },
     {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tw__video_seekbar.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\ce6881dfd4855772532492e85acb2832152e86df\\output\\res\\drawable\\tw__video_seekbar.xml"
+    },
+    {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_icon_light_focused.xml",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\f1d022cb0a1d6942f496321662ad24c1c39195fa\\output\\res\\drawable\\common_google_signin_btn_icon_light_focused.xml"
     },
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_skip_ad_label_border.xml",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\2731353d1c418ae32393fce36b43cb6db21074fe\\output\\res\\drawable\\cast_skip_ad_label_border.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\about_icon_github.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\8b12441412be9444ae40500b4ed09c6c729f51b9\\output\\res\\drawable\\about_icon_github.xml"
     },
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_vector_test.xml",
@@ -468,6 +660,10 @@
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\drawable\\notification_tile_bg.xml"
     },
     {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tw__login_btn_pressed.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\0e32143dd5aaaaafc40a6ffd8d0fbb275b6bc750\\output\\res\\drawable\\tw__login_btn_pressed.xml"
+    },
+    {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_fab_background.xml",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\6df7c0915f5605081c4ae016c69100fdceea7a15\\output\\res\\drawable\\design_fab_background.xml"
     },
@@ -478,6 +674,18 @@
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_spinner_textfield_background_material.xml",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\drawable\\abc_spinner_textfield_background_material.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\idp_button_background_google.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\1b109e9a2d625298357c6ea82b072ecfaad680ce\\output\\res\\drawable\\idp_button_background_google.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tw__gif_badge.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\ce6881dfd4855772532492e85acb2832152e86df\\output\\res\\drawable\\tw__gif_badge.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tw__login_btn_pressed_light.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\0e32143dd5aaaaafc40a6ffd8d0fbb275b6bc750\\output\\res\\drawable\\tw__login_btn_pressed_light.xml"
     },
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mr_ic_pause_dark.xml",
@@ -502,5 +710,9 @@
     {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_tick_mark_material.xml",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\drawable\\abc_seekbar_tick_mark_material.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\com_facebook_favicon_blue.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\9eef168c9013abb58a35fad952f1c0e31bc92e1c\\output\\res\\drawable\\com_facebook_favicon_blue.xml"
     }
 ]

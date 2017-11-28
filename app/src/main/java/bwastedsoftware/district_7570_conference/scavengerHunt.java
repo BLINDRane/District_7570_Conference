@@ -118,11 +118,10 @@ public class scavengerHunt extends Fragment {
         rv.setAdapter(adapter);
     }
 
-    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+
     ArrayList<Clue> clues;
     FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
-    String user_id = mAuth.getCurrentUser().getUid();
-    DatabaseReference myRef = mDatabase.getReference().child("Users").child(user_id).child("scavengerHuntClues");
+    DatabaseReference myRef = mDatabase.getReference().child("Scavenger Hunt Clues");
 
     public void loadClue(Clue clue){
         FragmentTransaction t = this.getFragmentManager().beginTransaction();
@@ -155,7 +154,7 @@ clues = new ArrayList<>();
                 //Post post = dataSnapshot.getValue(Post.class);
                 for(DataSnapshot childrenSnapShot : dataSnapshot.getChildren())
                 {
-                    Clue clue = childrenSnapShot.getValue(Clue.class);
+                    Clue clue = new Clue(childrenSnapShot.getKey(), childrenSnapShot.getValue(String.class));
                     newClues.add(new Clue(clue.getTitle(), clue.getInstruction()));
                     //Log.w("GETTING CARDS", "value is" + event.getDate() + event.getLocation() + childrenSnapShot.getKey());
                 }

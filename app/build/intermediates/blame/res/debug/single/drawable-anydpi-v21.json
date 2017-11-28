@@ -4,7 +4,23 @@
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\6df7c0915f5605081c4ae016c69100fdceea7a15\\output\\res\\drawable-anydpi-v21\\design_ic_visibility_off.xml"
     },
     {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_twitter_bird_white_24dp.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\1b109e9a2d625298357c6ea82b072ecfaad680ce\\output\\res\\drawable-anydpi-v21\\ic_twitter_bird_white_24dp.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_googleg_color_24dp.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\1b109e9a2d625298357c6ea82b072ecfaad680ce\\output\\res\\drawable-anydpi-v21\\ic_googleg_color_24dp.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_mail_white_24dp.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\1b109e9a2d625298357c6ea82b072ecfaad680ce\\output\\res\\drawable-anydpi-v21\\ic_mail_white_24dp.xml"
+    },
+    {
         "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\design_ic_visibility.xml",
         "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\6df7c0915f5605081c4ae016c69100fdceea7a15\\output\\res\\drawable-anydpi-v21\\design_ic_visibility.xml"
+    },
+    {
+        "merged": "C:\\Dev\\District_7570_Conference\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_facebook_white_22dp.xml",
+        "source": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\1b109e9a2d625298357c6ea82b072ecfaad680ce\\output\\res\\drawable-anydpi-v21\\ic_facebook_white_22dp.xml"
     }
 ]

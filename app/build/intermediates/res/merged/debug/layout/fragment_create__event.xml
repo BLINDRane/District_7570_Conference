@@ -1,16 +1,106 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="bwastedsoftware.district_7570_conference.Create_EventFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Event Creation Fragment"
-        android:gravity="center"
-        android:textSize="35dp"
-        android:textStyle="bold"/>
 
-</FrameLayout>
+    <EditText
+        android:id="@+id/edit_"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Event Title"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/edit_Location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/edit_"
+        android:ems="10"
+        android:hint="Event Location"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/edit_Date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Event Date"
+        android:inputType="textPersonName"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:layout_marginTop="8dp"
+        android:layout_below="@+id/edit_Location"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/edit_Details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Event Details"
+        android:inputType="textMultiLine"
+        android:layout_alignBottom="@+id/timePicker"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:id="@+id/btn_Save_Event"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save Event"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="86dp" />
+
+    <Spinner
+        android:id="@+id/spinner_Speakers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:spinnerMode="dialog"
+        android:prompt="@string/spinner_hint"
+        android:layout_marginTop="16dp"
+        android:layout_below="@+id/pick_startTime"
+        android:layout_alignParentStart="true" />
+
+    <TimePicker
+        android:id="@+id/timePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/pick_startTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Time"
+        android:textSize="24sp"
+        android:layout_alignBaseline="@+id/pick_EndTime"
+        android:layout_alignBottom="@+id/pick_EndTime"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="6dp" />
+
+    <TextView
+        android:id="@+id/pick_EndTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/btn_Save_Event"
+        android:layout_below="@+id/edit_Date"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="30dp"
+        android:text="End Time"
+        android:textSize="24sp" />
+
+    <DatePicker
+        android:id="@+id/datePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible" />
+</RelativeLayout>

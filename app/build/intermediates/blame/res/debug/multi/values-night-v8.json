@@ -7,8 +7,103 @@
                     "startLine": 2,
                     "startColumn": 4,
                     "startOffset": 55,
+                    "endColumn": 56,
+                    "endOffset": 107
+                },
+                "from": {
+                    "file": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\8b12441412be9444ae40500b4ed09c6c729f51b9\\output\\res\\values-night-v8\\values-night-v8.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 56,
+                        "endOffset": 107
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 112,
+                    "endColumn": 62,
+                    "endOffset": 170
+                },
+                "from": {
+                    "file": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\8b12441412be9444ae40500b4ed09c6c729f51b9\\output\\res\\values-night-v8\\values-night-v8.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 112,
+                        "endColumn": 62,
+                        "endOffset": 170
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 175,
+                    "endColumn": 55,
+                    "endOffset": 226
+                },
+                "from": {
+                    "file": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\8b12441412be9444ae40500b4ed09c6c729f51b9\\output\\res\\values-night-v8\\values-night-v8.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 175,
+                        "endColumn": 55,
+                        "endOffset": 226
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 231,
+                    "endColumn": 55,
+                    "endOffset": 282
+                },
+                "from": {
+                    "file": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\8b12441412be9444ae40500b4ed09c6c729f51b9\\output\\res\\values-night-v8\\values-night-v8.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 231,
+                        "endColumn": 55,
+                        "endOffset": 282
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 287,
+                    "endColumn": 50,
+                    "endOffset": 333
+                },
+                "from": {
+                    "file": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\8b12441412be9444ae40500b4ed09c6c729f51b9\\output\\res\\values-night-v8\\values-night-v8.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 287,
+                        "endColumn": 50,
+                        "endOffset": 333
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 338,
                     "endColumn": 69,
-                    "endOffset": 120
+                    "endOffset": 403
                 },
                 "from": {
                     "file": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\values-night-v8\\values-night-v8.xml",
@@ -23,11 +118,11 @@
             },
             {
                 "to": {
-                    "startLine": 3,
+                    "startLine": 8,
                     "startColumn": 4,
-                    "startOffset": 125,
+                    "startOffset": 408,
                     "endColumn": 83,
-                    "endOffset": 204
+                    "endOffset": 487
                 },
                 "from": {
                     "file": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\values-night-v8\\values-night-v8.xml",
@@ -42,11 +137,11 @@
             },
             {
                 "to": {
-                    "startLine": 4,
+                    "startLine": 9,
                     "startColumn": 4,
-                    "startOffset": 209,
+                    "startOffset": 492,
                     "endColumn": 83,
-                    "endOffset": 288
+                    "endOffset": 571
                 },
                 "from": {
                     "file": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\values-night-v8\\values-night-v8.xml",
@@ -61,11 +156,11 @@
             },
             {
                 "to": {
-                    "startLine": 5,
+                    "startLine": 10,
                     "startColumn": 4,
-                    "startOffset": 293,
+                    "startOffset": 576,
                     "endColumn": 95,
-                    "endOffset": 384
+                    "endOffset": 667
                 },
                 "from": {
                     "file": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\values-night-v8\\values-night-v8.xml",
@@ -80,11 +175,11 @@
             },
             {
                 "to": {
-                    "startLine": 6,
+                    "startLine": 11,
                     "startColumn": 4,
-                    "startOffset": 389,
+                    "startOffset": 672,
                     "endColumn": 101,
-                    "endOffset": 486
+                    "endOffset": 769
                 },
                 "from": {
                     "file": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\values-night-v8\\values-night-v8.xml",
@@ -99,11 +194,11 @@
             },
             {
                 "to": {
-                    "startLine": 7,
+                    "startLine": 12,
                     "startColumn": 4,
-                    "startOffset": 491,
+                    "startOffset": 774,
                     "endColumn": 101,
-                    "endOffset": 588
+                    "endOffset": 871
                 },
                 "from": {
                     "file": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\values-night-v8\\values-night-v8.xml",
@@ -118,11 +213,11 @@
             },
             {
                 "to": {
-                    "startLine": 8,
+                    "startLine": 13,
                     "startColumn": 4,
-                    "startOffset": 593,
+                    "startOffset": 876,
                     "endColumn": 93,
-                    "endOffset": 682
+                    "endOffset": 965
                 },
                 "from": {
                     "file": "C:\\Users\\wyatt_ofn2t9u\\.android\\build-cache\\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\\output\\res\\values-night-v8\\values-night-v8.xml",

@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="about_contact_us">დაგვიკავშირდით</string>
+    <string name="about_facebook">მოგვიწონეთ Facebook-ზე</string>
+    <string name="about_github">გვიპოვეთ GitHub-ზე</string>
+    <string name="about_instagram">გამოგვყევით Instagram-ზე</string>
+    <string name="about_play_store">შეგვაფასეთ Play Store-ზე</string>
+    <string name="about_twitter">გამოგვყევით Twitter-ზე</string>
+    <string name="about_website">ეწვიეთ ვებ-გვერდს</string>
+    <string name="about_youtube">გვიყურეთ Youtube-ზე</string>
     <string msgid="5835639618285370804" name="accept">"მიღება"</string>
     <string msgid="4778414446709286370" name="cast_ad_label">"რეკლამა"</string>
     <string msgid="366047012176970604" name="cast_casting_to_device">"ტრანსლირება %1$s-ში"</string>

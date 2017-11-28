@@ -19,6 +19,14 @@
     <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"Deljenje z"</string>
     <string msgid="7165123711973476752" name="abc_shareactionprovider_share_with_application">"Deljenje z:"</string>
     <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"Strni"</string>
+    <string name="about_contact_us">Kontaktiraj nas</string>
+    <string name="about_facebook">Všečkaj nas na Facebooku</string>
+    <string name="about_github">Forkaj nas na GitHubu</string>
+    <string name="about_instagram">Sledi nam na Instagramu</string>
+    <string name="about_play_store">Oceni nas na Trgovini Play</string>
+    <string name="about_twitter">Sledi nam na Twitterju</string>
+    <string name="about_website">Obišči našo spletno stran</string>
+    <string name="about_youtube">Glej nas na Youtubu</string>
     <string msgid="5835639618285370804" name="accept">"Sprejem"</string>
     <string msgid="4778414446709286370" name="cast_ad_label">"Oglas"</string>
     <string msgid="366047012176970604" name="cast_casting_to_device">"Predvajanje v: %s"</string>

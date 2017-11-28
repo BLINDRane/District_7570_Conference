@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml:2:1-24:12
+ADDED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml:2:1-34:12
 	package
 		ADDED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml:3:5-55
 		INJECTED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml
@@ -14,28 +14,20 @@ ADDED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml:2:1-
 		INJECTED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml
 application
-ADDED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml:5:5-22:19
-MERGED from [com.android.support:design:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\6df7c0915f5605081c4ae016c69100fdceea7a15\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:transition:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\20e89219fba0cbd1c7bead3282fe9e9b2c5f7a09\output\AndroidManifest.xml:26:5-20
+ADDED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml:5:5-30:19
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\wyatt_ofn2t9u\.android\build-cache\ae93d4745269193adde2735c0442e08919eadcef\output\AndroidManifest.xml:9:5-20
 MERGED from [com.google.android.gms:play-services:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\730a52b00d3fb158f8b6e54569bd1cc4b7db8545\output\AndroidManifest.xml:5:5-20
 MERGED from [com.google.android.gms:play-services-ads-lite:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\73dbfe37d26d792e420642f4cb385687cb01acab\output\AndroidManifest.xml:23:5-27:19
 MERGED from [com.google.android.gms:play-services-analytics:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\e75c8b599461e599238dd603005b4cb5999621a5\output\AndroidManifest.xml:26:5-19
 MERGED from [com.google.android.gms:play-services-appinvite:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\3c687f7e31e32c42369cfcd09db69733b418e6c8\output\AndroidManifest.xml:19:5-26:19
-MERGED from [com.google.android.gms:play-services-auth:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\331b7d8c02fa072b227fc7e0b31f5dae3d750f22\output\AndroidManifest.xml:19:5-25:19
 MERGED from [com.google.android.gms:play-services-cast-framework:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\2731353d1c418ae32393fce36b43cb6db21074fe\output\AndroidManifest.xml:4:5-8:19
 MERGED from [com.google.android.gms:play-services-cast:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\89ef3f9cbbc69ce5fd4f17edbebfccff4564c3bf\output\AndroidManifest.xml:18:5-19
 MERGED from [com.android.support:mediarouter-v7:24.0.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\14e33267712e5857e0d0046ed7140632bdabbe59\output\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:palette-v7:24.0.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\551de7a814b6215fffd9783eecd034c68f24c317\output\AndroidManifest.xml:22:5-23:19
-MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\e2b1ea6ed0d0b3911163183c05c8bf71780bfdc2\output\AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\31a160bf6050840d5d6e4edb4130e2dfa7e8df55\output\AndroidManifest.xml:26:5-20
 MERGED from [com.google.android.gms:play-services-clearcut:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\fcf461ebc981a9b60c6124c838e1adb8f5d24ea9\output\AndroidManifest.xml:18:5-19
 MERGED from [com.google.firebase:firebase-config:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\34f2345ea1042f83ad32b488a79bd653dae9453d\output\AndroidManifest.xml:18:5-19
 MERGED from [com.google.android.gms:play-services-awareness:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\147d6300bbf92dece84afd1c61eaebde33e6b2de\output\AndroidManifest.xml:18:5-19
 MERGED from [com.google.firebase:firebase-crash:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\77b927eac02fb7d78f4a75cf0694ae341837297c\output\AndroidManifest.xml:22:5-23:19
-MERGED from [com.google.firebase:firebase-auth:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\5e0631831fe8800122e609cdae58dee2f9087029\output\AndroidManifest.xml:19:5-20:19
-MERGED from [com.google.firebase:firebase-messaging:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\5fea6c988fffe44d241f73da23aec9da0a2c6247\output\AndroidManifest.xml:19:5-29:19
 MERGED from [com.google.android.gms:play-services-fitness:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\adf744cedf66b587575379bea470c3ae34af9ad6\output\AndroidManifest.xml:18:5-19
 MERGED from [com.google.android.gms:play-services-games:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\f0d391a4d227c1d0b5cab94f057be4b2d97a59ba\output\AndroidManifest.xml:18:5-19
 MERGED from [com.google.android.gms:play-services-drive:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\c161043abd31fd3a8a384cd316f97be314d0fa39\output\AndroidManifest.xml:18:5-19
@@ -56,25 +48,42 @@ MERGED from [com.google.android.gms:play-services-vision:10.0.1] C:\Users\wyatt_
 MERGED from [com.google.android.gms:play-services-identity:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\6e25e245566fd9585c45c863eaa79ea0b4b64e25\output\AndroidManifest.xml:18:5-19
 MERGED from [com.google.android.gms:play-services-maps:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\2b5af74e82cd074355aa304a075957197e26fb69\output\AndroidManifest.xml:24:5-19
 MERGED from [com.google.android.gms:play-services-wearable:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\0d85ed26a6e20daf512bccd62df96103e61191bc\output\AndroidManifest.xml:18:5-19
-MERGED from [com.google.android.gms:play-services-base:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\f1d022cb0a1d6942f496321662ad24c1c39195fa\output\AndroidManifest.xml:18:5-20:19
+MERGED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:14:5-66:19
+MERGED from [com.android.support:design:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\6df7c0915f5605081c4ae016c69100fdceea7a15\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:transition:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\20e89219fba0cbd1c7bead3282fe9e9b2c5f7a09\output\AndroidManifest.xml:26:5-20
+MERGED from [com.google.android.gms:play-services-auth:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\331b7d8c02fa072b227fc7e0b31f5dae3d750f22\output\AndroidManifest.xml:19:5-25:19
+MERGED from [com.facebook.android:facebook-android-sdk:4.18.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\9eef168c9013abb58a35fad952f1c0e31bc92e1c\output\AndroidManifest.xml:28:5-38:19
+MERGED from [com.android.support:customtabs:25.1.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\d50310539911ad2a648062748909bfd36c06b177\output\AndroidManifest.xml:22:5-20
+MERGED from [com.twitter.sdk.android:twitter:2.3.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\08e30686f174ce493032b01b1cb498c9c7012750\output\AndroidManifest.xml:25:5-20
+MERGED from [com.twitter.sdk.android:tweet-composer:2.3.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\cafe6a5c8629bfa6ad3ec04c3ca45c768e8b903a\output\AndroidManifest.xml:27:5-37:19
+MERGED from [com.twitter.sdk.android:tweet-ui:2.3.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\ce6881dfd4855772532492e85acb2832152e86df\output\AndroidManifest.xml:27:5-35:19
+MERGED from [com.twitter.sdk.android:twitter-core:2.3.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\0e32143dd5aaaaafc40a6ffd8d0fbb275b6bc750\output\AndroidManifest.xml:27:5-40:19
+MERGED from [io.fabric.sdk.android:fabric:1.3.14] C:\Users\wyatt_ofn2t9u\.android\build-cache\e46ff82bcc1123ef25955c2bfaab19875b8beae8\output\AndroidManifest.xml:27:5-20
+MERGED from [com.firebaseui:firebase-ui-database:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\971e23431f431fb1fe90245d93c911d697ab79d0\output\AndroidManifest.xml:13:5-17:19
 MERGED from [com.android.support:cardview-v7:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\a26823d6bb758ced5fcb8d257855741165c70221\output\AndroidManifest.xml:26:5-20
+MERGED from [com.google.firebase:firebase-auth:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\5e0631831fe8800122e609cdae58dee2f9087029\output\AndroidManifest.xml:19:5-20:19
+MERGED from [com.google.android.gms:play-services-base:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\f1d022cb0a1d6942f496321662ad24c1c39195fa\output\AndroidManifest.xml:18:5-20:19
 MERGED from [com.google.firebase:firebase-core:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\2d219e0b9038e141b52ebc0f1218547107676d0c\output\AndroidManifest.xml:5:5-20
 MERGED from [com.google.firebase:firebase-analytics:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\021ef56bfe7fadfb83f0874c59c8a34126cb71cc\output\AndroidManifest.xml:24:5-33:19
 MERGED from [com.google.firebase:firebase-analytics-impl:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\a7bb715a6a9b4c592f4f3b21f4486f42fbf0af3f\output\AndroidManifest.xml:24:5-28:19
+MERGED from [com.google.firebase:firebase-messaging:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\5fea6c988fffe44d241f73da23aec9da0a2c6247\output\AndroidManifest.xml:19:5-29:19
 MERGED from [com.google.firebase:firebase-iid:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\ae1b93cd6931be8cfb082172dccd360d44cb6112\output\AndroidManifest.xml:28:5-50:19
 MERGED from [com.google.firebase:firebase-common:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\333e67466920eeda8714ad67e55f56e8cde1feaf\output\AndroidManifest.xml:4:5-7:19
 MERGED from [com.google.android.gms:play-services-tasks:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\019f397b7527f0f3b54135b85243caaa57859b4f\output\AndroidManifest.xml:4:5-19
 MERGED from [com.google.android.gms:play-services-basement:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\6f39a32fffb8c3b93cfb19085cdfa6d19c98cb1e\output\AndroidManifest.xml:19:5-21:19
+MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\output\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-v4:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\da77044a906edb42a7de5e68fdf1cefc26c12e53\output\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\b7259f85d94c6edc593f2126480355b479002ffc\output\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\c43c9e9ab2d18f78c2c6f6f8060cd30014229239\output\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\e91a93543f5ede397f0fb96dec406af12216091d\output\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\11173bb706e5085d37bee50a1f0578a8fea91676\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\e2b1ea6ed0d0b3911163183c05c8bf71780bfdc2\output\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\31a160bf6050840d5d6e4edb4130e2dfa7e8df55\output\AndroidManifest.xml:26:5-20
 MERGED from [com.android.support:support-compat:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\c6a73236aa7baa41c00eaf615ef61dbd04c856c5\output\AndroidManifest.xml:29:5-20
 	android:label
 		ADDED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml:8:9-41
 	android:supportsRtl
-		ADDED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml:10:9-35
+		ADDED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml:10:9-36
 	android:roundIcon
 		ADDED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml:9:9-54
 	android:allowBackup
@@ -98,44 +107,55 @@ ADDED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml:16:1
 	android:name
 		ADDED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml:16:27-74
 activity#bwastedsoftware.district_7570_conference.HomePage
-ADDED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml:19:9-46
+ADDED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml:19:9-26:20
 	android:name
 		ADDED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml:19:19-43
+intent-filter#android.intent.action.EDIT+android.intent.action.MAIN+android.intent.category.APP_CALENDAR
+ADDED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml:20:9-25:25
+action#android.intent.action.EDIT
+ADDED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml:22:13-65
+	android:name
+		ADDED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml:22:21-62
+category#android.intent.category.APP_CALENDAR
+ADDED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml:23:13-77
+	android:name
+		ADDED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml:23:23-74
+data
+ADDED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml:24:13-70
+	android:mimeType
+		ADDED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml:24:19-67
 activity#bwastedsoftware.district_7570_conference.Register
-ADDED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml:20:9-46
+ADDED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml:27:9-46
 	android:name
-		ADDED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml:20:19-43
+		ADDED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml:27:19-43
 activity#bwastedsoftware.district_7570_conference.Login
-ADDED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml:21:9-43
+ADDED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml:28:9-43
 	android:name
-		ADDED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml:21:19-40
+		ADDED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml:28:19-40
+uses-permission#android.permission.READ_CALENDAR
+ADDED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml:31:5-72
+	android:name
+		ADDED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml:31:22-69
+uses-permission#android.permission.WRITE_CALENDAR
+ADDED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml:32:5-73
+	android:name
+		ADDED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml:32:22-70
 uses-sdk
 INJECTED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-MERGED from [com.android.support:design:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\6df7c0915f5605081c4ae016c69100fdceea7a15\output\AndroidManifest.xml:21:5-23:62
-MERGED from [com.android.support:transition:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\20e89219fba0cbd1c7bead3282fe9e9b2c5f7a09\output\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\wyatt_ofn2t9u\.android\build-cache\ae93d4745269193adde2735c0442e08919eadcef\output\AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.android.gms:play-services:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\730a52b00d3fb158f8b6e54569bd1cc4b7db8545\output\AndroidManifest.xml:4:5-42
 MERGED from [com.google.android.gms:play-services-ads:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\d838d445cc708aca1eccbcd8462343413c711b21\output\AndroidManifest.xml:17:5-42
 MERGED from [com.google.android.gms:play-services-ads-lite:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\73dbfe37d26d792e420642f4cb385687cb01acab\output\AndroidManifest.xml:22:5-42
 MERGED from [com.google.android.gms:play-services-analytics:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\e75c8b599461e599238dd603005b4cb5999621a5\output\AndroidManifest.xml:17:5-42
 MERGED from [com.google.android.gms:play-services-appinvite:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\3c687f7e31e32c42369cfcd09db69733b418e6c8\output\AndroidManifest.xml:17:5-42
-MERGED from [com.google.android.gms:play-services-auth:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\331b7d8c02fa072b227fc7e0b31f5dae3d750f22\output\AndroidManifest.xml:17:5-42
-MERGED from [com.google.android.gms:play-services-auth-base:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\78eb21123a3ba4f23d2dfea87d533bc79763b514\output\AndroidManifest.xml:4:5-42
 MERGED from [com.google.android.gms:play-services-cast-framework:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\2731353d1c418ae32393fce36b43cb6db21074fe\output\AndroidManifest.xml:3:5-42
 MERGED from [com.google.android.gms:play-services-cast:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\89ef3f9cbbc69ce5fd4f17edbebfccff4564c3bf\output\AndroidManifest.xml:17:5-42
 MERGED from [com.android.support:mediarouter-v7:24.0.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\14e33267712e5857e0d0046ed7140632bdabbe59\output\AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:palette-v7:24.0.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\551de7a814b6215fffd9783eecd034c68f24c317\output\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\output\AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\e2b1ea6ed0d0b3911163183c05c8bf71780bfdc2\output\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\31a160bf6050840d5d6e4edb4130e2dfa7e8df55\output\AndroidManifest.xml:20:5-43
 MERGED from [com.google.android.gms:play-services-clearcut:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\fcf461ebc981a9b60c6124c838e1adb8f5d24ea9\output\AndroidManifest.xml:17:5-42
 MERGED from [com.google.firebase:firebase-config:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\34f2345ea1042f83ad32b488a79bd653dae9453d\output\AndroidManifest.xml:17:5-42
 MERGED from [com.google.android.gms:play-services-awareness:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\147d6300bbf92dece84afd1c61eaebde33e6b2de\output\AndroidManifest.xml:17:5-42
 MERGED from [com.google.firebase:firebase-crash:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\77b927eac02fb7d78f4a75cf0694ae341837297c\output\AndroidManifest.xml:20:5-42
-MERGED from [com.google.firebase:firebase-auth:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\5e0631831fe8800122e609cdae58dee2f9087029\output\AndroidManifest.xml:17:5-42
-MERGED from [com.google.firebase:firebase-database:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\98cded2c434183338cb7b6b4283f6cc694880065\output\AndroidManifest.xml:3:5-42
-MERGED from [com.google.firebase:firebase-database-connection:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\4fb5f213ef303d0082e76e564ec91c33dfc7f253\output\AndroidManifest.xml:3:5-42
-MERGED from [com.google.firebase:firebase-messaging:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\5fea6c988fffe44d241f73da23aec9da0a2c6247\output\AndroidManifest.xml:17:5-42
 MERGED from [com.google.firebase:firebase-storage:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\5102aa6ee1713f4b842cc133e17d9782c8a54652\output\AndroidManifest.xml:3:5-42
 MERGED from [com.google.firebase:firebase-storage-common:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\909583166591f34d96616220b5d49f24f774e9eb\output\AndroidManifest.xml:3:5-42
 MERGED from [com.google.android.gms:play-services-fitness:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\adf744cedf66b587575379bea470c3ae34af9ad6\output\AndroidManifest.xml:17:5-42
@@ -161,21 +181,42 @@ MERGED from [com.google.android.gms:play-services-wallet:10.0.1] C:\Users\wyatt_
 MERGED from [com.google.android.gms:play-services-identity:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\6e25e245566fd9585c45c863eaa79ea0b4b64e25\output\AndroidManifest.xml:17:5-42
 MERGED from [com.google.android.gms:play-services-maps:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\2b5af74e82cd074355aa304a075957197e26fb69\output\AndroidManifest.xml:23:5-42
 MERGED from [com.google.android.gms:play-services-wearable:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\0d85ed26a6e20daf512bccd62df96103e61191bc\output\AndroidManifest.xml:17:5-42
-MERGED from [com.google.android.gms:play-services-base:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\f1d022cb0a1d6942f496321662ad24c1c39195fa\output\AndroidManifest.xml:17:5-42
+MERGED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:design:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\6df7c0915f5605081c4ae016c69100fdceea7a15\output\AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:transition:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\20e89219fba0cbd1c7bead3282fe9e9b2c5f7a09\output\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-auth:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\331b7d8c02fa072b227fc7e0b31f5dae3d750f22\output\AndroidManifest.xml:17:5-42
+MERGED from [com.google.android.gms:play-services-auth-base:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\78eb21123a3ba4f23d2dfea87d533bc79763b514\output\AndroidManifest.xml:4:5-42
+MERGED from [com.facebook.android:facebook-android-sdk:4.18.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\9eef168c9013abb58a35fad952f1c0e31bc92e1c\output\AndroidManifest.xml:24:5-26:41
+MERGED from [com.android.support:customtabs:25.1.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\d50310539911ad2a648062748909bfd36c06b177\output\AndroidManifest.xml:20:5-44
+MERGED from [com.twitter.sdk.android:twitter:2.3.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\08e30686f174ce493032b01b1cb498c9c7012750\output\AndroidManifest.xml:23:5-44
+MERGED from [com.twitter.sdk.android:tweet-composer:2.3.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\cafe6a5c8629bfa6ad3ec04c3ca45c768e8b903a\output\AndroidManifest.xml:23:5-44
+MERGED from [com.twitter.sdk.android:tweet-ui:2.3.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\ce6881dfd4855772532492e85acb2832152e86df\output\AndroidManifest.xml:23:5-44
+MERGED from [com.twitter.sdk.android:twitter-core:2.3.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\0e32143dd5aaaaafc40a6ffd8d0fbb275b6bc750\output\AndroidManifest.xml:23:5-44
+MERGED from [io.fabric.sdk.android:fabric:1.3.14] C:\Users\wyatt_ofn2t9u\.android\build-cache\e46ff82bcc1123ef25955c2bfaab19875b8beae8\output\AndroidManifest.xml:23:5-43
+MERGED from [com.firebaseui:firebase-ui-database:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\971e23431f431fb1fe90245d93c911d697ab79d0\output\AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:recyclerview-v7:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\62d80e3666d276aef3d76cfa793edc65e924bd82\output\AndroidManifest.xml:20:5-43
+MERGED from [com.google.firebase:firebase-database:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\98cded2c434183338cb7b6b4283f6cc694880065\output\AndroidManifest.xml:3:5-42
+MERGED from [com.google.firebase:firebase-database-connection:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\4fb5f213ef303d0082e76e564ec91c33dfc7f253\output\AndroidManifest.xml:3:5-42
 MERGED from [com.android.support:cardview-v7:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\a26823d6bb758ced5fcb8d257855741165c70221\output\AndroidManifest.xml:20:5-43
+MERGED from [com.google.firebase:firebase-auth:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\5e0631831fe8800122e609cdae58dee2f9087029\output\AndroidManifest.xml:17:5-42
+MERGED from [com.google.android.gms:play-services-base:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\f1d022cb0a1d6942f496321662ad24c1c39195fa\output\AndroidManifest.xml:17:5-42
 MERGED from [com.google.firebase:firebase-core:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\2d219e0b9038e141b52ebc0f1218547107676d0c\output\AndroidManifest.xml:4:5-42
 MERGED from [com.google.firebase:firebase-analytics:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\021ef56bfe7fadfb83f0874c59c8a34126cb71cc\output\AndroidManifest.xml:17:5-42
 MERGED from [com.google.firebase:firebase-analytics-impl:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\a7bb715a6a9b4c592f4f3b21f4486f42fbf0af3f\output\AndroidManifest.xml:17:5-42
+MERGED from [com.google.firebase:firebase-messaging:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\5fea6c988fffe44d241f73da23aec9da0a2c6247\output\AndroidManifest.xml:17:5-42
 MERGED from [com.google.firebase:firebase-iid:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\ae1b93cd6931be8cfb082172dccd360d44cb6112\output\AndroidManifest.xml:17:5-42
 MERGED from [com.google.firebase:firebase-common:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\333e67466920eeda8714ad67e55f56e8cde1feaf\output\AndroidManifest.xml:3:5-42
 MERGED from [com.google.android.gms:play-services-tasks:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\019f397b7527f0f3b54135b85243caaa57859b4f\output\AndroidManifest.xml:3:5-42
 MERGED from [com.google.android.gms:play-services-basement:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\6f39a32fffb8c3b93cfb19085cdfa6d19c98cb1e\output\AndroidManifest.xml:17:5-42
+MERGED from [com.github.medyo:android-about-page:1.2.2] C:\Users\wyatt_ofn2t9u\.android\build-cache\8b12441412be9444ae40500b4ed09c6c729f51b9\output\AndroidManifest.xml:8:5-10:41
+MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\output\AndroidManifest.xml:21:5-23:78
 MERGED from [com.android.support:support-v4:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\da77044a906edb42a7de5e68fdf1cefc26c12e53\output\AndroidManifest.xml:21:5-23:54
 MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\b7259f85d94c6edc593f2126480355b479002ffc\output\AndroidManifest.xml:21:5-23:60
 MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\c43c9e9ab2d18f78c2c6f6f8060cd30014229239\output\AndroidManifest.xml:21:5-23:63
 MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\e91a93543f5ede397f0fb96dec406af12216091d\output\AndroidManifest.xml:21:5-23:58
 MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\11173bb706e5085d37bee50a1f0578a8fea91676\output\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\e2b1ea6ed0d0b3911163183c05c8bf71780bfdc2\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\31a160bf6050840d5d6e4edb4130e2dfa7e8df55\output\AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:support-compat:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\c6a73236aa7baa41c00eaf615ef61dbd04c856c5\output\AndroidManifest.xml:21:5-23:58
 	tools:overrideLibrary
 		ADDED from [com.android.support:design:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\6df7c0915f5605081c4ae016c69100fdceea7a15\output\AndroidManifest.xml:23:9-59
@@ -185,24 +226,6 @@ MERGED from [com.android.support:support-compat:25.3.1] C:\Users\wyatt_ofn2t9u\.
 	android:minSdkVersion
 		INJECTED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Dev\District_7570_Conference\app\src\main\AndroidManifest.xml
-meta-data#android.support.VERSION
-ADDED from [com.android.support:design:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\6df7c0915f5605081c4ae016c69100fdceea7a15\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:transition:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\20e89219fba0cbd1c7bead3282fe9e9b2c5f7a09\output\AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\e2b1ea6ed0d0b3911163183c05c8bf71780bfdc2\output\AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\31a160bf6050840d5d6e4edb4130e2dfa7e8df55\output\AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:recyclerview-v7:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\62d80e3666d276aef3d76cfa793edc65e924bd82\output\AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:cardview-v7:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\a26823d6bb758ced5fcb8d257855741165c70221\output\AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:support-v4:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\da77044a906edb42a7de5e68fdf1cefc26c12e53\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\b7259f85d94c6edc593f2126480355b479002ffc\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\c43c9e9ab2d18f78c2c6f6f8060cd30014229239\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\e91a93543f5ede397f0fb96dec406af12216091d\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\11173bb706e5085d37bee50a1f0578a8fea91676\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-compat:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\c6a73236aa7baa41c00eaf615ef61dbd04c856c5\output\AndroidManifest.xml:25:5-27:34
-	android:value
-		ADDED from [com.android.support:design:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\6df7c0915f5605081c4ae016c69100fdceea7a15\output\AndroidManifest.xml:27:9-31
-	android:name
-		ADDED from [com.android.support:design:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\6df7c0915f5605081c4ae016c69100fdceea7a15\output\AndroidManifest.xml:26:9-47
 uses-permission#android.permission.INTERNET
 ADDED from [com.google.android.gms:play-services-ads-lite:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\73dbfe37d26d792e420642f4cb385687cb01acab\output\AndroidManifest.xml:19:5-66
 MERGED from [com.google.android.gms:play-services-analytics:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\e75c8b599461e599238dd603005b4cb5999621a5\output\AndroidManifest.xml:20:5-66
@@ -213,6 +236,12 @@ MERGED from [com.google.android.gms:play-services-iid:10.0.1] C:\Users\wyatt_ofn
 MERGED from [com.google.android.gms:play-services-tagmanager-api:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\72cb260c908b43b33cb99d4ca64cac7e7d7f3b57\output\AndroidManifest.xml:20:5-66
 MERGED from [com.google.android.gms:play-services-analytics-impl:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\64aef3118a07ed484840b5f8e99d4d5f9ff700a3\output\AndroidManifest.xml:20:5-66
 MERGED from [com.google.android.gms:play-services-maps:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\2b5af74e82cd074355aa304a075957197e26fb69\output\AndroidManifest.xml:20:5-66
+MERGED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:12:5-67
+MERGED from [com.twitter.sdk.android:tweet-composer:2.3.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\cafe6a5c8629bfa6ad3ec04c3ca45c768e8b903a\output\AndroidManifest.xml:25:5-67
+MERGED from [com.twitter.sdk.android:tweet-ui:2.3.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\ce6881dfd4855772532492e85acb2832152e86df\output\AndroidManifest.xml:25:5-67
+MERGED from [com.twitter.sdk.android:twitter-core:2.3.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\0e32143dd5aaaaafc40a6ffd8d0fbb275b6bc750\output\AndroidManifest.xml:25:5-67
+MERGED from [io.fabric.sdk.android:fabric:1.3.14] C:\Users\wyatt_ofn2t9u\.android\build-cache\e46ff82bcc1123ef25955c2bfaab19875b8beae8\output\AndroidManifest.xml:25:5-67
+MERGED from [com.firebaseui:firebase-ui-database:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\971e23431f431fb1fe90245d93c911d697ab79d0\output\AndroidManifest.xml:11:5-67
 MERGED from [com.google.firebase:firebase-analytics:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\021ef56bfe7fadfb83f0874c59c8a34126cb71cc\output\AndroidManifest.xml:20:5-66
 MERGED from [com.google.firebase:firebase-analytics-impl:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\a7bb715a6a9b4c592f4f3b21f4486f42fbf0af3f\output\AndroidManifest.xml:20:5-66
 MERGED from [com.google.firebase:firebase-iid:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\ae1b93cd6931be8cfb082172dccd360d44cb6112\output\AndroidManifest.xml:20:5-66
@@ -225,6 +254,7 @@ MERGED from [com.google.android.gms:play-services-nearby:10.0.1] C:\Users\wyatt_
 MERGED from [com.google.android.gms:play-services-tagmanager-api:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\72cb260c908b43b33cb99d4ca64cac7e7d7f3b57\output\AndroidManifest.xml:21:5-78
 MERGED from [com.google.android.gms:play-services-analytics-impl:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\64aef3118a07ed484840b5f8e99d4d5f9ff700a3\output\AndroidManifest.xml:21:5-78
 MERGED from [com.google.android.gms:play-services-maps:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\2b5af74e82cd074355aa304a075957197e26fb69\output\AndroidManifest.xml:19:5-78
+MERGED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:11:5-79
 MERGED from [com.google.firebase:firebase-analytics:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\021ef56bfe7fadfb83f0874c59c8a34126cb71cc\output\AndroidManifest.xml:21:5-78
 MERGED from [com.google.firebase:firebase-analytics-impl:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\a7bb715a6a9b4c592f4f3b21f4486f42fbf0af3f\output\AndroidManifest.xml:21:5-78
 MERGED from [com.google.firebase:firebase-iid:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\ae1b93cd6931be8cfb082172dccd360d44cb6112\output\AndroidManifest.xml:19:5-78
@@ -270,24 +300,6 @@ category#android.intent.category.DEFAULT
 ADDED from [com.google.android.gms:play-services-appinvite:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\3c687f7e31e32c42369cfcd09db69733b418e6c8\output\AndroidManifest.xml:23:17-75
 	android:name
 		ADDED from [com.google.android.gms:play-services-appinvite:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\3c687f7e31e32c42369cfcd09db69733b418e6c8\output\AndroidManifest.xml:23:27-73
-activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
-ADDED from [com.google.android.gms:play-services-auth:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\331b7d8c02fa072b227fc7e0b31f5dae3d750f22\output\AndroidManifest.xml:20:9-189
-	android:excludeFromRecents
-		ADDED from [com.google.android.gms:play-services-auth:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\331b7d8c02fa072b227fc7e0b31f5dae3d750f22\output\AndroidManifest.xml:20:129-162
-	android:exported
-		ADDED from [com.google.android.gms:play-services-auth:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\331b7d8c02fa072b227fc7e0b31f5dae3d750f22\output\AndroidManifest.xml:20:163-187
-	android:theme
-		ADDED from [com.google.android.gms:play-services-auth:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\331b7d8c02fa072b227fc7e0b31f5dae3d750f22\output\AndroidManifest.xml:20:69-128
-	android:name
-		ADDED from [com.google.android.gms:play-services-auth:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\331b7d8c02fa072b227fc7e0b31f5dae3d750f22\output\AndroidManifest.xml:20:19-68
-service#com.google.android.gms.auth.api.signin.RevocationBoundService
-ADDED from [com.google.android.gms:play-services-auth:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\331b7d8c02fa072b227fc7e0b31f5dae3d750f22\output\AndroidManifest.xml:24:9-184
-	android:exported
-		ADDED from [com.google.android.gms:play-services-auth:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\331b7d8c02fa072b227fc7e0b31f5dae3d750f22\output\AndroidManifest.xml:24:64-87
-	android:permission
-		ADDED from [com.google.android.gms:play-services-auth:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\331b7d8c02fa072b227fc7e0b31f5dae3d750f22\output\AndroidManifest.xml:24:88-182
-	android:name
-		ADDED from [com.google.android.gms:play-services-auth:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\331b7d8c02fa072b227fc7e0b31f5dae3d750f22\output\AndroidManifest.xml:24:18-63
 receiver#com.google.android.gms.cast.framework.media.MediaIntentReceiver
 ADDED from [com.google.android.gms:play-services-cast-framework:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\2731353d1c418ae32393fce36b43cb6db21074fe\output\AndroidManifest.xml:5:9-99
 	android:name
@@ -300,20 +312,6 @@ service#com.google.android.gms.cast.framework.ReconnectionService
 ADDED from [com.google.android.gms:play-services-cast-framework:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\2731353d1c418ae32393fce36b43cb6db21074fe\output\AndroidManifest.xml:7:9-92
 	android:name
 		ADDED from [com.google.android.gms:play-services-cast-framework:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\2731353d1c418ae32393fce36b43cb6db21074fe\output\AndroidManifest.xml:7:18-90
-service#com.google.firebase.messaging.FirebaseMessagingService
-ADDED from [com.google.firebase:firebase-messaging:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\5fea6c988fffe44d241f73da23aec9da0a2c6247\output\AndroidManifest.xml:23:9-27:19
-	android:exported
-		ADDED from [com.google.firebase:firebase-messaging:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\5fea6c988fffe44d241f73da23aec9da0a2c6247\output\AndroidManifest.xml:23:88-111
-	android:name
-		ADDED from [com.google.firebase:firebase-messaging:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\5fea6c988fffe44d241f73da23aec9da0a2c6247\output\AndroidManifest.xml:23:18-87
-intent-filter#com.google.firebase.MESSAGING_EVENT
-ADDED from [com.google.firebase:firebase-messaging:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\5fea6c988fffe44d241f73da23aec9da0a2c6247\output\AndroidManifest.xml:24:13-26:29
-	android:priority
-		ADDED from [com.google.firebase:firebase-messaging:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\5fea6c988fffe44d241f73da23aec9da0a2c6247\output\AndroidManifest.xml:24:28-51
-action#com.google.firebase.MESSAGING_EVENT
-ADDED from [com.google.firebase:firebase-messaging:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\5fea6c988fffe44d241f73da23aec9da0a2c6247\output\AndroidManifest.xml:25:17-77
-	android:name
-		ADDED from [com.google.firebase:firebase-messaging:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\5fea6c988fffe44d241f73da23aec9da0a2c6247\output\AndroidManifest.xml:25:25-75
 uses-permission#com.google.android.c2dm.permission.RECEIVE
 ADDED from [com.google.android.gms:play-services-gcm:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\e9102350f1595c08618512adcdca936ee9a9ac7b\output\AndroidManifest.xml:20:5-81
 MERGED from [com.google.android.gms:play-services-iid:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\951383b944481889ab82dcac2ba9b2d8030df7bb\output\AndroidManifest.xml:20:5-81
@@ -336,10 +334,6 @@ ADDED from [com.google.android.gms:play-services-tagmanager-api:10.0.1] C:\Users
 		ADDED from [com.google.android.gms:play-services-tagmanager-api:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\72cb260c908b43b33cb99d4ca64cac7e7d7f3b57\output\AndroidManifest.xml:25:19-93
 intent-filter#android.intent.action.VIEW+android.intent.category.BROWSABLE+android.intent.category.DEFAULT
 ADDED from [com.google.android.gms:play-services-tagmanager-api:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\72cb260c908b43b33cb99d4ca64cac7e7d7f3b57\output\AndroidManifest.xml:26:13-31:29
-data
-ADDED from [com.google.android.gms:play-services-tagmanager-api:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\72cb260c908b43b33cb99d4ca64cac7e7d7f3b57\output\AndroidManifest.xml:27:17-71
-	android:scheme
-		ADDED from [com.google.android.gms:play-services-tagmanager-api:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\72cb260c908b43b33cb99d4ca64cac7e7d7f3b57\output\AndroidManifest.xml:27:23-69
 action#android.intent.action.VIEW
 ADDED from [com.google.android.gms:play-services-tagmanager-api:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\72cb260c908b43b33cb99d4ca64cac7e7d7f3b57\output\AndroidManifest.xml:28:17-68
 	android:name
@@ -354,6 +348,188 @@ ADDED from [com.google.android.gms:play-services-maps:10.0.1] C:\Users\wyatt_ofn
 		ADDED from [com.google.android.gms:play-services-maps:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\2b5af74e82cd074355aa304a075957197e26fb69\output\AndroidManifest.xml:21:19-51
 	android:required
 		ADDED from [com.google.android.gms:play-services-maps:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\2b5af74e82cd074355aa304a075957197e26fb69\output\AndroidManifest.xml:21:52-75
+meta-data#com.google.android.gms.version
+ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:15:9-17:69
+MERGED from [com.firebaseui:firebase-ui-database:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\971e23431f431fb1fe90245d93c911d697ab79d0\output\AndroidManifest.xml:14:9-16:69
+MERGED from [com.google.android.gms:play-services-basement:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\6f39a32fffb8c3b93cfb19085cdfa6d19c98cb1e\output\AndroidManifest.xml:20:9-121
+	android:value
+		ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:17:13-66
+	android:name
+		ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:16:13-58
+meta-data#io.fabric.ApiKey
+ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:18:9-20:63
+	android:value
+		ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:20:13-60
+	android:name
+		ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:19:13-44
+meta-data#com.facebook.sdk.ApplicationId
+ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:21:9-23:63
+	android:value
+		ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:23:13-60
+	android:name
+		ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:22:13-58
+activity#com.firebase.ui.auth.KickoffActivity
+ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:25:9-29:61
+	android:label
+		ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:28:13-29
+	android:exported
+		ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:27:13-37
+	android:theme
+		ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:29:13-58
+	android:name
+		ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:26:13-64
+activity#com.firebase.ui.auth.ui.email.RecoverPasswordActivity
+ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:30:9-33:71
+	android:label
+		ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:33:13-68
+	android:exported
+		ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:32:13-37
+	android:name
+		ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:31:13-81
+activity#com.firebase.ui.auth.ui.email.RegisterEmailActivity
+ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:34:9-37:55
+	android:label
+		ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:37:13-52
+	android:exported
+		ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:36:13-37
+	android:name
+		ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:35:13-79
+activity#com.firebase.ui.auth.ui.accountlink.WelcomeBackIdpPrompt
+ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:38:9-41:69
+	android:label
+		ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:41:13-66
+	android:exported
+		ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:40:13-37
+	android:name
+		ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:39:13-84
+activity#com.firebase.ui.auth.ui.accountlink.WelcomeBackPasswordPrompt
+ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:42:9-45:74
+	android:label
+		ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:45:13-71
+	android:exported
+		ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:44:13-37
+	android:name
+		ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:43:13-89
+activity#com.firebase.ui.auth.ui.idp.AuthMethodPickerActivity
+ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:46:9-49:61
+	android:label
+		ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:49:13-58
+	android:exported
+		ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:48:13-37
+	android:name
+		ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:47:13-80
+activity#com.facebook.FacebookActivity
+ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:50:9-53:48
+MERGED from [com.facebook.android:facebook-android-sdk:4.18.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\9eef168c9013abb58a35fad952f1c0e31bc92e1c\output\AndroidManifest.xml:29:9-32:66
+	android:label
+		ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:53:13-45
+	android:configChanges
+		ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:52:13-96
+	android:theme
+		ADDED from [com.facebook.android:facebook-android-sdk:4.18.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\9eef168c9013abb58a35fad952f1c0e31bc92e1c\output\AndroidManifest.xml:32:13-63
+	android:name
+		ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:51:13-57
+activity#com.facebook.CustomTabActivity
+ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:54:9-65:20
+MERGED from [com.facebook.android:facebook-android-sdk:4.18.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\9eef168c9013abb58a35fad952f1c0e31bc92e1c\output\AndroidManifest.xml:33:9-36:20
+	android:exported
+		ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:56:13-36
+	android:name
+		ADDED from [com.firebaseui:firebase-ui-auth:1.1.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\1b109e9a2d625298357c6ea82b072ecfaad680ce\output\AndroidManifest.xml:55:13-58
+meta-data#android.support.VERSION
+ADDED from [com.android.support:design:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\6df7c0915f5605081c4ae016c69100fdceea7a15\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:transition:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\20e89219fba0cbd1c7bead3282fe9e9b2c5f7a09\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:recyclerview-v7:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\62d80e3666d276aef3d76cfa793edc65e924bd82\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:cardview-v7:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\a26823d6bb758ced5fcb8d257855741165c70221\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\c25bbca74ddc5f975fe46cb746ed44e8a42ee4a7\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-v4:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\da77044a906edb42a7de5e68fdf1cefc26c12e53\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\b7259f85d94c6edc593f2126480355b479002ffc\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\c43c9e9ab2d18f78c2c6f6f8060cd30014229239\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\e91a93543f5ede397f0fb96dec406af12216091d\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\11173bb706e5085d37bee50a1f0578a8fea91676\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\e2b1ea6ed0d0b3911163183c05c8bf71780bfdc2\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\31a160bf6050840d5d6e4edb4130e2dfa7e8df55\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\c6a73236aa7baa41c00eaf615ef61dbd04c856c5\output\AndroidManifest.xml:25:5-27:34
+	android:value
+		ADDED from [com.android.support:design:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\6df7c0915f5605081c4ae016c69100fdceea7a15\output\AndroidManifest.xml:27:9-31
+	android:name
+		ADDED from [com.android.support:design:25.3.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\6df7c0915f5605081c4ae016c69100fdceea7a15\output\AndroidManifest.xml:26:9-47
+activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
+ADDED from [com.google.android.gms:play-services-auth:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\331b7d8c02fa072b227fc7e0b31f5dae3d750f22\output\AndroidManifest.xml:20:9-189
+	android:excludeFromRecents
+		ADDED from [com.google.android.gms:play-services-auth:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\331b7d8c02fa072b227fc7e0b31f5dae3d750f22\output\AndroidManifest.xml:20:129-162
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\331b7d8c02fa072b227fc7e0b31f5dae3d750f22\output\AndroidManifest.xml:20:163-187
+	android:theme
+		ADDED from [com.google.android.gms:play-services-auth:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\331b7d8c02fa072b227fc7e0b31f5dae3d750f22\output\AndroidManifest.xml:20:69-128
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\331b7d8c02fa072b227fc7e0b31f5dae3d750f22\output\AndroidManifest.xml:20:19-68
+service#com.google.android.gms.auth.api.signin.RevocationBoundService
+ADDED from [com.google.android.gms:play-services-auth:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\331b7d8c02fa072b227fc7e0b31f5dae3d750f22\output\AndroidManifest.xml:24:9-184
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\331b7d8c02fa072b227fc7e0b31f5dae3d750f22\output\AndroidManifest.xml:24:64-87
+	android:permission
+		ADDED from [com.google.android.gms:play-services-auth:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\331b7d8c02fa072b227fc7e0b31f5dae3d750f22\output\AndroidManifest.xml:24:88-182
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\331b7d8c02fa072b227fc7e0b31f5dae3d750f22\output\AndroidManifest.xml:24:18-63
+activity#com.facebook.CustomTabMainActivity
+ADDED from [com.facebook.android:facebook-android-sdk:4.18.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\9eef168c9013abb58a35fad952f1c0e31bc92e1c\output\AndroidManifest.xml:37:9-71
+	android:name
+		ADDED from [com.facebook.android:facebook-android-sdk:4.18.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\9eef168c9013abb58a35fad952f1c0e31bc92e1c\output\AndroidManifest.xml:37:19-68
+activity#com.twitter.sdk.android.tweetcomposer.ComposerActivity
+ADDED from [com.twitter.sdk.android:tweet-composer:2.3.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\cafe6a5c8629bfa6ad3ec04c3ca45c768e8b903a\output\AndroidManifest.xml:28:9-31:71
+	android:exported
+		ADDED from [com.twitter.sdk.android:tweet-composer:2.3.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\cafe6a5c8629bfa6ad3ec04c3ca45c768e8b903a\output\AndroidManifest.xml:30:13-37
+	android:windowSoftInputMode
+		ADDED from [com.twitter.sdk.android:tweet-composer:2.3.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\cafe6a5c8629bfa6ad3ec04c3ca45c768e8b903a\output\AndroidManifest.xml:31:13-68
+	android:name
+		ADDED from [com.twitter.sdk.android:tweet-composer:2.3.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\cafe6a5c8629bfa6ad3ec04c3ca45c768e8b903a\output\AndroidManifest.xml:29:13-82
+service#com.twitter.sdk.android.tweetcomposer.TweetUploadService
+ADDED from [com.twitter.sdk.android:tweet-composer:2.3.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\cafe6a5c8629bfa6ad3ec04c3ca45c768e8b903a\output\AndroidManifest.xml:33:9-36:40
+	android:enabled
+		ADDED from [com.twitter.sdk.android:tweet-composer:2.3.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\cafe6a5c8629bfa6ad3ec04c3ca45c768e8b903a\output\AndroidManifest.xml:35:13-35
+	android:exported
+		ADDED from [com.twitter.sdk.android:tweet-composer:2.3.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\cafe6a5c8629bfa6ad3ec04c3ca45c768e8b903a\output\AndroidManifest.xml:36:13-37
+	android:name
+		ADDED from [com.twitter.sdk.android:tweet-composer:2.3.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\cafe6a5c8629bfa6ad3ec04c3ca45c768e8b903a\output\AndroidManifest.xml:34:13-84
+activity#com.twitter.sdk.android.tweetui.PlayerActivity
+ADDED from [com.twitter.sdk.android:tweet-ui:2.3.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\ce6881dfd4855772532492e85acb2832152e86df\output\AndroidManifest.xml:28:9-31:49
+	android:configChanges
+		ADDED from [com.twitter.sdk.android:tweet-ui:2.3.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\ce6881dfd4855772532492e85acb2832152e86df\output\AndroidManifest.xml:30:13-74
+	android:theme
+		ADDED from [com.twitter.sdk.android:tweet-ui:2.3.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\ce6881dfd4855772532492e85acb2832152e86df\output\AndroidManifest.xml:31:13-46
+	android:name
+		ADDED from [com.twitter.sdk.android:tweet-ui:2.3.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\ce6881dfd4855772532492e85acb2832152e86df\output\AndroidManifest.xml:29:13-74
+activity#com.twitter.sdk.android.tweetui.GalleryActivity
+ADDED from [com.twitter.sdk.android:tweet-ui:2.3.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\ce6881dfd4855772532492e85acb2832152e86df\output\AndroidManifest.xml:32:9-34:49
+	android:theme
+		ADDED from [com.twitter.sdk.android:tweet-ui:2.3.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\ce6881dfd4855772532492e85acb2832152e86df\output\AndroidManifest.xml:34:13-46
+	android:name
+		ADDED from [com.twitter.sdk.android:tweet-ui:2.3.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\ce6881dfd4855772532492e85acb2832152e86df\output\AndroidManifest.xml:33:13-75
+activity#com.twitter.sdk.android.core.identity.OAuthActivity
+ADDED from [com.twitter.sdk.android:twitter-core:2.3.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\0e32143dd5aaaaafc40a6ffd8d0fbb275b6bc750\output\AndroidManifest.xml:28:9-32:40
+	android:excludeFromRecents
+		ADDED from [com.twitter.sdk.android:twitter-core:2.3.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\0e32143dd5aaaaafc40a6ffd8d0fbb275b6bc750\output\AndroidManifest.xml:31:13-46
+	android:exported
+		ADDED from [com.twitter.sdk.android:twitter-core:2.3.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\0e32143dd5aaaaafc40a6ffd8d0fbb275b6bc750\output\AndroidManifest.xml:32:13-37
+	android:configChanges
+		ADDED from [com.twitter.sdk.android:twitter-core:2.3.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\0e32143dd5aaaaafc40a6ffd8d0fbb275b6bc750\output\AndroidManifest.xml:30:13-59
+	android:name
+		ADDED from [com.twitter.sdk.android:twitter-core:2.3.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\0e32143dd5aaaaafc40a6ffd8d0fbb275b6bc750\output\AndroidManifest.xml:29:13-79
+activity#com.twitter.sdk.android.core.identity.ShareEmailActivity
+ADDED from [com.twitter.sdk.android:twitter-core:2.3.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\0e32143dd5aaaaafc40a6ffd8d0fbb275b6bc750\output\AndroidManifest.xml:33:9-39:48
+	android:label
+		ADDED from [com.twitter.sdk.android:twitter-core:2.3.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\0e32143dd5aaaaafc40a6ffd8d0fbb275b6bc750\output\AndroidManifest.xml:39:13-45
+	android:excludeFromRecents
+		ADDED from [com.twitter.sdk.android:twitter-core:2.3.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\0e32143dd5aaaaafc40a6ffd8d0fbb275b6bc750\output\AndroidManifest.xml:36:13-46
+	android:exported
+		ADDED from [com.twitter.sdk.android:twitter-core:2.3.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\0e32143dd5aaaaafc40a6ffd8d0fbb275b6bc750\output\AndroidManifest.xml:37:13-37
+	android:configChanges
+		ADDED from [com.twitter.sdk.android:twitter-core:2.3.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\0e32143dd5aaaaafc40a6ffd8d0fbb275b6bc750\output\AndroidManifest.xml:35:13-59
+	android:icon
+		ADDED from [com.twitter.sdk.android:twitter-core:2.3.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\0e32143dd5aaaaafc40a6ffd8d0fbb275b6bc750\output\AndroidManifest.xml:38:13-53
+	android:name
+		ADDED from [com.twitter.sdk.android:twitter-core:2.3.0] C:\Users\wyatt_ofn2t9u\.android\build-cache\0e32143dd5aaaaafc40a6ffd8d0fbb275b6bc750\output\AndroidManifest.xml:34:13-84
 activity#com.google.android.gms.common.api.GoogleApiActivity
 ADDED from [com.google.android.gms:play-services-base:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\f1d022cb0a1d6942f496321662ad24c1c39195fa\output\AndroidManifest.xml:19:9-172
 	android:exported
@@ -394,6 +570,20 @@ MERGED from [com.google.firebase:firebase-analytics-impl:10.0.1] C:\Users\wyatt_
 		ADDED from [com.google.firebase:firebase-analytics:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\021ef56bfe7fadfb83f0874c59c8a34126cb71cc\output\AndroidManifest.xml:32:111-135
 	android:name
 		ADDED from [com.google.firebase:firebase-analytics:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\021ef56bfe7fadfb83f0874c59c8a34126cb71cc\output\AndroidManifest.xml:32:16-87
+service#com.google.firebase.messaging.FirebaseMessagingService
+ADDED from [com.google.firebase:firebase-messaging:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\5fea6c988fffe44d241f73da23aec9da0a2c6247\output\AndroidManifest.xml:23:9-27:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-messaging:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\5fea6c988fffe44d241f73da23aec9da0a2c6247\output\AndroidManifest.xml:23:88-111
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\5fea6c988fffe44d241f73da23aec9da0a2c6247\output\AndroidManifest.xml:23:18-87
+intent-filter#com.google.firebase.MESSAGING_EVENT
+ADDED from [com.google.firebase:firebase-messaging:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\5fea6c988fffe44d241f73da23aec9da0a2c6247\output\AndroidManifest.xml:24:13-26:29
+	android:priority
+		ADDED from [com.google.firebase:firebase-messaging:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\5fea6c988fffe44d241f73da23aec9da0a2c6247\output\AndroidManifest.xml:24:28-51
+action#com.google.firebase.MESSAGING_EVENT
+ADDED from [com.google.firebase:firebase-messaging:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\5fea6c988fffe44d241f73da23aec9da0a2c6247\output\AndroidManifest.xml:25:17-77
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\5fea6c988fffe44d241f73da23aec9da0a2c6247\output\AndroidManifest.xml:25:25-75
 permission#${applicationId}.permission.C2D_MESSAGE
 ADDED from [com.google.firebase:firebase-iid:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\ae1b93cd6931be8cfb082172dccd360d44cb6112\output\AndroidManifest.xml:24:5-109
 	android:protectionLevel
@@ -456,9 +646,3 @@ ADDED from [com.google.firebase:firebase-common:10.0.1] C:\Users\wyatt_ofn2t9u\.
 		ADDED from [com.google.firebase:firebase-common:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\333e67466920eeda8714ad67e55f56e8cde1feaf\output\AndroidManifest.xml:6:169-192
 	android:name
 		ADDED from [com.google.firebase:firebase-common:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\333e67466920eeda8714ad67e55f56e8cde1feaf\output\AndroidManifest.xml:6:79-143
-meta-data#com.google.android.gms.version
-ADDED from [com.google.android.gms:play-services-basement:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\6f39a32fffb8c3b93cfb19085cdfa6d19c98cb1e\output\AndroidManifest.xml:20:9-121
-	android:value
-		ADDED from [com.google.android.gms:play-services-basement:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\6f39a32fffb8c3b93cfb19085cdfa6d19c98cb1e\output\AndroidManifest.xml:20:66-119
-	android:name
-		ADDED from [com.google.android.gms:play-services-basement:10.0.1] C:\Users\wyatt_ofn2t9u\.android\build-cache\6f39a32fffb8c3b93cfb19085cdfa6d19c98cb1e\output\AndroidManifest.xml:20:20-65

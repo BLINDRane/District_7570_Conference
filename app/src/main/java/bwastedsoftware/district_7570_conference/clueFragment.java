@@ -133,7 +133,7 @@ public class clueFragment extends Fragment implements View.OnClickListener {
         //final String name = etSpeakerName.getText().toString().trim();
         //final String bio = etSpeakerBio.getText().toString().trim();
 
-        StorageReference filepath = mStorage.child("Scavenger Hunt Pictures").child(user_id).child(imageURI.getLastPathSegment());
+        StorageReference filepath = mStorage.child("Scavenger Hunt Pictures").child(user_id).child(mClue.getTitle()).child(imageURI.getLastPathSegment());
 
         Bitmap bitmap = null;
         try
