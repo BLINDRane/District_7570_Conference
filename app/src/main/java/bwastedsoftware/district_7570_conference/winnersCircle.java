@@ -1,6 +1,7 @@
 package bwastedsoftware.district_7570_conference;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -11,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.github.jinatonic.confetti.CommonConfetti;
+import com.github.jinatonic.confetti.ConfettiManager;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -55,6 +58,9 @@ public class winnersCircle extends Fragment {
 
         mAuth = FirebaseAuth.getInstance();
         user_id = mAuth.getCurrentUser().getUid();
+
+        CommonConfetti.rainingConfetti(container, new int[] { Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW}).infinite().setTouchEnabled(true);
+
         getWinners();
         // Inflate the layout for this fragment
         return view;

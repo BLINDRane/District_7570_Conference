@@ -121,7 +121,7 @@ public class HomePage extends AppCompatActivity {
         //set the date and time when the scavenger hunt ends
         DateFormat format = new SimpleDateFormat("MMMM d, yyyy hh:mm a", Locale.ENGLISH);
         try {
-            Date date = format.parse("November 28, 2017 12:57 PM");
+            Date date = format.parse("November 28, 2017 3:00 PM");
 
             endHunt.setTime(date);
 

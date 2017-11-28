@@ -1,83 +1,87 @@
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="bwastedsoftware.district_7570_conference.winnersCircle">
 
     <!-- TODO: Update blank fragment layout -->
 
-    <TextView
-        android:id="@+id/firstPlace"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:text="First Place"
-        android:textAlignment="center"
-        android:textSize="30sp"
-        android:typeface="normal"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:id="@+id/secondPlace"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="91dp"
-        android:text="Second Place"
-        android:textAlignment="center"
-        android:textSize="30sp"
-        android:layout_below="@+id/firstPlace"
-        android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:id="@+id/thirdPlace"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text="Third Place"
-        android:textSize="30sp"
-        android:layout_below="@+id/secondPlace"
-        android:layout_alignStart="@+id/firstPlace" />
+        <TextView
+            android:id="@+id/firstPlace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="64dp"
+            android:text="First Place"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:typeface="normal" />
 
-    <TextView
-        android:id="@+id/participatedCheck"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Participated"
-        android:textSize="24sp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="128dp" />
+        <TextView
+            android:id="@+id/secondPlace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/firstPlace"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="91dp"
+            android:text="Second Place"
+            android:textAlignment="center"
+            android:textSize="30sp" />
 
-    <TextView
-        android:id="@+id/one"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/firstPlace"
-        android:layout_marginEnd="22dp"
-        android:layout_marginTop="8dp"
-        android:layout_toStartOf="@+id/firstPlace"
-        android:text="1:"
-        android:textSize="24sp" />
+        <TextView
+            android:id="@+id/participatedCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="128dp"
+            android:text="Participated"
+            android:textSize="24sp" />
 
-    <TextView
-        android:id="@+id/two"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/secondPlace"
-        android:layout_marginTop="8dp"
-        android:layout_toStartOf="@+id/one"
-        android:text="2:"
-        android:textSize="24sp" />
+        <TextView
+            android:id="@+id/one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/firstPlace"
+            android:layout_marginEnd="22dp"
+            android:layout_marginTop="8dp"
+            android:layout_toStartOf="@+id/firstPlace"
+            android:text="1:"
+            android:textSize="24sp" />
 
-    <TextView
-        android:id="@+id/three"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/thirdPlace"
-        android:layout_marginEnd="6dp"
-        android:text="3:"
-        android:textSize="24sp"
-        android:layout_toEndOf="@+id/two" />
+        <TextView
+            android:id="@+id/two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/secondPlace"
+            android:layout_marginTop="8dp"
+            android:layout_toStartOf="@+id/one"
+            android:text="2:"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/thirdPlace"
+            android:layout_marginEnd="6dp"
+            android:layout_toEndOf="@+id/two"
+            android:text="3:"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/thirdPlace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/firstPlace"
+            android:layout_below="@+id/secondPlace"
+            android:layout_marginTop="100dp"
+            android:text="Third Place"
+            android:textSize="30sp" />
 
 </RelativeLayout>
