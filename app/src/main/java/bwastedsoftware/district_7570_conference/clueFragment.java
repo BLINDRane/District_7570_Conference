@@ -72,6 +72,9 @@ public class clueFragment extends Fragment implements View.OnClickListener {
     private Uri imageURI;
     private StorageReference mStorage;
     private FirebaseAuth mAuth;
+    private DatabaseReference mDatabase;
+    private DatabaseReference completed;
+    private DatabaseReference winnerList;
     ImageButton cluePic;
     Button submit;
     String user_id;
@@ -92,7 +95,9 @@ public class clueFragment extends Fragment implements View.OnClickListener {
         cluePic.setOnClickListener(this);
         mAuth = FirebaseAuth.getInstance();
         user_id = mAuth.getCurrentUser().getUid();
-
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("completedClues");
+        completed = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("scavProgress");
+        winnerList = FirebaseDatabase.getInstance().getReference().child("Users who have Completed the Scavenger Hunt");
         return mView;
     }
 
@@ -134,6 +139,35 @@ public class clueFragment extends Fragment implements View.OnClickListener {
         //final String bio = etSpeakerBio.getText().toString().trim();
 
         StorageReference filepath = mStorage.child("Scavenger Hunt Pictures").child(user_id).child(mClue.getTitle()).child(imageURI.getLastPathSegment());
+        mDatabase.child(mClue.getTitle()).setValue("");
+
+        completed.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                int numCompletions;
+                if(dataSnapshot.getValue() == null){
+                    numCompletions = 1;
+                    completed.setValue(numCompletions);
+                } else if(dataSnapshot.getValue(int.class) != 11) {
+                    numCompletions = (dataSnapshot.getValue(int.class) + 1);
+                    completed.setValue(numCompletions);
+                } else if(dataSnapshot.getValue(int.class) == 11){ //if user finishes twelve clues, save their completion time under their name
+                    numCompletions = (dataSnapshot.getValue(int.class) + 1);
+                    completed.setValue(numCompletions);
+                    Calendar c = Calendar.getInstance();
+                    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    String formattedDate = df.format(c.getTime());
+                    winnerList.child(user_id).setValue(formattedDate);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
 
         Bitmap bitmap = null;
         try
