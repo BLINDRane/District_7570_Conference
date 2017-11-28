@@ -201,8 +201,8 @@ public class EventFragment extends Fragment implements View.OnClickListener {
                     public void onClick(View v) {
                         rateDialog.dismiss();
                         userRating = ratingBar.getRating();
-                        storeRateInfo();
-                       Toast.makeText(getContext(), "Your rating of " + ratingBar.getRating() + " stars has been recorded.", Toast.LENGTH_LONG).show();
+                        storeRateInfo(userRating);
+                       Toast.makeText(getContext(), "Your rating of " + userRating + " stars has been recorded.", Toast.LENGTH_LONG).show();
                     }
                 });
                 //now that the dialog is set up, it's time to show it
@@ -210,7 +210,7 @@ public class EventFragment extends Fragment implements View.OnClickListener {
             }
 
 
-    private void storeRateInfo(){
+    private void storeRateInfo(final float a){
         //Order the information by title
         final DatabaseReference ratingDB = FirebaseDatabase.getInstance().getReference().child("Events");
         DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("userEvents");
@@ -227,7 +227,7 @@ public class EventFragment extends Fragment implements View.OnClickListener {
                 {
                     numRates =  titleSnapshot.child("numRates").getValue(float.class) + 1;
                     currentRating = titleSnapshot.child("currentRating").getValue(float.class);
-                    ratingDB.child(titleSnapshot.getKey()).child("currentRating").setValue(averageRatings(userRating, currentRating, numRates));
+                    ratingDB.child(titleSnapshot.getKey()).child("currentRating").setValue(averageRatings(a, currentRating, numRates));
                     ratingDB.child(titleSnapshot.getKey()).child("numRates").setValue((numRates));
                     userTitleQuery.addListenerForSingleValueEvent(new ValueEventListener()
                     {

@@ -1,5 +1,10 @@
 package bwastedsoftware.district_7570_conference;
 
+import com.google.firebase.database.Exclude;
+
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by wyatt_ofn2t9u on 11/14/2017.
  */
@@ -32,5 +37,13 @@ private String Instruction;
 
     public void setInstruction(String Instruction){
         this.Instruction = Instruction;
+    }
+    @Exclude
+    public Map<String, Object> toMap() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("title", Title);
+        result.put("instruction", Instruction);
+
+        return result;
     }
 }
