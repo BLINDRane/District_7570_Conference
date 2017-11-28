@@ -1,7 +1,9 @@
 package bwastedsoftware.district_7570_conference;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.CalendarContract;
@@ -136,8 +138,20 @@ public class EventFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         if(v.getId() == R.id.eventView_attendingButton){
 
-            //add to their calendar
-            addEventToCalendar();
+            //show dialog
+            AlertDialog infoDialog = new AlertDialog.Builder(getActivity()).create();
+            infoDialog.setTitle("Adding to Calendar");
+            infoDialog.setMessage("You will now be taken to your calendar to add this event into your schedule. Please configure your calendar to receive notifications.");
+            infoDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                            //add to their calendar
+                            addEventToCalendar();
+                        }
+                    });
+            infoDialog.show();
+
             nDatabase = FirebaseDatabase.getInstance().getReference();
 
             FirebaseDatabase mydb = FirebaseDatabase.getInstance();
