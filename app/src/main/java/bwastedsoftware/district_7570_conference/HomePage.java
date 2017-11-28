@@ -9,10 +9,25 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.Locale;
 
 
 public class HomePage extends AppCompatActivity {
@@ -29,8 +44,10 @@ public class HomePage extends AppCompatActivity {
     String user_id;
     Bundle inBundle;
     Boolean isAdmin;
-    MenuItem createEvent;
-    MenuItem createSpeaker;
+    MenuItem scavengerHunt;
+    Calendar endHunt = Calendar.getInstance();
+    Calendar now = Calendar.getInstance();
+
 
     //Sets up the activity screen
     @Override
@@ -52,8 +69,7 @@ public class HomePage extends AppCompatActivity {
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         navView = (NavigationView) findViewById(R.id.navigation_view);
 
-        createEvent =  navView.getMenu().findItem(R.id.create_event_id);
-        createSpeaker = navView.getMenu().findItem(R.id.create_speaker_id);
+        scavengerHunt = navView.getMenu().findItem(R.id.scav_id);
 
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.add(R.id.main_container, new HomeFragment());
@@ -62,6 +78,7 @@ public class HomePage extends AppCompatActivity {
 
 
         final Bundle bundle = new Bundle();
+        final scavengerHunt scav = new scavengerHunt();
         final ScheduleFragment Schedule = new ScheduleFragment();
         final ScheduleFragment mySchedule = new ScheduleFragment();
         final Create_EventFragment createEventFrag = new Create_EventFragment();
@@ -75,13 +92,6 @@ public class HomePage extends AppCompatActivity {
 
         final AboutPageFragment aboutPage = new AboutPageFragment();
         aboutPage.setArguments(bundle);
-
-
-        if(isAdmin){
-            //createEvent.setVisible(true);
-            //createSpeaker.setVisible(true);
-            //Toast.makeText(HomePage.this, "Admin Detected", Toast.LENGTH_LONG).show();
-        }
 
         //This is like onCreate() but if the activity was called from a push notification
         String type = getIntent().getStringExtra("From");
@@ -105,7 +115,21 @@ public class HomePage extends AppCompatActivity {
             }
         }
 
-        //userLocalStore = new UserLocalStore(this);
+
+
+
+        //set the date and time when the scavenger hunt ends
+        DateFormat format = new SimpleDateFormat("MMMM d, yyyy hh:mm a", Locale.ENGLISH);
+        try {
+            Date date = format.parse("November 28, 2017 12:57 PM");
+
+            endHunt.setTime(date);
+
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+
+        }
 
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -181,7 +205,11 @@ public class HomePage extends AppCompatActivity {
                     case R.id.scav_id:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.addToBackStack("Scavenger Hunt");
-                        fragmentTransaction.replace(R.id.main_container, new scavengerHunt());
+                        if(endHunt.compareTo(now) < 0) {
+                            fragmentTransaction.replace(R.id.main_container, new winnersCircle());
+                        } else {
+                            fragmentTransaction.replace(R.id.main_container, scav);
+                        }
                         fragmentTransaction.commit();
                         getSupportActionBar().setTitle("Scavenger Hunt");
                         item.setChecked(true);
@@ -212,8 +240,6 @@ public class HomePage extends AppCompatActivity {
         super.onPostCreate(savedInstanceState);
         actionBarDrawerToggle.syncState();
     }
-
-
 
 }
 
