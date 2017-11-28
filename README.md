@@ -16,6 +16,9 @@ This class also provided the opportunity to learn many skills such as:
 + Using GitHub to manage our repository
 + Work with Android and Java
 
+## Rotary District 7570
+information to be put here
+
 ## Project Documents
 Be sure to check out the project documents!
 + [Team Agreement](project_documents/CSC313_Team_Agreement.pdf)
