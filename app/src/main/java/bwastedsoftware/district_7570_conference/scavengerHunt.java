@@ -81,8 +81,6 @@ public class scavengerHunt extends Fragment {
 
     SwipeRefreshLayout mSwipeRefreshLayout;
     RecyclerView rv;
-    FirebaseAuth mAuth;
-    String user_id;
     View view;
     @Override
 
@@ -120,14 +118,15 @@ public class scavengerHunt extends Fragment {
         rv.setAdapter(adapter);
     }
 
-
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
     ArrayList<Clue> clues;
     FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = mDatabase.getReference().child("Speakers");
+    String user_id = mAuth.getCurrentUser().getUid();
+    DatabaseReference myRef = mDatabase.getReference().child("Users").child(user_id).child("scavengerHuntClues");
 
     public void loadClue(Clue clue){
         FragmentTransaction t = this.getFragmentManager().beginTransaction();
-        t.addToBackStack("Speaker");
+        t.addToBackStack("Clue");
         clueFragment mFrag = new clueFragment();
         mFrag.passClue(getActivity(),clue);
         t.replace(R.id.main_container, mFrag);
@@ -141,8 +140,8 @@ clues = new ArrayList<>();
 
     private void refreshData(){
         adapter.clear();
-        clues.add(new Clue("First Clue", "Grab a drink with the Presidents of the United States"));
-        clues.add(new Clue("Second Clue", "Turns out Lincoln was a bit clingy. Go somewhere he won't want to be"));
+        //clues.add(new Clue("First Clue", "Grab a drink with the Presidents of the United States"));
+        //clues.add(new Clue("Second Clue", "Turns out Lincoln was a bit clingy. Go somewhere he won't want to be"));
         final ArrayList<Clue> newClues = new ArrayList<>();
 
         // Read from the database

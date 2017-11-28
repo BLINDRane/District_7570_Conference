@@ -18,7 +18,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Register extends AppCompatActivity implements View.OnClickListener {
 
@@ -58,9 +60,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
         //Get an instance of Firebase authorization and database
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
-        if(!(etPassword.getText().length() >= 6)){
-            Toast.makeText(getApplicationContext(), "Password Must Be At Least Six Characters", Toast.LENGTH_SHORT).show();
-        }
+
     }
 
 
@@ -75,9 +75,11 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
     public void onClick(View v) {
 
         if(v.getId() == R.id.btn_register){
-
-            startRegister();
-
+            if(!(etPassword.getText().length() > 6)){
+                Toast.makeText(getApplicationContext(), "Password Must Be At Least Six Characters", Toast.LENGTH_SHORT).show();
+            } else {
+                startRegister();
+            }
         }
     }
 
@@ -100,6 +102,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
                          DatabaseReference current_user_db = mDatabase.child(user_id);
                         current_user_db.child("Fname").setValue(Fname);
                         current_user_db.child("Lname").setValue(Lname);
+                        current_user_db.child("scavProgress").setValue(0);
                         //remove progress message, so the user knows they are registered.
                         mProgress.setMessage("User Registered");
                         mProgress.dismiss();
