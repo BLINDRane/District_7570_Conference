@@ -17,7 +17,12 @@ This class also provided the opportunity to learn many skills such as:
 + Work with Android and Java
 
 ## Rotary District 7570
-information to be put here
+From [Rotary's website about page](https://www.rotary.org/en/about-rotary):
+>Rotary is a global network of 1.2 million neighbors, friends, leaders, and problem-solvers who come together to make positive, lasting change in communities at home and abroad.
+
+[Rotary District 7570](http://www.rotary7570.org/District/About) is one of the many organizations a part of Rotary International located around Virginia and Tennessee.
+
+*District 7570 runs a conference yearly, and as with all conferences, communication between conference administrators and attendees can be difficult to manage. __This app's purpose is to solve that solution.__*
 
 ## Project Documents
 Be sure to check out the project documents!
@@ -36,5 +41,6 @@ Be sure to check out the project documents!
 + Dr. Falin
 + [Picasso](http://square.github.io/picasso/)
 + [Android About Page](https://github.com/medyo/android-about-page)
++ [Confetti](https://github.com/jinatonic/confetti)
 + Stack Overflow (for so much help)
 + Many other used tutorials, credit given in source comments
