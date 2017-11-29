@@ -1,6 +1,7 @@
 package bwastedsoftware.district_7570_conference;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -13,6 +14,7 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.view.menu.MenuView;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -146,7 +148,24 @@ public class clueFragment extends Fragment implements View.OnClickListener {
         if (v.getId() == R.id.clue_Image) {
             openImageOptions();
         } else if (v.getId() == R.id.btn_submit_photo) {
-                uploadPhoto();
+                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which){
+                            case DialogInterface.BUTTON_POSITIVE:
+                                uploadPhoto();
+                                break;
+
+                            case DialogInterface.BUTTON_NEGATIVE:
+                                //No button clicked
+                                break;
+                        }
+                    }
+                };
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setMessage("Is this what you want to submit? You will not be able to re-enter this clue once you do.").setPositiveButton("Yes", dialogClickListener)
+                        .setNegativeButton("No", dialogClickListener).show();
             }
         }
 
@@ -154,8 +173,7 @@ public class clueFragment extends Fragment implements View.OnClickListener {
 
     private void uploadPhoto()
     {
-        //final String name = etSpeakerName.getText().toString().trim();
-        //final String bio = etSpeakerBio.getText().toString().trim();
+
 
         StorageReference filepath = mStorage.child("Scavenger Hunt Pictures").child(user_id).child(mClue.getTitle()).child(imageURI.getLastPathSegment());
         mDatabase.child(mClue.getTitle()).setValue("");
@@ -221,15 +239,7 @@ public class clueFragment extends Fragment implements View.OnClickListener {
         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                // taskSnapshot.getMetadata() contains file metadata such as size, content-type, and download URL.
-                //noinspection VisibleForTests
 
-
-                /*Uri downloadUrl = taskSnapshot.getDownloadUrl();
-                DatabaseReference newSpeaker = mDatabase.push();
-                newSpeaker.child("name").setValue(name);
-                newSpeaker.child("bio").setValue(bio);
-                newSpeaker.child("photoURL").setValue(downloadUrl.toString());*/
             }
         });
 

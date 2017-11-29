@@ -61,7 +61,7 @@ public class winnersCircle extends Fragment {
         mAuth = FirebaseAuth.getInstance();
         user_id = mAuth.getCurrentUser().getUid();
 
-        CommonConfetti.rainingConfetti(container, new int[] { Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW}).stream(10000);
+        CommonConfetti.rainingConfetti(container, new int[] { Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW}).stream(1000);
 
         getWinners();
         // Inflate the layout for this fragment
