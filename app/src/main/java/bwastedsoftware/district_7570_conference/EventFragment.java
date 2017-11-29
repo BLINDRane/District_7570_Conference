@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -17,8 +18,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -27,6 +30,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -38,7 +42,8 @@ import java.util.Map;
 import static android.content.ContentValues.TAG;
 
 
-public class EventFragment extends Fragment implements View.OnClickListener {
+public class EventFragment extends Fragment implements View.OnClickListener
+{
 
     FloatingActionButton rsvp;
     private Event mEvent;
@@ -52,12 +57,15 @@ public class EventFragment extends Fragment implements View.OnClickListener {
     private float currentRating;
     Boolean Current, Over, isMine;
 
-    public EventFragment() {
+    public EventFragment()
+    {
         // Required empty public constructor
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             Bundle savedInstanceState)
+    {
         Bundle args = getArguments();
         // Inflate the layout for this fragment
         mView = inflater.inflate(R.layout.fragment_event, container, false);
@@ -69,13 +77,16 @@ public class EventFragment extends Fragment implements View.OnClickListener {
         rsvp = (FloatingActionButton) mView.findViewById(R.id.eventView_attendingButton);
         mEvent.getCalendarStartTime();
 
-        if(!isMine) {
+        if (!isMine)
+        {
             rsvp.setOnClickListener(this);
-        } else {
+        } else
+        {
             rsvp.hide();
         }
 
-        if(Over && isMine){
+        if (Over && isMine)
+        {
             askForRating();
         }
         return mView;
@@ -86,9 +97,27 @@ public class EventFragment extends Fragment implements View.OnClickListener {
     {
         //this.mView = view;
         updateEventDetails();
+
+        RelativeLayout speakerLayout = (RelativeLayout) view.findViewById(R.id.eventView_speakerLayout);
+        speakerLayout.setOnClickListener(new View.OnClickListener(){
+        public void onClick(View v) {
+            loadSpeakerDetails(mEvent.getSpeaker());
+        }
+    });
     }
 
-    public void passEvent(Context context, Event event) {
+    private void loadSpeakerDetails(Speaker speaker)
+    {
+        FragmentTransaction t = this.getFragmentManager().beginTransaction();
+        t.addToBackStack("Speaker");
+        SpeakerFragment mFrag = new SpeakerFragment();
+        mFrag.passSpeaker(getActivity(),speaker);
+        t.replace(R.id.main_container, mFrag);
+        t.commit();
+    }
+
+    public void passEvent(Context context, Event event)
+    {
         mContext = context;
         mEvent = event;
 
@@ -131,16 +160,20 @@ public class EventFragment extends Fragment implements View.OnClickListener {
     }
 
     @Override
-    public void onClick(View v) {
-        if(v.getId() == R.id.eventView_attendingButton){
+    public void onClick(View v)
+    {
+        if (v.getId() == R.id.eventView_attendingButton)
+        {
 
             //show dialog
             AlertDialog infoDialog = new AlertDialog.Builder(getActivity()).create();
             infoDialog.setTitle("Adding to Calendar");
             infoDialog.setMessage("You will now be taken to your calendar to add this event into your schedule. Please configure your calendar to receive notifications.");
             infoDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
+                    new DialogInterface.OnClickListener()
+                    {
+                        public void onClick(DialogInterface dialog, int which)
+                        {
                             dialog.dismiss();
                             //add to their calendar
                             addEventToCalendar();
@@ -163,7 +196,9 @@ public class EventFragment extends Fragment implements View.OnClickListener {
             mDatabase.updateChildren(childUpdates);
 
 
-        } else {
+        }
+         else
+        {
 
         }
     }
@@ -190,37 +225,41 @@ public class EventFragment extends Fragment implements View.OnClickListener {
             e.printStackTrace();
         }
         calIntent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME,
-                    c2.getTimeInMillis());
+                c2.getTimeInMillis());
 
         startActivity(calIntent);
     }
 
-    private void askForRating(){
-              final Dialog rateDialog = new Dialog(getContext(), R.style.FullHeightDialog);
-                rateDialog.setContentView(R.layout.rate_dialog);
-                rateDialog.setCancelable(true);
-                final RatingBar ratingBar = (RatingBar)rateDialog.findViewById(R.id.dialog_ratingbar);
-                //ratingBar.setRating(userRankValue);
+    private void askForRating()
+    {
+        final Dialog rateDialog = new Dialog(getContext(), R.style.FullHeightDialog);
+        rateDialog.setContentView(R.layout.rate_dialog);
+        rateDialog.setCancelable(true);
+        final RatingBar ratingBar = (RatingBar) rateDialog.findViewById(R.id.dialog_ratingbar);
+        //ratingBar.setRating(userRankValue);
 
-                TextView text = (TextView) rateDialog.findViewById(R.id.rank_dialog_text1);
-                text.setText("Please rate this event.");
+        TextView text = (TextView) rateDialog.findViewById(R.id.rank_dialog_text1);
+        text.setText("Please rate this event.");
 
-                Button updateButton = (Button) rateDialog.findViewById(R.id.rank_dialog_button);
-                updateButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        rateDialog.dismiss();
-                        userRating = ratingBar.getRating();
-                        storeRateInfo(userRating);
-                       Toast.makeText(getContext(), "Your rating of " + userRating + " stars has been recorded.", Toast.LENGTH_LONG).show();
-                    }
-                });
-                //now that the dialog is set up, it's time to show it
-                rateDialog.show();
+        Button updateButton = (Button) rateDialog.findViewById(R.id.rank_dialog_button);
+        updateButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                rateDialog.dismiss();
+                userRating = ratingBar.getRating();
+                storeRateInfo(userRating);
+                Toast.makeText(getContext(), "Your rating of " + userRating + " stars has been recorded.", Toast.LENGTH_LONG).show();
             }
+        });
+        //now that the dialog is set up, it's time to show it
+        rateDialog.show();
+    }
 
 
-    private void storeRateInfo(final float a){
+    private void storeRateInfo(final float a)
+    {
         //Order the information by title
         final DatabaseReference ratingDB = FirebaseDatabase.getInstance().getReference().child("Events");
         DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("userEvents");
@@ -235,7 +274,7 @@ public class EventFragment extends Fragment implements View.OnClickListener {
             {
                 for (DataSnapshot titleSnapshot : dataSnapshot.getChildren())
                 {
-                    numRates =  titleSnapshot.child("numRates").getValue(float.class) + 1;
+                    numRates = titleSnapshot.child("numRates").getValue(float.class) + 1;
                     currentRating = titleSnapshot.child("currentRating").getValue(float.class);
                     ratingDB.child(titleSnapshot.getKey()).child("currentRating").setValue(averageRatings(a, currentRating, numRates));
                     ratingDB.child(titleSnapshot.getKey()).child("numRates").setValue((numRates));
@@ -267,21 +306,28 @@ public class EventFragment extends Fragment implements View.OnClickListener {
         });
     }
 
-    private float averageRatings(float a, float b, float c){return ((a+b)/c);}
+    private float averageRatings(float a, float b, float c)
+    {
+        return ((a + b) / c);
+    }
 
     //this will enable using the back button to pop the stack, which will go to previous fragment instead of the login screen.
     @Override
-    public void onResume() {
+    public void onResume()
+    {
 
         super.onResume();
 
         getView().setFocusableInTouchMode(true);
         getView().requestFocus();
-        getView().setOnKeyListener(new View.OnKeyListener() {
+        getView().setOnKeyListener(new View.OnKeyListener()
+        {
             @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
+            public boolean onKey(View v, int keyCode, KeyEvent event)
+            {
 
-                if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK){
+                if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK)
+                {
 
                     getActivity().getSupportFragmentManager().popBackStack();
                     return true;
