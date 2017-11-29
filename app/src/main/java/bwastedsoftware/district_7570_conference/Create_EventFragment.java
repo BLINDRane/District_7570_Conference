@@ -2,6 +2,7 @@ package bwastedsoftware.district_7570_conference;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -53,6 +54,15 @@ public class Create_EventFragment extends Fragment implements View.OnClickListen
     public Create_EventFragment() {
         // Required empty public constructor
     }
+
+    @Override
+    public void onAttach(Context context)
+    {
+        super.onAttach(context);
+        ((HomePage)getActivity()).getSupportActionBar().setTitle("Create New Event");
+
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

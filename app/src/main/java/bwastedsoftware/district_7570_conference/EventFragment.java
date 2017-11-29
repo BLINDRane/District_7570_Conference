@@ -62,10 +62,13 @@ public class EventFragment extends Fragment implements View.OnClickListener
         // Required empty public constructor
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState)
     {
+        ((HomePage)getActivity()).getSupportActionBar().setTitle("Event Details");
+
         Bundle args = getArguments();
         // Inflate the layout for this fragment
         mView = inflater.inflate(R.layout.fragment_event, container, false);

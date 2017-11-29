@@ -1,5 +1,6 @@
 package bwastedsoftware.district_7570_conference;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -22,9 +23,13 @@ public class AboutPageFragment extends Fragment implements View.OnClickListener 
     public AboutPageFragment() {
         // Required empty public constructor
     }
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        ((HomePage)getActivity()).getSupportActionBar().setTitle("About");
 
         Uri uri = Uri.parse("https://github.com/BLINDRane/District_7570_Conference");
         Intent browserIntent = new Intent(Intent.ACTION_VIEW, uri);

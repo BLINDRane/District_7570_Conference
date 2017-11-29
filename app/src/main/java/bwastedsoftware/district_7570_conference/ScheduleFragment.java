@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -15,7 +14,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -57,10 +55,13 @@ public class ScheduleFragment extends Fragment
     String user_id;
     DatabaseReference myRef;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState)
     {
+
+        ((HomePage)getActivity()).getSupportActionBar().setTitle("Schedule");
 
         // Inflate the layout for this fragment
         v = inflater.inflate(R.layout.fragment_schedule, container, false);
@@ -103,6 +104,7 @@ public class ScheduleFragment extends Fragment
         } else
         {
             refreshMyData();
+            ((HomePage)getActivity()).getSupportActionBar().setTitle("My Schedule");
         }
         // Locate the ViewPager in viewpager_main.xml
         viewPager = (ViewPager) v.findViewById(R.id.pager);
@@ -469,7 +471,7 @@ public class ScheduleFragment extends Fragment
                 {
 
                     getActivity().getSupportFragmentManager().popBackStack();
-                    ((HomePage) getActivity()).getSupportActionBar().setTitle("Home");
+                    //((HomePage) getActivity()).getSupportActionBar().setTitle("Home");
                     return true;
 
                 }

@@ -89,9 +89,13 @@ public class clueFragment extends Fragment implements View.OnClickListener {
         // Required empty public constructor
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        ((HomePage)getActivity()).getSupportActionBar().setTitle("Clue");
+
         // Inflate the layout for this fragment
         mView = inflater.inflate(R.layout.fragment_clue, container, false);
 
@@ -320,7 +324,7 @@ public class clueFragment extends Fragment implements View.OnClickListener {
                 if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK){
 
                     getActivity().getSupportFragmentManager().popBackStack();
-                    ((HomePage)getActivity()).getSupportActionBar().setTitle("Scavenger Hunt");
+                    //((HomePage)getActivity()).getSupportActionBar().setTitle("Scavenger Hunt");
                     return true;
 
                 }

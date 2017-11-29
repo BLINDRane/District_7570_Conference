@@ -39,14 +39,19 @@ public class winnersCircle extends Fragment {
     private ArrayList<winner> tempWinners;
     private ArrayList<winner> winnerList;
     private DatabaseReference winners;
+
     public winnersCircle() {
         // Required empty public constructor
     }
 
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        ((HomePage)getActivity()).getSupportActionBar().setTitle("Winners Circle");
+
         View view = inflater.inflate(R.layout.fragment_winners_circle, container, false);
 
         first = (TextView) view.findViewById(R.id.firstPlace);

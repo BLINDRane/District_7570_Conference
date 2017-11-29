@@ -1,5 +1,6 @@
 package bwastedsoftware.district_7570_conference;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -47,9 +48,13 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         // Required empty constructor
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        ((HomePage)getActivity()).getSupportActionBar().setTitle("Home");
+
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         // Link the layout pieces with their Java counterparts

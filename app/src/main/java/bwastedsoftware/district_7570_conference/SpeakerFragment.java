@@ -24,9 +24,13 @@ public class SpeakerFragment extends Fragment implements View.OnClickListener {
     public SpeakerFragment() {
         // Required empty public constructor
     }
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        ((HomePage)getActivity()).getSupportActionBar().setTitle("Speaker Details");
+
         // Inflate the layout for this fragment
         mView = inflater.inflate(R.layout.fragment_speaker, container, false);
 
@@ -76,7 +80,7 @@ public class SpeakerFragment extends Fragment implements View.OnClickListener {
                 if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK){
 
                     getActivity().getSupportFragmentManager().popBackStack();
-                    ((HomePage)getActivity()).getSupportActionBar().setTitle("Schedule");
+                    //((HomePage)getActivity()).getSupportActionBar().setTitle("Schedule");
                     return true;
 
                 }
