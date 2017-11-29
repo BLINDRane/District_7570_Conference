@@ -12,11 +12,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
-import com.twitter.sdk.android.core.models.Card;
 
 import java.util.List;
-
-import static android.R.attr.fragment;
 
 public class speakerRVAdapter extends RecyclerView.Adapter<speakerRVAdapter.CardViewHolder>{
 
@@ -54,7 +51,7 @@ public class speakerRVAdapter extends RecyclerView.Adapter<speakerRVAdapter.Card
     @Override
     public void onBindViewHolder(final CardViewHolder cardViewHolder, final int i) {
         cardViewHolder.speakerName.setText(cards.get(i).getName());
-        cardViewHolder.speakerBio.setText(cards.get(i).getBio());
+        cardViewHolder.speakerBio.setText(cards.get(i).getTitle());
         Picasso.with(context).load(cards.get(i).getPhotoURL()).fit().centerCrop().transform(new PicassoCircleTransform()).placeholder(R.drawable.ic_account_circle_black_24dp).into(cardViewHolder.speakerPhoto);
 
         cardViewHolder.view.setOnLongClickListener(new View.OnLongClickListener() {

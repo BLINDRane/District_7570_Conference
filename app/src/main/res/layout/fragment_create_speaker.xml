@@ -27,16 +27,33 @@
         android:layout_centerHorizontal="true" />
 
     <EditText
-        android:id="@+id/edit_SpeakerBio"
+    android:id="@+id/edit_SpeakerBio"
+    android:layout_width="395dp"
+    android:layout_height="wrap_content"
+    android:layout_alignParentEnd="true"
+    android:layout_below="@+id/speaker_image"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginTop="118dp"
+    android:ems="10"
+    android:hint="Please provide a title for the speaker."
+    android:inputType="textWebEditText"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edit_speakerWebPage"
         android:layout_width="395dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/speaker_image"
+        android:layout_below="@+id/edit_SpeakerBio"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="118dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Please provide a short bio about the speaker."
+        android:hint="Please provide a website for the speaker."
         android:inputType="textWebEditText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -53,7 +70,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="110dp"
         app:layout_constraintVertical_bias="0.887"
-        android:layout_below="@+id/edit_SpeakerBio"
+        android:layout_below="@+id/edit_speakerWebPage"
         android:layout_centerHorizontal="true" />
 
     <ImageButton

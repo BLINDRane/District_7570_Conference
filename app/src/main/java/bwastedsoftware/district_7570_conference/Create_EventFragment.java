@@ -42,8 +42,8 @@ public class Create_EventFragment extends Fragment implements View.OnClickListen
     ArrayList<Speaker> speakers;
     ArrayList<String> speakerNames;
     ArrayAdapter<String> sAdapter;
-    String cName, cBio, cPhoto;
-    Speaker chosenOne = new Speaker(cName, cBio, cPhoto);
+    String cName, cBio, cWebPage, cPhoto;
+    Speaker chosenOne = new Speaker(cName, cBio, cWebPage, cPhoto);
     Boolean isAdmin;
     private DatabaseReference mDatabase;
     private DatabaseReference mRef;
@@ -93,7 +93,7 @@ public class Create_EventFragment extends Fragment implements View.OnClickListen
 
                     sAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.select_dialog_item, speakerNames);
                     sAdapter.setDropDownViewResource(android.R.layout.select_dialog_item);
-                    speakers.add(new Speaker(newSpeaker.getName(), newSpeaker.getBio(), newSpeaker.getPhotoURL()));
+                    speakers.add(new Speaker(newSpeaker.getName(), newSpeaker.getTitle(), newSpeaker.getWebpage(), newSpeaker.getPhotoURL()));
                     speakerNames.add(newSpeaker.getName());
                 }
                 speakerPick.setAdapter(sAdapter);
@@ -116,7 +116,7 @@ public class Create_EventFragment extends Fragment implements View.OnClickListen
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         int index = speakerNames.indexOf(sAdapter.getItem(position));
         chosenOne = speakers.get(index);
-        //Toast.makeText(view.getContext(), "Selected Speaker: " + chosenOne.getName() + chosenOne.getBio(), Toast.LENGTH_LONG).show();
+        //Toast.makeText(view.getContext(), "Selected Speaker: " + chosenOne.getName() + chosenOne.getTitle(), Toast.LENGTH_LONG).show();
     }
     @Override
     public void onNothingSelected(AdapterView<?> parent) {

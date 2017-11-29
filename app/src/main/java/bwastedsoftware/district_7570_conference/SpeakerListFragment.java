@@ -138,7 +138,7 @@ public class SpeakerListFragment extends Fragment
                 for(DataSnapshot childrenSnapShot : dataSnapshot.getChildren())
                 {
                     Speaker speaker = childrenSnapShot.getValue(Speaker.class);
-                    newspeakers.add(new Speaker(speaker.getName(), speaker.getBio(), speaker.getPhotoURL()));
+                    newspeakers.add(new Speaker(speaker.getName(), speaker.getTitle(), speaker.getWebpage(), speaker.getPhotoURL()));
                     //Log.w("GETTING CARDS", "value is" + event.getCompletionTime() + event.getLocation() + childrenSnapShot.getKey());
                 }
                 //Log.d("FIREBASE", "Value is: " + post);
