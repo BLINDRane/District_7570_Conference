@@ -37,7 +37,7 @@ import static android.app.Activity.RESULT_OK;
 
 public class createSpeakerFragment extends Fragment implements View.OnClickListener {
 
-    EditText etSpeakerName, etSpeakerBio;
+    EditText etSpeakerName, etSpeakerBio, etSpeakerWebPage;
     Button saveSpeaker;
     ImageButton speakerPic;
     private DatabaseReference mDatabase;
@@ -45,9 +45,11 @@ public class createSpeakerFragment extends Fragment implements View.OnClickListe
     private Uri imageURI;
     private StorageReference mStorage;
     Boolean isAdmin;
+
     public createSpeakerFragment() {
         // Required empty public constructor
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -57,6 +59,7 @@ public class createSpeakerFragment extends Fragment implements View.OnClickListe
         saveSpeaker = (Button) view.findViewById(R.id.btn_submit_photo);
         etSpeakerName = (EditText) view.findViewById(R.id.edit_);
         etSpeakerBio = (EditText) view.findViewById(R.id.edit_SpeakerBio);
+        etSpeakerWebPage = (EditText) view.findViewById(R.id.edit_speakerWebPage);
         speakerPic = (ImageButton) view.findViewById(R.id.speaker_image);
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Speakers");
         mStorage = FirebaseStorage.getInstance().getReference();
@@ -86,6 +89,7 @@ public class createSpeakerFragment extends Fragment implements View.OnClickListe
     {
         final String name = etSpeakerName.getText().toString().trim();
         final String bio = etSpeakerBio.getText().toString().trim();
+        final String webpage = etSpeakerWebPage.getText().toString().trim();
 
         StorageReference filepath = mStorage.child("SpeakerPics").child(imageURI.getLastPathSegment());
 
@@ -136,7 +140,8 @@ public class createSpeakerFragment extends Fragment implements View.OnClickListe
                 Uri downloadUrl = taskSnapshot.getDownloadUrl();
                 DatabaseReference newSpeaker = mDatabase.push();
                 newSpeaker.child("name").setValue(name);
-                newSpeaker.child("bio").setValue(bio);
+                newSpeaker.child("title").setValue(bio);
+                newSpeaker.child("webpage").setValue(webpage);
                 newSpeaker.child("photoURL").setValue(downloadUrl.toString());
                 goToSpeakerPage(name);
             }

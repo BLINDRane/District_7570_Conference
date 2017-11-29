@@ -35,4 +35,15 @@
         android:layout_marginTop="24dp"
         android:text="TextView"
         android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/webPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bioLink"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:text="WebPage"
+        android:textSize="24sp"
+        android:autoLink="web"/>
 </RelativeLayout>

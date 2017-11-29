@@ -1,17 +1,9 @@
 package bwastedsoftware.district_7570_conference;
 
-import android.content.Context;
-import android.net.Uri;
-import android.widget.ImageView;
-
-import com.google.android.gms.ads.formats.NativeAd;
 import com.google.firebase.database.Exclude;
-import com.squareup.picasso.Picasso;
 
-import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.jar.Attributes;
 
 /**
  * Class to handle speakers.
@@ -21,7 +13,19 @@ import java.util.jar.Attributes;
 public class Speaker
 {
     private String name;
-    private String bio;
+    private String title;
+
+    public String getWebpage()
+    {
+        return webpage;
+    }
+
+    public void setWebpage(String webpage)
+    {
+        this.webpage = webpage;
+    }
+
+    private String webpage;
     //private ImageView photo; //need a better way to manage photos of speakers
     private String photoURL;
 
@@ -31,10 +35,11 @@ public class Speaker
     }
 
     //Return a full speaker
-    Speaker(String name, String bio, String photoURL)
+    Speaker(String name, String title, String webpage, String photoURL)
     {
         this.name = name;
-        this.bio = bio;
+        this.title = title;
+        this.webpage = webpage;
         this.photoURL = photoURL;
 
     }
@@ -52,14 +57,14 @@ public class Speaker
         this.name = name;
     }
 
-    public String getBio()
+    public String getTitle()
     {
-        return bio;
+        return title;
     }
 
-    public void setBio(String bio)
+    public void setTitle(String title)
     {
-        this.bio = bio;
+        this.title = title;
     }
 
 
@@ -82,7 +87,8 @@ public class Speaker
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
         result.put("name", name);
-        result.put("bio", bio);
+        result.put("title", title);
+        result.put("webpage", webpage);
         result.put("photoURL", getPhotoURL() );
 
         return result;
