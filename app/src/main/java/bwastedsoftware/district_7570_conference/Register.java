@@ -70,12 +70,16 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
     @Override
     public void onClick(View v) {
 
-        if(v.getId() == R.id.btn_register){
-            if(!(etPassword.getText().length() > 6)){
-                Toast.makeText(getApplicationContext(), "Password Must Be At Least Six Characters", Toast.LENGTH_SHORT).show();
-            } else {
-                startRegister();
+        if(v.getId() == R.id.btn_register) {
+            if (etEmail.getText().length() != 0) {
+                if (!(etPassword.getText().length() > 6)) {
+                    Toast.makeText(getApplicationContext(), "Password Must Be At Least Six Characters", Toast.LENGTH_SHORT).show();
+                } else {
+                    startRegister();
+                }
             }
+        } else {
+            //email
         }
     }
 
