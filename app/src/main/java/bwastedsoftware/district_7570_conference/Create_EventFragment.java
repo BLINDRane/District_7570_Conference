@@ -59,7 +59,7 @@ public class Create_EventFragment extends Fragment implements View.OnClickListen
     public void onAttach(Context context)
     {
         super.onAttach(context);
-        ((HomePage)getActivity()).getSupportActionBar().setTitle("Create New Event");
+        ((HomePageActivity)getActivity()).getSupportActionBar().setTitle("Create New Event");
 
     }
 
@@ -292,7 +292,7 @@ private static String pad(int c) {
                 if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK){
 
                     getActivity().getSupportFragmentManager().popBackStack();
-                    ((HomePage)getActivity()).getSupportActionBar().setTitle("Home");
+                    ((HomePageActivity)getActivity()).getSupportActionBar().setTitle("Home");
                     return true;
 
                 }

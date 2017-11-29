@@ -1,10 +1,7 @@
 package bwastedsoftware.district_7570_conference;
 
-import android.content.Context;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,9 +10,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.github.jinatonic.confetti.CommonConfetti;
-import com.github.jinatonic.confetti.ConfettiManager;
-import com.github.jinatonic.confetti.ConfettiView;
-import com.github.jinatonic.confetti.ConfettoGenerator;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -50,7 +44,7 @@ public class winnersCircle extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        ((HomePage)getActivity()).getSupportActionBar().setTitle("Winners Circle");
+        ((HomePageActivity)getActivity()).getSupportActionBar().setTitle("Winners Circle");
 
         View view = inflater.inflate(R.layout.fragment_winners_circle, container, false);
 

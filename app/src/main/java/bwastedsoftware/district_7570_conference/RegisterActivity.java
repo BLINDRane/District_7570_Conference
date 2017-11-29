@@ -18,7 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 
 
-public class Register extends AppCompatActivity implements View.OnClickListener {
+public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
     //Initializes the buttons that will be used on the register page
 
@@ -106,7 +106,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
                         //remove progress message, so the user knows they are registered.
                         mProgress.setMessage("User Registered");
                         mProgress.dismiss();
-                        Intent loginIntent = new Intent(Register.this, Login.class);
+                        Intent loginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
                         loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(loginIntent);
                     } else{

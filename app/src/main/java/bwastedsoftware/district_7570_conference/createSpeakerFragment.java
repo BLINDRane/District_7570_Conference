@@ -55,7 +55,7 @@ public class createSpeakerFragment extends Fragment implements View.OnClickListe
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        ((HomePage)getActivity()).getSupportActionBar().setTitle("Create New Speaker");
+        ((HomePageActivity)getActivity()).getSupportActionBar().setTitle("Create New Speaker");
 
         View view = inflater.inflate(R.layout.fragment_create_speaker, container, false);
         Bundle args = getArguments();
@@ -259,7 +259,7 @@ public class createSpeakerFragment extends Fragment implements View.OnClickListe
                 if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK){
 
                     getActivity().getSupportFragmentManager().popBackStack();
-                    //((HomePage)getActivity()).getSupportActionBar().setTitle("Speakers, Leaders, and Sponsors");
+                    //((HomePageActivity)getActivity()).getSupportActionBar().setTitle("Speakers, Leaders, and Sponsors");
                     return true;
 
                 }

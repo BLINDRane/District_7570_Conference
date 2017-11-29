@@ -2,14 +2,6 @@ package bwastedsoftware.district_7570_conference;
 
 
 
-import android.content.Context;
-
-import android.content.Intent;
-
-import android.media.Image;
-
-import android.net.Uri;
-
 import android.os.Bundle;
 
 import android.support.v4.app.Fragment;
@@ -28,21 +20,6 @@ import android.view.View;
 
 import android.view.ViewGroup;
 
-import android.widget.Button;
-
-import android.widget.ImageButton;
-
-import android.widget.Switch;
-
-import android.widget.TextView;
-
-import android.widget.Toast;
-
-
-
-import com.google.android.gms.tasks.OnSuccessListener;
-
-import com.google.firebase.auth.FirebaseAuth;
 
 import com.google.firebase.database.DataSnapshot;
 
@@ -54,18 +31,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import com.google.firebase.database.ValueEventListener;
 
-import com.google.firebase.storage.FirebaseStorage;
-
-import com.google.firebase.storage.StorageReference;
-
-import com.google.firebase.storage.UploadTask;
-
 
 import java.util.ArrayList;
-
-import static android.app.Activity.RESULT_OK;
-
-
 
 
 public class scavengerHunt extends Fragment {
@@ -201,7 +168,7 @@ clues = new ArrayList<>();
                 if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK){
 
                     getActivity().getSupportFragmentManager().popBackStack();
-                    ((HomePage)getActivity()).getSupportActionBar().setTitle("Home");
+                    ((HomePageActivity)getActivity()).getSupportActionBar().setTitle("Home");
                     return true;
 
                 }

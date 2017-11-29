@@ -8,16 +8,13 @@ import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
 
-import java.io.File;
-
-public class SplashScreen extends AppCompatActivity {
+public class SplashScreenActivity extends AppCompatActivity {
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         overridePendingTransition(R.anim.splash_fadein, R.anim.splash_fadeout);
-        //getSupportActionBar().hide();
         setContentView(R.layout.activity_splash_screen);
 
         ImageView splashImage = (ImageView) findViewById(R.id.splashScreenImage);
@@ -29,9 +26,9 @@ public class SplashScreen extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             public void run() {
 
-                Intent mInHome = new Intent(SplashScreen.this, Login.class);
-                SplashScreen.this.startActivity(mInHome);
-                SplashScreen.this.finish();
+                Intent mInHome = new Intent(SplashScreenActivity.this, LoginActivity.class);
+                SplashScreenActivity.this.startActivity(mInHome);
+                SplashScreenActivity.this.finish();
             }
         }, 1000);
     }

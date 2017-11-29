@@ -61,7 +61,7 @@ public class ScheduleFragment extends Fragment
                              Bundle savedInstanceState)
     {
 
-        ((HomePage)getActivity()).getSupportActionBar().setTitle("Schedule");
+        ((HomePageActivity)getActivity()).getSupportActionBar().setTitle("Schedule");
 
         // Inflate the layout for this fragment
         v = inflater.inflate(R.layout.fragment_schedule, container, false);
@@ -91,7 +91,7 @@ public class ScheduleFragment extends Fragment
                     fragmentTransaction.replace(R.id.main_container, createEventFrag);
                     fragmentTransaction.commit();
                     //v.findViewById(R.id.toolbar).setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.banner));
-                    ((HomePage) getActivity()).getSupportActionBar().setTitle("Event Creation");
+                    ((HomePageActivity) getActivity()).getSupportActionBar().setTitle("Event Creation");
                 }}
             );
         }
@@ -104,7 +104,7 @@ public class ScheduleFragment extends Fragment
         } else
         {
             refreshMyData();
-            ((HomePage)getActivity()).getSupportActionBar().setTitle("My Schedule");
+            ((HomePageActivity)getActivity()).getSupportActionBar().setTitle("My Schedule");
         }
         // Locate the ViewPager in viewpager_main.xml
         viewPager = (ViewPager) v.findViewById(R.id.pager);
@@ -471,7 +471,7 @@ public class ScheduleFragment extends Fragment
                 {
 
                     getActivity().getSupportFragmentManager().popBackStack();
-                    //((HomePage) getActivity()).getSupportActionBar().setTitle("Home");
+                    //((HomePageActivity) getActivity()).getSupportActionBar().setTitle("Home");
                     return true;
 
                 }

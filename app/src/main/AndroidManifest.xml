@@ -9,14 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="false"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashScreen">
+        <activity android:name=".SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomePage">
+        <activity android:name=".HomePageActivity">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
             <action android:name="android.intent.action.EDIT" />
@@ -24,8 +24,8 @@
             <data android:mimeType="vnd.android.cursor.item/event" />
         </intent-filter>
         </activity>
-        <activity android:name=".Register" />
-        <activity android:name=".Login" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".LoginActivity" />
 
     </application>
     <uses-permission android:name="android.permission.READ_CALENDAR" />

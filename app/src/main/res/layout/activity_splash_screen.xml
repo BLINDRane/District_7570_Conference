@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="bwastedsoftware.district_7570_conference.SplashScreen">
+    tools:context="bwastedsoftware.district_7570_conference.SplashScreenActivity">
 
     <ImageView
         android:id="@+id/splashScreenImage"

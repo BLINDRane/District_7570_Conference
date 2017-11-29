@@ -1,13 +1,11 @@
 package bwastedsoftware.district_7570_conference;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,7 +51,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        ((HomePage)getActivity()).getSupportActionBar().setTitle("Home");
+        ((HomePageActivity)getActivity()).getSupportActionBar().setTitle("Home");
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
@@ -201,7 +199,7 @@ if(v.getId() == R.id.current_button){
                                     fragmentTransaction.addToBackStack("Schedule");
                                     fragmentTransaction.replace(R.id.main_container, Schedule);
                                     fragmentTransaction.commit();
-                                    ((HomePage) getActivity()).getSupportActionBar().setTitle("Schedule");
+                                    ((HomePageActivity) getActivity()).getSupportActionBar().setTitle("Schedule");
                                     break;
 
                                 case DialogInterface.BUTTON_NEGATIVE:
@@ -227,7 +225,7 @@ if(v.getId() == R.id.current_button){
         mFrag.setArguments(bundle);
         mFrag.passEvent(getActivity(), event);
         t.replace(R.id.main_container, mFrag);
-        ((HomePage)getActivity()).getSupportActionBar().setTitle("Event");
+        ((HomePageActivity)getActivity()).getSupportActionBar().setTitle("Event");
         t.commit();
     }
     //this will enable using the back button to pop the stack, which will go to previous fragment instead of the login screen.
@@ -250,7 +248,7 @@ if(v.getId() == R.id.current_button){
                             switch (which){
                                 case DialogInterface.BUTTON_POSITIVE:
                                     mAuth.signOut();
-                                    startActivity(new Intent(getContext(), Login.class));
+                                    startActivity(new Intent(getContext(), LoginActivity.class));
                                     break;
 
                                 case DialogInterface.BUTTON_NEGATIVE:

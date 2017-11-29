@@ -1,6 +1,5 @@
 package bwastedsoftware.district_7570_conference;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -51,7 +50,7 @@ public class SpeakerListFragment extends Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        ((HomePage)getActivity()).getSupportActionBar().setTitle("Speaker List");
+        ((HomePageActivity)getActivity()).getSupportActionBar().setTitle("Speaker List");
 
         // Inflate the layout for this fragment
         v = inflater.inflate(R.layout.fragment_speakerlist, container, false);
@@ -86,7 +85,7 @@ public class SpeakerListFragment extends Fragment
                     fragmentTransaction.replace(R.id.main_container, createSpeakerFrag);
                     fragmentTransaction.commit();
                     //v.findViewById(R.id.toolbar).setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.banner));
-                    ((HomePage) getActivity()).getSupportActionBar().setTitle("Speaker Creation");
+                    ((HomePageActivity) getActivity()).getSupportActionBar().setTitle("Speaker Creation");
                 }}
             );
         }
@@ -251,7 +250,7 @@ public class SpeakerListFragment extends Fragment
                 if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK){
 
                     getActivity().getSupportFragmentManager().popBackStack();
-                    //((HomePage)getActivity()).getSupportActionBar().setTitle("Home");
+                    //((HomePageActivity)getActivity()).getSupportActionBar().setTitle("Home");
                     return true;
 
                 }

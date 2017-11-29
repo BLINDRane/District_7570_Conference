@@ -1,10 +1,6 @@
 package bwastedsoftware.district_7570_conference;
 
 import android.content.Context;
-import android.media.Image;
-import android.os.Handler;
-import android.os.Message;
-import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -31,11 +27,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class Login extends AppCompatActivity implements View.OnClickListener {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     //Creates the buttons and text boxes on the page
 
@@ -129,7 +124,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
         } else if (v.getId() == R.id.btn_register_transfer) {
 
-            startActivity(new Intent(this, Register.class));
+            startActivity(new Intent(this, RegisterActivity.class));
 
         } else if (v.getId() == R.id.login_rotary_button) {
           rotateWheel();
@@ -175,7 +170,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
                         } else
                         {
-                            Toast.makeText(Login.this, "Login Error", Toast.LENGTH_LONG).show();
+                            Toast.makeText(LoginActivity.this, "LoginActivity Error", Toast.LENGTH_LONG).show();
                         }
 
                         isLoggingIn = false;
@@ -185,7 +180,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
             } else
             {
-                Toast.makeText(Login.this, "Login Error", Toast.LENGTH_LONG).show();
+                Toast.makeText(LoginActivity.this, "LoginActivity Error", Toast.LENGTH_LONG).show();
             }
         }
     }
@@ -202,14 +197,14 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 if(dataSnapshot.hasChild(user_id)){
                     bundle = new Bundle();
                     bundle.putBoolean("IS_ADMIN", isAdmin);
-                    Intent mIntent = new Intent(Login.this, HomePage.class);
+                    Intent mIntent = new Intent(LoginActivity.this, HomePageActivity.class);
                     mIntent.putExtras(bundle);
                     mIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(mIntent);
                     mDatabase.removeEventListener(this);
 
                 }else{
-                    Toast.makeText(Login.this, "You need to set up an account", Toast.LENGTH_LONG);
+                    Toast.makeText(LoginActivity.this, "You need to set up an account", Toast.LENGTH_LONG);
                 }
 
             }
