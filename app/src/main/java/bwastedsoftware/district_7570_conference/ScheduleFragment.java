@@ -83,7 +83,7 @@ public class ScheduleFragment extends Fragment
                 {
                     //go to create event fragment
                     final Bundle bundle = new Bundle();
-                    final Create_EventFragment createEventFrag = new Create_EventFragment();
+                    final CreateEventFragment createEventFrag = new CreateEventFragment();
                     createEventFrag.setArguments(bundle);
                     bundle.putBoolean("IS_ADMIN", isAdmin);
                     FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();

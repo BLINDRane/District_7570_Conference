@@ -42,7 +42,7 @@ import java.util.Locale;
 import static android.app.Activity.RESULT_OK;
 
 
-public class clueFragment extends Fragment implements View.OnClickListener {
+public class ClueFragment extends Fragment implements View.OnClickListener {
 
 
     private Clue mClue;
@@ -62,7 +62,7 @@ public class clueFragment extends Fragment implements View.OnClickListener {
     String Fname;
     String Lname;
 
-    public clueFragment() {
+    public ClueFragment() {
         // Required empty public constructor
     }
 

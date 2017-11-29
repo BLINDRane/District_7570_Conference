@@ -35,7 +35,7 @@ import java.io.IOException;
 import static android.app.Activity.RESULT_OK;
 
 
-public class createSpeakerFragment extends Fragment implements View.OnClickListener {
+public class CreateSpeakerFragment extends Fragment implements View.OnClickListener {
 
     EditText etSpeakerName, etSpeakerBio, etSpeakerWebPage;
     Button saveSpeaker;
@@ -46,7 +46,7 @@ public class createSpeakerFragment extends Fragment implements View.OnClickListe
     private StorageReference mStorage;
     Boolean isAdmin;
 
-    public createSpeakerFragment() {
+    public CreateSpeakerFragment() {
         // Required empty public constructor
     }
 

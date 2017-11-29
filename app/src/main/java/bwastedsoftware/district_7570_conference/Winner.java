@@ -10,16 +10,17 @@ import java.util.Locale;
  * Created by wyatt_ofn2t9u on 11/28/2017.
  */
 
-public class winner {
+public class Winner
+{
     private String userName;
     private String completionTime;
 
-    winner(){
+    Winner(){
 
     }
 
 
-    winner(String userName, String completionTime){
+    Winner(String userName, String completionTime){
         this.userName = userName;
         this.completionTime = completionTime;
     }

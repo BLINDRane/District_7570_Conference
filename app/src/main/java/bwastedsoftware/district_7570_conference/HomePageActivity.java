@@ -69,12 +69,12 @@ public class HomePageActivity extends AppCompatActivity {
 
 
         final Bundle bundle = new Bundle();
-        final scavengerHunt scav = new scavengerHunt();
+        final ScavengerHuntFragment scav = new ScavengerHuntFragment();
         final ScheduleFragment Schedule = new ScheduleFragment();
         final ScheduleFragment mySchedule = new ScheduleFragment();
-        final Create_EventFragment createEventFrag = new Create_EventFragment();
+        final CreateEventFragment createEventFrag = new CreateEventFragment();
         final SpeakerListFragment speakerList = new SpeakerListFragment();
-        final createSpeakerFragment speakerCreate = new createSpeakerFragment();
+        final CreateSpeakerFragment speakerCreate = new CreateSpeakerFragment();
         speakerCreate.setArguments(bundle);
         speakerList.setArguments(bundle);
         mySchedule.setArguments(bundle);
@@ -197,7 +197,7 @@ public class HomePageActivity extends AppCompatActivity {
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.addToBackStack("Scavenger Hunt");
                         if(endHunt.compareTo(now) < 0) {
-                            fragmentTransaction.replace(R.id.main_container, new winnersCircle());
+                            fragmentTransaction.replace(R.id.main_container, new WinnersCircleFragment());
                         } else {
                             fragmentTransaction.replace(R.id.main_container, scav);
                         }

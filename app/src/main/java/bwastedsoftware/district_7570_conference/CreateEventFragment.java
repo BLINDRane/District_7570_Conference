@@ -33,7 +33,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class Create_EventFragment extends Fragment implements View.OnClickListener, AdapterView.OnItemSelectedListener {
+public class CreateEventFragment extends Fragment implements View.OnClickListener, AdapterView.OnItemSelectedListener {
     EditText etTitle, etLocation, etDetails, etDate;
     TextView strt, end;
     TimePicker timePicker;
@@ -51,7 +51,7 @@ public class Create_EventFragment extends Fragment implements View.OnClickListen
     private int mHour;
     private int mMinute;
 
-    public Create_EventFragment() {
+    public CreateEventFragment() {
         // Required empty public constructor
     }
 
@@ -66,7 +66,7 @@ public class Create_EventFragment extends Fragment implements View.OnClickListen
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        final View view = inflater.inflate(R.layout.fragment_create__event, container, false);
+        final View view = inflater.inflate(R.layout.fragment_create_event, container, false);
         Bundle args = getArguments();
         isAdmin = args.getBoolean("IS_ADMIN");
         //Initialize the large amount of things in this fragment

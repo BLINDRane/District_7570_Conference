@@ -35,12 +35,12 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 
-public class scavengerHunt extends Fragment {
+public class ScavengerHuntFragment extends Fragment {
 
 
 
 
-    public scavengerHunt() {
+    public ScavengerHuntFragment() {
 
         // Required empty public constructor
 
@@ -93,7 +93,7 @@ public class scavengerHunt extends Fragment {
     public void loadClue(Clue clue){
         FragmentTransaction t = this.getFragmentManager().beginTransaction();
         t.addToBackStack("Clue");
-        clueFragment mFrag = new clueFragment();
+        ClueFragment mFrag = new ClueFragment();
         mFrag.passClue(getActivity(),clue);
         t.replace(R.id.main_container, mFrag);
         t.commit();

@@ -22,7 +22,7 @@ import java.util.Collections;
 import java.util.Comparator;
 
 
-public class winnersCircle extends Fragment {
+public class WinnersCircleFragment extends Fragment {
 
     TextView first;
     TextView second;
@@ -30,11 +30,11 @@ public class winnersCircle extends Fragment {
     TextView userParticipation;
     private FirebaseAuth mAuth;
     private String user_id;
-    private ArrayList<winner> tempWinners;
-    private ArrayList<winner> winnerList;
+    private ArrayList<Winner> tempWinners;
+    private ArrayList<Winner> winnerList;
     private DatabaseReference winners;
 
-    public winnersCircle() {
+    public WinnersCircleFragment() {
         // Required empty public constructor
     }
 
@@ -67,7 +67,7 @@ public class winnersCircle extends Fragment {
         return view;
     }
 
-    private void addWinners(ArrayList<winner> Winners){
+    private void addWinners(ArrayList<Winner> Winners){
         winnerList.addAll(Winners);
     }
 
@@ -76,8 +76,8 @@ public class winnersCircle extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot childrenSnapShot : dataSnapshot.getChildren()) {
-                    winner Winner = childrenSnapShot.getValue(winner.class);
-                    tempWinners.add(new winner(Winner.getUserName(), Winner.getCompletionTime()));
+                    Winner Winner = childrenSnapShot.getValue(bwastedsoftware.district_7570_conference.Winner.class);
+                    tempWinners.add(new Winner(Winner.getUserName(), Winner.getCompletionTime()));
                 }
 
                 addWinners(tempWinners);
@@ -91,10 +91,10 @@ public class winnersCircle extends Fragment {
         });
     }
 
-    private void getTopThree(final ArrayList<winner> Winners){
-        Collections.sort(Winners, new Comparator<winner>() {
+    private void getTopThree(final ArrayList<Winner> Winners){
+        Collections.sort(Winners, new Comparator<Winner>() {
             @Override
-            public int compare(winner e1, winner e2) {
+            public int compare(Winner e1, Winner e2) {
                 return e1.getDateFormated().compareTo(e2.getDateFormated());
             }
         });

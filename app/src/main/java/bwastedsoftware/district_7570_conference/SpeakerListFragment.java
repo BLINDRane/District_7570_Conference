@@ -77,7 +77,7 @@ public class SpeakerListFragment extends Fragment
                 {
                     //go to create event fragment
                     final Bundle bundle = new Bundle();
-                    final createSpeakerFragment createSpeakerFrag = new createSpeakerFragment();
+                    final CreateSpeakerFragment createSpeakerFrag = new CreateSpeakerFragment();
                     createSpeakerFrag.setArguments(bundle);
                     bundle.putBoolean("IS_ADMIN", isAdmin);
                     FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
