@@ -14,6 +14,8 @@ import android.widget.TextView;
 
 import com.github.jinatonic.confetti.CommonConfetti;
 import com.github.jinatonic.confetti.ConfettiManager;
+import com.github.jinatonic.confetti.ConfettiView;
+import com.github.jinatonic.confetti.ConfettoGenerator;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -59,7 +61,7 @@ public class winnersCircle extends Fragment {
         mAuth = FirebaseAuth.getInstance();
         user_id = mAuth.getCurrentUser().getUid();
 
-        CommonConfetti.rainingConfetti(container, new int[] { Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW}).infinite().setTouchEnabled(true);
+        CommonConfetti.rainingConfetti(container, new int[] { Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW}).stream(10000);
 
         getWinners();
         // Inflate the layout for this fragment
@@ -131,7 +133,9 @@ public class winnersCircle extends Fragment {
 
         }
 
-
+public  void onPause(){
+    super.onPause();
+}
     }
 
 
