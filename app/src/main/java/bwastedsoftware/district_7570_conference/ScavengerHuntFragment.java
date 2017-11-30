@@ -79,9 +79,9 @@ public class ScavengerHuntFragment extends Fragment {
         return view;
     }
 
-    clueRVAdapter adapter;
+    ClueRVAdapter adapter;
     private void initializeAdapter(RecyclerView rv){
-        adapter = new clueRVAdapter(clues, getActivity(), this);
+        adapter = new ClueRVAdapter(clues, getActivity(), this);
         rv.setAdapter(adapter);
     }
 

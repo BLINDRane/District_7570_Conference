@@ -44,17 +44,17 @@
         android:ems="10"
         android:hint="Event Details"
         android:inputType="textMultiLine"
-        android:layout_alignBottom="@+id/timePicker"
+        android:layout_below="@+id/timePicker"
         android:layout_alignParentEnd="true" />
 
     <Button
         android:id="@+id/btn_Save_Event"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Save Event"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="86dp" />
+        android:layout_marginBottom="86dp"
+        android:text="Save Event"/>
 
     <Spinner
         android:id="@+id/spinner_Speakers"

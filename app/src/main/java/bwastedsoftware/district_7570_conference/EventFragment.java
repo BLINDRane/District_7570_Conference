@@ -269,7 +269,7 @@ public class EventFragment extends Fragment implements View.OnClickListener
     private void askForRating()
     {
         final Dialog rateDialog = new Dialog(getContext(), R.style.FullHeightDialog);
-        rateDialog.setContentView(R.layout.rate_dialog);
+        rateDialog.setContentView(R.layout.item_rate_dialog);
         rateDialog.setCancelable(true);
         final RatingBar ratingBar = (RatingBar) rateDialog.findViewById(R.id.dialog_ratingbar);
         //ratingBar.setRating(userRankValue);

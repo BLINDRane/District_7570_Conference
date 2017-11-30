@@ -18,7 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
-public class clueRVAdapter extends RecyclerView.Adapter<clueRVAdapter.CardViewHolder>{
+public class ClueRVAdapter extends RecyclerView.Adapter<ClueRVAdapter.CardViewHolder>{
 
 
     public static class CardViewHolder extends RecyclerView.ViewHolder
@@ -40,7 +40,7 @@ public class clueRVAdapter extends RecyclerView.Adapter<clueRVAdapter.CardViewHo
     private Context context;
     private ScavengerHuntFragment fragment;
 
-    clueRVAdapter(List<Clue> cards, Context context, ScavengerHuntFragment fragment)
+    ClueRVAdapter(List<Clue> cards, Context context, ScavengerHuntFragment fragment)
     {
         this.cards = cards;
         this.context = context;
@@ -84,7 +84,7 @@ public class clueRVAdapter extends RecyclerView.Adapter<clueRVAdapter.CardViewHo
 
     @Override
     public CardViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.clue_card, viewGroup, false);
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_clue_card, viewGroup, false);
         CardViewHolder pvh = new CardViewHolder(v);
         return pvh;
     }

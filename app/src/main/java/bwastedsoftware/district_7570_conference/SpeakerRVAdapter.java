@@ -15,7 +15,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class speakerRVAdapter extends RecyclerView.Adapter<speakerRVAdapter.CardViewHolder>{
+public class SpeakerRVAdapter extends RecyclerView.Adapter<SpeakerRVAdapter.CardViewHolder>{
 
 
     public static class CardViewHolder extends RecyclerView.ViewHolder
@@ -41,7 +41,7 @@ public class speakerRVAdapter extends RecyclerView.Adapter<speakerRVAdapter.Card
     private Context context;
     private SpeakerListFragment fragment;
 
-    speakerRVAdapter(List<Speaker> cards, Context context, SpeakerListFragment fragment)
+    SpeakerRVAdapter(List<Speaker> cards, Context context, SpeakerListFragment fragment)
     {
         this.cards = cards;
         this.context = context;
@@ -100,7 +100,7 @@ public class speakerRVAdapter extends RecyclerView.Adapter<speakerRVAdapter.Card
 
     @Override
     public CardViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_item, viewGroup, false);
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_card, viewGroup, false);
         CardViewHolder pvh = new CardViewHolder(v);
         return pvh;
     }

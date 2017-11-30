@@ -78,7 +78,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
 
 
         ImageView picture = (ImageView) view.findViewById(R.id.homestead_view);
-        Picasso.with(getActivity()).load(R.drawable.homepageimage).placeholder(R.drawable.homestead_fall).fit().centerCrop().into(picture);
+        Picasso.with(getActivity()).load(R.drawable.ic_homepageimage).placeholder(R.drawable.homestead_fall).fit().centerCrop().into(picture);
 
         return view;
     }

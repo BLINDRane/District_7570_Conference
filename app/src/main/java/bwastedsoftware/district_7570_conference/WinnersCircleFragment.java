@@ -117,7 +117,7 @@ public class WinnersCircleFragment extends Fragment {
             users.addListenerForSingleValueEvent(new ValueEventListener() {
                @Override
                public void onDataChange(DataSnapshot dataSnapshot) {
-                    if(dataSnapshot.child("scavProgress").getValue(int.class) !=0){
+                    if(dataSnapshot.child("scavProgress").getValue(int.class) != 0){
                         userParticipation.setText("You participated");
                     } else {
                         userParticipation.setText("You didn't participate.");

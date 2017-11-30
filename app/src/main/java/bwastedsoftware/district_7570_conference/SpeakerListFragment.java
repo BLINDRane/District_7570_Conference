@@ -103,11 +103,11 @@ public class SpeakerListFragment extends Fragment
         return v;
     }
 
-    speakerRVAdapter adapter;
+    SpeakerRVAdapter adapter;
 
     private void initializeAdapter(RecyclerView rv)
     {
-        adapter = new speakerRVAdapter(speakers, getActivity(), this);
+        adapter = new SpeakerRVAdapter(speakers, getActivity(), this);
         rv.setAdapter(adapter);
     }
 
