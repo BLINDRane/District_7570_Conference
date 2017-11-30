@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.CalendarContract;
+import android.provider.ContactsContract;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -34,6 +35,7 @@ import com.squareup.picasso.Picasso;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Locale;
@@ -52,9 +54,13 @@ public class EventFragment extends Fragment implements View.OnClickListener
     protected View mView;
     private FirebaseAuth mAuth;
     private DatabaseReference nDatabase;
+    private DatabaseReference userEvents;
+    private DatabaseReference fullRef;
     private float userRating;
     private float numRates;
     private float currentRating;
+    private ArrayList<Event> tempEvents;
+    private ArrayList<Event> eventList;
     Boolean Current, Over, isMine;
 
     public EventFragment()
@@ -74,11 +80,37 @@ public class EventFragment extends Fragment implements View.OnClickListener
         mView = inflater.inflate(R.layout.fragment_event, container, false);
         mAuth = FirebaseAuth.getInstance();
         user_id = mAuth.getCurrentUser().getUid();
+        userEvents = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("userEvents");
         Over = mEvent.isOver();
         Current = mEvent.isCurrent();
         isMine = args.getBoolean("IS_MINE");
         rsvp = (FloatingActionButton) mView.findViewById(R.id.eventView_attendingButton);
         mEvent.getCalendarStartTime();
+        tempEvents = new ArrayList<>();
+        eventList = new ArrayList<>();
+
+        userEvents.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot childrenSnapShot : dataSnapshot.getChildren()) {
+                    Event event = childrenSnapShot.getValue(Event.class);
+                    tempEvents.add(new Event(event.getTitle(), event.getLocation(), event.getDate(), event.getTime(), event.getDetails(), event.getSpeaker(), 0 , 0));
+                }
+
+               for(int i=0; i<tempEvents.size(); i++){
+                   if(tempEvents.get(i).getTitle().equals(mEvent.getTitle())){
+                       rsvp.hide();
+                       break;
+                   }
+               }
+
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
 
         if (!isMine)
         {
@@ -108,6 +140,7 @@ public class EventFragment extends Fragment implements View.OnClickListener
         }
     });
     }
+
 
     private void loadSpeakerDetails(Speaker speaker)
     {

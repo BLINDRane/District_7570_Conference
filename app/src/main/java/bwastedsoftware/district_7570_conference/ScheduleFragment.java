@@ -97,7 +97,6 @@ public class ScheduleFragment extends Fragment
                     fragmentTransaction.addToBackStack("Event Creation");
                     fragmentTransaction.replace(R.id.main_container, createEventFrag);
                     fragmentTransaction.commit();
-                    //v.findViewById(R.id.toolbar).setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.banner));
                     ((HomePageActivity) getActivity()).getSupportActionBar().setTitle("Event Creation");
                 }}
             );
