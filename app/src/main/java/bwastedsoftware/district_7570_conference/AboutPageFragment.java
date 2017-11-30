@@ -132,6 +132,13 @@ public class AboutPageFragment extends Fragment implements View.OnClickListener 
 
     }
 
+    @Override
+    public void onDestroyView()
+    {
+        mContainer.removeAllViews();
+        super.onDestroyView();
+    }
+
 
     //this will enable using the back button to pop the stack, which will go to previous fragment instead of the login screen.
     @Override
