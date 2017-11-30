@@ -54,6 +54,15 @@ public class ScheduleFragment extends Fragment
     FirebaseAuth mAuth;
     String user_id;
     DatabaseReference myRef;
+    Bundle args;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        args = getArguments();
+        isMine = args.getBoolean("IS_MY_SCHEDULE");
+    }
 
 
     @Override
@@ -65,8 +74,6 @@ public class ScheduleFragment extends Fragment
 
         // Inflate the layout for this fragment
         v = inflater.inflate(R.layout.fragment_schedule, container, false);
-        Bundle args = getArguments();
-        isMine = args.getBoolean("IS_MY_SCHEDULE");
         isAdmin = args.getBoolean("IS_ADMIN");
         mAuth = FirebaseAuth.getInstance();
         user_id = mAuth.getCurrentUser().getUid();
