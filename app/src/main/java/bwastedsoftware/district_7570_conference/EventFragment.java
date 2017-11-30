@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.provider.ContactsContract;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
@@ -231,7 +232,7 @@ public class EventFragment extends Fragment implements View.OnClickListener
 
             mDatabase.updateChildren(childUpdates);
 
-
+            Snackbar.make(getActivity().findViewById(android.R.id.content), "RSVP'd!", Snackbar.LENGTH_LONG).show();
         }
          else
         {
