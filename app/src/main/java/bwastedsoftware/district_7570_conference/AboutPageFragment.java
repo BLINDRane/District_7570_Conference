@@ -37,7 +37,7 @@ public class AboutPageFragment extends Fragment implements View.OnClickListener 
         gitElement.setIntent(browserIntent);
 
         View aboutPage = new AboutPage(getActivity())
-                .setImage(R.drawable.rotary_international_logo)
+                .setImage(R.drawable.ic_rotary_international_logo)
                 .setDescription(getString(R.string.about_string))
                 .addGroup("About Rotary")
                 .addWebsite("http://www.rotary.org")
