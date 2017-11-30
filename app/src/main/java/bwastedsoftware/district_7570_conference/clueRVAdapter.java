@@ -84,7 +84,7 @@ public class clueRVAdapter extends RecyclerView.Adapter<clueRVAdapter.CardViewHo
 
     @Override
     public CardViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.clue_card, viewGroup, false);
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_clue_card, viewGroup, false);
         CardViewHolder pvh = new CardViewHolder(v);
         return pvh;
     }

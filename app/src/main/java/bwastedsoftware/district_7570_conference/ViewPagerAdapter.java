@@ -12,7 +12,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
@@ -54,7 +53,7 @@ public class ViewPagerAdapter extends PagerAdapter {
 
         inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.recycler_view_item, container,
+        View view = inflater.inflate(R.layout.item_recycler_view, container,
                 false);
 
         rv = (RecyclerView) view.findViewById(R.id.rv);
