@@ -53,7 +53,7 @@ public class ViewPagerAdapter extends PagerAdapter {
 
         inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.item_recycler_view, container,
+        View view = inflater.inflate(R.layout.partial_recycler_view, container,
                 false);
 
         rv = (RecyclerView) view.findViewById(R.id.rv);
