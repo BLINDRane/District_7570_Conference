@@ -23,8 +23,10 @@
         android:layout_below="@+id/speakerPic"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
-        android:text="TextView"
-        android:textSize="24sp" />
+        android:text="Speaker Name"
+        android:textColor="@color/authui_colorPrimaryDark"
+        android:textSize="24sp"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/bioLink"
@@ -33,7 +35,8 @@
         android:layout_below="@+id/speakerName"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
-        android:text="TextView"
+        android:text="Speaker Title"
+        android:textColor="@color/authui_colorPrimaryDark"
         android:textSize="24sp" />
 
     <TextView
@@ -43,7 +46,7 @@
         android:layout_below="@+id/bioLink"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
-        android:text="WebPage"
+        android:text="Speaker Hyperlink"
         android:textSize="24sp"
         android:autoLink="web"/>
 </RelativeLayout>
