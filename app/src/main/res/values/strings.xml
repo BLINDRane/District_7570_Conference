@@ -12,8 +12,8 @@
     <string name="LName">Last Name</string>
     <string name="txt_email_test">EMAIL</string>
     <string name="txt_password_test">PASSWORD</string>
-    <string name="event_upcoming">Upcoming</string>
-    <string name="event_current">Current</string>
+    <string name="event_upcoming">Upcoming Event</string>
+    <string name="event_current">Current Event</string>
     <string name="title_activity_homepage">activity_homepage</string>
     <string name="spinner_hint">Please choose a speaker:</string>
 
