@@ -79,30 +79,30 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         if (v.getId() == R.id.btn_register) {
 
+            if(etFName.getText().length()==0) {
+                Toast.makeText(getApplicationContext(), "Please Enter A First Name", Toast.LENGTH_SHORT).show();
+                return;}
+
+            if(etLName.getText().length()==0) {
+                Toast.makeText(getApplicationContext(), "Please Enter A Last Name", Toast.LENGTH_SHORT).show();
+                return;}
+
             if (etEmail.getText().length() == 0) {
-                Toast.makeText(getApplicationContext(), "Password Must Be At Least Six Characters", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Please Enter an Email Address", Toast.LENGTH_SHORT).show();
+
                  return;}
 
                 if (!isEmailValid(etEmail.getText())) {
                     Toast.makeText(getApplicationContext(), "Please Enter a Valid Email Address", Toast.LENGTH_SHORT).show();
                       return;}
 
-                    if ((etPassword.getText().length() > 6)) {
-                        Toast.makeText(getApplicationContext(), "Please Enter an Email Address", Toast.LENGTH_SHORT).show();
+                    if (!(etPassword.getText().length() >= 6)) {
+                        Toast.makeText(getApplicationContext(), "Password Must Be At Least Six Characters", Toast.LENGTH_SHORT).show();
                           return;}
 
-                        if(!etPassword.getText().equals(etReEnterPassword.getText())){
+                        if(!etPassword.getText().toString().equals(etReEnterPassword.getText().toString())){
                             Toast.makeText(getApplicationContext(), "Passwords Do Not Match", Toast.LENGTH_SHORT).show();
                              return;}
-
-                            if(etFName.getText().length()==0) {
-                             Toast.makeText(getApplicationContext(), "Please Enter A First Name", Toast.LENGTH_SHORT).show();
-                                return;}
-
-                             if(etLName.getText().length()==0) {
-                                Toast.makeText(getApplicationContext(), "Please Enter A Last Name", Toast.LENGTH_SHORT).show();
-                                 return;}
-
                                     startRegister();
                         }
                     }
