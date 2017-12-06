@@ -183,16 +183,6 @@ public class EventFragment extends Fragment implements View.OnClickListener
         mTimeView.setText(mEvent.getDate() + ", " + mEvent.getTime().replace("F", "f"));
         mBodyView.setText(mEvent.getDetails());
 
-      /*  SimpleDateFormat formatter = new SimpleDateFormat("MMM dd, yyyy");
-        Date current = Calendar.getInstance().getTime();
-        Date date = null;
-        try {
-            date = (Date) formatter.parse(mEvent.getCompletionTime().toString().trim());
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        long eventDate = date.getTime();
-        long currentDate = current.getTime(); */
 
     }
 

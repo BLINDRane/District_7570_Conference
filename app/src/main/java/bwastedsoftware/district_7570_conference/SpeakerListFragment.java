@@ -84,7 +84,6 @@ public class SpeakerListFragment extends Fragment
                     fragmentTransaction.addToBackStack("Speaker Creation");
                     fragmentTransaction.replace(R.id.main_container, createSpeakerFrag);
                     fragmentTransaction.commit();
-                    //v.findViewById(R.id.toolbar).setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.banner));
                     ((HomePageActivity) getActivity()).getSupportActionBar().setTitle("Speaker Creation");
                 }}
             );
@@ -141,9 +140,8 @@ public class SpeakerListFragment extends Fragment
                 {
                     Speaker speaker = childrenSnapShot.getValue(Speaker.class);
                     newspeakers.add(new Speaker(speaker.getName(), speaker.getTitle(), speaker.getWebpage(), speaker.getPhotoURL()));
-                    //Log.w("GETTING CARDS", "value is" + event.getCompletionTime() + event.getLocation() + childrenSnapShot.getKey());
                 }
-                //Log.d("FIREBASE", "Value is: " + post);
+
                 addSpeakers(newspeakers);
 
             }
@@ -160,8 +158,7 @@ public class SpeakerListFragment extends Fragment
     private void addSpeakers(ArrayList<Speaker> newspeakers)
     {
         speakers.addAll(newspeakers);
-        //Log.w("PROBLEM HERE", "LIST #" + speakers.size());
-        //newevents.add(new Event("EVENT TITLE 3", "LOCATION", "DATE", "TIME", "DETAILS", new Speaker("Aaron's Little Helper", "bio", "Photo")));
+
         onItemsLoadComplete();
 
     }
@@ -250,7 +247,6 @@ public class SpeakerListFragment extends Fragment
                 if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK){
 
                     getActivity().getSupportFragmentManager().popBackStack();
-                    //((HomePageActivity)getActivity()).getSupportActionBar().setTitle("Home");
                     return true;
 
                 }

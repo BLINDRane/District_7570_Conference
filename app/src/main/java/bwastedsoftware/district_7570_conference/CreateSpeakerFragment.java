@@ -50,12 +50,16 @@ public class CreateSpeakerFragment extends Fragment implements View.OnClickListe
         // Required empty public constructor
     }
 
+    @Override
+    public void onAttach(Context context)
+    {
+        super.onAttach(context);
+        ((HomePageActivity)getActivity()).getSupportActionBar().setTitle("Create New Speaker");
 
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        ((HomePageActivity)getActivity()).getSupportActionBar().setTitle("Create New Speaker");
 
         View view = inflater.inflate(R.layout.fragment_create_speaker, container, false);
         Bundle args = getArguments();
@@ -176,13 +180,17 @@ public class CreateSpeakerFragment extends Fragment implements View.OnClickListe
 
     private void goToSpeakerPage(String name)
     {
-        Bundle bundle = new Bundle();
-        bundle.putBoolean("IS_ADMIN", isAdmin);
-        SpeakerListFragment mFrag = new SpeakerListFragment();
-        mFrag.setArguments(bundle);
-        FragmentTransaction t = this.getFragmentManager().beginTransaction();
-        t.replace(R.id.main_container, mFrag);
-        t.commit();
+        getActivity().getSupportFragmentManager().popBackStack();
+
+        //There seems to be an issue created by this way of loading the fragment. Saving commented code in case we need it back before release.
+        
+        //Bundle bundle = new Bundle();
+        //bundle.putBoolean("IS_ADMIN", isAdmin);
+        //SpeakerListFragment mFrag = new SpeakerListFragment();
+        //mFrag.setArguments(bundle);
+        //FragmentTransaction t = this.getFragmentManager().beginTransaction();
+        //t.replace(R.id.main_container, mFrag);
+        //t.commit();
 
         Snackbar.make(getActivity().findViewById(android.R.id.content), "Speaker Created: " + name, Snackbar.LENGTH_LONG).show();
     }
@@ -259,7 +267,7 @@ public class CreateSpeakerFragment extends Fragment implements View.OnClickListe
                 if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK){
 
                     getActivity().getSupportFragmentManager().popBackStack();
-                    //((HomePageActivity)getActivity()).getSupportActionBar().setTitle("Speakers, Leaders, and Sponsors");
+
                     return true;
 
                 }

@@ -244,7 +244,7 @@ public class CreateEventFragment extends Fragment implements View.OnClickListene
                             letterMonth = "November";
                             break;
                         case 11:
-                            letterMonth = "November";
+                            letterMonth = "December";
                             break;
                     }
                     etDate.setText(letterMonth + " " + String.valueOf(dayOfMonth)+ ", " + String.valueOf(year));
@@ -256,6 +256,7 @@ public class CreateEventFragment extends Fragment implements View.OnClickListene
 
     private void goToSchedulePage(String name)
     {
+        getActivity().getSupportFragmentManager().popBackStack();
         Bundle bundle = new Bundle();
         bundle.putBoolean("IS_MY_SCHEDULE", false);
         bundle.putBoolean("IS_ADMIN", isAdmin);
@@ -292,7 +293,7 @@ private static String pad(int c) {
                 if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK){
 
                     getActivity().getSupportFragmentManager().popBackStack();
-                    ((HomePageActivity)getActivity()).getSupportActionBar().setTitle("Home");
+
                     return true;
 
                 }

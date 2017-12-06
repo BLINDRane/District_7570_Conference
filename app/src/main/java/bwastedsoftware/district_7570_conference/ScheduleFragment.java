@@ -173,10 +173,6 @@ public class ScheduleFragment extends Fragment
 
     private void refreshData()
     {
-        //days(0).add(new Event("EVENT  1", "LOCATION", "DATE", "TIME", "DETAILS", new Speaker("Billy", "Bio", "http://www.munkurious.com/sharex/2017.10/ghanaTempleStainedGlass_100x.png")));
-        //events.add(new Event("EVENT TITLE 2", "LOCATION", "DATE", "TIME", "DETAILS", new Speaker("Sue", "Bio", "Photo")));
-
-
         final ArrayList<Event> newevents = new ArrayList<>();
 
         // Read from the database
@@ -477,7 +473,7 @@ public class ScheduleFragment extends Fragment
                 {
 
                     getActivity().getSupportFragmentManager().popBackStack();
-                    //((HomePageActivity) getActivity()).getSupportActionBar().setTitle("Home");
+
                     return true;
 
                 }

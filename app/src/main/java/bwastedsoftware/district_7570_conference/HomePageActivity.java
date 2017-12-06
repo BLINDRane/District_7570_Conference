@@ -84,31 +84,6 @@ public class HomePageActivity extends AppCompatActivity {
         final AboutPageFragment aboutPage = new AboutPageFragment();
         aboutPage.setArguments(bundle);
 
-        //This is like onCreate() but if the activity was called from a push notification
-        String type = getIntent().getStringExtra("From");
-        if (type != null) {
-            switch (type) {
-                case "notifyFrag":
-
-                    Bundle bundle2 = new Bundle();
-                    ScheduleFragment mySchedule2 = new ScheduleFragment();
-                    mySchedule2.setArguments(bundle2);
-                    bundle2.putBoolean("IS_MY_SCHEDULE", true);
-                    bundle2.putBoolean("IS_ADMIN",isAdmin);
-                    fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.addToBackStack("My Schedule");
-                    fragmentTransaction.replace(R.id.main_container, mySchedule2);
-                    fragmentTransaction.commit();
-                    getSupportActionBar().setTitle("My Schedule");
-                    navView.setCheckedItem(R.id.my_schedule_id);
-                    drawerLayout.closeDrawers();
-                    break;
-            }
-        }
-
-
-
-
         //set the date and time when the scavenger hunt ends
         DateFormat format = new SimpleDateFormat("MMMM d, yyyy hh:mm a", Locale.ENGLISH);
         try {
