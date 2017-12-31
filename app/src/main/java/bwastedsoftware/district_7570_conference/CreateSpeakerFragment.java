@@ -2,6 +2,7 @@ package bwastedsoftware.district_7570_conference;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
@@ -13,6 +14,8 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +23,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -33,6 +37,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 import static android.app.Activity.RESULT_OK;
+import static android.content.ContentValues.TAG;
 
 
 public class CreateSpeakerFragment extends Fragment implements View.OnClickListener {
@@ -79,17 +84,16 @@ public class CreateSpeakerFragment extends Fragment implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        if(v.getId() == R.id.btn_submit_photo){
+        if(v.getId() == R.id.btn_submit_photo) {
             //create a new User using information put in by the *ahem* user.
+            if (checkSpaces()) {
+                uploadSpeaker();
+            }
 
-            uploadSpeaker();
 
-
-
-        } else if(v.getId() == R.id.speaker_image){
-            openGallery();
+        } else if(v.getId() == R.id.speaker_image) {
+                openGallery();
         }
-
 
     }
 
@@ -145,6 +149,7 @@ public class CreateSpeakerFragment extends Fragment implements View.OnClickListe
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                 // taskSnapshot.getMetadata() contains file metadata such as size, content-type, and download URL.
                 //noinspection VisibleForTests
+
                 Uri downloadUrl = taskSnapshot.getDownloadUrl();
                 DatabaseReference newSpeaker = mDatabase.push();
                 newSpeaker.child("name").setValue(name);
@@ -155,27 +160,6 @@ public class CreateSpeakerFragment extends Fragment implements View.OnClickListe
             }
         });
 
-        //    //Check for success.
-        //    //TODO: Check for failure.
-        //    filepath.putFile(imageURI).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-        //        @Override
-        //        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-        //            @SuppressWarnings("VisibleForTests")
-        //    //Succeeding here means we have first saved the picture to the STORAGE, and then
-        //    //also saved the new speaker with name, bio, and image URL string to the database.
-        //            Uri downloadUrl = taskSnapshot.getDownloadUrl();
-        //            DatabaseReference newSpeaker = mDatabase.push();
-        //            newSpeaker.child("name").setValue(name);
-        //            newSpeaker.child("bio").setValue(bio);
-        //            newSpeaker.child("photoURL").setValue(downloadUrl.toString());
-        //            //After creating a speaker, the user should be returned to the homeFragment.
-        //        }
-        //    });
-
-
-        //String key = mDatabase.child("Speakers").push().getKey();
-        //create a new speaker object
-        //Speaker speaker = new Speaker(name, bio, imageURI.toString());
     }
 
     private void goToSpeakerPage(String name)
@@ -183,7 +167,7 @@ public class CreateSpeakerFragment extends Fragment implements View.OnClickListe
         getActivity().getSupportFragmentManager().popBackStack();
 
         //There seems to be an issue created by this way of loading the fragment. Saving commented code in case we need it back before release.
-        
+
         //Bundle bundle = new Bundle();
         //bundle.putBoolean("IS_ADMIN", isAdmin);
         //SpeakerListFragment mFrag = new SpeakerListFragment();
@@ -249,7 +233,6 @@ public class CreateSpeakerFragment extends Fragment implements View.OnClickListe
         if(resultCode == RESULT_OK && requestCode == PICK_IMAGE){
             imageURI = data.getData();
             speakerPic.setImageURI(imageURI);
-
         }
     }
 
@@ -277,5 +260,24 @@ public class CreateSpeakerFragment extends Fragment implements View.OnClickListe
         });
     }
 
+  private boolean checkSpaces(){
+
+      if(etSpeakerName.getText().length()==0) {
+          Toast.makeText(getContext(), "Please enter a speaker name", Toast.LENGTH_SHORT).show();
+          return false;}
+
+      if(etSpeakerBio.getText().length()==0) {
+          Toast.makeText(getContext(), "Please give a title for the speaker", Toast.LENGTH_SHORT).show();
+          return false;}
+
+      if (etSpeakerWebPage.getText().length() == 0) {
+          Toast.makeText(getContext(), "Please provide a website for a bio on the speaker", Toast.LENGTH_SHORT).show();
+          return false;}
+      if(imageURI == null){
+          Toast.makeText(getContext(), "Please choose a photo", Toast.LENGTH_SHORT).show();
+          return false;}
+
+     return true;
+  }
 
 }
