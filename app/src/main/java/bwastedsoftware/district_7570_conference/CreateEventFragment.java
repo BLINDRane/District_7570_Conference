@@ -20,6 +20,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -137,28 +138,9 @@ public class CreateEventFragment extends Fragment implements View.OnClickListene
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.btn_Save_Event) {
-
-            //create a new User using information put in by the *ahem* user.
-
-            String Title = etTitle.getText().toString().trim();
-            String Location = etLocation.getText().toString().trim();
-            String timeToString = ("From " + strt.getText() + " to " + end.getText());
-            String Date = etDate.getText().toString().trim();
-            String Details = etDetails.getText().toString().trim();
-
-            String key = mDatabase.child("Speakers").push().getKey();
-
-            Event event = new Event(Title, Location, Date, timeToString, Details, chosenOne, 0, 0);
-
-            Map<String, Object> eventValues = event.toMap();
-
-            Map<String, Object> childUpdates = new HashMap<>();
-            childUpdates.put("/Events/" + key, eventValues);
-            //childUpdates.put("/user-posts/" + title + "/" + key, postValues);
-
-            mDatabase.updateChildren(childUpdates);
-
-            goToSchedulePage(etTitle.getText().toString());
+            if(checkSpaces()){
+                uploadEvent();
+            }
 
         } else if (v.getId() == R.id.pick_startTime) { //let user pick start time
             TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(),
@@ -301,5 +283,58 @@ private static String pad(int c) {
                 return false;
             }
         });
+    }
+
+    private void uploadEvent(){
+
+        //create a new User using information put in by the *ahem* user.
+
+        String Title = etTitle.getText().toString().trim();
+        String Location = etLocation.getText().toString().trim();
+        String timeToString = ("From " + strt.getText() + " to " + end.getText());
+        String Date = etDate.getText().toString().trim();
+        String Details = etDetails.getText().toString().trim();
+
+        String key = mDatabase.child("Speakers").push().getKey();
+
+        Event event = new Event(Title, Location, Date, timeToString, Details, chosenOne, 0, 0);
+
+        Map<String, Object> eventValues = event.toMap();
+
+        Map<String, Object> childUpdates = new HashMap<>();
+        childUpdates.put("/Events/" + key, eventValues);
+        //childUpdates.put("/user-posts/" + title + "/" + key, postValues);
+
+        mDatabase.updateChildren(childUpdates);
+
+        goToSchedulePage(etTitle.getText().toString());
+    }
+
+    private boolean checkSpaces(){
+
+        if(etTitle.getText().length()==0) {
+            Toast.makeText(getContext(), "Please enter a title for the event", Toast.LENGTH_SHORT).show();
+            return false;}
+
+        if(etLocation.getText().length()==0) {
+            Toast.makeText(getContext(), "Please enter a location for the event", Toast.LENGTH_SHORT).show();
+            return false;}
+
+        if (etDate.getText().length() == 0) {
+            Toast.makeText(getContext(), "Please choose a date for the event", Toast.LENGTH_SHORT).show();
+            return false;}
+        if(strt.getText().equals("Start Time")){
+            Toast.makeText(getContext(), "Please choose a start time", Toast.LENGTH_SHORT).show();
+            return false;}
+        if(end.getText().equals("End Time")){
+            Toast.makeText(getContext(), "Please choose an end time", Toast.LENGTH_SHORT).show();
+            return false;}
+        if(chosenOne.getName().length() == 0){
+            Toast.makeText(getContext(), "Please choose a speaker", Toast.LENGTH_SHORT).show();
+            return false;}
+        if(etDetails.getText().length() == 0){
+            Toast.makeText(getContext(), "Please enter some details about the event", Toast.LENGTH_SHORT).show();
+            return false;}
+        return true;
     }
 }

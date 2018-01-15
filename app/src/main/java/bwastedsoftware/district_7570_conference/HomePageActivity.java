@@ -16,6 +16,11 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -38,10 +43,12 @@ public class HomePageActivity extends AppCompatActivity {
     FragmentTransaction fragmentTransaction;
     NavigationView navView;
     FirebaseAuth mAuth;
+    DatabaseReference mDatabase;
     String user_id;
     Bundle inBundle;
     Boolean isAdmin;
     MenuItem scavengerHunt;
+    String ScavDate;
     Calendar endHunt = Calendar.getInstance();
     Calendar now = Calendar.getInstance();
     String[] permissions = new String[]{
@@ -58,6 +65,7 @@ public class HomePageActivity extends AppCompatActivity {
         inBundle = getIntent().getExtras();
         isAdmin = inBundle.getBoolean("IS_ADMIN");
         mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("ScavDate");
         user_id = mAuth.getCurrentUser().getUid();
         setContentView(R.layout.activity_homepage);
         Toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -76,6 +84,30 @@ public class HomePageActivity extends AppCompatActivity {
         checkPermissions();
         getSupportActionBar().setTitle("Home");
 
+        //set the date and time when the scavenger hunt ends
+        mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                ScavDate = dataSnapshot.getValue().toString();
+
+                DateFormat format = new SimpleDateFormat("MMMM d, yyyy hh:mm a", Locale.ENGLISH);
+                try {
+                    Date date = format.parse(ScavDate);
+
+                    endHunt.setTime(date);
+
+
+                } catch (ParseException e) {
+                    e.printStackTrace();
+
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         final Bundle bundle = new Bundle();
         final ScavengerHuntFragment scav = new ScavengerHuntFragment();
@@ -93,18 +125,7 @@ public class HomePageActivity extends AppCompatActivity {
         final AboutPageFragment aboutPage = new AboutPageFragment();
         aboutPage.setArguments(bundle);
 
-        //set the date and time when the scavenger hunt ends
-        DateFormat format = new SimpleDateFormat("MMMM d, yyyy hh:mm a", Locale.ENGLISH);
-        try {
-            Date date = format.parse("November 29, 2017 3:00 PM");
 
-            endHunt.setTime(date);
-
-
-        } catch (ParseException e) {
-            e.printStackTrace();
-
-        }
 
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
